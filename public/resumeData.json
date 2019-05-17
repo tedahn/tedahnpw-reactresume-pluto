@@ -1,0 +1,164 @@
+{
+  "main": {
+    "name":"Ted Ahn",
+    "fullname": "Ted Hyounggun Ahn",
+    "legalname": "Hyounggun Ahn",
+    "occupation":"Software Engineer",
+    "description":"I have a big passion for programming and data analysis along side the rise of entertainment businesses and future of the tech industries",
+    "image":"tedprofile/tedahn.jpg",
+    "imageborder":"tedprofile/bubble-border.png",
+    "bio":"Programming is my profession and my primary hobby. Connecting with new people in an aggressive and interprofessional environment is my dream. Being \"customer-oriented\" means work ethics are passion driven and personality is people driven.",
+    "contactmessage":"Please Contact me through my email or phone number.",
+    "email": "tahn1996@gmail.com",
+    "phone": "201-956-3939",
+    "basecity":"Dallas",
+    "basestate":"Texas",
+    "basecountry":"US",
+    "address":{
+      "street":"",
+      "city":"Carrollton",
+      "state":"Texas",
+      "zip": "75007"
+    },
+    "website": "http://www.tedahn.pw",
+    "social":[
+      {
+        "name":"email",
+        "url":"mailto:tahn1996@gmail.com",
+        "iconType":"fas",
+        "className":"paper-plane"
+      },
+      {
+        "name":"linkedin",
+        "url":"https://www.linkedin.com/in/tedahn/",
+        "iconType":"fab",
+        "className":"linkedin"
+      },
+      {
+        "name":"github",
+        "url":"https://github.com/tedahn",
+        "iconType":"fab",
+        "className":"github"
+      },
+      {
+        "name":"android",
+        "url":"https://play.google.com/store/apps/developer?id=KumaDuma",
+        "iconType":"fab",
+        "className":"android"
+      }
+    ]
+  },
+  "resume":{
+    "education":[
+      {
+        "image":"images/utdlogo.png",
+        "school":"University of Texas at Dallas",
+        "degree":"Bachelors of Science in Computer Science",
+        "graduated":"May 2019",
+        "description":"Studied basic data structures and algorithms to solidify base knowledge. Explored machine learning and data science to expand my perception in currently evolving technologies."
+      }
+    ],
+    "work":[
+      {
+        "image":"images/webtoonlogo.png",
+        "company":"Webtoon Entertainment Inc.",
+        "title":"Programmer / Data Analyst",
+        "years":"May 2017 - December 2017",
+        "description":"Pursued personal passion to help set new trends with webcomics by providing the company with user behavior analysis using knowledge of algorithms, data structures, and web application implementations."
+      }
+    ],
+    "skillmessage":"These are the languages and tools I use most frequently.",
+    "skills":[
+      {
+        "name":"Java",
+        "icon":"devicon-java-plain-wordmark colored",
+        "description":"",
+        "level":"80%"
+      },
+      {
+        "name":"Python",
+        "icon":"devicon-python-plain-wordmark colored",
+        "description":"",
+        "level":"60%"
+      },
+      {
+        "name":"Javscript",
+        "icon":"devicon-javascript-plain colored",
+        "description":"",
+        "level":"80%"
+      },
+      {
+        "name":"Spring",
+        "icon":"",
+        "description":"",
+        "level":"60%"
+      },
+      {
+        "name":"Git",
+        "icon":"devicon-git-plain-wordmark colored",
+        "description":"",
+        "level":"80%"
+      },
+      {
+        "name":"ReactJs",
+        "icon":"devicon-react-original colored",
+        "description":"",
+        "level":"60%"
+      },
+      {
+        "name":"VueJs",
+        "icon":"devicon-vuejs-plain-wordmark colored",
+        "description":"",
+        "level":"60%"
+      },
+      {
+        "name":"MySQL",
+        "icon":"devicon-mysql-plain colored",
+        "description":"",
+        "level":"80%"
+      },
+      {
+        "name":"MongoDB",
+        "icon":"devicon-mongodb-plain-wordmark colored",
+        "description":"",
+        "level":"40%"
+      },
+      {
+        "name":"AWS",
+        "icon":"devicon-amazonwebservices-plain-wordmark colored",
+        "description":"",
+        "level":"30%"
+      },
+      {
+        "name":"Android",
+        "icon":"devicon-android-plain colored",
+        "description":"",
+        "level":"30%"
+      }
+    ]
+  },
+  "portfolio":{
+    "projects": [
+      {
+        "title":"Timeline Sharing App",
+        "image":"timeline.png",
+        "url":"https://github.com/tedahn/timeline",
+        "category":"react"
+      },
+      {
+        "title":"Server-based Chat",
+        "image":"serverchat.png",
+        "url":"https://github.com/tedahn/CN-Server",
+        "category":"java"
+      }
+    ]
+  },
+  "testimonial":{
+    "testimonials":[
+      {
+        "text":"Technology is nothing. What's important is that you have a faith in people, that they're basically good and smart, and if you give them tools, they'll do wonderful things with them.",
+        "user":"Steve Jobs"
+      }
+    ]
+  }
+}

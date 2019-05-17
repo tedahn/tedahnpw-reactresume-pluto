@@ -1,0 +1,71 @@
+.App {
+  text-align: center;
+  white-space: nowrap;
+  overflow-y: hidden;
+
+}
+.App .card {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+/* Go To Left Button */
+#go-left {
+	position: absolute;
+	left: 50px;
+   top: 47%;
+   margin-right: -30px;
+}
+#go-left a {
+	text-decoration: none;
+	border: 0 none;
+	display: block;
+	width: 60px;
+	height: 60px;
+
+	-webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+
+   color: #292935;
+   font-size: 40px;
+   line-height: 60px;
+ 	border-radius: 100%;
+}
+#go-left a:hover { 
+  color: #1DA1F2; 
+  cursor: pointer;
+}
+
+/* Go To Right Button */
+#go-right {
+	position: absolute;
+	right: 50px;
+   top: 47%;
+   margin-left: -30px;
+}
+#go-right a {
+	text-decoration: none;
+	border: 0 none;
+	display: block;
+	width: 60px;
+	height: 60px;
+
+	-webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+
+   color: #292935;
+   font-size: 40px;
+   line-height: 60px;
+ 	border-radius: 100%;
+}
+#go-right a:hover { 
+  color: #1DA1F2; 
+  cursor: pointer;
+}
