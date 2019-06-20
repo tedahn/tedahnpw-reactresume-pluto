@@ -4,6 +4,8 @@ import $ from 'jquery';
 import './App.css';
 import Home from './Components/Home';
 import About from './Components/About';
+import Experience from './Components/Experience';
+import {SectionsContainer, Section, Header, Footer} from 'react-fullpage';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -44,42 +46,59 @@ class App extends Component {
   }
 
   render() {
-    
+    let options = {
+      sectionClassName:     'section',
+      anchors:              ['about', 'resume', 'portfolio', 'contact'],
+      scrollBar:            true,
+      navigation:           false,
+      verticalAlign:        true,
+      sectionPaddingTop:    '50px',
+      sectionPaddingBottom: '50px',
+      arrowNavigation:      true,
+      scrollHorizontally: true
+    };
+
     return (
       <div className="App">
-        <nav id="nav-wrap">
-          <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-          <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
+        <Header>
           <ul id="nav" className="nav">
-              <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
-              <li><a className="smoothscroll" href="#about">About</a></li>
-            <li><a className="smoothscroll" href="#resume">Resume</a></li>
-              <li><a className="smoothscroll" href="#portfolio">Works</a></li>
-              <li><a className="smoothscroll" href="#contact">Contact</a></li>
+              <li className="current"><a className="smoothscroll" href="#about"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;About</a></li>
+              <li><a className="smoothscroll" href="#resume"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Experience</a></li>
+              <li><a className="smoothscroll" href="#portfolio"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Works</a></li>
+              <li><a className="smoothscroll" href="#contact"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Contact</a></li>
           </ul>
-        </nav>
-
+        </Header>
+        
+        <SectionsContainer {...options}>
+          <Section>
+            <About data={this.state.resumeData.main} />
+          </Section>
+          <Section>
+            <Experience data={this.state.resumeData.main} />
+          </Section>
+          <Section id="portfolio">
+            Page 3
+          </Section>
+          <Section id="contact">
+            Page 4
+          </Section>
+        </SectionsContainer>
 
         <Home data={this.state.resumeData.main} />
-        <div className="card">
-          <About data={this.state.resumeData.main} />
-        </div>
-
+        
+        {/* 
         <div id="go-left">
           <a><FontAwesomeIcon icon='chevron-left'/></a>
         </div>
 
         <div id="go-right" onClick="getNext()">
           <a><FontAwesomeIcon icon='chevron-right'/></a>
-        </div>
+        </div> */}
 
       </div>
     );
   }
 
-  getNext(){
-    alert('next');
-  }
 }
 
 export default App;

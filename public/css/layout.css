@@ -24,9 +24,7 @@
 
 body { 
 	background: #15151E;
-	overflow-x: hidden;
-   width: 100%;
-   height: 100%;
+	overflow: hidden;
    background-size: cover !important;
 	-webkit-background-size: cover !important;
 }
@@ -37,9 +35,6 @@ body {
 
 home {
    position: relative;
-   height:auto;
-   min-height: 100%;
-   width: 100%;
 }
 
 /* ------------------------------------------------------------------ */
@@ -47,51 +42,51 @@ home {
 /* ------------------------------------------------------------------ */
 
 about {
-   position: relative;
-   height: auto;
-   min-height: 100%;
-   width: 100%;
-   /* background: #161415 url(../images/background-whale.jpg) no-repeat top center; */
-   text-align: left;
-   overflow: hidden;
+   height: 100%;
 }
 
-/* vertically center banner section */
-about:before {
-   content: '';
-   display: inline-block;
-   vertical-align: middle;
-}
 about .banner {
-   position: relative;
-   display: inline-block;
+   display: grid;
    vertical-align: middle;
-   margin: 0 auto;
-   width: 75%;
-   padding-bottom: 30px;
-   text-align: left;
-   top: 50%;
-   /* background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.664), rgba(255, 255, 255, 0.103));  */
-   border-radius: 25px; 
+   height: 100vh;
 }
 
 about .banner-image {
-   position:relative;
-   right:0px;
-   border-radius: 100%;
+   position: relative;
+   height: 100%;
+   vertical-align: middle;
+   margin-right: 25%;
+   grid-column: 2;
 }
 
 about .profile-pic {
-   margin-top: 20px;
-   position:relative;
-   width: 20%; 
-   height: auto;
+   position:absolute;
+   top:0;
+   bottom:0;
+   margin:auto;
+   width: 200px; 
+   height: 200px;
    border-radius: 100%;
 }
 
 about .banner-text { 
-   width: 100%;
-   height: auto;
+   position: relative;
+   vertical-align: middle;
+   text-align: left;
+   margin-left: 25%;
+   grid-column: 1;
+}
+
+about .banner-text-content {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -moz-transform: translateX(-50%) translateY(-50%);
+   -webkit-transform: translateX(-50%) translateY(-50%);
+   transform: translateX(-50%) translateY(-50%);
+   width: 150%;
+   white-space: normal;
+   word-break: break-word;
 }
 
 about .banner-text h1 {
@@ -109,14 +104,6 @@ about .banner-text h3 {
    width: 70%;
    text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
 }
-about .banner-text .left h3 {
-   font: 18px/1.9em 'bariol'; 
-   color: #fff;
-   margin: 0 auto;
-   width: 70%;
-   text-align: left;
-   text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
-}
 about .banner-text h3 span,
 about .banner-text h3 a {
    color: #F06000;
@@ -128,6 +115,7 @@ about .banner-text hr {
    border-color: rgba(150, 150, 150, .1);
 }
 
+
 /* about social links */
 .social {
    position: fixed;
@@ -138,6 +126,7 @@ about .banner-text hr {
    padding: 0;
    font-size: 22px;
    text-shadow: 0px 1px 2px rgba(0, 0, 0, .8);
+   z-index:2;
 }
 .social li {
    margin: 30px 15px;
@@ -159,10 +148,9 @@ about .banner-text hr {
 
 /* nav-wrap */
 #nav-wrap {
-   font: 12px 'bariol';
+   font: 15px 'bariol';
    width: 100%;
-   text-transform: uppercase;
-   letter-spacing: 2.5px;
+   letter-spacing: 1.2px;
    margin: 0 auto;
    z-index: 100;
    position: fixed;
@@ -177,9 +165,10 @@ about .banner-text hr {
 ul#nav {
    min-height: 48px;
    width: auto;
-
+   margin-top: 2%;
+   margin-right: 5%;
    /* center align the menu */
-   text-align: center;
+   text-align: right;
 }
 ul#nav li {
    position: relative;
@@ -210,3 +199,36 @@ ul#nav li a {
 ul#nav li a:active { background-color: transparent !important; }
 ul#nav li.current a { color: #F06000; }
 ul#nav li a:hover { color: #CC5200; }
+
+
+experience {
+   background: #2B2B2B;
+   padding-top: 96px;
+   padding-bottom: 66px;
+   overflow: hidden;
+}
+
+experience .h1 {
+   font: 34px/1.1em 'gotham';
+   color: #fff;
+   letter-spacing: -2px;
+   margin: 0 auto;
+   width: 70%;
+   text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
+}
+
+experience .work{
+   position: relative;
+   display: grid;
+   margin: 0 10px 10px;
+}
+
+experience .work-image{
+   height: 200px;
+   width: 200px;
+   grid-column: 1;
+}
+
+experience .work-content{
+   grid-column: 2;
+}
