@@ -60,12 +60,22 @@
     ],
     "work":[
       {
-        "image":"images/webtoonlogo.png",
+        "image":"images/experience/webtoon.jpg",
         "company":"Webtoon Entertainment Inc.",
         "title":"Programmer / Data Analyst",
-        "years":"May 2017 - December 2017",
+        "dates":"06.2017 - 05.2018",
+        "location":"Los Angeles, CA",
         "description":"Pursued personal passion to help set new trends with webcomics by providing the company with user behavior analysis using knowledge of algorithms, data structures, and web application implementations."
+      },
+      {
+        "image":"images/experience/UTD.jpg",
+        "company":"University of Texas at Dallas",
+        "title":"Bachelor's of Science in Computer Science",
+        "dates":"08.2014 - 05.2019",
+        "location":"Richardson, TX",
+        "description":"Expanded knowledge by studying data structures and algorithms to solidify data management. Explored machine learning and data science to explore currently evolving technologies."
       }
+
     ],
     "skillmessage":"These are the languages and tools I use most frequently.",
     "skills":[
@@ -140,16 +150,28 @@
   "portfolio":{
     "projects": [
       {
-        "title":"Timeline Sharing App",
-        "image":"timeline.png",
-        "url":"https://github.com/tedahn/timeline",
-        "category":"react"
+        "title":"Epic Seven Journal",
+        "image":"images/projects/esjournal.png",
+        "url":"https://play.google.com/store/apps/details?id=com.kumaduma.epicseveninfo",
+        "dates":"April 2019 - June 2019",
+        "tools": ["java", "android"],
+        "description":"A Java-based Android application that collects and shows game data from popular mobile app called Epic Seven. Made in collaboration with Epic Seven DataBase Developers and Discord Commnity"
       },
       {
-        "title":"Server-based Chat",
-        "image":"serverchat.png",
-        "url":"https://github.com/tedahn/CN-Server",
-        "category":"java"
+        "title":"Pluto React Resume",
+        "image":"images/projects/pluto.png",
+        "url":"https://github.com/tedahn/tedahnpw-reactresume-pluto",
+        "dates":"June 2019",
+        "tools": ["heroku", "react", "node-js"],
+        "description":"A resume website designed and made using React. Hosted through Heroku."
+      },
+      {
+        "title":"Timeline Sharing App",
+        "image":"images/projects/timeline.jpg",
+        "url":"https://github.com/tedahn/timeline",
+        "dates":"Feb 2019",
+        "tools":["react", "mongo", "js-square", "node-js"],
+        "description":"HackUTD 2019 - Attempted a MERN stack application that visualize user created timeline to be shareable and editable."
       }
     ]
   },

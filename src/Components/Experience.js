@@ -5,36 +5,27 @@ class Home extends Component {
   render() {
 
     if(this.props.data){
-      var networks= this.props.data.social.map(function(network){
-        var iconName = [network.iconType , network.className];
-        return <li key={network.name}><a href={network.url} target="_blank" rel="noopener noreferrer" ><FontAwesomeIcon icon={iconName}/></a></li>
-      })
+      var workList = this.props.data.work.map(function(work){
+        return (
+        <div className="work">
+          <div className="work-image">
+            <img src={work.image} alt="Company Logo" />
+          </div>
+          <div className="work-content">
+            <h1>{work.company}</h1>
+            <h2>{work.title}</h2>
+            <span>{work.dates} | {work.location}</span>
+            <p>{work.description}</p>
+          </div>
+        </div>
+        )})
     }
 
     return (
-        <experience id="resume">
+        <experience>
           <h1>My Experience</h1>
-
-          <div className="work">
-            <div className="work-image">
-              <img src="images/experience/webtoon.jpg" alt="Webtoon Logo" />
-            </div>
-            <div className="work-content">
-              <h2>LINE Webtoon</h2>
-              <h3>08.2014 - 05.2019 | Los Angeles, CA</h3>
-              <p>Worked as data analyst</p>
-            </div>
-          </div>
-
-          <div className="work">
-            <div className="work-image">
-              <img src="images/experience/webtoon.jpg" alt="Webtoon Logo" />
-            </div>
-            <div className="work-content">
-              <h2>LINE Webtoon</h2>
-              <h3>08.2014 - 05.2019 | Los Angeles, CA</h3>
-              <p>Worked as data analyst</p>
-            </div>
+          <div className="container">
+            {workList}
           </div>
 
         </experience>

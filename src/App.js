@@ -5,12 +5,16 @@ import './App.css';
 import Home from './Components/Home';
 import About from './Components/About';
 import Experience from './Components/Experience';
-import {SectionsContainer, Section, Header, Footer} from 'react-fullpage';
+import Work from './Components/Work';
+import Contact from './Components/Contact';
+import {SectionsContainer, Section, Footer} from 'react-fullpage';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCoffee, faPaperPlane, faChevronRight, faChevronLeft, faHashtag } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { Waypoint } from 'react-waypoint';
 
 library.add(fab, faCoffee, faPaperPlane, faChevronRight, faChevronLeft, faHashtag)
 
@@ -41,6 +45,19 @@ class App extends Component {
     });
   }
 
+  handleEnter(index){
+    var navItems = $("#nav li");
+    var i=0;
+    for (let li of navItems) {
+        let product = $(li);
+        if (i===index){
+          product.addClass('current');
+        } else 
+          product.removeClass('current');
+        i++;
+    }
+  }
+
   componentDidMount() {
     this.getResumeData();
   }
@@ -50,41 +67,40 @@ class App extends Component {
       sectionClassName:     'section',
       anchors:              ['about', 'resume', 'portfolio', 'contact'],
       scrollBar:            true,
-      navigation:           false,
       verticalAlign:        true,
-      sectionPaddingTop:    '50px',
-      sectionPaddingBottom: '50px',
-      arrowNavigation:      true,
-      scrollHorizontally: true
     };
 
     return (
       <div className="App">
-        <Header>
-          <ul id="nav" className="nav">
-              <li className="current"><a className="smoothscroll" href="#about"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;About</a></li>
-              <li><a className="smoothscroll" href="#resume"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Experience</a></li>
-              <li><a className="smoothscroll" href="#portfolio"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Works</a></li>
-              <li><a className="smoothscroll" href="#contact"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Contact</a></li>
-          </ul>
-        </Header>
         
+        <div id="nav-wrap">
+          <ul id="nav" className="nav-wrap">
+            <li className="current"><a className="smoothscroll" href="#about"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;About</a></li>
+            <li><a className="smoothscroll" href="#resume"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Experience</a></li>
+            <li><a className="smoothscroll" href="#portfolio"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Works</a></li>
+            <li><a className="smoothscroll" href="#contact"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Contact</a></li>
+          </ul>
+          </div>
         <SectionsContainer {...options}>
-          <Section>
-            <About data={this.state.resumeData.main} />
+          <Section className="sectionContainer" id="about">
+            <Waypoint onEnter={() => {this.handleEnter(0)}}/>
+            <About data={this.state.resumeData.main}/>
           </Section>
-          <Section>
-            <Experience data={this.state.resumeData.main} />
+          <Section className="sectionContainer" id="resume">
+            <Waypoint onEnter={() => {this.handleEnter(1)}}/>
+            <Experience data={this.state.resumeData.resume} />
           </Section>
-          <Section id="portfolio">
-            Page 3
+          <Section  className="sectionContainer" id="portfolio">
+            <Waypoint onEnter={() => {this.handleEnter(2)}}/>
+            <Work data={this.state.resumeData.portfolio}/>
           </Section>
-          <Section id="contact">
-            Page 4
+          <Section  className="sectionContainer" id="contact">
+            <Waypoint onEnter={() => {this.handleEnter(3)}}/>
+            <Contact data={this.state.resumeData.main}/>
           </Section>
         </SectionsContainer>
+          <Home data={this.state.resumeData.main} />
 
-        <Home data={this.state.resumeData.main} />
         
         {/* 
         <div id="go-left">
