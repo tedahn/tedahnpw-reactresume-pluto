@@ -3,16 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Work extends Component {
 
-
-  handleCardClick(num){
-      console.log("clicked " + num);
-  }
-
   render() {
 
 
     if(this.props.data){
-      let e = this.handleCardClick.bind(this);
       var projectList = this.props.data.projects.map(function(portfolio){
         var icons = portfolio.tools.map(function(tool){
           let name = ["fab", tool];
@@ -20,7 +14,8 @@ class Work extends Component {
         })
 
         return (
-        <card onClick={() => e(portfolio.url)}>
+        <a href={portfolio.url}>
+        <card>
           <div className="card-image">
             <img src={portfolio.image} alt="Project Picture" />
           </div>
@@ -34,6 +29,7 @@ class Work extends Component {
             </div>
           </div>
         </card>
+        </a>
         )})
     }
 
