@@ -1,0 +1,409 @@
+/*
+=====================================================================
+*   Pluto v1.0
+*   github: tedahn
+*   05-17-2019
+=====================================================================
+
+   TOC:
+   a. General Styles
+   b. Header Styles
+   c. About Section
+   d. Resume Section
+   e. Portfolio Section
+   f. Call To Action Section
+   g. Testimonials Section
+   h. Contact Section
+   i. Footer
+
+===================================================================== */
+
+/* ------------------------------------------------------------------ */
+/* a. General Styles
+/* ------------------------------------------------------------------ */
+
+body { 
+   background: #15151E;
+   background-size: cover !important;
+   -webkit-background-size: cover !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* b. Home Styles
+/* ------------------------------------------------------------------ */
+
+home {
+   position: relative;
+}
+
+/* ------------------------------------------------------------------ */
+/* b. About Styles
+/* ------------------------------------------------------------------ */
+
+.sectionContainer{
+   z-index:2;
+}
+
+about {
+   overflow:hidden;
+}
+
+about .banner {
+   width: 70vw;
+   background: #1A1A22;
+   padding-top:70px;
+   padding-bottom:70px;
+}
+
+about .banner-image {
+   width: 30%;
+   margin-top: 80px;
+}
+
+about .profile-pic {
+   width: 200px; 
+   height: 200px;
+   border-radius: 100%;
+   transition: box-shadow 2s ease-in;
+}
+
+about .profile-pic:hover {
+   box-shadow: 0px 0px 30px 0px rgba(204, 82, 0, 0.4); 
+}
+
+about .banner-text { 
+   width: 70%;
+   text-align: left;
+   float:left;
+}
+
+about .banner-text-content {
+   width: 100%;
+   white-space: normal;
+   word-break: break-word;
+}
+
+about .banner-text h1 {
+   font: 90px/1.1em 'gotham';
+   color: #fff;
+   letter-spacing: -2px;
+   margin: 0 auto;
+   width: 70%;
+   text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
+}
+about .banner-text h3 {
+   font: 18px/1.9em 'bariol'; 
+   color: #fff;
+   margin: 0 auto;
+   width: 70%;
+   text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+}
+about .banner-text h3 span,
+about .banner-text h3 a {
+   color: #F06000;
+}
+about .banner-text hr {
+   width: 60%;
+   margin: 18px auto 24px auto;
+   border-color: #2F2D2E;
+   border-color: rgba(150, 150, 150, .1);
+}
+
+
+/* about social links */
+.social {
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   text-align: left;
+   margin-left: 10px;
+   padding: 0;
+   font-size: 22px;
+   text-shadow: 0px 1px 2px rgba(0, 0, 0, .8);
+   z-index:3;
+}
+.social li {
+   margin: 30px 15px;
+   padding: 0;
+   vertical-align: middle;
+}
+.social li a { color: #fff; }
+.social li a:hover { color: #F06000;}
+
+
+/* primary navigation
+--------------------------------------------------------------------- */
+#nav-wrap ul, #nav-wrap li, #nav-wrap a {
+	 margin: 0;
+	 padding: 0;
+	 border: none;
+	 outline: none;
+    z-index:100;
+}
+
+/* nav-wrap */
+#nav-wrap {
+   font: 16px 'bariol';
+   width: 100%;
+   letter-spacing: 1.2px;
+   margin: 0 auto;
+   position: fixed;
+   left: 0;
+   top: 0;
+   z-index:100;
+}
+
+/* hide toggle button */
+#nav-wrap > a.mobile-btn { display: none; }
+
+ul#nav {
+   min-height: 48px;
+   width: auto;
+   margin-top: 2%;
+   margin-right: 5%;
+   /* center align the menu */
+   text-align: right;
+}
+ul#nav li {
+   position: relative;
+   list-style: none;
+   height: 48px;
+   display: inline-block;
+   z-index:100;
+}
+
+/* Links */
+ul#nav li a {
+
+/* 8px padding top + 8px padding bottom + 32px line-height = 48px */
+
+   display: inline-block;
+   padding: 8px 13px;
+   line-height: 32px;
+	text-decoration: none;
+   text-align: left;
+   color: #fff;
+
+	-webkit-transition: color .2s ease-in-out;
+	-moz-transition: color .2s ease-in-out;
+	-o-transition: color .2s ease-in-out;
+	-ms-transition: color .2s ease-in-out;
+	transition: color .2s ease-in-out;
+}
+
+ul#nav li a:active { background-color: transparent !important; }
+ul#nav li.current a { color: #F06000; }
+ul#nav li a:hover { color: #CC5200; }
+
+
+experience {
+   background: #2B2B2B;
+   padding-top: 96px;
+   padding-bottom: 66px;
+   overflow: hidden;
+}
+
+experience h1 {
+   font: 34px/1.1em 'gotham';
+   color: #fff;
+   letter-spacing: 0px;
+   text-align: left;
+   margin: 30px auto;
+   width: 70%;
+   text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
+}
+
+experience .container{
+   width: 70vw;
+   margin:auto;
+}
+
+experience .work{
+   min-height: 200px;
+   max-height: 600px;
+   background: #1A1A22;
+   position: relative;
+   margin: 20px;
+   transition: box-shadow 0.3s ease-in-out;
+   padding: 10px;
+}
+
+experience div.work:hover{
+   box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+}
+
+experience .work-image{
+   height: 200px;
+   width: 200px;
+   float:left;
+   margin: auto;
+   margin-right: 20px;
+}
+
+experience .work-content{
+   text-align: left;
+   margin-right: 20px;
+}
+
+experience .work-content h1{
+   font: 22px 'bariol';
+   color: #fff;
+   margin-bottom: 0px;
+   white-space: normal;
+   word-break: break-word;
+   padding-bottom:10px;
+}
+experience .work-content h2{
+   font: 18px 'bariol';
+   color: #fff;
+   margin-bottom: 0px;
+   white-space: normal;
+   word-break: break-word;
+}
+
+experience .work-content span{
+   color: #F06000;
+   font: 14px 'bariol';
+}
+
+experience .work-content p{
+   color: #fff;
+   font: 18px 'bariol';
+   font-size: 18px;
+   margin-top: 10px;
+   white-space: normal;
+   word-break: break-word;
+}
+
+
+work{
+
+}
+
+work h1{
+   font: 34px/1.1em 'gotham';
+   color: #fff;
+   letter-spacing: 0px;
+   text-align: left;
+   margin: 30px auto;
+   width: 70%;
+   text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
+}
+
+work .container{
+   margin:auto;
+   width: 80vw;
+   overflow-y: hidden;
+}
+  
+work card{
+   position: relative; 
+   display:inline-block;
+   width:250px;
+   height: 650px;
+   background: #1A1A22;
+   margin: 20px;
+   transition: box-shadow 0.3s ease-in-out;
+   vertical-align: top;
+}
+
+work card:hover{
+   cursor: pointer;
+   box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+}
+
+work card .card-image{
+   width:230px;
+   margin: 10px 10px;
+}
+
+work card .card-content{
+   height: 650px;
+}
+
+work card h1{
+   margin-left: 20px;
+   font: 20px 'bariol';
+   color: #fff;
+   white-space: normal;
+   word-break: break-word;
+}
+work card h2{
+   font: 18px 'bariol';
+   color: #fff;
+   white-space: normal;
+   word-break: break-word;
+}
+
+work card span{
+   color: #F06000;
+   font: 14px 'bariol';
+}
+
+work card p{
+   color: #fff;
+   font: 18px 'bariol';
+   white-space: normal;
+   word-break: break-word;
+   padding: 10px 20px 15px 20px;
+   margin-bottom:0px;
+   text-align: left;
+}
+
+work card .tools{
+   position: absolute; 
+   bottom: 0;
+   left: 0;
+   right: 0;
+   margin: 0 auto 15px auto;
+}
+work card .tools svg{
+   font-size: 20px;
+   color: #fff;
+   margin: 0 5px;
+}
+
+
+
+contact {
+}
+
+contact .banner {
+   width: 70%;
+   text-align: left;
+}
+
+contact h1{
+   font: 90px/1.1em 'gotham';
+   color: #fff;
+   letter-spacing: -2px;
+   margin: 0 auto;
+   text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
+   margin-bottom: 10px;
+}
+
+contact p {
+   font: 18px 'bariol';
+   color:#fff;
+   margin-bottom: 0;
+}
+
+contact span {
+   margin: 20px;
+   font: 20px 'bariol';
+   color:rgb(124, 236, 161);
+}
+contact span.main:hover {
+   color:#fff;
+}
+contact span.secondary:hover {
+   color:#fff;
+}
+
+contact a {
+   font: 16px 'bariol';
+   color: #F06000;
+}
+contact a:hover {
+   color: #fff;
+}
