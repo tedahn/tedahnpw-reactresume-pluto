@@ -16,6 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Waypoint } from 'react-waypoint';
 
+import Fade from 'react-reveal/Fade';
+
 library.add(fab, faCoffee, faPaperPlane, faChevronRight, faChevronLeft, faHashtag)
 
 class App extends Component {
@@ -75,12 +77,21 @@ class App extends Component {
         
         <div id="nav-wrap">
           <ul id="nav" className="nav-wrap">
+            <Fade bottom delay={100}>
             <li className="current"><a className="smoothscroll" href="#about"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;About</a></li>
+            </Fade>
+            <Fade bottom delay={300}>
             <li><a className="smoothscroll" href="#resume"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Experience</a></li>
+            </Fade>
+            <Fade bottom delay={500}>
             <li><a className="smoothscroll" href="#portfolio"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Works</a></li>
+            </Fade>
+            <Fade bottom delay={700}>
             <li><a className="smoothscroll" href="#contact"><span><FontAwesomeIcon icon="hashtag"/></span>&nbsp;Contact</a></li>
+            </Fade>
           </ul>
           </div>
+        
         <SectionsContainer {...options}>
           <Section className="sectionContainer" id="about">
             <Waypoint onEnter={() => {this.handleEnter(0)}}/>
@@ -99,7 +110,7 @@ class App extends Component {
             <Contact data={this.state.resumeData.main}/>
           </Section>
         </SectionsContainer>
-          <Home data={this.state.resumeData.main} />
+        <Home data={this.state.resumeData.main} />
 
         
         {/* 

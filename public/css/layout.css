@@ -53,34 +53,41 @@ about .banner {
    background: #1A1A22;
    padding-top:70px;
    padding-bottom:70px;
+   overflow: hidden;
+}
+
+.banner-text, .banner-image{
+   position: relative;
+   display: table-cell;
+   margin: 0;
+   padding: 0;
+   outline: 0;
+   vertical-align: middle;
+}
+
+about .banner-text {
+   width: 70%;
+   text-align: left;
+   white-space: normal;
+   word-break: break-word;
 }
 
 about .banner-image {
    width: 30%;
-   margin-top: 80px;
+   padding-right: 50px;
 }
 
-about .profile-pic {
-   width: 200px; 
-   height: 200px;
+about .banner img {
+   max-width: 200px; 
+   max-height: 200px;
+   width: auto;
+   height: auto;
    border-radius: 100%;
    transition: box-shadow 2s ease-in;
 }
 
 about .profile-pic:hover {
    box-shadow: 0px 0px 30px 0px rgba(204, 82, 0, 0.4); 
-}
-
-about .banner-text { 
-   width: 70%;
-   text-align: left;
-   float:left;
-}
-
-about .banner-text-content {
-   width: 100%;
-   white-space: normal;
-   word-break: break-word;
 }
 
 about .banner-text h1 {
@@ -97,6 +104,8 @@ about .banner-text h3 {
    margin: 0 auto;
    width: 70%;
    text-shadow: 0px 1px 2px rgba(0, 0, 0, .5);
+   padding-left: 1.5em;
+   text-indent: -1.5em;
 }
 about .banner-text h3 span,
 about .banner-text h3 a {
@@ -209,6 +218,7 @@ experience h1 {
    letter-spacing: 0px;
    text-align: left;
    margin: 30px auto;
+   padding-left: 1.5em;
    width: 70%;
    text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
 }
@@ -225,33 +235,48 @@ experience .work{
    position: relative;
    margin: 20px;
    transition: box-shadow 0.3s ease-in-out;
-   padding: 10px;
 }
 
 experience div.work:hover{
    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
 }
 
+experience .work-content, .work-image{
+   position: relative;
+   display: table-cell;
+   margin: 0;
+   padding: 0;
+   outline: 0;
+   vertical-align: middle;
+}
+
 experience .work-image{
    height: 200px;
-   width: 200px;
-   float:left;
-   margin: auto;
-   margin-right: 20px;
+   width: 180px;
+}
+
+experience .work-image img{
+   vertical-align: middle;
+   background-position: center center;
+   background-repeat: no-repeat;
 }
 
 experience .work-content{
    text-align: left;
-   margin-right: 20px;
+   padding: 20px;
+}
+experience .work-content h1,h2,span,p{
+   margin: 0;
+   padding: 0;
 }
 
 experience .work-content h1{
    font: 22px 'bariol';
    color: #fff;
-   margin-bottom: 0px;
    white-space: normal;
    word-break: break-word;
    padding-bottom:10px;
+   margin-bottom: 0px;
 }
 experience .work-content h2{
    font: 18px 'bariol';
@@ -284,7 +309,7 @@ work h1{
    font: 34px/1.1em 'gotham';
    color: #fff;
    letter-spacing: 0px;
-   text-align: left;
+   text-align: center;
    margin: 30px auto;
    width: 70%;
    text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
@@ -321,10 +346,16 @@ work card .card-content{
    height: 650px;
 }
 
+work card h1, h2, span, p{
+   margin: 0;
+   padding: 0;
+}
+
 work card h1{
-   margin-left: 20px;
+   margin: auto;
    font: 20px 'bariol';
    color: #fff;
+   text-align: center;
    white-space: normal;
    word-break: break-word;
 }
@@ -347,7 +378,7 @@ work card p{
    word-break: break-word;
    padding: 10px 20px 15px 20px;
    margin-bottom:0px;
-   text-align: left;
+   text-align: center;
 }
 
 work card .tools{
@@ -389,7 +420,7 @@ contact p {
 }
 
 contact span {
-   margin: 20px;
+   margin: 20px 0;
    font: 20px 'bariol';
    color:rgb(124, 236, 161);
 }
