@@ -14,6 +14,6 @@ This project utilizes many libraries that is not mine! Make to give credits to o
 
 For those who are curious, this app is powered by:
 [Create React App](https://github.com/facebook/create-react-app)
-[React FullpageJS](https://github.com/alvarotrigo/react-fullpage) *They require your code to be open-source or be prepared to pay for the consequences!! Literally...*
+[React FullpageJS](https://github.com/alvarotrigo/react-fullpage) *They require your code to be open-source or pay for a development licenses!*
 [React FontAwesome](https://github.com/FortAwesome/react-fontawesome)
 [React Waypoint](https://github.com/civiccc/react-waypoint)

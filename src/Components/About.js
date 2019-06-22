@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import Fade from 'react-reveal/Fade';
+
 class About extends Component {
   render() {
 
@@ -21,32 +23,32 @@ class About extends Component {
     return (
         <about id="about">
 
+          <Fade bottom distance="3.0em" delay={1000}>
           <div className="row banner">
-            <div className="banner-text left-half">
-              <div className="banner-text-content">
-                    <h3><span>Hi, my name is</span></h3>
-                    <h1>{name}.</h1>
-                    <h3>I'm a {basecity} based <span>{occupation}</span>.</h3>
-                    
-                    <h3><span>I believe...</span></h3>
-                    <h3>
-                        <span><FontAwesomeIcon icon="hashtag"/></span> &nbsp;
-                        Being "customer-oriented" means work ethics are passion driven and personality is people driven.
-                    </h3>
-                    <h3>
-                        <span><FontAwesomeIcon icon="hashtag"/></span> &nbsp;
-                        Well-documented code explains "why".
-                    </h3>
-                    <h3>
-                        <span><FontAwesomeIcon icon="hashtag"/></span> &nbsp;
-                        Good code is code you don't have to write.
-                    </h3>
-              </div>
+            <div className="banner-text">
+              <h3><span>Hi, my name is</span></h3>
+              <h1>{name}.</h1>
+              <h3>I'm a {basecity} based <span>{occupation}</span>.</h3>
+              
+              <h3><span>I believe...</span></h3>
+              <h3>
+                  <span><FontAwesomeIcon icon="hashtag"/></span> &nbsp;
+                  Being "customer-oriented" means work ethics are passion driven and personality is people driven.
+              </h3>
+              <h3>
+                  <span><FontAwesomeIcon icon="hashtag"/></span> &nbsp;
+                  Well-documented code explains "why".
+              </h3>
+              <h3>
+                  <span><FontAwesomeIcon icon="hashtag"/></span> &nbsp;
+                  Good code is code you don't have to write.
+              </h3>
             </div>
-            <div className="banner-image right-half">
+            <div className="banner-image">
                 <img className="profile-pic"  src={profilepic} alt="Profile Pic" />
             </div>
           </div>
+          </Fade>
         </about>
     );
   }
