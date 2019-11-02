@@ -14,6 +14,10 @@
     "basecity":"Dallas",
     "basestate":"Texas",
     "basecountry":"US",
+    "availability":{
+      "job":false,
+      "collab":true
+    },
     "address":{
       "street":"",
       "city":"Carrollton",
@@ -59,6 +63,14 @@
       }
     ],
     "work":[
+      {
+        "image":"images/experience/usaa.jpg",
+        "company":"USAA",
+        "title":"Software Developer and Integrator",
+        "dates":"11.2019 - Present",
+        "location":"Plano, TX",
+        "description":"I am currently working as a developer and integrator at USAA to serve active members, veterans, associates, and their families."
+      },
       {
         "image":"images/experience/webtoon.jpg",
         "company":"Webtoon Entertainment Inc.",
