@@ -23,7 +23,8 @@
 /* ------------------------------------------------------------------ */
 
 body { 
-   background: #15151E;
+   /*background: #15151E;*/
+   background: rgba(21, 21, 30, 0.96);
    background-size: cover !important;
    -webkit-background-size: cover !important;
 }
@@ -40,12 +41,14 @@ home {
 /* b. About Styles
 /* ------------------------------------------------------------------ */
 
-.sectionContainer{
+.section{
    z-index:2;
+   min-height: 100%;
 }
 
 about {
    overflow:hidden;
+   height: 1000px;
 }
 
 about .banner {
@@ -127,7 +130,7 @@ about .banner-text hr {
    text-align: left;
    margin-left: 10px;
    padding: 0;
-   font-size: 22px;
+   font-size: 1.8em;
    text-shadow: 0px 1px 2px rgba(0, 0, 0, .8);
    z-index:3;
 }
@@ -160,6 +163,7 @@ about .banner-text hr {
    left: 0;
    top: 0;
    z-index:100;
+   background: rgba(26, 26, 34, 0.897);
 }
 
 /* hide toggle button */
@@ -169,6 +173,7 @@ ul#nav {
    min-height: 48px;
    width: auto;
    margin-top: 2%;
+   margin-bottom: 1%;
    margin-right: 5%;
    /* center align the menu */
    text-align: right;
@@ -300,11 +305,6 @@ experience .work-content p{
    word-break: break-word;
 }
 
-
-work{
-
-}
-
 work h1{
    font: 34px/1.1em 'gotham';
    color: #fff;
@@ -395,9 +395,6 @@ work card .tools svg{
 }
 
 
-
-contact {
-}
 
 contact .banner {
    width: 70%;

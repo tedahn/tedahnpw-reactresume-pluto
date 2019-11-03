@@ -1,6 +1,6 @@
 {
   "name": "pluto",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -13,6 +13,7 @@
     "react-dom": "^16.11.0",
     "react-fullpage": "^0.1.19",
     "react-ga": "^2.7.0",
+    "react-responsive": "^8.0.1",
     "react-reveal": "^1.2.2",
     "react-scripts": "3.0.1",
     "react-waypoint": "^9.0.2"
