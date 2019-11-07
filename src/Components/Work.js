@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import MediaQuery from 'react-responsive'
 import Fade from 'react-reveal/Fade';
 
 class Work extends Component {
   render() {
-    function desktopCards(){
+    function desktopCards(portfolio, icons){
       return (
         <Fade right delay={delayUp}>
           <a href={portfolio.url}>
@@ -27,7 +28,7 @@ class Work extends Component {
         </Fade>)
     }
 
-    function mobileCards(){
+    function mobileCards(portfolio, icons){
       return (
         <Fade right delay={delayUp}>
           <a href={portfolio.url}>
@@ -60,7 +61,7 @@ class Work extends Component {
         return (
           <div>
             <MediaQuery minWidth={950}>
-              {DesktopCards(portfolio, icons)}
+              {desktopCards(portfolio, icons)}
             </MediaQuery>
             <MediaQuery maxWidth={950}>
               {mobileCards(portfolio, icons)}
