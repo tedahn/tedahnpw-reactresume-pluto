@@ -348,20 +348,36 @@ work h1{
 }
 
 work .container{
-   margin:auto;
+   display: grid;
+   grid-gap: calc(var(--gutter) / 2);
+   grid-auto-flow: column;
+ 
+   overflow-x: scroll;
+   scroll-snap-type: x proximity;
+   padding-bottom: calc(.75 * var(--gutter));
+   margin-bottom: calc(-.25 * var(--gutter));
+
    width: 80vw;
-   overflow-y: hidden;
+
+   margin: auto;
+}
+
+work a .cardLinkBox{
+   width:300px;
 }
   
 work card{
-   position: relative; 
-   display:inline-block;
-   width:250px;
+   scroll-snap-align: center;
+   padding: calc(var(--gutter) / 2 * 1.5);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 250px;
    height: 650px;
    background: #1A1A22;
-   margin: 20px;
    transition: box-shadow 0.3s ease-in-out;
-   vertical-align: top;
+   margin: auto;
 }
 
 work card:hover{
@@ -370,13 +386,13 @@ work card:hover{
 }
 
 work card .card-image{
-   width:230px;
-   margin: 10px 10px;
+   width: 200px;
+   margin: 25px 25px;
 }
 
-work card .card-content{
+/* work card .card-content{
    height: 650px;
-}
+} */
 
 work card h1, h2, span, p{
    margin: 0;
@@ -414,10 +430,10 @@ work card p{
 }
 
 work card .tools{
-   position: absolute; 
+   /* position: absolute; 
    bottom: 0;
    left: 0;
-   right: 0;
+   right: 0; */
    margin: 0 auto 15px auto;
 }
 work card .tools svg{

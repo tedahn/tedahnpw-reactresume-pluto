@@ -162,9 +162,9 @@
   "portfolio":{
     "projects": [
       {
-        "title":"Epic Seven Journal",
+        "title":"Epic Seven Journal (discontinued)",
         "image":"images/projects/esjournal.png",
-        "url":"https://play.google.com/store/apps/details?id=com.kumaduma.epicseveninfo",
+        "url":"https://github.com/tedahn/Epic-Seven-Journal-Android",
         "dates":"April 2019 - June 2019",
         "tools": ["java", "android"],
         "description":"A Java-based Android application that collects and shows game data from popular mobile app called Epic Seven. Made in collaboration with Epic Seven DataBase Developers and Discord Commnity"
@@ -180,7 +180,7 @@
       {
         "title":"Timeline Sharing App",
         "image":"images/projects/timeline.jpg",
-        "url":"https://github.com/tedahn/timeline",
+        "url":"#",
         "dates":"Feb 2019",
         "tools":["react", "mongo", "js-square", "node-js"],
         "description":"HackUTD 2019 - Attempted a MERN stack application that visualize user created timeline to be shareable and editable."
