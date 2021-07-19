@@ -8,7 +8,7 @@ class Work extends Component {
   render() {
     function desktopCards(portfolio, icons){
       return (
-              <card>
+              <card className="cardLinkBox">
                 <a href={portfolio.url}>
                   <div>
                     <div className="card-image">

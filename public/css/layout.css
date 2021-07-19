@@ -349,7 +349,7 @@ work h1{
 
 work .container{
    display: grid;
-   grid-gap: calc(var(--gutter) / 2);
+   grid-gap: calc(var(--gutter) / 5);
    grid-auto-flow: column;
  
    overflow-x: scroll;
@@ -362,8 +362,8 @@ work .container{
    margin: auto;
 }
 
-work a .cardLinkBox{
-   width:300px;
+work div .cardLinkBox{
+   margin: 20px auto;
 }
   
 work card{
