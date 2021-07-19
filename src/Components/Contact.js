@@ -37,15 +37,8 @@ class Contact extends Component {
                 <p>I'm passionate about meeting new people and collaborating to reach bigger ambitions.</p>
                 <p>Feel free to reach out to me for any and all inquiries!</p>
                 
-                <br></br>
-                  <div>
-                    <JobAvailability/> <br/>
-                    <CollabAvailability/> <br/>
-                  </div>
-                <br></br>
-
                 <div>
-                <a href={link}>{email}</a>
+                  <a href={link}>{email}</a>
                 </div>
               </div>
             </Fade>
