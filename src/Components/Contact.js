@@ -31,7 +31,7 @@ class Contact extends Component {
     return (
         <contact>
           <div>
-            <Fade cascade bottom distance="1000px"delay={300}>
+            <Fade cascade bottom distance="30px" delay={300}>
               <div className="row banner">
                 <h1>Say Hello!</h1>
                 <p>I'm passionate about meeting new people and collaborating to reach bigger ambitions.</p>

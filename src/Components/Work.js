@@ -8,47 +8,47 @@ class Work extends Component {
   render() {
     function desktopCards(portfolio, icons){
       return (
-              <card className="cardLinkBox">
-                <a href={portfolio.url}>
-                  <div>
-                    <div className="card-image">
-                      <img src={portfolio.image} alt="Project Picture" />
-                    </div>
-                    <div className="card-content">
-                      <h1>{portfolio.title}</h1>
-                      <span>{portfolio.dates}</span>
-                      <p>{portfolio.description}</p>
-                      
-                      <div className="tools">
-                          {icons}
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </card>
+        <card className="cardLinkBox">
+          <a href={portfolio.url}>
+            <div>
+              <div className="card-image">
+                <img src={portfolio.image} alt="Project Picture" />
+              </div>
+              <div className="card-content">
+                <h1>{portfolio.title}</h1>
+                <span>{portfolio.dates}</span>
+                <p>{portfolio.description}</p>
+                
+                <div className="tools">
+                    {icons}
+                </div>
+              </div>
+            </div>
+          </a>
+        </card>
       )
     }
 
     function mobileCards(portfolio, icons){
       return (
-          <div>
-            <a href={portfolio.url}>
-              <card>
-                <div className="card-image">
-                  <img src={portfolio.image} alt="Project Picture" />
+        <card className="cardLinkBox">
+          <a href={portfolio.url}>
+            <div>
+              <div className="card-image">
+                <img src={portfolio.image} alt="Project Picture" />
+              </div>
+              <div className="card-content">
+                <h1>{portfolio.title}</h1>
+                <span>{portfolio.dates}</span>
+                <p>{portfolio.description}</p>
+                
+                <div className="tools">
+                    {icons}
                 </div>
-                <div className="card-content">
-                  <h1>{portfolio.title}</h1>
-                  <span>{portfolio.dates}</span>
-                  <p>{portfolio.description}</p>
-                  
-                  <div className="tools">
-                      {icons}
-                  </div>
-                </div>
-              </card>
-            </a>
-          </div>
+              </div>
+            </div>
+          </a>
+        </card>
       )
     }
 
@@ -59,15 +59,17 @@ class Work extends Component {
           let name = ["fab", tool];
           return <FontAwesomeIcon icon={name}/>
         })
-        delayUp += 300;
+        delayUp = delayUp + 300;
         return (
           <div>
-            <MediaQuery minWidth={250}>
-              {desktopCards(portfolio, icons)}
-            </MediaQuery>
-            <MediaQuery maxWidth={250}>
-              {mobileCards(portfolio, icons)}
-            </MediaQuery>
+            <Fade right distance="100px" delay={delayUp}>
+              <MediaQuery minWidth={250}>
+                {desktopCards(portfolio, icons)}
+              </MediaQuery>
+              <MediaQuery maxWidth={250}>
+                {mobileCards(portfolio, icons)}
+              </MediaQuery>
+            </Fade>
           </div>
         )
       })
@@ -78,11 +80,9 @@ class Work extends Component {
           <Fade bottom delay={300}>
           <h1>My Projects and Works</h1>
           </Fade>
-          <Fade right delay={delayUp}>
             <div className="container">
               {projectList}
             </div>
-          </Fade>
         </work>
     )
   }
