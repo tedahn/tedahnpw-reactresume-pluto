@@ -22,7 +22,10 @@ const About = ({ data }) => {
           />
         </div>
         <div className="about-content">
-          <p>{bio}</p>
+          <div className="bio-card">
+            <FontAwesomeIcon icon="quote-left" className="quote-icon" />
+            <p>{bio}</p>
+          </div>
           <div className="contact-box">
             <h3 className="contact-name">{name}</h3>
             <div className="address">
