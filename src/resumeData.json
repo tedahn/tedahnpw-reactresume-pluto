@@ -1,0 +1,214 @@
+{
+  "main": {
+    "name": "Ted Ahn",
+    "fullname": "Ted Hyounggun Ahn",
+    "legalname": "Hyounggun Ahn",
+    "occupation": "Senior Software Engineer & AI Practitioner",
+    "description": "Building the future of finance and automation with extensive experience in scalable systems and ethical AI applications.",
+    "image": "tedprofile/tedahnprofile.png",
+    "imageborder": "tedprofile/bubble-border.png",
+    "bio": "I am a Senior Software Engineer with a deep passion for bridging enterprise-scale engineering with modern AI solutions. My journey spans from building reactive streaming platforms at USAA to modernizing data pipelines and ML infrastructure at Capital One. I believe in 'Customer-Oriented' engineering—where technical excellence meets real-world impact.",
+    "contactmessage": "Always open to discussing new projects, creative ideas, or opportunities.",
+    "email": "tahn1996@gmail.com",
+    "phone": "945-345-4052",
+    "basecity": "Carrollton",
+    "basestate": "Texas",
+    "basecountry": "US",
+    "availability": {
+      "job": false,
+      "collab": true
+    },
+    "address": {
+      "street": "",
+      "city": "Carrollton",
+      "state": "Texas",
+      "zip": "75007"
+    },
+    "website": "http://www.tedahn.pw",
+    "social": [
+      {
+        "name": "email",
+        "url": "mailto:tahn1996@gmail.com",
+        "iconType": "fas",
+        "className": "paper-plane"
+      },
+      {
+        "name": "linkedin",
+        "url": "https://www.linkedin.com/in/tedahn/",
+        "iconType": "fab",
+        "className": "linkedin"
+      },
+      {
+        "name": "github",
+        "url": "https://github.com/tedahn",
+        "iconType": "fab",
+        "className": "github"
+      }
+    ]
+  },
+  "resume": {
+    "education": [
+      {
+        "status": "Started Degree",
+        "school": "University of Texas at Dallas",
+        "degree": "Bachelors of Science in Computer Science",
+        "graduated": "August 2014",
+        "description": "Inspired by the products that shaped my childhood, I started my journey here. I wanted to do more than just use technology; I wanted to build it with values and purpose."
+      },
+      {
+        "status": "Graduated",
+        "timelineImage": "images/experience/graduation.png",
+        "school": "University of Texas at Dallas",
+        "degree": "Bachelors of Science in Computer Science",
+        "graduated": "May 2019",
+        "description": "I gained a deep respect for the fundamentals that still guide me in my engineering decisions today."
+      },
+      {
+        "school": "University of Texas at Austin",
+        "degree": "Post Graduate Program, Artificial Intelligence & Machine Learning",
+        "graduated": "Apr 2025 - Oct 2025",
+        "description": "I took my first steps to rebuild my mathematical foundations and learn to train AI and ML models to master both Engineering and Model Development."
+      }
+    ],
+    "work": [
+      {
+        "status": "Started Career",
+        "company": "US LINE WEBTOON",
+        "timelineImage": "images/experience/internship.png",
+        "title": "Data Analyst + Software Engineer Intern",
+        "dates": "Jun 2017 - Dec 2017",
+        "location": "Los Angeles, CA",
+        "graduated": "Jun 2017 - Dec 2017",
+        "achievements": [
+          {
+            "title": "Data Analysis Pipeline",
+            "desc": "As the first US engineer intern, I was given freedom to explore. I prototyped a data analysis pipeline that demonstrated the power of data to understand users."
+          },
+          {
+            "title": "Formation of Data Science Team",
+            "desc": "My work helped validate the need for a dedicated Data Science team."
+          }
+        ]
+      },
+      {
+        "status": "Joined Enterprise Communication Platform",
+        "company": "USAA",
+        "title": "Software Engineer",
+        "dates": "Sep 2019 - Mar 2022",
+        "location": "Plano, TX",
+        "graduated": "Sep 2019 - Mar 2022",
+        "achievements": [
+          {
+            "title": "Enabling Real-Time",
+            "desc": "I joined to help build USAA's first real-time, event-driven communications platform. We set the standard for proven design of safe and scalable real-time systems."
+          },
+          {
+            "title": "Architecting Standard",
+            "desc": "Then, I helped other teams replicate our success, turning the project into an enterprise standard."
+          }
+        ]
+      },
+      {
+        "status": "Joined Auto Navigator Team",
+        "company": "Capital One",
+        "title": "Software Engineer",
+        "dates": "Mar 2022 - Jul 2024",
+        "location": "Plano, TX",
+        "graduated": "Mar 2022 - Jul 2024",
+        "achievements": [
+          {
+            "title": "Modernizing Data Pipelines",
+            "desc": "I stepped into a massive modernization effort, designing an event-driven pipeline that powers the Auto Navigator platform today."
+          }
+        ]
+      },
+      {
+        "status": "Promoted and Team Switched to Marketing Navigator",
+        "company": "Capital One",
+        "timelineImage": "images/experience/whiteboarding.png",
+        "title": "Senior Software Engineer",
+        "dates": "Jul 2024 - Jun 2025",
+        "location": "Plano, TX",
+        "graduated": "Jul 2024 - Jun 2025",
+        "achievements": [
+          {
+            "title": "Focus on Quality",
+            "desc": "As a Senior Engineer, I took ownership of our infrastructure, leading AWS migrations and defining SRE practices for the org."
+          },
+          {
+            "title": "Growing Integrations",
+            "desc": "I delivered a proof-of-concept integrating Google Vehicle Listing Ads, bridging our backend with new marketing possibilities."
+          }
+        ]
+      },
+      {
+        "status": "",
+        "company": "Capital One",
+        "title": "Senior Software Engineer",
+        "dates": "Jun 2025 - Present",
+        "location": "Plano, TX",
+        "graduated": "Jun 2025 - Present",
+        "achievements": [
+          {
+            "title": "Focus on Python",
+            "desc": "I saw the wave of AI coming and pivoted to meet it. I took on Python and EMR data processing projects to bridge the gap between Engineering and Data Science."
+          },
+          {
+            "title": "Focus on MLOps",
+            "desc": "I built the model training and deployment pipelines using Kubeflow to allow our Data Scientists to deploy models faster."
+          }
+        ]
+      }
+    ],
+    "skills": [
+      {
+        "name": "Java (Advanced)"
+      },
+      {
+        "name": "Python (Intermediate)"
+      },
+      {
+        "name": "React / JS"
+      },
+      {
+        "name": "AWS / Cloud"
+      },
+      {
+        "name": "Kubernetes / OpenShift"
+      },
+      {
+        "name": "Kafka / Event Streaming"
+      },
+      {
+        "name": "Machine Learning (Scikit-learn, TF)"
+      },
+      {
+        "name": "MLOps (Kubeflow)"
+      }
+    ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "AI & ML Project Portfolio",
+        "image": "images/projects/aiml_portfolio.png",
+        "url": "https://tedahn.github.io/tedahn-aiml-project-notebooks/",
+        "description": "A collection of my practical AI/ML projects, including 'EasyVisa Outcome Prediction' and 'Personal Loan Conversion' models. Features end-to-end notebooks demonstrating data preprocessing, model training, and evaluation.",
+        "tools": [
+          "python"
+        ]
+      },
+      {
+        "title": "Timeline Resume",
+        "image": "images/projects/timeline_resume.png",
+        "url": "https://github.com/tedahn/tedahnpw-reactresume-pluto",
+        "description": "The modern react portfolio you are looking at right now. Built with React 18, Vite, and Glassmorphism UI.",
+        "tools": [
+          "react",
+          "javascript",
+          "css"
+        ]
+      }
+    ]
+  }
+}

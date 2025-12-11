@@ -1,19 +1,47 @@
-## Pluto React + NodeJS Resume Website
+# Pluto: Modern React Portfolio 🪐
 
-This project is bootstrapped with create-react-app running its standard scripts: 'npm start', 'npm test', 'npm run build' ...
+The personal portfolio website of **Ted Ahn**, built to showcase a professional journey in Software Engineering and AI/ML.
 
-My live website can be found [here](https://www.tedahn.pw/)
+> **Live Site**: [tedahn.com](https://www.tedahn.com/)
 
-## License and Usage
+## 🚀 Tech Stack
 
-Feel free to use any part of the code to your liking without my permission. 
+*   **Core**: React 18, JavaScript (ES6+)
+*   **Build Tool**: [Vite](https://vitejs.dev/) (Fast HMR & Bundling)
+*   **Styling**: Custom CSS3, CSS Variables, Glassmorphism UI
+*   **Animations**: [Framer Motion](https://www.framer.com/motion/)
+*   **Icons**: FontAwesome
 
-## Libraries Used
+## 🛠️ Usage
 
-This project utilizes many libraries that is not mine! Make to give credits to owners who want them.
+This project uses `npm` and `vite`.
 
-For those who are curious, this app is powered by:
-[Create React App](https://github.com/facebook/create-react-app)
-[React FullpageJS](https://github.com/alvarotrigo/react-fullpage) *They require your code to be open-source or pay for a development licenses!*
-[React FontAwesome](https://github.com/FortAwesome/react-fontawesome)
-[React Waypoint](https://github.com/civiccc/react-waypoint)
+### Setup
+```bash
+npm install
+```
+
+### Development
+Start the local dev server:
+```bash
+npm run dev
+```
+
+### Production Build
+Build the project for deployment:
+```bash
+npm run build
+```
+The output will be in the `dist` (or `build`) directory.
+
+## 📂 Project Structure
+
+*   `src/Components`: Reusable UI components (Experience, Work, Contact, etc.)
+*   `src/resumeData.json`: **Single Source of Truth** for all content (text, links, timeline).
+*   `src/styles.css`: Global styles, variables, and responsive layout.
+
+## 📜 License & Credits
+
+*   Designed & Developed by Ted Ahn.
+*   Original conceptual references: React FullpageJS, React Waypoint (Legacy).
+*   Feel free to fork for your own portfolio! Verification of personal data removal is recommended.
