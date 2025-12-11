@@ -10,7 +10,7 @@ import Navigation from './Components/Navigation';
 import resumeData from './resumeData.json';
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection, setActiveSection] = useState('about'); // Default to first section
 
   useEffect(() => {
     // Simple scroll spy logic
@@ -20,13 +20,17 @@ function App() {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top >= 0 && rect.top <= 300) {
+          // Adjust offset to account for navbar height (~70px)
+          if (rect.top >= -100 && rect.top <= 300) {
             setActiveSection(section);
             break;
           }
         }
       }
     };
+
+    // Run once on mount to set initial state correctly
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
