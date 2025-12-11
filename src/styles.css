@@ -689,11 +689,19 @@ section {
 
 .bio-card .quote-icon {
   position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
   font-size: 2rem;
   color: var(--accent-color);
   opacity: 0.5;
+}
+
+.bio-card .quote-icon.left {
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.bio-card .quote-icon.right {
+  bottom: 1.5rem;
+  right: 1.5rem;
 }
 
 .bio-card p {

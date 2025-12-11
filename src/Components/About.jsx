@@ -23,8 +23,9 @@ const About = ({ data }) => {
         </div>
         <div className="about-content">
           <div className="bio-card">
-            <FontAwesomeIcon icon="quote-left" className="quote-icon" />
+            <FontAwesomeIcon icon="quote-left" className="quote-icon left" />
             <p>{bio}</p>
+            <FontAwesomeIcon icon="quote-right" className="quote-icon right" />
           </div>
           <div className="contact-box">
             <h3 className="contact-name">{name}</h3>
