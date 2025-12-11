@@ -56,8 +56,8 @@ const Work = ({ data }) => {
                   }
 
                   return (
-                    <span key={tool} title={tool}>
-                      <FontAwesomeIcon icon={[prefix, iconName]} className="tech-icon" />
+                    <span key={tool} className="tech-badge">
+                      <FontAwesomeIcon icon={[prefix, iconName]} className="tech-icon" /> {tool}
                     </span>
                   );
                 })}

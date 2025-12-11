@@ -714,15 +714,33 @@ section {
   border-top: 1px solid var(--glass-border);
 }
 
-.tech-icon {
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.08);
+  /* Subtle glass pill */
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  font-size: 1.25rem;
+  border: 1px solid var(--glass-border);
   transition: all 0.3s ease;
+  text-transform: capitalize;
+  /* Ensure names look nice */
 }
 
-.tech-icon:hover {
+.tech-badge .tech-icon {
   color: var(--accent-color);
-  transform: translateY(-3px);
+  font-size: 0.9rem;
+}
+
+.tech-badge:hover {
+  background: rgba(56, 189, 248, 0.15);
+  /* Light blue tint */
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+  transform: translateY(-2px);
 }
 
 .c#about .about-content p {
