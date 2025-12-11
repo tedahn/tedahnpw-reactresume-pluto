@@ -323,10 +323,24 @@ section {
 
 .experience-block {
   position: relative;
-  width: 50%;
+  width: 46%;
+  /* Leave space in middle */
   margin-bottom: 3rem;
   clear: both;
   /* Ensure they don't overlap weirdly */
+  padding: 2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.experience-block:hover {
+  transform: translateY(-5px);
+  background: rgba(30, 41, 59, 0.8);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  border-color: var(--accent-color);
 }
 
 /* WORK on Left */
@@ -366,17 +380,45 @@ section {
 }
 
 .experience-block.work::after {
-  right: -8px;
-  /* On the center line */
+  right: -58px;
+  /* 50% line is center, card is 50% width. Need to push dot out past margin & padding */
+  /* This needs careful calculation or relative to timeline. 
+     Actually, simpler: put dot on the TIMELINE container relative to the child? 
+     Or just adjust this value. 
+     Card width 50% -> Right edge is at center. 
+     But we added margin? No margin-right.
+     Let's try absolute positioning relative to the card.
+  */
+  right: -1rem;
+  /* On the edge of the card? No, line is at 50% of container. Card is 50% of container. */
+  /* Ideally, the dot should be OUTSIDE the card. */
+  right: -61px;
+  /* 2px line width. Gap? */
+  /* Let's be precise: Card is 50%. Line is at left: 50% of container. 
+     Left card (work) ends at 50%. 
+     Dot needs to be at right: -8px (half dot width) relative to the EDGE that touches the center. 
+     But wait, padding/border might affect width if box-sizing isn't border-box (it is).
+     If width is 50%, and we have padding, content is smaller. 
+     Let's move 'width: 45%' to give space for the line?
+  */
+}
+
+/* Let's update the width to make space for the line and dots */
+.experience-block {
+  width: 45%;
+  /* Slightly less than 50 to give gap */
+}
+
+/* Re-target dot styles */
+.experience-block.work::after {
+  right: -4.45rem;
+  /* Pushes dot to center line */
   border-color: #38bdf8;
-  /* Sky Blue */
 }
 
 .experience-block.education::after {
-  left: -8px;
-  /* On the center line */
+  left: -4.45rem;
   border-color: #a78bfa;
-  /* Purple */
 }
 
 /* Clearfix for the container since we use floats */
