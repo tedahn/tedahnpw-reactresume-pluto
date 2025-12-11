@@ -111,7 +111,7 @@ const Experience = ({ work, education }) => {
               <div className="achievement-string">
                 {item.achievements.map((achievement, i) => (
                   <div key={i} className="achievement-card">
-                    <h4><FontAwesomeIcon icon="trophy" className="achievement-icon" /> {achievement.title}</h4>
+                    <h4><FontAwesomeIcon icon="star" className="achievement-icon" /> {achievement.title}</h4>
                     <p>{achievement.desc}</p>
                   </div>
                 ))}
