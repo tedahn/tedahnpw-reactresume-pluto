@@ -380,26 +380,13 @@ section {
 }
 
 .experience-block.work::after {
-  right: -58px;
-  /* 50% line is center, card is 50% width. Need to push dot out past margin & padding */
-  /* This needs careful calculation or relative to timeline. 
-     Actually, simpler: put dot on the TIMELINE container relative to the child? 
-     Or just adjust this value. 
-     Card width 50% -> Right edge is at center. 
-     But we added margin? No margin-right.
-     Let's try absolute positioning relative to the card.
-  */
-  right: -1rem;
-  /* On the edge of the card? No, line is at 50% of container. Card is 50% of container. */
-  /* Ideally, the dot should be OUTSIDE the card. */
-  right: -61px;
-  /* 2px line width. Gap? */
-  /* Let's be precise: Card is 50%. Line is at left: 50% of container. 
-     Left card (work) ends at 50%. 
-     Dot needs to be at right: -8px (half dot width) relative to the EDGE that touches the center. 
-     But wait, padding/border might affect width if box-sizing isn't border-box (it is).
-     If width is 50%, and we have padding, content is smaller. 
-     Let's move 'width: 45%' to give space for the line?
+  right: calc(-11.11% - 8px);
+  /* 
+     Logic:
+     Card Width = 45%
+     Gap to Center (50%) = 5%
+     5% of Parent is (5/45)% of Card = 11.11%
+     Minus 8px to align center of 16px dot
   */
 }
 
@@ -410,14 +397,15 @@ section {
 }
 
 /* Re-target dot styles */
+/* Re-target dot styles with alignment fix */
 .experience-block.work::after {
-  right: -4.45rem;
-  /* Pushes dot to center line */
+  right: calc(-11.11% - 9px);
+  /* -9px compensates for half dot (8px) + half line (1px) */
   border-color: #38bdf8;
 }
 
 .experience-block.education::after {
-  left: -4.45rem;
+  left: calc(-11.11% - 9px);
   border-color: #a78bfa;
 }
 
