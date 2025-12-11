@@ -63,6 +63,9 @@ const Experience = ({ work, education }) => {
     <section id="experience" className="container">
       <div className="section-title">
         <h2>My <span>Journey</span></h2>
+        <p className="section-intro">
+          Hi everyone, thank you for visiting my page and for your interest. Resumes can be pretty boring to read so I've made a fun little way to look at my career and academic history. Take a look at what I've done in my career!
+        </p>
       </div>
 
       <div className="experience-timeline">
