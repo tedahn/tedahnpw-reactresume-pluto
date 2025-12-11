@@ -7,7 +7,7 @@
     "description": "Building the future of finance and automation with extensive experience in scalable systems and ethical AI applications.",
     "image": "tedprofile/tedahnprofile.png",
     "imageborder": "tedprofile/bubble-border.png",
-    "bio": "Programming is both my profession and my passion.\n\nMy goal is to build connections in dynamic, interprofessional environments.\n\nTo me, being 'Customer-Oriented' means my work ethic is passion-driven and my engineering is people-driven.\n\nNice to meet you!",
+    "bio": "Programming is both my profession and my passion.\n\nMy goal is to build connections in dynamic, interprofessional environments.\n\nTo me, being 'Customer-Oriented' means my work ethic is passion-driven and my engineering is people-driven.",
     "contactmessage": "Always open to discussing new projects, creative ideas, or opportunities.",
     "email": "tahn1996@gmail.com",
     "phone": "945-345-4052",
@@ -53,7 +53,7 @@
         "school": "University of Texas at Dallas",
         "degree": "Bachelors of Science in Computer Science",
         "graduated": "August 2014",
-        "description": "Inspired by the products that shaped my childhood, I started my journey here. I wanted to do more than just use technology; I wanted to build it with values and purpose."
+        "description": "Inspired by the products that shaped my childhood, I started my journey here. I wanted to do more than just use technology; I nurtured my dreams of one-day building it."
       },
       {
         "status": "Graduated",
@@ -150,12 +150,12 @@
         "graduated": "Jun 2025 - Present",
         "achievements": [
           {
-            "title": "Focus on Python",
+            "title": "Bridging Engineering and Intelligence",
             "desc": "I saw the wave of AI coming and pivoted to meet it. I took on Python and EMR data processing projects to bridge the gap between Engineering and Data Science."
           },
           {
-            "title": "Focus on MLOps",
-            "desc": "I built the model training and deployment pipelines using Kubeflow to allow our Data Scientists to deploy models faster."
+            "title": "Modernizing Model Training",
+            "desc": "I built the model training and deployment pipelines using Kubeflow to allow our Data Scientists to deploy models much faster freeing up their time to explore new ideas."
           }
         ]
       }
@@ -205,8 +205,8 @@
         "description": "The modern react portfolio you are looking at right now. Built with React 18, Vite, and Glassmorphism UI.",
         "tools": [
           "react",
-          "javascript",
-          "css"
+          "js",
+          "css3"
         ]
       }
     ]
