@@ -1,4 +1,5 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const About = ({ data }) => {
   if (!data) return null;
@@ -24,14 +25,20 @@ const About = ({ data }) => {
           <p>{bio}</p>
           <div className="contact-box">
             <h3>Contact Details</h3>
-            <p className="address">
-              <span>{name}</span><br />
-              <br />
-              <span>{city} {state}, {zip}</span><br />
-              <br />
-              <span>{phone}</span><br />
-              <a href={`mailto:${email}`}>{email}</a>
-            </p>
+            <div className="address">
+              <div className="contact-row">
+                <FontAwesomeIcon icon="map-marker-alt" className="contact-icon" />
+                <span>{city} {state}, {zip}</span>
+              </div>
+              <div className="contact-row">
+                <FontAwesomeIcon icon="phone" className="contact-icon" />
+                <span>{phone}</span>
+              </div>
+              <div className="contact-row">
+                <FontAwesomeIcon icon="envelope" className="contact-icon" />
+                <a href={`mailto:${email}`}>{email}</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

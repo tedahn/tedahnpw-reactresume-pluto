@@ -246,6 +246,36 @@ section {
   box-shadow: inset 0 0 0 1px var(--glass-highlight);
 }
 
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.contact-row:last-child {
+  margin-bottom: 0;
+}
+
+.contact-icon {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  width: 20px;
+  text-align: center;
+}
+
+.contact-row a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-row a:hover {
+  color: var(--accent-color);
+}
+
 /* --- Experience / Journey Timeline --- */
 .experience-timeline {
   position: relative;
