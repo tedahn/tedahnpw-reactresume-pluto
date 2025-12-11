@@ -204,7 +204,7 @@
         ]
       },
       {
-        "title": "Timeline Resume",
+        "title": "My Career Timeline Website",
         "image": "images/projects/timeline_resume.png",
         "url": "https://github.com/tedahn/tedahnpw-reactresume-pluto",
         "description": "The modern react portfolio you are looking at right now. Built with React 18, Vite, and Glassmorphism UI.",
