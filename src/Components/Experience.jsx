@@ -77,7 +77,10 @@ const Experience = ({ work, education }) => {
               <div className="header-top">
                 {item.type !== 'future' && (
                   <span className={`type-badge ${item.type}`}>
-                    {item.type === 'work' ? '💼 Work' : '🎓 Education'}
+                    {item.type === 'work' ?
+                      <><FontAwesomeIcon icon="briefcase" /> Work</> :
+                      <><FontAwesomeIcon icon="graduation-cap" /> Education</>
+                    }
                   </span>
                 )}
                 <span className="dates">{item.displayDate}</span>
