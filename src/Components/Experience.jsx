@@ -1,5 +1,6 @@
 import React from 'react';
 import AnimatedSection from './AnimatedSection';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Experience = ({ work, education }) => {
   if (!work || !education) return null;
@@ -107,7 +108,7 @@ const Experience = ({ work, education }) => {
               <div className="achievement-string">
                 {item.achievements.map((achievement, i) => (
                   <div key={i} className="achievement-card">
-                    <h4>{achievement.title}</h4>
+                    <h4><FontAwesomeIcon icon="trophy" className="achievement-icon" /> {achievement.title}</h4>
                     <p>{achievement.desc}</p>
                   </div>
                 ))}
