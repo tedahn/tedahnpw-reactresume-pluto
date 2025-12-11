@@ -103,7 +103,7 @@
             "desc": "I joined to help build USAA's first real-time, event-driven communications platform. We set the standard for proven design of safe and scalable real-time systems."
           },
           {
-            "title": "Architecting Standard",
+            "title": "Spreading Standards",
             "desc": "Then, I helped other teams replicate our success, turning the project into an enterprise standard."
           }
         ]
@@ -211,7 +211,11 @@
         "tools": [
           "react",
           "js",
-          "css3"
+          "css3",
+          "html5",
+          "git",
+          "node",
+          "framer-motion"
         ]
       }
     ]

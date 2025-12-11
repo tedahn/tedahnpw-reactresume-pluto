@@ -45,7 +45,8 @@ const Work = ({ data }) => {
                     'genai': { icon: 'robot', prefix: 'fas' }, // Generative AI
                     'vision': { icon: 'eye', prefix: 'fas' }, // Computer Vision
                     'data': { icon: 'database', prefix: 'fas' }, // General Data
-                    'code': { icon: 'code', prefix: 'fas' }
+                    'code': { icon: 'code', prefix: 'fas' },
+                    'framer-motion': { icon: 'code', prefix: 'fas' } // Animation Lib
                   };
 
                   if (specialIcons[tool]) {
