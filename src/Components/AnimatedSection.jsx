@@ -14,9 +14,9 @@ const AnimatedSection = ({ children, className, id }) => {
             ref={ref}
             id={id}
             className={className}
-            initial={{ opacity: 0, y: 30 }} // Reduced travel distance (was 50)
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, ease: "easeOut" }} // Slightly faster (was 0.8)
+            initial={{ opacity: 0, y: 50, scale: 0.8 }} // Start smaller and lower
+            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.8 }}
+            transition={{ type: "spring", bounce: 0.4, duration: 0.8 }} // Fun springy bounce
         >
             {children}
         </motion.div>

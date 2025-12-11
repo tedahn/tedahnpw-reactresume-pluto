@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { motion } from 'framer-motion';
 
 const Work = ({ data }) => {
   if (!data) return null;
@@ -11,8 +12,19 @@ const Work = ({ data }) => {
       </div>
 
       <div className="portfolio-grid">
-        {data.projects.map((portfolio) => (
-          <a key={portfolio.title} href={portfolio.url} className="portfolio-card" target="_blank" rel="noopener noreferrer">
+        {data.projects.map((portfolio, index) => (
+          <motion.a
+            key={portfolio.title}
+            href={portfolio.url}
+            className="portfolio-card"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ type: "spring", bounce: 0.4, duration: 0.8, delay: index * 0.2 }}
+            whileHover={{ scale: 1.03, rotate: 1 }} // Detailed hover interaction
+          >
             <div className="card-image">
               <img alt={portfolio.title} src={portfolio.image} />
             </div>
@@ -51,7 +63,7 @@ const Work = ({ data }) => {
                 })}
               </div>
             </div>
-          </a>
+          </motion.a>
         ))}
       </div>
     </section>
