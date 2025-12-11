@@ -707,17 +707,23 @@ section {
   z-index: 1;
 }
 
-color: #fff;
-padding: 1.2rem 3.5rem;
-border-radius: 50px;
-font-weight: 700;
-font-size: 1.1rem;
-margin-top: 2.5rem;
-transition: all 0.3s ease;
-box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.4);
-position: relative;
-overflow: hidden;
-z-index: 1;
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: var(--accent-gradient);
+  color: #fff;
+  padding: 1.2rem 3.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 2.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.4);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .cta-button::before {
