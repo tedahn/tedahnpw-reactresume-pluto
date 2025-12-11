@@ -24,3 +24,9 @@ The website is designed to be a **living reflection** of Ted's professional jour
 *   **Build System**: Vite (Migrated from CRA for performance).
 *   **Styling Strategy**: Custom CSS architecture focusing on Glassmorphism, CSS Grid/Flexbox layouts, and Mobile Responsiveness.
 *   **Deployment**: GitHub Pages (Static Hosting).
+
+## Visual & Interactive Evolution (December 2024)
+*   **Animation**: Smooth, spring-physics based entrance animations (Framer Motion) for cards and sections.
+*   **Iconography**: Transitioned from generic emojis to FontAwesome icons for professional polish (Work/Education badges, Tech Stack Pills).
+*   **Timeline Redesign**: Implemented a "Schematic" timeline with glassmorphic cards, rigorous alignment, connector lines, and dynamic achievement highlighting (Golden Star system).
+*   **Performance**: Optimized asset delivery by resizing project images to web-friendly dimensions (512px).
