@@ -613,6 +613,8 @@ section {
   /* Bouncy transition */
   position: relative;
   overflow: hidden;
+  text-align: left;
+  /* Force left alignment */
 }
 
 .achievement-card:hover {
