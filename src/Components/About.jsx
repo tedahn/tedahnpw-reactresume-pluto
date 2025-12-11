@@ -25,9 +25,9 @@ const About = ({ data }) => {
           <div className="contact-box">
             <h3>Contact Details</h3>
             <p className="address">
-              <strong>{name}</strong><br />
-              {street}<br />
-              {city} {state}, {zip}<br />
+              <span>{name}</span><br />
+              <br />
+              <span>{city} {state}, {zip}</span><br />
               <br />
               <span>{phone}</span><br />
               <a href={`mailto:${email}`}>{email}</a>
