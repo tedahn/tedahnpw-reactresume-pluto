@@ -24,7 +24,7 @@ const About = ({ data }) => {
         <div className="about-content">
           <p>{bio}</p>
           <div className="contact-box">
-            <h3>Contact Details</h3>
+            <h3 className="contact-name">{name}</h3>
             <div className="address">
               <div className="contact-row">
                 <FontAwesomeIcon icon="map-marker-alt" className="contact-icon" />
