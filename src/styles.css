@@ -612,6 +612,14 @@ section {
   transform: translateY(-3px);
 }
 
+.c#about .about-content p {
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  white-space: pre-wrap;
+  /* Respect newlines in JSON */
+}
+
 /* Contact Section */
 .contact-container {
   max-width: 600px;
