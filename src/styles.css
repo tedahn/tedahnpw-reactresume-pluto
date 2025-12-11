@@ -323,8 +323,8 @@ section {
 
 .experience-block {
   position: relative;
-  width: 46%;
-  /* Leave space in middle */
+  width: 45%;
+  /* Clean 5% gap to center (11.11% of card width) */
   margin-bottom: 3rem;
   clear: both;
   /* Ensure they don't overlap weirdly */
@@ -366,41 +366,49 @@ section {
   /* Slight offset to prevent visual clashing if dates are close */
 }
 
+/* Connector Line (The "Arm") */
+.experience-block::before {
+  content: '';
+  position: absolute;
+  top: 48px;
+  /* Vertically centered with dot */
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  width: 11.15%;
+  /* Stretch to center line */
+  z-index: 1;
+}
+
+.experience-block.work::before {
+  right: -11.15%;
+  /* Extend rightwards */
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(56, 189, 248, 0.5) 100%);
+}
+
+.experience-block.education::before {
+  left: -11.15%;
+  /* Extend leftwards */
+  background: linear-gradient(-90deg, rgba(255, 255, 255, 0.1) 0%, rgba(167, 139, 250, 0.5) 100%);
+}
+
 /* Dot on the Line */
 .experience-block::after {
   content: '';
   position: absolute;
-  top: 20px;
+  top: 40px;
+  /* Center at 48px */
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--background);
+  background: var(--bg-color);
   border: 3px solid var(--accent-color);
   z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.experience-block.work::after {
-  right: calc(-11.11% - 8px);
-  /* 
-     Logic:
-     Card Width = 45%
-     Gap to Center (50%) = 5%
-     5% of Parent is (5/45)% of Card = 11.11%
-     Minus 8px to align center of 16px dot
-  */
-}
-
-/* Let's update the width to make space for the line and dots */
-.experience-block {
-  width: 45%;
-  /* Slightly less than 50 to give gap */
-}
-
-/* Re-target dot styles */
-/* Re-target dot styles with alignment fix */
 .experience-block.work::after {
   right: calc(-11.11% - 9px);
-  /* -9px compensates for half dot (8px) + half line (1px) */
+  /* Precise center hit */
   border-color: #38bdf8;
 }
 
@@ -430,6 +438,11 @@ section {
     text-align: left;
   }
 
+  /* Hide connector arms on mobile */
+  .experience-block::before {
+    display: none;
+  }
+
   .experience-block.work,
   .experience-block.education {
     text-align: left;
@@ -446,6 +459,8 @@ section {
   .experience-block.education::after {
     left: 12px;
     right: auto;
+    top: 20px;
+    /* Reset top for mobile look */
   }
 }
 
