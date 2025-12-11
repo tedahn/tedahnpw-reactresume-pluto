@@ -21,12 +21,31 @@ const Work = ({ data }) => {
               <p>{portfolio.description}</p>
               <div className="tech-stack">
                 {portfolio.tools && portfolio.tools.map(tool => {
-                  // Basic mapping for non-brand icons if needed, or fallback
-                  const prefix = ['chart-line', 'code', 'database'].includes(tool) ? 'fas' : 'fab';
+                  let iconName = tool;
+                  let prefix = 'fab'; // Default to brand icons
+
+                  // Custom Mappings
+                  const specialIcons = {
+                    'pandas': { icon: 'chart-line', prefix: 'fas' }, // Data Analysis
+                    'sklearn': { icon: 'brain', prefix: 'fas' }, // ML
+                    'tensorflow': { icon: 'brain', prefix: 'fas' }, // DL
+                    'nlp': { icon: 'robot', prefix: 'fas' }, // NLP
+                    'genai': { icon: 'robot', prefix: 'fas' }, // Generative AI
+                    'vision': { icon: 'eye', prefix: 'fas' }, // Computer Vision
+                    'data': { icon: 'database', prefix: 'fas' }, // General Data
+                    'code': { icon: 'code', prefix: 'fas' }
+                  };
+
+                  if (specialIcons[tool]) {
+                    iconName = specialIcons[tool].icon;
+                    prefix = specialIcons[tool].prefix;
+                  } else if (['chart-line', 'database', 'eye', 'brain', 'robot'].includes(tool)) {
+                    prefix = 'fas';
+                  }
+
                   return (
                     <span key={tool} title={tool}>
-                      {/* Wrap in span to avoid direct crash if FA fails */}
-                      <FontAwesomeIcon icon={[prefix, tool]} className="tech-icon" />
+                      <FontAwesomeIcon icon={[prefix, iconName]} className="tech-icon" />
                     </span>
                   );
                 })}

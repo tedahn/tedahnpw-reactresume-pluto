@@ -195,7 +195,12 @@
         "url": "https://tedahn.github.io/tedahn-aiml-project-notebooks/",
         "description": "A collection of my practical AI/ML projects, including 'EasyVisa Outcome Prediction' and 'Personal Loan Conversion' models. Features end-to-end notebooks demonstrating data preprocessing, model training, and evaluation.",
         "tools": [
-          "python"
+          "python",
+          "pandas",
+          "sklearn",
+          "tensorflow",
+          "vision",
+          "genai"
         ]
       },
       {
