@@ -6,13 +6,30 @@ const Experience = ({ work, education }) => {
   if (!work || !education) return null;
 
   // Helper to parse dates
+  // Helper to parse dates
   const parseDate = (dateStr) => {
     if (!dateStr) return new Date(0);
-    // Handle "Month Year - ..." format, taking the first part
+
+    // Clean string: "Jun 2017 - Dec 2017" -> "Jun 2017"
     const startDatePart = dateStr.split('-')[0].trim();
-    // Handle "May 2019" (Graduated date) -> Treat as end date? 
-    // For sorting "Oldest to Latest", users usually want to see when it started.
-    return new Date(startDatePart);
+
+    // Split "Jun 2017" -> ["Jun", "2017"]
+    const parts = startDatePart.split(' ');
+    if (parts.length < 2) return new Date(startDatePart); // Fallback
+
+    const monthName = parts[0].substring(0, 3).toLowerCase();
+    const year = parseInt(parts[1], 10);
+
+    const months = {
+      jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+      jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
+    };
+
+    if (months[monthName] !== undefined && !isNaN(year)) {
+      return new Date(year, months[monthName], 1);
+    }
+
+    return new Date(0); // Invalid fallback
   };
 
   // 1. Normalize items
