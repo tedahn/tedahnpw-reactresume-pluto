@@ -27,6 +27,11 @@
 * **Dot Alignment**: Simplified the "Connector Dots" to sit on the new left-aligned axis, removing the complex "Connector Arms".
 * **Future Card Fix**: Specifically targeted the "Future" card to ensure its connector dot aligns with the new axis, removing desktop-specific transformations.
 
+### C. Timeline Logic Fix (`Experience.jsx`)
+
+**Problem**: The custom date parser was relying on `Date.parse()` which is inconsistent across browsers (especially on mobile iOS), causing the "Journey" timeline to sort incorrectly (grouped by type rather than chronologically).
+**Solution**: Implemented a robust manual date parser that maps month names (Jan, Feb, etc.) to integers, ensuring consistent chronological sorting on all platforms.
+
 ## 2. Layout & Typography Refinements
 
 ### A. Grid Stacking
