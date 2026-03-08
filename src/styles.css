@@ -449,7 +449,7 @@ section {
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, background 0.3s ease-out;
 }
 
 .experience-block:hover {
@@ -779,7 +779,8 @@ section {
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid var(--glass-border);
-  transition: all 0.4s ease;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+  cursor: pointer;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -790,8 +791,8 @@ section {
 }
 
 .portfolio-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px -10px rgba(129, 140, 248, 0.3);
   border-color: var(--accent-secondary);
 }
 

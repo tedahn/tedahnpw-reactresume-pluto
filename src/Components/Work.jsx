@@ -23,7 +23,7 @@ const Work = ({ data }) => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ type: "spring", bounce: 0.4, duration: 0.8, delay: index * 0.2 }}
-            whileHover={{ scale: 1.03, rotate: 1 }} // Detailed hover interaction
+
           >
             <div className="card-image">
               <img alt={portfolio.title} src={portfolio.image} />
