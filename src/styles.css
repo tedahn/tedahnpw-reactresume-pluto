@@ -250,6 +250,74 @@ section {
   position: relative;
 }
 
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: var(--nav-height);
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-name {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-cta-group .cta-button {
+  margin-top: 0;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+}
+
+.cta-button-outline {
+  background: transparent !important;
+  border: 2px solid var(--glass-border) !important;
+  box-shadow: none !important;
+  backdrop-filter: blur(10px);
+}
+
+.cta-button-outline:hover {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.3) !important;
+  background: rgba(56, 189, 248, 0.1) !important;
+}
+
 /* About Section */
 .about-grid {
   display: grid;
@@ -1086,5 +1154,25 @@ section {
   .achievement-string {
     grid-template-columns: 1fr;
     /* Stack achievements on very small screens */
+  }
+
+  /* Hero Section Mobile */
+  .hero-section {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-cta-group .cta-button {
+    width: 100%;
+    max-width: 280px;
   }
 }

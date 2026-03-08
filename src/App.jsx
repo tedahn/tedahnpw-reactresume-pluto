@@ -7,15 +7,16 @@ import Social from './Components/Social';
 import ParticleBackground from './Components/ParticleBackground';
 import AnimatedSection from './Components/AnimatedSection';
 import Navigation from './Components/Navigation';
+import Hero from './Components/Hero';
 import resumeData from './resumeData.json';
 
 function App() {
-  const [activeSection, setActiveSection] = useState('about'); // Default to first section
+  const [activeSection, setActiveSection] = useState('home'); // Default to first section
 
   useEffect(() => {
     // Simple scroll spy logic
     const handleScroll = () => {
-      const sections = ['about', 'experience', 'work', 'contact'];
+      const sections = ['home', 'about', 'experience', 'work', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -45,7 +46,9 @@ function App() {
       <ParticleBackground />
       <Navigation activeSection={activeSection} />
 
-      <AnimatedSection id="about" className="section home">
+      <Hero data={resumeData.main} />
+
+      <AnimatedSection id="about" className="section">
         <About data={resumeData.main} />
       </AnimatedSection>
 
