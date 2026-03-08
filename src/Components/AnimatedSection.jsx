@@ -1,13 +1,22 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const AnimatedSection = ({ children, className, id }) => {
     const ref = useRef(null);
-    // Trigger when 10% of element is in view (was 0.2). 
+    const prefersReducedMotion = useReducedMotion();
+    // Trigger when 10% of element is in view (was 0.2).
     // "once: true" keeps it visible after.
     const isInView = useInView(ref, { once: true, amount: 0.1 });
+
+    if (prefersReducedMotion) {
+        return (
+            <div ref={ref} id={id} className={className}>
+                {children}
+            </div>
+        );
+    }
 
     return (
         <motion.div

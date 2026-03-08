@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="App">
       <ParticleBackground />
-      <Navigation activeSection={activeSection} />
+      <Navigation activeSection={activeSection} name={resumeData.main.name} />
 
       <Hero data={resumeData.main} />
 

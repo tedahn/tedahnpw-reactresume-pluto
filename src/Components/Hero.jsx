@@ -1,9 +1,11 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Hero = ({ data }) => {
+  const prefersReducedMotion = useReducedMotion();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -37,7 +39,7 @@ const Hero = ({ data }) => {
         <motion.div
           className="hero-content"
           variants={containerVariants}
-          initial="hidden"
+          initial={prefersReducedMotion ? "visible" : "hidden"}
           animate="visible"
         >
           <motion.h1 className="hero-name" variants={itemVariants}>

@@ -1,8 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 const Work = ({ data }) => {
+  const prefersReducedMotion = useReducedMotion();
+
   if (!data) return null;
 
   return (
@@ -19,10 +21,10 @@ const Work = ({ data }) => {
             className="portfolio-card"
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ type: "spring", bounce: 0.4, duration: 0.8, delay: index * 0.2 }}
+            initial={prefersReducedMotion ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+            viewport={prefersReducedMotion ? undefined : { once: true, amount: 0.1 }}
+            transition={prefersReducedMotion ? undefined : { type: "spring", bounce: 0.4, duration: 0.8, delay: index * 0.2 }}
 
           >
             <div className="card-image">

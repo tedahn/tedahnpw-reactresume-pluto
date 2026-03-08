@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const Navigation = ({ activeSection }) => {
+const Navigation = ({ activeSection, name }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -24,7 +24,7 @@ const Navigation = ({ activeSection }) => {
   return (
     <nav className="nav-container">
       {/* Site Name / Logo */}
-      <a href="#home" className="nav-logo" onClick={handleLinkClick}>Ted Ahn</a>
+      <a href="#home" className="nav-logo" onClick={handleLinkClick}>{name}</a>
 
       {/* Mobile Toggle Button */}
       <div className="mobile-menu-btn" onClick={toggleMenu}>
