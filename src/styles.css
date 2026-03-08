@@ -193,6 +193,7 @@ p {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 #nav {
@@ -209,6 +210,7 @@ p {
   color: var(--text-secondary);
   position: relative;
   padding: 0.5rem 0;
+  cursor: pointer;
 }
 
 #nav li.current a,
@@ -324,6 +326,7 @@ section {
   border: 2px solid var(--glass-border) !important;
   box-shadow: none !important;
   backdrop-filter: blur(10px);
+  cursor: pointer;
 }
 
 .cta-button-outline:hover {
@@ -848,6 +851,7 @@ section {
   transition: all 0.3s ease;
   text-transform: capitalize;
   /* Ensure names look nice */
+  cursor: pointer;
 }
 
 .tech-badge .tech-icon {
@@ -940,6 +944,7 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  cursor: pointer;
 }
 
 .cta-button::before {
@@ -988,6 +993,7 @@ section {
   font-size: 1.75rem;
   color: var(--text-secondary);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
 .social-links a:hover {
@@ -1188,5 +1194,17 @@ section {
   .hero-cta-group .cta-button {
     width: 100%;
     max-width: 280px;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
