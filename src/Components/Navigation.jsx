@@ -23,6 +23,9 @@ const Navigation = ({ activeSection }) => {
 
   return (
     <nav className="nav-container">
+      {/* Site Name / Logo */}
+      <a href="#home" className="nav-logo" onClick={handleLinkClick}>Ted Ahn</a>
+
       {/* Mobile Toggle Button */}
       <div className="mobile-menu-btn" onClick={toggleMenu}>
         <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
