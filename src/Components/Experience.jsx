@@ -1,21 +1,105 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const WatermarkEntry = ({ item, index }) => {
+  const ref = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
+  const isInView = useInView(ref, { once: true, amount: 0.15 });
+
+  const isFuture = item.type === 'future';
+
+  return (
+    <div
+      ref={ref}
+      className={`exp-entry ${item.type}${isFuture ? ' exp-future' : ''}`}
+    >
+      {/* Vermillion rule separator (not on first item or future) */}
+      {index > 0 && !isFuture && (
+        <div className="exp-rule" />
+      )}
+      {isFuture && index > 0 && (
+        <div className="exp-rule exp-rule-dashed" />
+      )}
+
+      <div className="exp-entry-inner">
+        {/* Watermark company/school name */}
+        {prefersReducedMotion ? (
+          <div className="exp-watermark">
+            {item.primary}
+          </div>
+        ) : (
+          <motion.div
+            className="exp-watermark"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          >
+            {item.primary}
+          </motion.div>
+        )}
+
+        {/* Content overlay */}
+        <div className="exp-content">
+          <div className="exp-meta">
+            {item.type !== 'future' && (
+              <span className="exp-type-label">
+                {item.type === 'work' ? 'WORK' : 'EDUCATION'}
+              </span>
+            )}
+            <span className="exp-dates">{item.displayDate}</span>
+          </div>
+
+          <h3 className={`exp-title${isFuture ? ' exp-title-italic' : ''}`}>
+            {item.secondary || item.primary}
+          </h3>
+
+          {item.secondary && item.type !== 'future' && (
+            <p className="exp-company">{item.primary}</p>
+          )}
+
+          {item.location && (
+            <p className="exp-location">{item.location}</p>
+          )}
+
+          {item.details && (
+            <p className={`exp-description${isFuture ? ' exp-description-italic' : ''}`}>
+              {item.details}
+            </p>
+          )}
+
+          {/* Achievements */}
+          {item.achievements.length > 0 && (
+            <div className="exp-achievements">
+              {item.achievements.map((achievement, i) => (
+                <div key={i} className="exp-achievement">
+                  <h4>{achievement.title}</h4>
+                  <p>{achievement.desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Timeline image */}
+        {item.timelineImage && (
+          <div className="exp-image">
+            <img src={item.timelineImage} alt={`${item.primary} moment`} />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const Experience = ({ work, education }) => {
   if (!work || !education) return null;
 
-  // Helper to parse dates
-  // Helper to parse dates
   const parseDate = (dateStr) => {
     if (!dateStr) return new Date(0);
-
-    // Clean string: "Jun 2017 - Dec 2017" -> "Jun 2017"
     const startDatePart = dateStr.split('-')[0].trim();
-
-    // Split "Jun 2017" -> ["Jun", "2017"]
     const parts = startDatePart.split(' ');
-    if (parts.length < 2) return new Date(startDatePart); // Fallback
+    if (parts.length < 2) return new Date(startDatePart);
 
     const monthName = parts[0].substring(0, 3).toLowerCase();
     const year = parseInt(parts[1], 10);
@@ -29,17 +113,16 @@ const Experience = ({ work, education }) => {
       return new Date(year, months[monthName], 1);
     }
 
-    return new Date(0); // Invalid fallback
+    return new Date(0);
   };
 
-  // 1. Normalize items
   const workItems = work.map(item => ({
     ...item,
     type: 'work',
     sortDate: parseDate(item.dates),
     displayDate: item.dates,
-    status: item.status, // Pass status through
-    timelineImage: item.timelineImage, // Pass image
+    status: item.status,
+    timelineImage: item.timelineImage,
     primary: item.company,
     secondary: item.title,
     location: item.location,
@@ -50,27 +133,25 @@ const Experience = ({ work, education }) => {
   const eduItems = education.map(item => ({
     ...item,
     type: 'education',
-    sortDate: parseDate(item.graduated), // Using 'graduated' field which might contain range or single date
+    sortDate: parseDate(item.graduated),
     displayDate: item.graduated,
     status: item.status || 'Graduated',
-    timelineImage: item.timelineImage, // Pass image
+    timelineImage: item.timelineImage,
     primary: item.school,
     secondary: item.degree,
-    location: '', // Education often doesn't have location field in this JSON, but we can check
+    location: '',
     details: item.description,
-    achievements: [] // Education usually doesn't have the cards array in JSON, but could add if needed
+    achievements: []
   }));
 
-  // 2. Merge and Sort (Oldest first)
   const timelineItems = [...workItems, ...eduItems].sort((a, b) => a.sortDate - b.sortDate);
 
-  // 3. Add "Future" Item
   timelineItems.push({
     type: 'future',
-    sortDate: new Date(), // Always last
+    sortDate: new Date(),
     displayDate: '2025 & Beyond',
     status: "What's next?",
-    primary: "I'm still continuing my journey...",
+    primary: "The Next Chapter",
     secondary: '',
     location: '',
     details: "It's most likely that I'm still running around and about. I hope to one day work with you too to make valuable change and meaningful experiences!",
@@ -78,65 +159,17 @@ const Experience = ({ work, education }) => {
   });
 
   return (
-    <section id="experience" className="container">
-      <div className="section-title">
-        <h2>My <span>Journey</span></h2>
-        <p className="section-intro">
-          Hi everyone, thank you for visiting my page and for your interest. Resumes can be pretty boring to read so I've made a fun little way to look at my career and academic history. Take a look at what I've done in my career!
-        </p>
-      </div>
+    <section id="experience">
+      <div className="exp-wrapper">
+        <h2 className="exp-section-watermark">Journey</h2>
 
-      <div className="experience-timeline">
-        {timelineItems.map((item, index) => (
-          <AnimatedSection key={`${item.type}-${index}`} className={`experience-block ${item.type}`}>
-            {/* Header */}
-            <div className="company-header">
-              <div className="header-top">
-                {item.type !== 'future' && (
-                  <span className={`type-badge ${item.type}`}>
-                    {item.type === 'work' ?
-                      <><FontAwesomeIcon icon="briefcase" /> Work</> :
-                      <><FontAwesomeIcon icon="graduation-cap" /> Education</>
-                    }
-                  </span>
-                )}
-                <span className="dates">{item.displayDate}</span>
-              </div>
-
-              {/* Status Label */}
-              {item.status && (
-                <div className="status-label">
-                  {item.status}
-                </div>
-              )}
-
-              {/* Timeline Feature Image */}
-              {item.timelineImage && (
-                <div className="timeline-image-container">
-                  <img src={item.timelineImage} alt={`${item.primary} moment`} />
-                </div>
-              )}
-
-              <h3 className="gradient-text">{item.primary}</h3>
-              <p className="role">{item.secondary}</p>
-              {item.location && <p className="location">{item.location}</p>}
-              {item.details && <p className="description">{item.details}</p>}
-            </div>
-
-            {/* Achievements (Only for Work mostly, but generic enough) */}
-            {item.achievements.length > 0 && (
-              <div className="achievement-string">
-                {item.achievements.map((achievement, i) => (
-                  <div key={i} className="achievement-card">
-                    <h4><FontAwesomeIcon icon="star" className="achievement-icon" /> {achievement.title}</h4>
-                    <p>{achievement.desc}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-
-          </AnimatedSection>
-        ))}
+        <div className="exp-list">
+          {timelineItems.map((item, index) => (
+            <AnimatedSection key={`${item.type}-${index}`}>
+              <WatermarkEntry item={item} index={index} />
+            </AnimatedSection>
+          ))}
+        </div>
       </div>
     </section>
   );
