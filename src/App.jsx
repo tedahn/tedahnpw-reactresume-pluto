@@ -4,7 +4,6 @@ import Experience from './Components/Experience';
 import Work from './Components/Work';
 import Contact from './Components/Contact';
 import Social from './Components/Social';
-import ParticleBackground from './Components/ParticleBackground';
 import AnimatedSection from './Components/AnimatedSection';
 import Navigation from './Components/Navigation';
 import Hero from './Components/Hero';
@@ -43,13 +42,12 @@ function App() {
 
   return (
     <div className="App">
-      <ParticleBackground />
       <Navigation activeSection={activeSection} name={resumeData.main.name} />
 
       <Hero data={resumeData.main} />
 
       <AnimatedSection id="about" className="section">
-        <About data={resumeData.main} />
+        <About data={resumeData.main} skills={resumeData.resume.skills} />
       </AnimatedSection>
 
       <AnimatedSection id="experience" className="section">

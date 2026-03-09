@@ -1,76 +1,98 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Hero = ({ data }) => {
   const prefersReducedMotion = useReducedMotion();
+
+  const nameParts = data.name.split(' ');
+  const firstName = nameParts[0] || '';
+  const lastName = nameParts[1] || '';
+
+  const letterVariants = {
+    hidden: { opacity: 0, y: 20, rotate: -5 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotate: 0,
+      transition: { duration: 0.4, ease: 'easeOut' },
+    },
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: 0.05,
+        delayChildren: 0.1,
       },
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+  const fadeVariants = {
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: 'easeOut', delay: 0.4 },
     },
   };
 
-  const handleScroll = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const accentLineVariants = {
+    hidden: { width: 0 },
+    visible: {
+      width: 60,
+      transition: { duration: 0.6, ease: 'easeOut', delay: 0.5 },
+    },
   };
+
+  const initial = prefersReducedMotion ? 'visible' : 'hidden';
+
+  const renderLetters = (word) =>
+    word.split('').map((char, i) => (
+      <motion.span key={i} className="hero-letter" variants={letterVariants}>
+        {char}
+      </motion.span>
+    ));
 
   return (
     <section id="home" className="hero-section">
-      <div className="container">
-        <motion.div
-          className="hero-content"
+      <div className="hero-content">
+        <motion.h1
+          className="hero-name"
           variants={containerVariants}
-          initial={prefersReducedMotion ? "visible" : "hidden"}
+          initial={initial}
           animate="visible"
         >
-          <motion.h1 className="hero-name" variants={itemVariants}>
-            {data.name}
-          </motion.h1>
+          <span className="hero-name-first">{renderLetters(firstName)}</span>
+          <span className="hero-name-last">{renderLetters(lastName)}</span>
+        </motion.h1>
 
-          <motion.p className="hero-subtitle gradient-text" variants={itemVariants}>
-            {data.occupation}
+        <motion.p
+          className="hero-tagline"
+          variants={fadeVariants}
+          initial={initial}
+          animate="visible"
+        >
+          {data.occupation}
+        </motion.p>
+
+        <motion.div
+          className="hero-accent-line"
+          variants={accentLineVariants}
+          initial={initial}
+          animate="visible"
+        />
+
+        {data.availability && data.availability.collab && (
+          <motion.p
+            className="hero-status"
+            variants={fadeVariants}
+            initial={initial}
+            animate="visible"
+          >
+            Open to collaboration
           </motion.p>
-
-          <motion.p className="hero-tagline" variants={itemVariants}>
-            {data.description}
-          </motion.p>
-
-          <motion.div className="hero-cta-group" variants={itemVariants}>
-            <button
-              className="cta-button"
-              onClick={() => handleScroll('experience')}
-            >
-              <FontAwesomeIcon icon={faArrowDown} className="btn-icon" />
-              View My Journey
-            </button>
-            <button
-              className="cta-button cta-button-outline"
-              onClick={() => handleScroll('contact')}
-            >
-              <FontAwesomeIcon icon={faEnvelope} className="btn-icon" />
-              Get in Touch
-            </button>
-          </motion.div>
-        </motion.div>
+        )}
       </div>
     </section>
   );
