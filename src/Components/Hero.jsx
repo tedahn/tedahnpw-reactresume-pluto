@@ -59,6 +59,7 @@ const Hero = ({ data }) => {
       <div className="hero-content">
         <motion.h1
           className="hero-name"
+          aria-label={data.name}
           variants={containerVariants}
           initial={initial}
           animate="visible"

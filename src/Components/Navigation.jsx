@@ -21,22 +21,33 @@ const Navigation = ({ activeSection, name }) => {
     setIsMobileMenuOpen(false);
   };
 
+  const activeIndex = navItems.findIndex(item => item.id === activeSection);
+  const progressWidth = navItems.length > 1 ? ((activeIndex) / (navItems.length - 1)) * 100 : 0;
+
   return (
     <nav className="nav-container">
+      {/* Progress indicator */}
+      <div className="nav-progress" style={{ width: `${progressWidth}%` }} />
+
       {/* Site Name / Logo */}
       <a href="#home" className="nav-logo" onClick={handleLinkClick}>{name}</a>
 
       {/* Mobile Toggle Button */}
-      <div className="mobile-menu-btn" onClick={toggleMenu}>
+      <button
+        className="mobile-menu-btn"
+        onClick={toggleMenu}
+        aria-label="Menu"
+        aria-expanded={isMobileMenuOpen}
+      >
         <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
-      </div>
+      </button>
 
       {/* Navigation Links */}
       <ul id="nav" className={isMobileMenuOpen ? 'mobile-open' : ''}>
         {navItems.map(item => (
           <li key={item.id} className={activeSection === item.id ? 'current' : ''}>
-            <a 
-              className="smoothscroll" 
+            <a
+              className="smoothscroll"
               href={`#${item.id}`}
               onClick={handleLinkClick}
             >
@@ -47,9 +58,10 @@ const Navigation = ({ activeSection, name }) => {
       </ul>
 
       {/* Mobile Overlay Backdrop */}
-      <div 
+      <div
         className={`mobile-backdrop ${isMobileMenuOpen ? 'open' : ''}`}
         onClick={() => setIsMobileMenuOpen(false)}
+        aria-hidden="true"
       />
     </nav>
   );

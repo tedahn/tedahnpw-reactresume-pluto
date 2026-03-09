@@ -25,12 +25,13 @@ const WatermarkEntry = ({ item, index }) => {
       <div className="exp-entry-inner">
         {/* Watermark company/school name */}
         {prefersReducedMotion ? (
-          <div className="exp-watermark">
+          <div className="exp-watermark" aria-hidden="true">
             {item.primary}
           </div>
         ) : (
           <motion.div
             className="exp-watermark"
+            aria-hidden="true"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -161,7 +162,7 @@ const Experience = ({ work, education }) => {
   return (
     <section id="experience">
       <div className="exp-wrapper">
-        <h2 className="exp-section-watermark">Journey</h2>
+        <h2 className="exp-section-watermark" aria-hidden="true">Journey</h2>
 
         <div className="exp-list">
           {timelineItems.map((item, index) => (

@@ -12,7 +12,7 @@ const About = ({ data, skills }) => {
   return (
     <section id="about">
       <div className="about-wrapper">
-        <h2 className="about-watermark">About</h2>
+        <h2 className="about-watermark" aria-hidden="true">About</h2>
 
         <div className="about-layout">
           {/* Left Column — Pull Quote */}

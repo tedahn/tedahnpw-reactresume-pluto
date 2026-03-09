@@ -38,7 +38,7 @@ const Work = ({ data }) => {
   return (
     <section id="work">
       <div className="portfolio-wrapper">
-        <h2 className="portfolio-watermark">Projects</h2>
+        <h2 className="portfolio-watermark" aria-hidden="true">Projects</h2>
 
         <div className="portfolio-scroll-track" ref={scrollRef}>
           {data.projects.map((project, index) => (
@@ -81,7 +81,7 @@ const Work = ({ data }) => {
           ))}
         </div>
 
-        <div className="portfolio-scroll-hint">
+        <div className="portfolio-scroll-hint" aria-hidden="true">
           Scroll <FontAwesomeIcon icon={faArrowRight} />
         </div>
       </div>

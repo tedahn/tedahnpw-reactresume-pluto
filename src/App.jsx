@@ -42,6 +42,7 @@ function App() {
 
   return (
     <div className="App">
+      <a href="#about" className="skip-link">Skip to content</a>
       <Navigation activeSection={activeSection} name={resumeData.main.name} />
 
       <Hero data={resumeData.main} />
