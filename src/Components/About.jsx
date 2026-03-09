@@ -1,47 +1,66 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const About = ({ data }) => {
+const About = ({ data, skills }) => {
   if (!data) return null;
 
   const { name, bio, image, email, phone, address } = data;
-  const { street, city, state, zip } = address;
+  const { city, state, zip } = address;
+
+  const bioParagraphs = bio ? bio.split('\n\n') : [];
 
   return (
-    <section id="about" className="container">
-      <div className="section-title">
-        <h2>About <span>Me</span></h2>
-      </div>
+    <section id="about">
+      <div className="about-wrapper">
+        <h2 className="about-watermark">About</h2>
 
-      <div className="about-grid">
-        <div className="profile-container">
-          <img
-            className="profile-pic"
-            src={`images/${image}`}
-            alt={`${name} Profile Pic`}
-          />
-        </div>
-        <div className="about-content">
-          <div className="bio-card">
-            <FontAwesomeIcon icon="quote-left" className="quote-icon left" />
-            <p>{bio}</p>
-            <FontAwesomeIcon icon="quote-right" className="quote-icon right" />
+        <div className="about-layout">
+          {/* Left Column — Pull Quote */}
+          <div className="about-quote">
+            <div className="about-quote-inner">
+              {bioParagraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
           </div>
-          <div className="contact-box">
-            <h3 className="contact-name">{name}</h3>
-            <div className="address">
-              <div className="contact-row">
-                <FontAwesomeIcon icon="map-marker-alt" className="contact-icon" />
-                <span>{city} {state}, {zip}</span>
+
+          {/* Right Column — Details */}
+          <div className="about-details">
+            {image && (
+              <img
+                className="about-photo"
+                src={`images/${image}`}
+                alt={`${name} Profile Pic`}
+              />
+            )}
+
+            <h3 className="about-name">{name}</h3>
+
+            {skills && skills.length > 0 && (
+              <div className="about-skills">
+                <span className="about-detail-label">Skills</span>
+                <p className="about-skills-list">
+                  {skills.map((skill) => skill.name).join(', ')}
+                </p>
               </div>
-              <div className="contact-row">
-                <FontAwesomeIcon icon="phone" className="contact-icon" />
-                <span>{phone}</span>
-              </div>
-              <div className="contact-row">
-                <FontAwesomeIcon icon="envelope" className="contact-icon" />
-                <a href={`mailto:${email}`}>{email}</a>
-              </div>
+            )}
+
+            <div className="about-contact">
+              <span className="about-detail-label">Contact</span>
+              <ul className="about-contact-list">
+                <li>
+                  <FontAwesomeIcon icon="map-marker-alt" className="about-contact-icon" />
+                  <span>{city} {state}, {zip}</span>
+                </li>
+                <li>
+                  <FontAwesomeIcon icon="phone" className="about-contact-icon" />
+                  <span>{phone}</span>
+                </li>
+                <li>
+                  <FontAwesomeIcon icon="envelope" className="about-contact-icon" />
+                  <a href={`mailto:${email}`}>{email}</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

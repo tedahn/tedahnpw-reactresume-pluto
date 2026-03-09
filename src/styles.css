@@ -382,194 +382,150 @@ p {
   letter-spacing: 0.05em;
 }
 
-/* === About Section — Bento Grid === */
-.bento-grid {
+/* === About Section — Asymmetric Two-Column === */
+.about-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 0 8%;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+}
+
+.about-watermark {
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 8vw, 7rem);
+  color: var(--text-primary);
+  opacity: 0.1;
+  position: absolute;
+  top: -1rem;
+  left: 8%;
+  margin-bottom: 0;
+  pointer-events: none;
+  line-height: 1;
+
+  @media (max-width: 768px) {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 2rem;
+  }
+}
+
+.about-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 1.25rem;
+  grid-template-columns: 3fr 2fr;
+  gap: 4rem;
+  align-items: start;
+  padding-top: 4rem;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 0;
   }
 }
 
-.bento-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius);
-  padding: 1.75rem;
-  transition: all 0.25s ease;
+/* Left Column — Pull Quote */
+.about-quote {
+  border-left: 2px solid var(--accent);
+  padding-left: 2rem;
 
-  &:hover {
-    border-color: var(--accent-20);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.4);
+  @media (max-width: 768px) {
+    padding-left: 1.25rem;
   }
 }
 
-.bento-card-label {
+.about-quote-inner p {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Right Column — Details */
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-photo {
+  max-width: 200px;
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.about-name {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  margin-bottom: 0;
   font-weight: 500;
 }
 
-/* Bio — spans 2 columns */
-.bento-bio {
-  grid-column: 1 / 3;
-  position: relative;
-  border-left: 3px solid var(--accent-color);
-
-  .quote-icon {
-    position: absolute;
-    font-size: 1rem;
-    color: var(--accent-color);
-    opacity: 0.2;
-
-    &.left {
-      top: 1.25rem;
-      left: 1.25rem;
-    }
-
-    &.right {
-      bottom: 1.25rem;
-      right: 1.25rem;
-    }
-  }
-
-  p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    font-size: 1rem;
-    white-space: pre-wrap;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 0;
-  }
-
-  @media (max-width: 768px) {
-    grid-column: 1;
-  }
-}
-
-/* Profile Photo */
-.bento-photo {
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -8px;
-    background: var(--accent-gradient);
-    filter: blur(24px);
-    opacity: 0.12;
-    z-index: -1;
-    border-radius: 24px;
-  }
-
-  @media (max-width: 768px) {
-    grid-column: 1;
-    grid-row: auto;
-  }
-}
-
-.profile-pic {
-  width: 100%;
-  height: 100%;
-  min-height: 250px;
-  object-fit: cover;
-  border-radius: var(--border-radius);
-
-  @media (max-width: 768px) {
-    min-height: 200px;
-    max-height: 300px;
-  }
-}
-
-/* Skills Card */
-.bento-skills {
-  grid-column: 1 / 2;
-
-  @media (max-width: 768px) {
-    grid-column: 1;
-  }
-}
-
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
-}
-
-.skill-tag {
+.about-detail-label {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 6px;
-  background: var(--accent-8);
-  border: 1px solid var(--accent-15);
-  color: var(--accent-color);
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: var(--accent-15);
-    border-color: var(--accent-30);
-    transform: translateY(-1px);
-    cursor: default;
-  }
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
-/* Contact Card */
-.bento-contact {
-  grid-column: 2 / 4;
-
-  @media (max-width: 768px) {
-    grid-column: 1;
-  }
+.about-skills-list {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0;
 }
 
-.contact-rows {
+.about-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-}
+  gap: 0.5rem;
 
-.contact-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
 
   a {
-    color: var(--text-secondary);
-    transition: color 0.2s ease;
+    color: var(--accent);
+    transition: opacity var(--transition-normal);
 
     &:hover {
-      color: var(--accent-color);
+      opacity: 0.8;
     }
   }
 }
 
-.contact-icon {
-  color: var(--accent-color);
-  font-size: 0.9rem;
-  width: 18px;
+.about-contact-icon {
+  color: var(--accent);
+  font-size: 0.8rem;
+  width: 16px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 /* === Experience Timeline === */
