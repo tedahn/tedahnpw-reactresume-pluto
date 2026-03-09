@@ -46,19 +46,19 @@ function App() {
 
       <Hero data={resumeData.main} />
 
-      <AnimatedSection id="about" className="section">
+      <AnimatedSection id="about" transition="wipe-left">
         <About data={resumeData.main} skills={resumeData.resume.skills} />
       </AnimatedSection>
 
-      <AnimatedSection id="experience" className="section">
+      <AnimatedSection id="experience" transition="fade-up">
         <Experience work={resumeData.resume.work} education={resumeData.resume.education} />
       </AnimatedSection>
 
-      <AnimatedSection id="work" className="section">
+      <AnimatedSection id="work" transition="scale-in">
         <Work data={resumeData.portfolio} />
       </AnimatedSection>
 
-      <AnimatedSection id="contact" className="section">
+      <AnimatedSection id="contact" transition="fade-in">
         <Contact data={resumeData.main} />
       </AnimatedSection>
 
