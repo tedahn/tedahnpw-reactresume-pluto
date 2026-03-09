@@ -13,6 +13,9 @@ const Social = ({ data }) => {
           </a>
         ))}
       </div>
+      <p className="social-copyright">
+        &copy; {new Date().getFullYear()} {data.name}
+      </p>
     </footer>
   );
 };
