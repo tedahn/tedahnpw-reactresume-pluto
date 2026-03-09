@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+
+const HeroScene = React.lazy(() => import('./HeroScene'));
 
 const Hero = ({ data }) => {
   const prefersReducedMotion = useReducedMotion();
@@ -56,6 +58,19 @@ const Hero = ({ data }) => {
 
   return (
     <section id="home" className="hero-section">
+      {/* 3D scene — right side background */}
+      <motion.div
+        className="hero-3d-canvas"
+        aria-hidden="true"
+        initial={prefersReducedMotion ? {} : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.3 }}
+      >
+        <Suspense fallback={null}>
+          <HeroScene reducedMotion={prefersReducedMotion} />
+        </Suspense>
+      </motion.div>
+
       <div className="hero-content">
         <motion.h1
           className="hero-name"
@@ -94,14 +109,6 @@ const Hero = ({ data }) => {
             Open to collaboration
           </motion.p>
         )}
-      </div>
-
-      {/* Geometric accent */}
-      <div className="hero-geometric" aria-hidden="true">
-        <div className="hero-geo-line hero-geo-line-1" />
-        <div className="hero-geo-line hero-geo-line-2" />
-        <div className="hero-geo-line hero-geo-line-3" />
-        <div className="hero-geo-circle" />
       </div>
     </section>
   );

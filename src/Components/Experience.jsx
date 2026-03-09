@@ -1,6 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, Suspense } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
+import SectionShapes from './SectionShapes';
+const ExperienceScene3D = React.lazy(() =>
+  import('./Scene3D').then((m) => ({ default: m.ExperienceScene3D }))
+);
 
 const WatermarkEntry = ({ item, index }) => {
   const ref = useRef(null);
@@ -163,6 +167,8 @@ const Experience = ({ work, education, future }) => {
 
   return (
     <section id="experience">
+      <SectionShapes variant="experience" />
+      <Suspense fallback={null}><ExperienceScene3D /></Suspense>
       <div className="exp-wrapper">
         <h2 className="exp-section-watermark" aria-hidden="true">Journey</h2>
 

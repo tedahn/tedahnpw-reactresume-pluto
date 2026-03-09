@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SectionShapes from './SectionShapes';
+const AboutScene3D = React.lazy(() =>
+  import('./Scene3D').then((m) => ({ default: m.AboutScene3D }))
+);
 
 const About = ({ data, skills }) => {
   if (!data) return null;
@@ -11,6 +15,8 @@ const About = ({ data, skills }) => {
 
   return (
     <section id="about">
+      <SectionShapes variant="about" />
+      <Suspense fallback={null}><AboutScene3D /></Suspense>
       <div className="about-wrapper">
         <h2 className="about-watermark" aria-hidden="true">About</h2>
 
