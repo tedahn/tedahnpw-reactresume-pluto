@@ -52,7 +52,7 @@ function App() {
       </AnimatedSection>
 
       <AnimatedSection id="experience" transition="fade-up">
-        <Experience work={resumeData.resume.work} education={resumeData.resume.education} />
+        <Experience work={resumeData.resume.work} education={resumeData.resume.education} future={resumeData.future} />
       </AnimatedSection>
 
       <AnimatedSection id="work" transition="scale-in">

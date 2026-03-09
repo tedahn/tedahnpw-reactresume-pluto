@@ -93,7 +93,7 @@ const WatermarkEntry = ({ item, index }) => {
   );
 };
 
-const Experience = ({ work, education }) => {
+const Experience = ({ work, education, future }) => {
   if (!work || !education) return null;
 
   const parseDate = (dateStr) => {
@@ -147,17 +147,19 @@ const Experience = ({ work, education }) => {
 
   const timelineItems = [...workItems, ...eduItems].sort((a, b) => a.sortDate - b.sortDate);
 
-  timelineItems.push({
-    type: 'future',
-    sortDate: new Date(),
-    displayDate: '2025 & Beyond',
-    status: "What's next?",
-    primary: "The Next Chapter",
-    secondary: '',
-    location: '',
-    details: "It's most likely that I'm still running around and about. I hope to one day work with you too to make valuable change and meaningful experiences!",
-    achievements: []
-  });
+  if (future) {
+    timelineItems.push({
+      type: 'future',
+      sortDate: new Date(),
+      displayDate: future.date,
+      status: "What's next?",
+      primary: future.title,
+      secondary: '',
+      location: '',
+      details: future.description,
+      achievements: []
+    });
+  }
 
   return (
     <section id="experience">

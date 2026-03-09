@@ -54,7 +54,7 @@ const About = ({ data, skills }) => {
                 </li>
                 <li>
                   <FontAwesomeIcon icon="phone" className="about-contact-icon" />
-                  <span>{phone}</span>
+                  <a href={`tel:${phone}`}>{phone}</a>
                 </li>
                 <li>
                   <FontAwesomeIcon icon="envelope" className="about-contact-icon" />
