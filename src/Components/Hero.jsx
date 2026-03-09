@@ -94,6 +94,14 @@ const Hero = ({ data }) => {
           </motion.p>
         )}
       </div>
+
+      {/* Geometric accent */}
+      <div className="hero-geometric" aria-hidden="true">
+        <div className="hero-geo-line hero-geo-line-1" />
+        <div className="hero-geo-line hero-geo-line-2" />
+        <div className="hero-geo-line hero-geo-line-3" />
+        <div className="hero-geo-circle" />
+      </div>
     </section>
   );
 };
