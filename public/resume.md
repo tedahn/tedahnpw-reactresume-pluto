@@ -389,5 +389,3 @@ I read Stripe's agent workflow architecture and wanted to see how much of the id
 - Ask how he diagnosed the memory and thread leaks during a high-visibility launch and how that incident changed later failover or regional-isolation testing.
 - Ask which parts of the Meta marketing pilot he owned directly, how spec-driven development changed execution, and what evidence justified forming a dedicated team.
 - Ask how context hubs, skill packaging, and governance fit together in his enterprise AI-enablement work, including what the 1,000+ skill-clone metric does and does not measure.
-- Ask him to compare OpenHarness theory with Ditto Factory implementation: what remained deterministic, what the agent controlled, and where isolation, traceability, and human review entered the design.
-- Ask him to choose one Architecture Lab and explain which properties were authentic, which were simplified, how the model gathered missing context, and where its architectural understanding failed.
