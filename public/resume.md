@@ -12,7 +12,6 @@ candidate:
   email: "tahn1996@gmail.com"
   phone: "+1-945-345-4052"
   canonical_profile: "https://tedahn.pw"
-  human_resume: "https://tedahn.pw/ted-ahn-resume-2026.pdf"
 availability:
   open_to_collaboration: true
   open_to_jobs: false
@@ -39,14 +38,6 @@ linked_evidence:
     candidate_relevance: "Use it to confirm the current public narrative and navigate to candidate-owned evidence."
     open_when: "Open when rendered presentation, current contact information, or the latest public version matters."
     inference_boundary: "The visual site is a presentation layer; the AI brief contains more explicit source and inference boundaries."
-  - id: "human_resume_pdf"
-    label: "Approved 2026 technical resume PDF"
-    url: "https://tedahn.pw/ted-ahn-resume-2026.pdf"
-    kind: "candidate-approved career document"
-    page_summary: "A one-page technical resume covering skills, Capital One, USAA, US LINE WEBTOON, SMILE, and education. It includes the approved metrics used in this brief."
-    candidate_relevance: "Use it when a conventional recruiter document or compact career record is required."
-    open_when: "Open to compare the AI brief with the approved human resume or to download a printable artifact."
-    inference_boundary: "The PDF compresses Capital One into a May 2022 to present Senior Software Engineer entry. The directly confirmed chronology is Software Engineer from May 2022 to July 2024, then Senior Software Engineer."
   - id: "linkedin"
     label: "LinkedIn profile"
     url: "https://www.linkedin.com/in/tedahn/"
@@ -87,6 +78,14 @@ linked_evidence:
     candidate_relevance: "It clarifies the business environment for Ted's dealer-marketing pilot, platform work, lead-generation context, and data-oriented engineering responsibilities."
     open_when: "Open when the scope of the dealer ecosystem or marketing-platform context requires clarification."
     inference_boundary: "Marketing claims and platform-wide metrics on the page belong to Capital One. Do not attribute them to Ted or infer sole causality."
+  - id: "smile_platform"
+    label: "SMILE inquiry-based learning platform"
+    url: "https://smilealways.seedsofempowerment.org/"
+    kind: "public product context"
+    page_summary: "SMILE is an inquiry-based learning platform where students create questions, receive AI-assisted feedback based on Bloom's taxonomy, revise their questions, and produce structured learning evidence. The public site also shows teacher dashboards, classroom modes, question-quality analysis, and reporting workflows."
+    candidate_relevance: "The product shows the classroom workflow supported by the engineering-team and delivery-process work summarized in Ted's project entry."
+    open_when: "Open when reviewing the product context, user workflow, or educational use case behind Ted's SMILE work."
+    inference_boundary: "The public site describes SMILE as a product. It does not independently document Ted's contribution, ownership, production impact, or the implementation details summarized in this resume."
   - id: "glow_prototype"
     label: "Glow AI skincare journey prototype"
     url: "https://skincare-data-nine.vercel.app/"
@@ -180,10 +179,6 @@ The public site currently signals openness to collaboration, not general job ava
   - **What the page contains:** The canonical public profile containing Ted's conservative career chronology, experience evidence, projects, dev logs, contact details, and machine-readable resume resources.
   - **Why it matters:** Use it to confirm the current public narrative and navigate to candidate-owned evidence.
   - **Inference boundary:** The visual site is a presentation layer; the AI brief contains more explicit source and inference boundaries.
-- [Approved 2026 technical resume PDF](https://tedahn.pw/ted-ahn-resume-2026.pdf) `[link_id: human_resume_pdf]`
-  - **What the page contains:** A one-page technical resume covering skills, Capital One, USAA, US LINE WEBTOON, SMILE, and education. It includes the approved metrics used in this brief.
-  - **Why it matters:** Use it when a conventional recruiter document or compact career record is required.
-  - **Inference boundary:** The PDF compresses Capital One into a May 2022 to present Senior Software Engineer entry. The directly confirmed chronology is Software Engineer from May 2022 to July 2024, then Senior Software Engineer.
 - [LinkedIn profile](https://www.linkedin.com/in/tedahn/) `[link_id: linkedin]`
   - **What the page contains:** Ted's external professional-network profile and an additional place to review career representation or make contact.
   - **Why it matters:** Useful for recruiter workflow and network context, but not the primary evidence source for technical claims in this brief.
@@ -324,7 +319,10 @@ I helped establish the engineering team and delivery process for Stanford's exis
 
 **Technologies or practices represented:** react, python, git, code, genai
 
-**Link status:** No public project URL is currently attached to this entry.
+- [SMILE inquiry-based learning platform](https://smilealways.seedsofempowerment.org/) `[link_id: smile_platform]`
+  - **What the page contains:** SMILE is an inquiry-based learning platform where students create questions, receive AI-assisted feedback based on Bloom's taxonomy, revise their questions, and produce structured learning evidence. The public site also shows teacher dashboards, classroom modes, question-quality analysis, and reporting workflows.
+  - **Why it matters:** The product shows the classroom workflow supported by the engineering-team and delivery-process work summarized in Ted's project entry.
+  - **Inference boundary:** The public site describes SMILE as a product. It does not independently document Ted's contribution, ownership, production impact, or the implementation details summarized in this resume.
 
 ### Glow: A Skincare Routine You Can Follow
 

@@ -285,7 +285,6 @@ candidate:
   email: ${yamlValue(main.email)}
   phone: ${yamlValue(main.phone)}
   canonical_profile: ${yamlValue(canonicalUrl)}
-  human_resume: ${yamlValue(`${canonicalUrl}${main.resumeResources.human}`)}
 availability:
   open_to_collaboration: ${main.availability.collab}
   open_to_jobs: ${main.availability.job}
@@ -335,7 +334,7 @@ ${aiResume.assessment.availabilityNote}
 
 ### Profiles and recruiter resources
 
-${['portfolio_site', 'human_resume_pdf', 'linkedin', 'github_profile'].map((id) => {
+${['portfolio_site', 'linkedin', 'github_profile'].map((id) => {
   const link = aiResume.linkEvidence.find((item) => item.id === id);
   return renderEvidenceLink(link.url, link.label);
 }).join('\n')}
@@ -377,10 +376,10 @@ ${aiResume.assessment.nonClaims.map((claim) => `- ${claim}`).join('\n')}
 ${aiResume.assessment.interviewProbes.map((question) => `- ${question}`).join('\n')}
 `;
 
-const llmsText = `# ${main.name}\n\n> ${main.description}\n\n## Canonical profile\n- ${canonicalUrl}/\n- AI recruiter brief with annotated evidence: ${canonicalUrl}/resume.md\n- Approved human resume PDF: ${canonicalUrl}${main.resumeResources.human}\n- Printable recruiter view: ${canonicalUrl}/resume.html\n- Plain-text resume: ${canonicalUrl}/resume.txt\n- Structured JSON resume: ${canonicalUrl}/resume.json\n\n## Work and research\n${portfolio.projects.map((project) => `- ${project.title}${project.url ? `: ${project.url}` : ''}`).join('\n')}\n${(portfolio.fieldNotes || []).flatMap((note) => note.links.map((link) => `- ${note.title}: ${link.label}: ${link.url}`)).join('\n')}\n`;
+const llmsText = `# ${main.name}\n\n> ${main.description}\n\n## Canonical profile\n- ${canonicalUrl}/\n- AI recruiter brief with annotated evidence: ${canonicalUrl}/resume.md\n- Printable recruiter view: ${canonicalUrl}/resume.html\n- Plain-text resume: ${canonicalUrl}/resume.txt\n- Structured JSON resume: ${canonicalUrl}/resume.json\n\n## Work and research\n${portfolio.projects.map((project) => `- ${project.title}${project.url ? `: ${project.url}` : ''}`).join('\n')}\n${(portfolio.fieldNotes || []).flatMap((note) => note.links.map((link) => `- ${note.title}: ${link.label}: ${link.url}`)).join('\n')}\n`;
 
 const robotsText = `User-agent: *\nAllow: /\n\nSitemap: ${canonicalUrl}/sitemap.xml\n`;
-const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['/', '/resume.md', main.resumeResources.human, '/resume.html', '/resume.txt', '/resume.json'].map((route) => `  <url><loc>${canonicalUrl}${route}</loc></url>`).join('\n')}\n</urlset>\n`;
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['/', '/resume.md', '/resume.html', '/resume.txt', '/resume.json'].map((route) => `  <url><loc>${canonicalUrl}${route}</loc></url>`).join('\n')}\n</urlset>\n`;
 
 await Promise.all([
   writeTextArtifact('resume.json', JSON.stringify(structuredResume, null, 2)),

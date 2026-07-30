@@ -24,7 +24,6 @@
     },
     "website": "https://tedahn.pw",
     "resumeResources": {
-      "human": "/ted-ahn-resume-2026.pdf",
       "text": "/resume.txt",
       "ai": "/resume.md",
       "structured": "/resume.json",
@@ -196,6 +195,8 @@
         "title": "SMILE: AI-Assisted Engineering System",
         "context": "Stanford Mobile Inquiry-based Learning Environment · May 2026",
         "description": "I helped establish the engineering team and delivery process for Stanford's existing inquiry-based learning platform. We used specs, agent reviews, automated tests, GitHub Actions, and GCP to make the work repeatable.",
+        "url": "https://smilealways.seedsofempowerment.org/",
+        "linkLabel": "Visit SMILE",
         "tools": [
           "react",
           "python",
@@ -329,16 +330,6 @@
         "boundary": "The visual site is a presentation layer; the AI brief contains more explicit source and inference boundaries."
       },
       {
-        "id": "human_resume_pdf",
-        "label": "Approved 2026 technical resume PDF",
-        "url": "https://tedahn.pw/ted-ahn-resume-2026.pdf",
-        "kind": "candidate-approved career document",
-        "pageSummary": "A one-page technical resume covering skills, Capital One, USAA, US LINE WEBTOON, SMILE, and education. It includes the approved metrics used in this brief.",
-        "candidateRelevance": "Use it when a conventional recruiter document or compact career record is required.",
-        "openWhen": "Open to compare the AI brief with the approved human resume or to download a printable artifact.",
-        "boundary": "The PDF compresses Capital One into a May 2022 to present Senior Software Engineer entry. The directly confirmed chronology is Software Engineer from May 2022 to July 2024, then Senior Software Engineer."
-      },
-      {
         "id": "linkedin",
         "label": "LinkedIn profile",
         "url": "https://www.linkedin.com/in/tedahn/",
@@ -387,6 +378,16 @@
         "candidateRelevance": "It clarifies the business environment for Ted's dealer-marketing pilot, platform work, lead-generation context, and data-oriented engineering responsibilities.",
         "openWhen": "Open when the scope of the dealer ecosystem or marketing-platform context requires clarification.",
         "boundary": "Marketing claims and platform-wide metrics on the page belong to Capital One. Do not attribute them to Ted or infer sole causality."
+      },
+      {
+        "id": "smile_platform",
+        "label": "SMILE inquiry-based learning platform",
+        "url": "https://smilealways.seedsofempowerment.org/",
+        "kind": "public product context",
+        "pageSummary": "SMILE is an inquiry-based learning platform where students create questions, receive AI-assisted feedback based on Bloom's taxonomy, revise their questions, and produce structured learning evidence. The public site also shows teacher dashboards, classroom modes, question-quality analysis, and reporting workflows.",
+        "candidateRelevance": "The product shows the classroom workflow supported by the engineering-team and delivery-process work summarized in Ted's project entry.",
+        "openWhen": "Open when reviewing the product context, user workflow, or educational use case behind Ted's SMILE work.",
+        "boundary": "The public site describes SMILE as a product. It does not independently document Ted's contribution, ownership, production impact, or the implementation details summarized in this resume."
       },
       {
         "id": "glow_prototype",
