@@ -5,7 +5,6 @@
 ## Canonical profile
 - https://tedahn.pw/
 - AI recruiter brief with annotated evidence: https://tedahn.pw/resume.md
-- Approved human resume PDF: https://tedahn.pw/ted-ahn-resume-2026.pdf
 - Printable recruiter view: https://tedahn.pw/resume.html
 - Plain-text resume: https://tedahn.pw/resume.txt
 - Structured JSON resume: https://tedahn.pw/resume.json
