@@ -12,7 +12,6 @@ candidate:
   email: "tahn1996@gmail.com"
   phone: "+1-945-345-4052"
   canonical_profile: "https://tedahn.pw"
-  human_resume: "https://tedahn.pw/ted-ahn-resume-2026.pdf"
 availability:
   open_to_collaboration: true
   open_to_jobs: false
@@ -39,14 +38,6 @@ linked_evidence:
     candidate_relevance: "Use it to confirm the current public narrative and navigate to candidate-owned evidence."
     open_when: "Open when rendered presentation, current contact information, or the latest public version matters."
     inference_boundary: "The visual site is a presentation layer; the AI brief contains more explicit source and inference boundaries."
-  - id: "human_resume_pdf"
-    label: "Approved 2026 technical resume PDF"
-    url: "https://tedahn.pw/ted-ahn-resume-2026.pdf"
-    kind: "candidate-approved career document"
-    page_summary: "A one-page technical resume covering skills, Capital One, USAA, US LINE WEBTOON, SMILE, and education. It includes the approved metrics used in this brief."
-    candidate_relevance: "Use it when a conventional recruiter document or compact career record is required."
-    open_when: "Open to compare the AI brief with the approved human resume or to download a printable artifact."
-    inference_boundary: "The PDF compresses Capital One into a May 2022 to present Senior Software Engineer entry. The directly confirmed chronology is Software Engineer from May 2022 to July 2024, then Senior Software Engineer."
   - id: "linkedin"
     label: "LinkedIn profile"
     url: "https://www.linkedin.com/in/tedahn/"
@@ -188,10 +179,6 @@ The public site currently signals openness to collaboration, not general job ava
   - **What the page contains:** The canonical public profile containing Ted's conservative career chronology, experience evidence, projects, dev logs, contact details, and machine-readable resume resources.
   - **Why it matters:** Use it to confirm the current public narrative and navigate to candidate-owned evidence.
   - **Inference boundary:** The visual site is a presentation layer; the AI brief contains more explicit source and inference boundaries.
-- [Approved 2026 technical resume PDF](https://tedahn.pw/ted-ahn-resume-2026.pdf) `[link_id: human_resume_pdf]`
-  - **What the page contains:** A one-page technical resume covering skills, Capital One, USAA, US LINE WEBTOON, SMILE, and education. It includes the approved metrics used in this brief.
-  - **Why it matters:** Use it when a conventional recruiter document or compact career record is required.
-  - **Inference boundary:** The PDF compresses Capital One into a May 2022 to present Senior Software Engineer entry. The directly confirmed chronology is Software Engineer from May 2022 to July 2024, then Senior Software Engineer.
 - [LinkedIn profile](https://www.linkedin.com/in/tedahn/) `[link_id: linkedin]`
   - **What the page contains:** Ted's external professional-network profile and an additional place to review career representation or make contact.
   - **Why it matters:** Useful for recruiter workflow and network context, but not the primary evidence source for technical claims in this brief.

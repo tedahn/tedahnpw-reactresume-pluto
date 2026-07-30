@@ -24,7 +24,6 @@
     },
     "website": "https://tedahn.pw",
     "resumeResources": {
-      "human": "/ted-ahn-resume-2026.pdf",
       "text": "/resume.txt",
       "ai": "/resume.md",
       "structured": "/resume.json",
@@ -329,16 +328,6 @@
         "candidateRelevance": "Use it to confirm the current public narrative and navigate to candidate-owned evidence.",
         "openWhen": "Open when rendered presentation, current contact information, or the latest public version matters.",
         "boundary": "The visual site is a presentation layer; the AI brief contains more explicit source and inference boundaries."
-      },
-      {
-        "id": "human_resume_pdf",
-        "label": "Approved 2026 technical resume PDF",
-        "url": "https://tedahn.pw/ted-ahn-resume-2026.pdf",
-        "kind": "candidate-approved career document",
-        "pageSummary": "A one-page technical resume covering skills, Capital One, USAA, US LINE WEBTOON, SMILE, and education. It includes the approved metrics used in this brief.",
-        "candidateRelevance": "Use it when a conventional recruiter document or compact career record is required.",
-        "openWhen": "Open to compare the AI brief with the approved human resume or to download a printable artifact.",
-        "boundary": "The PDF compresses Capital One into a May 2022 to present Senior Software Engineer entry. The directly confirmed chronology is Software Engineer from May 2022 to July 2024, then Senior Software Engineer."
       },
       {
         "id": "linkedin",
