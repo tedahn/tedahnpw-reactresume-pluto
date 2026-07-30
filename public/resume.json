@@ -111,6 +111,7 @@
     {
       "name": "SMILE: AI-Assisted Engineering System",
       "description": "I helped establish the engineering team and delivery process for Stanford's existing inquiry-based learning platform. We used specs, agent reviews, automated tests, GitHub Actions, and GCP to make the work repeatable.",
+      "url": "https://smilealways.seedsofempowerment.org/",
       "keywords": [
         "react",
         "python",

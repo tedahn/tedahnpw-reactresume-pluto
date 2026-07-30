@@ -87,6 +87,14 @@ linked_evidence:
     candidate_relevance: "It clarifies the business environment for Ted's dealer-marketing pilot, platform work, lead-generation context, and data-oriented engineering responsibilities."
     open_when: "Open when the scope of the dealer ecosystem or marketing-platform context requires clarification."
     inference_boundary: "Marketing claims and platform-wide metrics on the page belong to Capital One. Do not attribute them to Ted or infer sole causality."
+  - id: "smile_platform"
+    label: "SMILE inquiry-based learning platform"
+    url: "https://smilealways.seedsofempowerment.org/"
+    kind: "public product context"
+    page_summary: "SMILE is an inquiry-based learning platform where students create questions, receive AI-assisted feedback based on Bloom's taxonomy, revise their questions, and produce structured learning evidence. The public site also shows teacher dashboards, classroom modes, question-quality analysis, and reporting workflows."
+    candidate_relevance: "The product shows the classroom workflow supported by the engineering-team and delivery-process work summarized in Ted's project entry."
+    open_when: "Open when reviewing the product context, user workflow, or educational use case behind Ted's SMILE work."
+    inference_boundary: "The public site describes SMILE as a product. It does not independently document Ted's contribution, ownership, production impact, or the implementation details summarized in this resume."
   - id: "glow_prototype"
     label: "Glow AI skincare journey prototype"
     url: "https://skincare-data-nine.vercel.app/"
@@ -324,7 +332,10 @@ I helped establish the engineering team and delivery process for Stanford's exis
 
 **Technologies or practices represented:** react, python, git, code, genai
 
-**Link status:** No public project URL is currently attached to this entry.
+- [SMILE inquiry-based learning platform](https://smilealways.seedsofempowerment.org/) `[link_id: smile_platform]`
+  - **What the page contains:** SMILE is an inquiry-based learning platform where students create questions, receive AI-assisted feedback based on Bloom's taxonomy, revise their questions, and produce structured learning evidence. The public site also shows teacher dashboards, classroom modes, question-quality analysis, and reporting workflows.
+  - **Why it matters:** The product shows the classroom workflow supported by the engineering-team and delivery-process work summarized in Ted's project entry.
+  - **Inference boundary:** The public site describes SMILE as a product. It does not independently document Ted's contribution, ownership, production impact, or the implementation details summarized in this resume.
 
 ### Glow: A Skincare Routine You Can Follow
 

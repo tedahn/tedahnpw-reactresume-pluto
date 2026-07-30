@@ -49,7 +49,7 @@ CORE SKILLS
 - GitLab CI, GitHub Actions & developer enablement
 
 SELECTED PROJECTS
-SMILE: AI-Assisted Engineering System
+SMILE: AI-Assisted Engineering System: https://smilealways.seedsofempowerment.org/
 I helped establish the engineering team and delivery process for Stanford's existing inquiry-based learning platform. We used specs, agent reviews, automated tests, GitHub Actions, and GCP to make the work repeatable.
 
 Glow: A Skincare Routine You Can Follow: https://skincare-data-nine.vercel.app/
