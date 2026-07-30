@@ -1,0 +1,56 @@
+Ted Hyounggun Ahn
+Senior Software Engineer · Backend, Infrastructure & Enterprise AI
+Carrollton, Texas · tahn1996@gmail.com · +1-945-345-4052
+https://tedahn.pw
+
+SUMMARY
+Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.
+
+EXPERIENCE
+Senior Software Engineer, Capital One
+Jul 2024 - Present · Plano, TX
+- High-Priority Product Delivery: Independently delivered a high-priority digital marketing pilot using spec-driven development. Its success helped establish a dedicated cross-functional team while parallel work stayed on track.
+- AI-Assisted Engineering: Co-developed knowledge systems and reusable context workflows for teams adopting AI-assisted development under enterprise governance.
+- Architecture and SRE Leadership: Automated failover and regional-isolation tests for cloud services to strengthen reliability standards.
+
+Software Engineer, Capital One
+May 2022 - Jul 2024 · Plano, TX
+- Patented Vehicle Data Pipeline: Designed and patented an event-driven pipeline that consolidated 3M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.
+- Reliability Under Pressure: Automated a patch and traced memory and thread leaks that threatened a high-visibility launch. The work helped prevent an outage and received the organization's inaugural award.
+
+Software Engineer, USAA
+Sep 2019 - May 2022 · Plano, TX
+- Life-Safety Messaging at Scale: Built USAA's first reactive, event-driven communications platform. It processed 1M SMS messages per hour for urgent customer notifications during severe weather and life-threatening events.
+- Greenfield Modernization: Maintained a critical 35-year-old on-premises platform while helping build its distributed replacement with OpenShift and GitLab CI. Also worked on proofs of concept, shared libraries, and security patches.
+
+Data Analyst / Software Engineer Intern, US LINE WEBTOON
+May 2017 - Dec 2017 · Los Angeles, CA
+- Recommendation Concept: Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept.
+
+2026 & Beyond
+What I want to work on next
+I want to keep working on enterprise AI, infrastructure, and backend systems, especially where better architecture can make a team faster and more reliable.
+
+EDUCATION
+Postgraduate Certificate, Artificial Intelligence and Machine Learning, University of Texas at Austin
+November 2025
+Formalized my applied ML foundation while expanding from large-scale backend engineering into model training and ML infrastructure.
+
+Bachelor of Science, Computer Science, University of Texas at Dallas
+May 2019
+Built the computer science foundation that continues to guide my work in distributed systems and software architecture.
+
+CORE SKILLS
+- Java, Python & JavaScript
+- AWS, GCP, Kubernetes & OpenShift
+- Event-driven, streaming & high-throughput systems
+- Context engineering & spec-driven development
+- Multi-agent workflows & AI-assisted engineering
+- GitLab CI, GitHub Actions & developer enablement
+
+SELECTED PROJECTS
+SMILE: AI-Assisted Engineering System
+I helped establish the engineering team and delivery process for Stanford's existing inquiry-based learning platform. We used specs, agent reviews, automated tests, GitHub Actions, and GCP to make the work repeatable.
+
+Glow: A Skincare Routine You Can Follow: https://skincare-data-nine.vercel.app/
+Skincare advice is easy to collect and hard to follow. I built Glow to turn a photo into a routine you can actually use: what goes on in the morning, what goes on at night, and how to space things through the week. It also remembers what you already own before suggesting something new. The live demo uses sample data unless analysis is configured. Cosmetic guidance only.

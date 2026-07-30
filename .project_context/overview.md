@@ -6,34 +6,45 @@
 **Product**: Ted Ahn's Personal Portfolio Website
 **Domain**: [tedahn.pw](https://tedahn.pw)
 
-This project serves as the digital headquarters for **Ted Ahn**, a Software Engineer. Its primary business purpose is to professionally represent Ted's skills, experience, and personality to the tech industry, potential employers, and collaborators.
+This project is the public professional home of **Ted Ahn**, a Senior Software Engineer. Its primary purpose is to present a concise, recruiter-facing account of Ted's career progression, technical impact, leadership, and working philosophy to hiring managers, technical leaders, and collaborators.
 
 ## Vision & Philosophy
 
-The website is designed to be a **living reflection** of Ted's professional journey. It is not just a static resume but a dynamic platform that demonstrates:
+The website is a living, public-safe reflection of Ted's professional journey:
 
-* **"Customer-Oriented" Engineering**: Passion-driven work ethics and people-driven personality.
-* **Vibrant Modernity**: A design language that is "Tech-Forward" and "Premium," utilizing **Glassmorphism**, deep dark modes, and fluid animations (Framer Motion) to capture the user's personality.
-* **Technical Excellence**: A showcase of modern web development standards (React 18, Vite, Responsive Design).
+* **Customer-Oriented Engineering**: Passion-driven work and people-driven engineering.
+* **Senior Technical Positioning**: Backend, distributed and event-driven systems, cloud infrastructure, reliability, enterprise AI, and AI-assisted engineering.
+* **Evidence-Led Storytelling**: Clear chronology, defensible metrics, shared-authorship boundaries, and public product context without overstating causality.
+* **Midnight Technical Editorial**: Deep navy surfaces, restrained teal/cyan accents, schematic spatial details, glass materials, editorial typography, and purposeful motion.
+* **Technical Excellence**: React 18, Vite, responsive layouts, semantic content structure, and locally managed visual assets.
+
+Career-content governance lives in [resume-content-governance.md](resume-content-governance.md).
 
 ## Core Components
 
-* **About**: Personal introduction and contact details.
-* **Journey (Experience)**: A unified, chronological timeline of **Education** and **Work Experience**, flowing from oldest to newest to tell a growth story.
-* **Work/Projects**: A consolidated portfolio grid showcasing significant technical projects (including AI/ML focus).
-* **Contact**: Mechanisms for direct professional outreach.
+* **Hero**: Current professional identity, positioning statement, and primary calls to action.
+* **About**: Ted's approved quotations, skills, and contact details without portrait imagery.
+* **Recruiter Resume**: A conventional reverse-chronological experience read with separate education, concise impact bullets, and public product-context cards.
+* **Work + Ideas**: Selected, inspectable software projects followed by editorial field notes about architecture research and agent workflows.
+* **Contact**: Direct professional outreach and social profiles.
 
 ## Technical Architecture
 
-* **Frontend**: React 18 (Functional Components, Hooks).
-* **Build System**: Vite (Migrated from CRA for performance).
-* **Styling Strategy**: Custom CSS architecture focusing on Glassmorphism, CSS Grid/Flexbox layouts, and Mobile Responsiveness.
-* **Deployment**: GitHub Pages (Static Hosting).
+* **Frontend**: React 18 functional components and hooks.
+* **Content Architecture**: src/resumeData.json is the only source of career content; components render data passed through the application.
+* **Build System**: Vite 5 with base ./ and output in build/.
+* **Styling**: A single custom CSS system in src/styles.css using CSS variables, Grid/Flexbox, glass materials, and a 768px responsive breakpoint.
+* **Motion and Atmosphere**: Framer Motion plus React Three Fiber/Three.js scenes.
+* **Iconography**: FontAwesome.
+* **Deployment**: GitHub Pages through the repository workflow on main or master.
 
-## Visual & Interactive Evolution (December 2024)
+## Current Experience Direction (July 2026)
 
-* **Animation**: Smooth, spring-physics based entrance animations (Framer Motion) for cards and sections.
-* **Iconography**: Transitioned from generic emojis to FontAwesome icons for professional polish (Work/Education badges, Tech Stack Pills).
-* **Timeline Redesign**: Implemented a "Schematic" timeline with glassmorphic cards, rigorous alignment, connector lines, and dynamic achievement highlighting (Golden Star system).
-* **Mobile Responsiveness**: Retrofitted the entire application with a fluid, stacked layout for small screens, featuring a custom Hamburger Menu and linear timeline adaptation.
-* **Performance**: Optimized asset delivery by resizing project images to web-friendly dimensions (512px).
+* **First Viewport**: Establish Ted's senior-engineering identity immediately rather than opening with a generic biography.
+* **Recruiter Read**: Present current experience first in a conventional resume hierarchy; make company, title, dates, location, scope, and measurable impact scannable without decoding a timeline.
+* **Resume Access**: Keep an approved recruiter PDF, a detailed Markdown brief for AI recruiters, and secondary HTML, plain-text, and JSON versions derived from the canonical site data.
+* **Impact in Context**: Pair selected experience entries with concise “Product link” cards and locally stored imagery.
+* **Work and Field Notes**: Preserve live project evidence while giving architecture research, theories, and agent-workflow experiments a distinct editorial reading surface.
+* **About**: Preserve Ted's three approved quotations and the intentionally portrait-free layout.
+* **Motion**: Retain scroll-triggered entrances, navigation behavior, project interactions, and restrained 3D atmospheric scenes.
+* **Mobile**: Preserve the hamburger navigation, readable single-column timeline, full-width cards, and no horizontal overflow.

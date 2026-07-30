@@ -7,6 +7,7 @@ import Social from './Components/Social';
 import AnimatedSection from './Components/AnimatedSection';
 import Navigation from './Components/Navigation';
 import Hero from './Components/Hero';
+import StructuredData from './Components/StructuredData';
 import resumeData from './resumeData.json';
 
 function App() {
@@ -42,26 +43,29 @@ function App() {
 
   return (
     <div className="App">
-      <a href="#about" className="skip-link">Skip to content</a>
+      <StructuredData data={resumeData} />
+      <a href="#main-content" className="skip-link">Skip to content</a>
       <Navigation activeSection={activeSection} name={resumeData.main.name} />
 
-      <Hero data={resumeData.main} />
+      <main id="main-content">
+        <Hero data={resumeData.main} />
 
-      <AnimatedSection id="about" transition="wipe-left">
-        <About data={resumeData.main} skills={resumeData.resume.skills} />
-      </AnimatedSection>
+        <AnimatedSection transition="wipe-left">
+          <About data={resumeData.main} skills={resumeData.resume.skills} />
+        </AnimatedSection>
 
-      <AnimatedSection id="experience" transition="fade-up">
-        <Experience work={resumeData.resume.work} education={resumeData.resume.education} future={resumeData.future} />
-      </AnimatedSection>
+        <AnimatedSection transition="fade-up">
+          <Experience work={resumeData.resume.work} education={resumeData.resume.education} future={resumeData.future} />
+        </AnimatedSection>
 
-      <AnimatedSection id="work" transition="scale-in">
-        <Work data={resumeData.portfolio} />
-      </AnimatedSection>
+        <AnimatedSection transition="scale-in">
+          <Work data={resumeData.portfolio} />
+        </AnimatedSection>
 
-      <AnimatedSection id="contact" transition="fade-in">
-        <Contact data={resumeData.main} />
-      </AnimatedSection>
+        <AnimatedSection transition="fade-in">
+          <Contact data={resumeData.main} />
+        </AnimatedSection>
+      </main>
 
       <Social data={resumeData.main} />
     </div>

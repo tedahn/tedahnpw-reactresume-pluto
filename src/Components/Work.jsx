@@ -1,180 +1,151 @@
-import React, { useRef, useState, useEffect, useCallback, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { motion, useReducedMotion } from 'framer-motion';
 import SectionShapes from './SectionShapes';
+
 const WorksScene3D = React.lazy(() =>
-  import('./Scene3D').then((m) => ({ default: m.WorksScene3D }))
+  import('./Scene3D').then((module) => ({ default: module.WorksScene3D }))
+);
+
+const getToolIcon = (tool) => {
+  const specialIcons = {
+    pandas: { icon: 'chart-line', prefix: 'fas' },
+    sklearn: { icon: 'brain', prefix: 'fas' },
+    tensorflow: { icon: 'brain', prefix: 'fas' },
+    nlp: { icon: 'robot', prefix: 'fas' },
+    genai: { icon: 'robot', prefix: 'fas' },
+    vision: { icon: 'eye', prefix: 'fas' },
+    data: { icon: 'database', prefix: 'fas' },
+    database: { icon: 'database', prefix: 'fas' },
+    code: { icon: 'code', prefix: 'fas' },
+    'framer-motion': { icon: 'code', prefix: 'fas' },
+  };
+
+  if (specialIcons[tool]) {
+    return [specialIcons[tool].prefix, specialIcons[tool].icon];
+  }
+
+  return ['fab', tool];
+};
+
+const ProjectCard = ({ project, index, prefersReducedMotion }) => {
+  const Card = project.url ? motion.a : motion.article;
+  const linkProps = project.url
+    ? { href: project.url, target: '_blank', rel: 'noopener noreferrer' }
+    : {};
+
+  return (
+    <Card
+      {...linkProps}
+      className={`project-proof-card${project.featured ? ' project-proof-card--featured' : ''}`}
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.45, ease: 'easeOut', delay: Math.min(index * 0.07, 0.2) }}
+    >
+      {project.image && (
+        <div className="project-proof-image">
+          <img src={project.image} alt="" loading="lazy" decoding="async" />
+        </div>
+      )}
+      <div className="project-proof-content">
+        {project.context && <p className="project-proof-context">{project.context}</p>}
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        {project.tools?.length > 0 && (
+          <ul className="project-tools" aria-label="Technologies">
+            {project.tools.map((tool) => (
+              <li key={tool}>
+                <FontAwesomeIcon icon={getToolIcon(tool)} aria-hidden="true" />
+                {tool}
+              </li>
+            ))}
+          </ul>
+        )}
+        {project.url && (
+          <span className="project-proof-link">
+            {project.linkLabel || 'View project'} <FontAwesomeIcon icon={faArrowRight} aria-hidden="true" />
+          </span>
+        )}
+      </div>
+    </Card>
+  );
+};
+
+const FieldNote = ({ note, index, prefersReducedMotion }) => (
+  <motion.article
+    className="field-note"
+    initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
+    whileInView={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
+    viewport={{ once: true, amount: 0.25 }}
+    transition={{ duration: 0.4, ease: 'easeOut', delay: Math.min(index * 0.08, 0.2) }}
+  >
+    <div className="field-note-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
+    <div className="field-note-body">
+      <p className="field-note-type">{note.type}</p>
+      <h3>{note.title}</h3>
+      <p>{note.summary}</p>
+      <p className="field-note-question"><strong>Question:</strong> {note.question}</p>
+      <div className="field-note-links">
+        {note.links.map((link) => (
+          <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer">
+            {link.label} <FontAwesomeIcon icon={faArrowRight} aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </motion.article>
 );
 
 const Work = ({ data }) => {
   const prefersReducedMotion = useReducedMotion();
-  const scrollRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
 
   if (!data) return null;
-
-  const projects = data.projects;
-  const totalCards = projects.length;
-
-  const updateScrollState = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const { scrollLeft, scrollWidth, clientWidth } = el;
-    setCanScrollLeft(scrollLeft > 10);
-    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
-
-    // Determine active card based on scroll position
-    const cardWidth = el.querySelector('.portfolio-card')?.offsetWidth || 0;
-    const gap = 32; // 2rem gap
-    if (cardWidth > 0) {
-      const index = Math.round(scrollLeft / (cardWidth + gap));
-      setActiveIndex(Math.min(index, totalCards - 1));
-    }
-  }, [totalCards]);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    updateScrollState();
-    el.addEventListener('scroll', updateScrollState, { passive: true });
-    window.addEventListener('resize', updateScrollState);
-    return () => {
-      el.removeEventListener('scroll', updateScrollState);
-      window.removeEventListener('resize', updateScrollState);
-    };
-  }, [updateScrollState]);
-
-  const scrollToCard = useCallback((index) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const card = el.querySelectorAll('.portfolio-card')[index];
-    if (card) {
-      card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
-  }, []);
-
-  const scrollPrev = useCallback(() => {
-    const next = Math.max(0, activeIndex - 1);
-    scrollToCard(next);
-  }, [activeIndex, scrollToCard]);
-
-  const scrollNext = useCallback(() => {
-    const next = Math.min(totalCards - 1, activeIndex + 1);
-    scrollToCard(next);
-  }, [activeIndex, totalCards, scrollToCard]);
-
-  const getToolIcon = (tool) => {
-    let iconName = tool;
-    let prefix = 'fab';
-
-    const specialIcons = {
-      'pandas': { icon: 'chart-line', prefix: 'fas' },
-      'sklearn': { icon: 'brain', prefix: 'fas' },
-      'tensorflow': { icon: 'brain', prefix: 'fas' },
-      'nlp': { icon: 'robot', prefix: 'fas' },
-      'genai': { icon: 'robot', prefix: 'fas' },
-      'vision': { icon: 'eye', prefix: 'fas' },
-      'data': { icon: 'database', prefix: 'fas' },
-      'code': { icon: 'code', prefix: 'fas' },
-      'framer-motion': { icon: 'code', prefix: 'fas' }
-    };
-
-    if (specialIcons[tool]) {
-      iconName = specialIcons[tool].icon;
-      prefix = specialIcons[tool].prefix;
-    } else if (['chart-line', 'database', 'eye', 'brain', 'robot'].includes(tool)) {
-      prefix = 'fas';
-    }
-
-    return [prefix, iconName];
-  };
 
   return (
     <section id="work">
       <SectionShapes variant="portfolio" />
       <Suspense fallback={null}><WorksScene3D /></Suspense>
-      <div className="portfolio-wrapper">
-        <h2 className="portfolio-watermark" aria-hidden="true">Projects</h2>
+      <div className="work-wrapper">
+        <header className="section-intro work-section-intro">
+          <p className="section-eyebrow">Work</p>
+          <h2>Projects</h2>
+          <p>Here are some things I&apos;ve worked on.</p>
+        </header>
 
-        <div className="portfolio-scroll-container">
-          {canScrollLeft && (
-            <button
-              className="portfolio-nav-btn portfolio-nav-btn--prev"
-              onClick={scrollPrev}
-              aria-label="Previous project"
-            >
-              <FontAwesomeIcon icon={faChevronLeft} />
-            </button>
-          )}
-
-          <div className="portfolio-scroll-track" ref={scrollRef}>
-            {projects.map((project, index) => (
-              <motion.a
+        <section className="project-proof-section" aria-labelledby="project-proof-heading">
+          <h3 id="project-proof-heading" className="visually-hidden">Projects</h3>
+          <div className="project-proof-grid">
+            {data.projects.map((project, index) => (
+              <ProjectCard
                 key={project.title}
-                href={project.url}
-                className="portfolio-card"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={prefersReducedMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-                whileInView={prefersReducedMotion ? undefined : { opacity: 1, scale: 1 }}
-                viewport={prefersReducedMotion ? undefined : { once: true, amount: 0.3 }}
-                transition={prefersReducedMotion ? undefined : { duration: 0.6, ease: 'easeOut', delay: index * 0.15 }}
-              >
-                <div className="portfolio-card-image">
-                  <img alt={project.title} src={project.image} />
-                </div>
-                <div className="portfolio-card-overlay" />
-                <div className="portfolio-card-content">
-                  <h3 className="portfolio-card-title">{project.title}</h3>
-                  <p className="portfolio-card-desc">{project.description}</p>
-                  <div className="portfolio-card-tools">
-                    {project.tools && project.tools.map((tool, i) => (
-                      <React.Fragment key={tool}>
-                        <span className="portfolio-tool">
-                          <FontAwesomeIcon icon={getToolIcon(tool)} className="portfolio-tool-icon" />
-                          {tool}
-                        </span>
-                        {i < project.tools.length - 1 && (
-                          <span className="portfolio-tool-sep">&middot;</span>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                  <span className="portfolio-card-link">
-                    View Project <FontAwesomeIcon icon={faArrowRight} />
-                  </span>
-                </div>
-              </motion.a>
+                project={project}
+                index={index}
+                prefersReducedMotion={prefersReducedMotion}
+              />
             ))}
           </div>
+        </section>
 
-          {canScrollRight && (
-            <button
-              className="portfolio-nav-btn portfolio-nav-btn--next"
-              onClick={scrollNext}
-              aria-label="Next project"
-            >
-              <FontAwesomeIcon icon={faChevronRight} />
-            </button>
-          )}
-        </div>
-
-        <div className="portfolio-indicators">
-          {projects.map((project, index) => (
-            <button
-              key={project.title}
-              className={`portfolio-dot${index === activeIndex ? ' portfolio-dot--active' : ''}`}
-              onClick={() => scrollToCard(index)}
-              aria-label={`Go to project: ${project.title}`}
-            />
-          ))}
-          <span className="portfolio-counter">
-            {activeIndex + 1} / {totalCards}
-          </span>
-        </div>
+        {data.fieldNotes?.length > 0 && (
+          <section className="field-notes-section" aria-labelledby="field-notes-heading">
+            <div className="work-subhead">
+              <p>Short reads</p>
+              <h3 id="field-notes-heading">Personal dev logs</h3>
+            </div>
+            <div className="field-notes-list">
+              {data.fieldNotes.map((note, index) => (
+                <FieldNote
+                  key={note.title}
+                  note={note}
+                  index={index}
+                  prefersReducedMotion={prefersReducedMotion}
+                />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </section>
   );

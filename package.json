@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "generate:resume": "node scripts/generate-resume-assets.mjs",
+    "predev": "npm run generate:resume",
     "dev": "vite",
+    "prebuild": "npm run generate:resume",
     "build": "vite build",
     "preview": "vite preview"
   },

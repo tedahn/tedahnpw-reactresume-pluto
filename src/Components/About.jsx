@@ -56,7 +56,7 @@ const About = ({ data, skills }) => {
               <ul className="about-contact-list">
                 <li>
                   <FontAwesomeIcon icon="map-marker-alt" className="about-contact-icon" />
-                  <span>{city} {state}, {zip}</span>
+                  <span>{[city, state].filter(Boolean).join(', ')}{zip ? ` ${zip}` : ''}</span>
                 </li>
                 <li>
                   <FontAwesomeIcon icon="phone" className="about-contact-icon" />

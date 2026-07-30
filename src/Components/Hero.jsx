@@ -92,6 +92,15 @@ const Hero = ({ data }) => {
           {data.occupation}
         </motion.p>
 
+        <motion.p
+          className="hero-intro"
+          variants={fadeVariants}
+          initial={initial}
+          animate="visible"
+        >
+          {data.description}
+        </motion.p>
+
         <motion.div
           className="hero-accent-line"
           variants={accentLineVariants}
@@ -109,6 +118,36 @@ const Hero = ({ data }) => {
             Open to collaboration
           </motion.p>
         )}
+
+        <motion.div
+          className="hero-actions"
+          variants={fadeVariants}
+          initial={initial}
+          animate="visible"
+        >
+          <a className="hero-cta hero-cta--primary" href="#experience">View experience</a>
+          {data.resumeResources?.human && (
+            <a
+              className="hero-cta hero-cta--secondary"
+              href={data.resumeResources.human}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open resume
+            </a>
+          )}
+          {data.resumeResources?.ai && (
+            <a
+              className="hero-cta hero-cta--quiet"
+              href={data.resumeResources.ai}
+              target="_blank"
+              rel="noopener noreferrer"
+              type="text/markdown"
+            >
+              Resume for AI (.md)
+            </a>
+          )}
+        </motion.div>
       </div>
     </section>
   );

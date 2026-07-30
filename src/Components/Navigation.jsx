@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Navigation = ({ activeSection, name }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') setIsMobileMenuOpen(false);
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
+
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
-    { id: 'work', label: 'Works' },
+    { id: 'work', label: 'Work + Ideas' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -25,7 +34,7 @@ const Navigation = ({ activeSection, name }) => {
   const progressWidth = navItems.length > 1 ? ((activeIndex) / (navItems.length - 1)) * 100 : 0;
 
   return (
-    <nav className="nav-container">
+    <nav className="nav-container" aria-label="Primary navigation">
       {/* Progress indicator */}
       <div className="nav-progress" style={{ width: `${progressWidth}%` }} />
 
@@ -36,8 +45,9 @@ const Navigation = ({ activeSection, name }) => {
       <button
         className="mobile-menu-btn"
         onClick={toggleMenu}
-        aria-label="Menu"
+        aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
         aria-expanded={isMobileMenuOpen}
+        aria-controls="nav"
       >
         <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
       </button>
@@ -58,10 +68,12 @@ const Navigation = ({ activeSection, name }) => {
       </ul>
 
       {/* Mobile Overlay Backdrop */}
-      <div
+      <button
+        type="button"
         className={`mobile-backdrop ${isMobileMenuOpen ? 'open' : ''}`}
         onClick={() => setIsMobileMenuOpen(false)}
-        aria-hidden="true"
+        aria-label="Close navigation menu"
+        tabIndex={isMobileMenuOpen ? 0 : -1}
       />
     </nav>
   );
