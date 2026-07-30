@@ -1,99 +1,64 @@
-import React, { useRef, Suspense } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
-import AnimatedSection from './AnimatedSection';
+import React, { Suspense } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SectionShapes from './SectionShapes';
 const ExperienceScene3D = React.lazy(() =>
   import('./Scene3D').then((m) => ({ default: m.ExperienceScene3D }))
 );
 
-const WatermarkEntry = ({ item, index }) => {
-  const ref = useRef(null);
+const ResumeEntry = ({ item, index }) => {
   const prefersReducedMotion = useReducedMotion();
-  const isInView = useInView(ref, { once: true, amount: 0.15 });
-
-  const isFuture = item.type === 'future';
 
   return (
-    <div
-      ref={ref}
-      className={`exp-entry ${item.type}${isFuture ? ' exp-future' : ''}`}
+    <motion.article
+      className="resume-entry"
+      initial={prefersReducedMotion ? false : { opacity: 0, y: 24 }}
+      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.45, ease: 'easeOut', delay: Math.min(index * 0.06, 0.2) }}
     >
-      {/* Vermillion rule separator (not on first item or future) */}
-      {index > 0 && !isFuture && (
-        <div className="exp-rule" />
-      )}
-      {isFuture && index > 0 && (
-        <div className="exp-rule exp-rule-dashed" />
-      )}
-
-      <div className="exp-entry-inner">
-        {/* Watermark company/school name */}
-        {prefersReducedMotion ? (
-          <div className="exp-watermark" aria-hidden="true">
-            {item.primary}
-          </div>
-        ) : (
-          <motion.div
-            className="exp-watermark"
-            aria-hidden="true"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-          >
-            {item.primary}
-          </motion.div>
-        )}
-
-        {/* Content overlay */}
-        <div className="exp-content">
-          <div className="exp-meta">
-            {item.type !== 'future' && (
-              <span className="exp-type-label">
-                {item.type === 'work' ? 'WORK' : 'EDUCATION'}
-              </span>
-            )}
-            <span className="exp-dates">{item.displayDate}</span>
-          </div>
-
-          <h3 className={`exp-title${isFuture ? ' exp-title-italic' : ''}`}>
-            {item.secondary || item.primary}
-          </h3>
-
-          {item.secondary && item.type !== 'future' && (
-            <p className="exp-company">{item.primary}</p>
-          )}
-
-          {item.location && (
-            <p className="exp-location">{item.location}</p>
-          )}
-
-          {item.details && (
-            <p className={`exp-description${isFuture ? ' exp-description-italic' : ''}`}>
-              {item.details}
-            </p>
-          )}
-
-          {/* Achievements */}
-          {item.achievements.length > 0 && (
-            <div className="exp-achievements">
-              {item.achievements.map((achievement, i) => (
-                <div key={i} className="exp-achievement">
-                  <h4>{achievement.title}</h4>
-                  <p>{achievement.desc}</p>
-                </div>
-              ))}
-            </div>
-          )}
+      <header className="resume-entry-header">
+        <div>
+          <p className="resume-entry-kicker">{item.status}</p>
+          <h3>{item.title}</h3>
+          <p className="resume-entry-organization">{item.organization}</p>
         </div>
+        <div className="resume-entry-meta">
+          <time>{item.date}</time>
+          {item.location && <span>{item.location}</span>}
+        </div>
+      </header>
 
-        {/* Timeline image */}
-        {item.timelineImage && (
-          <div className="exp-image">
-            <img src={item.timelineImage} alt={`${item.primary} moment`} />
-          </div>
-        )}
-      </div>
-    </div>
+      {item.description && <p className="resume-entry-summary">{item.description}</p>}
+
+      {item.achievements.length > 0 && (
+        <ul className="resume-impact-list">
+          {item.achievements.map((achievement) => (
+            <li key={achievement.title}>
+              <strong>{achievement.title}.</strong> {achievement.desc}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {item.contextLinks?.length > 0 && (
+        <div className="resume-context-links">
+          {item.contextLinks.map((link) => (
+            <a key={link.url} href={link.url} target="_blank" rel="noreferrer">
+              {link.image && (
+                <img src={link.image} alt={link.imageAlt || ''} loading="lazy" decoding="async" />
+              )}
+              <span>
+                <small>Product context</small>
+                <strong>{link.label}</strong>
+                <span>{link.context}</span>
+              </span>
+              <FontAwesomeIcon icon="arrow-right" aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+      )}
+    </motion.article>
   );
 };
 
@@ -123,61 +88,56 @@ const Experience = ({ work, education, future }) => {
 
   const workItems = work.map(item => ({
     ...item,
-    type: 'work',
     sortDate: parseDate(item.dates),
-    displayDate: item.dates,
-    status: item.status,
-    timelineImage: item.timelineImage,
-    primary: item.company,
-    secondary: item.title,
-    location: item.location,
-    details: item.description,
+    organization: item.company,
+    date: item.dates,
     achievements: item.achievements || []
-  }));
+  })).sort((a, b) => b.sortDate - a.sortDate);
 
   const eduItems = education.map(item => ({
     ...item,
-    type: 'education',
     sortDate: parseDate(item.graduated),
-    displayDate: item.graduated,
-    status: item.status || 'Graduated',
-    timelineImage: item.timelineImage,
-    primary: item.school,
-    secondary: item.degree,
+    organization: item.school,
+    title: item.degree,
+    date: item.graduated,
     location: '',
-    details: item.description,
     achievements: []
-  }));
-
-  const timelineItems = [...workItems, ...eduItems].sort((a, b) => a.sortDate - b.sortDate);
-
-  if (future) {
-    timelineItems.push({
-      type: 'future',
-      sortDate: new Date(),
-      displayDate: future.date,
-      status: "What's next?",
-      primary: future.title,
-      secondary: '',
-      location: '',
-      details: future.description,
-      achievements: []
-    });
-  }
+  })).sort((a, b) => b.sortDate - a.sortDate);
 
   return (
     <section id="experience">
       <SectionShapes variant="experience" />
       <Suspense fallback={null}><ExperienceScene3D /></Suspense>
-      <div className="exp-wrapper">
-        <h2 className="exp-section-watermark" aria-hidden="true">Journey</h2>
+      <div className="resume-wrapper">
+        <header className="section-intro resume-section-intro">
+          <p className="section-eyebrow">Resume</p>
+          <h2>Experience</h2>
+        </header>
 
-        <div className="exp-list">
-          {timelineItems.map((item, index) => (
-            <AnimatedSection key={`${item.type}-${index}`}>
-              <WatermarkEntry item={item} index={index} />
-            </AnimatedSection>
-          ))}
+        <div className="resume-layout">
+          <div className="resume-main">
+            <div className="resume-entry-list">
+              {workItems.map((item, index) => (
+                <ResumeEntry key={`${item.company}-${item.dates}`} item={item} index={index} />
+              ))}
+            </div>
+            {future && (
+              <div className="resume-focus-card resume-focus-card--experience">
+                <p className="resume-entry-kicker">{future.date}</p>
+                <h3>{future.title}</h3>
+                <p>{future.description}</p>
+              </div>
+            )}
+          </div>
+
+          <aside className="resume-sidebar" aria-label="Education and current focus">
+            <h3 className="resume-group-heading">Education</h3>
+            <div className="resume-education-list">
+              {eduItems.map((item, index) => (
+                <ResumeEntry key={`${item.school}-${item.graduated}`} item={item} index={index} />
+              ))}
+            </div>
+          </aside>
         </div>
       </div>
     </section>

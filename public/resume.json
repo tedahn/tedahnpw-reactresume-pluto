@@ -1,0 +1,167 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
+  "basics": {
+    "name": "Ted Hyounggun Ahn",
+    "label": "Senior Software Engineer · Backend, Infrastructure & Enterprise AI",
+    "email": "tahn1996@gmail.com",
+    "phone": "+1-945-345-4052",
+    "url": "https://tedahn.pw",
+    "summary": "Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.",
+    "location": {
+      "city": "Carrollton",
+      "region": "Texas",
+      "countryCode": "US"
+    },
+    "profiles": [
+      {
+        "network": "linkedin",
+        "url": "https://www.linkedin.com/in/tedahn/"
+      },
+      {
+        "network": "github",
+        "url": "https://github.com/tedahn"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "US LINE WEBTOON",
+      "position": "Data Analyst / Software Engineer Intern",
+      "location": "Los Angeles, CA",
+      "startDate": "May 2017",
+      "endDate": "Dec 2017",
+      "summary": "Recommendation Concept",
+      "highlights": [
+        "Recommendation Concept: Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept."
+      ]
+    },
+    {
+      "name": "USAA",
+      "position": "Software Engineer",
+      "location": "Plano, TX",
+      "startDate": "Sep 2019",
+      "endDate": "May 2022",
+      "summary": "Enterprise Communications",
+      "highlights": [
+        "Life-Safety Messaging at Scale: Built USAA's first reactive, event-driven communications platform. It processed 1M SMS messages per hour for urgent customer notifications during severe weather and life-threatening events.",
+        "Greenfield Modernization: Maintained a critical 35-year-old on-premises platform while helping build its distributed replacement with OpenShift and GitLab CI. Also worked on proofs of concept, shared libraries, and security patches."
+      ]
+    },
+    {
+      "name": "Capital One",
+      "position": "Software Engineer",
+      "location": "Plano, TX",
+      "startDate": "May 2022",
+      "endDate": "Jul 2024",
+      "summary": "Auto Navigator Modernization",
+      "highlights": [
+        "Patented Vehicle Data Pipeline: Designed and patented an event-driven pipeline that consolidated 3M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.",
+        "Reliability Under Pressure: Automated a patch and traced memory and thread leaks that threatened a high-visibility launch. The work helped prevent an outage and received the organization's inaugural award."
+      ]
+    },
+    {
+      "name": "Capital One",
+      "position": "Senior Software Engineer",
+      "location": "Plano, TX",
+      "startDate": "Jul 2024",
+      "endDate": "Present",
+      "summary": "Promoted · Enterprise Platforms & AI Enablement",
+      "highlights": [
+        "High-Priority Product Delivery: Independently delivered a high-priority digital marketing pilot using spec-driven development. Its success helped establish a dedicated cross-functional team while parallel work stayed on track.",
+        "AI-Assisted Engineering: Co-developed knowledge systems and reusable context workflows for teams adopting AI-assisted development under enterprise governance.",
+        "Architecture and SRE Leadership: Automated failover and regional-isolation tests for cloud services to strengthen reliability standards."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Texas at Dallas",
+      "studyType": "Bachelor of Science, Computer Science",
+      "endDate": "May 2019",
+      "summary": "Built the computer science foundation that continues to guide my work in distributed systems and software architecture."
+    },
+    {
+      "institution": "University of Texas at Austin",
+      "studyType": "Postgraduate Certificate, Artificial Intelligence and Machine Learning",
+      "endDate": "November 2025",
+      "summary": "Formalized my applied ML foundation while expanding from large-scale backend engineering into model training and ML infrastructure."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Java, Python & JavaScript"
+    },
+    {
+      "name": "AWS, GCP, Kubernetes & OpenShift"
+    },
+    {
+      "name": "Event-driven, streaming & high-throughput systems"
+    },
+    {
+      "name": "Context engineering & spec-driven development"
+    },
+    {
+      "name": "Multi-agent workflows & AI-assisted engineering"
+    },
+    {
+      "name": "GitLab CI, GitHub Actions & developer enablement"
+    }
+  ],
+  "projects": [
+    {
+      "name": "SMILE: AI-Assisted Engineering System",
+      "description": "I helped establish the engineering team and delivery process for Stanford's existing inquiry-based learning platform. We used specs, agent reviews, automated tests, GitHub Actions, and GCP to make the work repeatable.",
+      "keywords": [
+        "react",
+        "python",
+        "git",
+        "code",
+        "genai"
+      ]
+    },
+    {
+      "name": "Glow: A Skincare Routine You Can Follow",
+      "description": "Skincare advice is easy to collect and hard to follow. I built Glow to turn a photo into a routine you can actually use: what goes on in the morning, what goes on at night, and how to space things through the week. It also remembers what you already own before suggesting something new. The live demo uses sample data unless analysis is configured. Cosmetic guidance only.",
+      "url": "https://skincare-data-nine.vercel.app/",
+      "keywords": []
+    }
+  ],
+  "fieldNotes": [
+    {
+      "name": "Testing architectural understanding through implementation",
+      "type": "Architecture Lab / Model evaluation",
+      "summary": "Architecture Lab started when Fable 5 came out and more people were discussing the systems behind major tech products. I wanted to see whether the model could do more than explain those systems, so I asked it to rebuild their critical paths from public engineering material. The demos were not intended for production. They showed how the model found context, handled business-specific constraints, and where its understanding broke down.",
+      "question": "Can a model demonstrate that it understands a real architecture by reconstructing its critical path?",
+      "links": [
+        {
+          "label": "Recreating a Netflix architecture: Per-shot encoding",
+          "url": "https://tedahn.github.io/architecture-lab-netflix-per-shot-encoding/"
+        },
+        {
+          "label": "Recreating a Steam architecture: Marketplace matching",
+          "url": "https://tedahn.github.io/architecture-lab-steam-marketplace/"
+        },
+        {
+          "label": "Recreating a Spotify architecture: Recommendation systems",
+          "url": "https://tedahn.github.io/architecture-lab-discoverify/"
+        }
+      ]
+    },
+    {
+      "name": "From agent architecture to enterprise workflows",
+      "type": "Agent systems / Theory and implementation",
+      "summary": "I read Stripe's agent workflow architecture and wanted to see how much of the idea would hold up in practice. Open Agent Architectures records the theory. Ditto Factory is the attempt to build it under enterprise engineering constraints.",
+      "question": "What survives when an agent workflow moves from architecture notes into a working platform?",
+      "links": [
+        {
+          "label": "Explore the idea",
+          "url": "https://tedahn.github.io/open-agent-harness-page/"
+        },
+        {
+          "label": "Inspect the implementation",
+          "url": "https://github.com/tedahn/ditto-factory"
+        }
+      ]
+    }
+  ]
+}
