@@ -196,6 +196,8 @@
         "title": "SMILE: AI-Assisted Engineering System",
         "context": "Stanford Mobile Inquiry-based Learning Environment · May 2026",
         "description": "I helped establish the engineering team and delivery process for Stanford's existing inquiry-based learning platform. We used specs, agent reviews, automated tests, GitHub Actions, and GCP to make the work repeatable.",
+        "url": "https://smilealways.seedsofempowerment.org/",
+        "linkLabel": "Visit SMILE",
         "tools": [
           "react",
           "python",
@@ -387,6 +389,16 @@
         "candidateRelevance": "It clarifies the business environment for Ted's dealer-marketing pilot, platform work, lead-generation context, and data-oriented engineering responsibilities.",
         "openWhen": "Open when the scope of the dealer ecosystem or marketing-platform context requires clarification.",
         "boundary": "Marketing claims and platform-wide metrics on the page belong to Capital One. Do not attribute them to Ted or infer sole causality."
+      },
+      {
+        "id": "smile_platform",
+        "label": "SMILE inquiry-based learning platform",
+        "url": "https://smilealways.seedsofempowerment.org/",
+        "kind": "public product context",
+        "pageSummary": "SMILE is an inquiry-based learning platform where students create questions, receive AI-assisted feedback based on Bloom's taxonomy, revise their questions, and produce structured learning evidence. The public site also shows teacher dashboards, classroom modes, question-quality analysis, and reporting workflows.",
+        "candidateRelevance": "The product shows the classroom workflow supported by the engineering-team and delivery-process work summarized in Ted's project entry.",
+        "openWhen": "Open when reviewing the product context, user workflow, or educational use case behind Ted's SMILE work.",
+        "boundary": "The public site describes SMILE as a product. It does not independently document Ted's contribution, ownership, production impact, or the implementation details summarized in this resume."
       },
       {
         "id": "glow_prototype",
