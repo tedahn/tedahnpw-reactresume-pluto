@@ -1,0 +1,20 @@
+# Ted Ahn
+
+> Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.
+
+## Canonical profile
+- https://tedahn.pw/
+- AI recruiter brief with annotated evidence: https://tedahn.pw/resume.md
+- Approved human resume PDF: https://tedahn.pw/ted-ahn-resume-2026.pdf
+- Printable recruiter view: https://tedahn.pw/resume.html
+- Plain-text resume: https://tedahn.pw/resume.txt
+- Structured JSON resume: https://tedahn.pw/resume.json
+
+## Work and research
+- SMILE: AI-Assisted Engineering System
+- Glow: A Skincare Routine You Can Follow: https://skincare-data-nine.vercel.app/
+- Testing architectural understanding through implementation: Recreating a Netflix architecture: Per-shot encoding: https://tedahn.github.io/architecture-lab-netflix-per-shot-encoding/
+- Testing architectural understanding through implementation: Recreating a Steam architecture: Marketplace matching: https://tedahn.github.io/architecture-lab-steam-marketplace/
+- Testing architectural understanding through implementation: Recreating a Spotify architecture: Recommendation systems: https://tedahn.github.io/architecture-lab-discoverify/
+- From agent architecture to enterprise workflows: Explore the idea: https://tedahn.github.io/open-agent-harness-page/
+- From agent architecture to enterprise workflows: Inspect the implementation: https://github.com/tedahn/ditto-factory
