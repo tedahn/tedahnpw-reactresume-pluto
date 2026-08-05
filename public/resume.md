@@ -78,22 +78,6 @@ linked_evidence:
     candidate_relevance: "It clarifies the business environment for Ted's dealer-marketing pilot, platform work, lead-generation context, and data-oriented engineering responsibilities."
     open_when: "Open when the scope of the dealer ecosystem or marketing-platform context requires clarification."
     inference_boundary: "Marketing claims and platform-wide metrics on the page belong to Capital One. Do not attribute them to Ted or infer sole causality."
-  - id: "smile_platform"
-    label: "SMILE inquiry-based learning platform"
-    url: "https://smilealways.seedsofempowerment.org/"
-    kind: "public product context"
-    page_summary: "SMILE is an inquiry-based learning platform where students create questions, receive AI-assisted feedback based on Bloom's taxonomy, revise their questions, and produce structured learning evidence. The public site also shows teacher dashboards, classroom modes, question-quality analysis, and reporting workflows."
-    candidate_relevance: "The product shows the classroom workflow supported by the engineering-team and delivery-process work summarized in Ted's project entry."
-    open_when: "Open when reviewing the product context, user workflow, or educational use case behind Ted's SMILE work."
-    inference_boundary: "The public site describes SMILE as a product. It does not independently document Ted's contribution, ownership, production impact, or the implementation details summarized in this resume."
-  - id: "glow_prototype"
-    label: "Glow AI skincare journey prototype"
-    url: "https://skincare-data-nine.vercel.app/"
-    kind: "candidate-owned private prototype demonstration"
-    page_summary: "Glow is a private cross-platform product prototype. A face scan starts a record that can be compared over time instead of producing a one-off score. The current build captures a selfie, returns structured cosmetic observations, creates AM/PM steps and a weekly plan, saves analysis history, retrieves catalog matches, and supports shelf scanning and comparison. The longer-term idea is to connect skin history, routines, owned products, and catalog data so the app can explain changes and recommend what the user already owns before suggesting a purchase."
-    candidate_relevance: "Ted worked across the full product stack: React Native and TypeScript, multimodal model calls, structured-output validation, catalog retrieval, persistence, safety checks, and model evaluation. The interface also tells users when it is showing sample data."
-    open_when: "Open when evaluating product sense, end-to-end applied-AI architecture, retrieval and evaluation design, or the ability to turn an uncertain model output into an understandable consumer workflow."
-    inference_boundary: "This is a private prototype and product exploration. The live sample can use mock data when live model analysis is not configured, and the interface identifies that state. Guidance is cosmetic only; no diagnosis, clinical efficacy, production adoption, revenue, or external-user scale is claimed."
   - id: "netflix_architecture_lab"
     label: "Recreating a Netflix architecture: per-shot encoding"
     url: "https://tedahn.github.io/architecture-lab-netflix-per-shot-encoding/"
@@ -309,32 +293,6 @@ Formalized my applied ML foundation while expanding from large-scale backend eng
 
 Built the computer science foundation that continues to guide my work in distributed systems and software architecture.
 
-## Selected projects
-
-### SMILE: AI-Assisted Engineering System
-
-**Context:** Stanford Mobile Inquiry-based Learning Environment | May 2026
-
-I helped establish the engineering team and delivery process for Stanford's existing inquiry-based learning platform. We used specs, agent reviews, automated tests, GitHub Actions, and GCP to make the work repeatable.
-
-**Technologies or practices represented:** react, python, git, code, genai
-
-- [SMILE inquiry-based learning platform](https://smilealways.seedsofempowerment.org/) `[link_id: smile_platform]`
-  - **What the page contains:** SMILE is an inquiry-based learning platform where students create questions, receive AI-assisted feedback based on Bloom's taxonomy, revise their questions, and produce structured learning evidence. The public site also shows teacher dashboards, classroom modes, question-quality analysis, and reporting workflows.
-  - **Why it matters:** The product shows the classroom workflow supported by the engineering-team and delivery-process work summarized in Ted's project entry.
-  - **Inference boundary:** The public site describes SMILE as a product. It does not independently document Ted's contribution, ownership, production impact, or the implementation details summarized in this resume.
-
-### Glow: A Skincare Routine You Can Follow
-
-**Context:** Personal project | Live demo
-
-Skincare advice is easy to collect and hard to follow. I built Glow to turn a photo into a routine you can actually use: what goes on in the morning, what goes on at night, and how to space things through the week. It also remembers what you already own before suggesting something new. The live demo uses sample data unless analysis is configured. Cosmetic guidance only.
-
-- [Glow AI skincare journey prototype](https://skincare-data-nine.vercel.app/) `[link_id: glow_prototype]`
-  - **What the page contains:** Glow is a private cross-platform product prototype. A face scan starts a record that can be compared over time instead of producing a one-off score. The current build captures a selfie, returns structured cosmetic observations, creates AM/PM steps and a weekly plan, saves analysis history, retrieves catalog matches, and supports shelf scanning and comparison. The longer-term idea is to connect skin history, routines, owned products, and catalog data so the app can explain changes and recommend what the user already owns before suggesting a purchase.
-  - **Why it matters:** Ted worked across the full product stack: React Native and TypeScript, multimodal model calls, structured-output validation, catalog retrieval, persistence, safety checks, and model evaluation. The interface also tells users when it is showing sample data.
-  - **Inference boundary:** This is a private prototype and product exploration. The live sample can use mock data when live model analysis is not configured, and the interface identifies that state. Guidance is cosmetic only; no diagnosis, clinical efficacy, production adoption, revenue, or external-user scale is claimed.
-
 ## Research and dev logs
 
 ### Testing architectural understanding through implementation
@@ -380,7 +338,6 @@ I read Stripe's agent workflow architecture and wanted to see how much of the id
 - The public evidence supports senior individual-contributor scope; it does not establish formal engineering-management responsibility.
 - Architecture Lab projects show architectural reasoning and implementation practice. They do not establish production experience operating systems at Netflix, Valve, or Spotify scale.
 - First-party Capital One and USAA links explain product or mission context; they do not attribute all page-level capabilities or company outcomes to Ted.
-- Glow is a cosmetic-guidance prototype, not a medical product or evidence of clinical efficacy.
 - No revenue, unique-user adoption, enterprise-customer adoption, or company-wide causality should be inferred unless explicitly stated in an approved claim.
 
 ## High-value interview probes

@@ -174,13 +174,15 @@ const textLines = [
   ]),
   'CORE SKILLS',
   ...resume.skills.map((skill) => `- ${skill.name}`),
-  '',
-  'SELECTED PROJECTS',
-  ...portfolio.projects.flatMap((project) => [
-    `${project.title}${project.url ? `: ${project.url}` : ''}`,
-    project.description,
+  ...(portfolio.projects.length > 0 ? [
     '',
-  ]),
+    'SELECTED PROJECTS',
+    ...portfolio.projects.flatMap((project) => [
+      `${project.title}${project.url ? `: ${project.url}` : ''}`,
+      project.description,
+      '',
+    ]),
+  ] : []),
 ];
 
 const workHtml = resume.work.slice().reverse().map((role) => `
@@ -227,7 +229,7 @@ const resumeHtml = `<!doctype html>
     <p class="summary">${escapeHtml(main.description)}</p>
     <section><h2>Experience</h2>${workHtml}${future ? `<article><header><div><h3>${escapeHtml(future.title)}</h3></div><p>${escapeHtml(future.date)}</p></header><p>${escapeHtml(future.description)}</p></article>` : ''}</section>
     <section><h2>Education</h2>${educationHtml}</section>
-    <section><h2>Selected projects</h2>${projectsHtml}</section>
+${portfolio.projects.length > 0 ? `    <section><h2>Selected projects</h2>${projectsHtml}</section>` : ''}
     <section><h2>Core skills</h2><ul class="skills">${resume.skills.map((skill) => `<li>${escapeHtml(skill.name)}</li>`).join('')}</ul></section>
   </main>
 </body>
@@ -359,11 +361,11 @@ ${resume.skills.map((skill) => `- ${skill.name}`).join('\n')}
 
 ${educationMarkdown}
 
-## Selected projects
+${portfolio.projects.length > 0 ? `## Selected projects
 
 ${projectMarkdown}
 
-## Research and dev logs
+` : ''}## Research and dev logs
 
 ${fieldNotesMarkdown}
 

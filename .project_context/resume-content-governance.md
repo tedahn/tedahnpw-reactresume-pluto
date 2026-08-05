@@ -48,7 +48,6 @@ The current public narrative emphasizes:
 - A patented event-driven Auto Navigator data integration processing 3M+ vehicle records daily
 - A reactive USAA communications platform processing 1M SMS messages per hour
 - Distributed systems, reliability, cloud-native infrastructure, and responsible AI-assisted engineering
-- SMILE engineering-team and delivery-system work dated May 2026
 - UT Austin Postgraduate Certificate in Artificial Intelligence and Machine Learning, November 2025
 
 Preserve these About-section quotations unless Ted explicitly requests a change:
@@ -63,6 +62,7 @@ Preserve these About-section quotations unless Ted explicitly requests a change:
 - Never hardcode biography, employment, education, achievements, projects, links, or contact details in components.
 - Adapt source material for web scanning; do not paste long resume bullets verbatim.
 - Preserve chronology, authorship, metrics, and attribution.
+- Keep the public project showcase omitted. Do not reintroduce SMILE or Glow project cards or generated resume entries unless Ted explicitly requests them.
 - Keep public product links contextual and retain their local static images under public/images/impact/.
 - Do not reintroduce generated portraits. The current design is intentionally portrait-free.
 - Avoid duplicate claims across the hero, About, timeline, projects, and closing section.
@@ -78,4 +78,3 @@ For career-content changes:
 5. Run npm run build.
 6. Inspect desktop and 390px-class mobile layouts, including an impact-link card.
 7. Report anything intentionally withheld or unresolved.
-

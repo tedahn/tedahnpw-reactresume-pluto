@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-const Navigation = ({ activeSection, name }) => {
+const Navigation = ({ activeSection, name, hasProjects }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Navigation = ({ activeSection, name }) => {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
-    { id: 'work', label: 'Work + Ideas' },
+    { id: 'work', label: hasProjects ? 'Work + Ideas' : 'Ideas' },
     { id: 'contact', label: 'Contact' }
   ];
 

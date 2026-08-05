@@ -10,8 +10,7 @@
 - Structured JSON resume: https://tedahn.pw/resume.json
 
 ## Work and research
-- SMILE: AI-Assisted Engineering System: https://smilealways.seedsofempowerment.org/
-- Glow: A Skincare Routine You Can Follow: https://skincare-data-nine.vercel.app/
+
 - Testing architectural understanding through implementation: Recreating a Netflix architecture: Per-shot encoding: https://tedahn.github.io/architecture-lab-netflix-per-shot-encoding/
 - Testing architectural understanding through implementation: Recreating a Steam architecture: Marketplace matching: https://tedahn.github.io/architecture-lab-steam-marketplace/
 - Testing architectural understanding through implementation: Recreating a Spotify architecture: Recommendation systems: https://tedahn.github.io/architecture-lab-discoverify/

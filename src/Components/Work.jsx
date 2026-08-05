@@ -100,8 +100,11 @@ const FieldNote = ({ note, index, prefersReducedMotion }) => (
 
 const Work = ({ data }) => {
   const prefersReducedMotion = useReducedMotion();
+  const projects = data?.projects || [];
+  const fieldNotes = data?.fieldNotes || [];
+  const fieldNotesHeadingId = 'field-notes-heading';
 
-  if (!data) return null;
+  if (!projects.length && !fieldNotes.length) return null;
 
   return (
     <section id="work">
@@ -109,33 +112,42 @@ const Work = ({ data }) => {
       <Suspense fallback={null}><WorksScene3D /></Suspense>
       <div className="work-wrapper">
         <header className="section-intro work-section-intro">
-          <p className="section-eyebrow">Work</p>
-          <h2>Projects</h2>
-          <p>Here are some things I&apos;ve worked on.</p>
+          <p className="section-eyebrow">{projects.length ? 'Work' : 'Short reads'}</p>
+          <h2 id={projects.length ? undefined : fieldNotesHeadingId}>
+            {projects.length ? 'Projects' : 'Personal dev logs'}
+          </h2>
+          {projects.length > 0 && <p>Here are some things I&apos;ve worked on.</p>}
         </header>
 
-        <section className="project-proof-section" aria-labelledby="project-proof-heading">
-          <h3 id="project-proof-heading" className="visually-hidden">Projects</h3>
-          <div className="project-proof-grid">
-            {data.projects.map((project, index) => (
-              <ProjectCard
-                key={project.title}
-                project={project}
-                index={index}
-                prefersReducedMotion={prefersReducedMotion}
-              />
-            ))}
-          </div>
-        </section>
-
-        {data.fieldNotes?.length > 0 && (
-          <section className="field-notes-section" aria-labelledby="field-notes-heading">
-            <div className="work-subhead">
-              <p>Short reads</p>
-              <h3 id="field-notes-heading">Personal dev logs</h3>
+        {projects.length > 0 && (
+          <section className="project-proof-section" aria-labelledby="project-proof-heading">
+            <h3 id="project-proof-heading" className="visually-hidden">Projects</h3>
+            <div className="project-proof-grid">
+              {projects.map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  index={index}
+                  prefersReducedMotion={prefersReducedMotion}
+                />
+              ))}
             </div>
+          </section>
+        )}
+
+        {fieldNotes.length > 0 && (
+          <section
+            className={`field-notes-section${projects.length ? '' : ' field-notes-section--standalone'}`}
+            aria-labelledby={fieldNotesHeadingId}
+          >
+            {projects.length > 0 ? (
+              <div className="work-subhead">
+                <p>Short reads</p>
+                <h3 id={fieldNotesHeadingId}>Personal dev logs</h3>
+              </div>
+            ) : null}
             <div className="field-notes-list">
-              {data.fieldNotes.map((note, index) => (
+              {fieldNotes.map((note, index) => (
                 <FieldNote
                   key={note.title}
                   note={note}

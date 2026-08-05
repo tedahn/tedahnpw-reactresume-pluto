@@ -25,7 +25,7 @@ Career-content governance lives in [resume-content-governance.md](resume-content
 * **Hero**: Current professional identity, positioning statement, and primary calls to action.
 * **About**: Ted's approved quotations, skills, and contact details without portrait imagery.
 * **Recruiter Resume**: A conventional reverse-chronological experience read with separate education, concise impact bullets, and public product-context cards.
-* **Work + Ideas**: Selected, inspectable software projects followed by editorial field notes about architecture research and agent workflows.
+* **Ideas**: Editorial field notes about architecture research and agent workflows.
 * **Contact**: Direct professional outreach and social profiles.
 
 ## Technical Architecture
@@ -44,7 +44,7 @@ Career-content governance lives in [resume-content-governance.md](resume-content
 * **Recruiter Read**: Present current experience first in a conventional resume hierarchy; make company, title, dates, location, scope, and measurable impact scannable without decoding a timeline.
 * **Resume Access**: Keep an approved recruiter PDF, a detailed Markdown brief for AI recruiters, and secondary HTML, plain-text, and JSON versions derived from the canonical site data.
 * **Impact in Context**: Pair selected experience entries with concise “Product link” cards and locally stored imagery.
-* **Work and Field Notes**: Preserve live project evidence while giving architecture research, theories, and agent-workflow experiments a distinct editorial reading surface.
+* **Field Notes**: Give architecture research, theories, and agent-workflow experiments a distinct editorial reading surface without a separate project showcase.
 * **About**: Preserve Ted's three approved quotations and the intentionally portrait-free layout.
-* **Motion**: Retain scroll-triggered entrances, navigation behavior, project interactions, and restrained 3D atmospheric scenes.
+* **Motion**: Retain scroll-triggered entrances, navigation behavior, field-note interactions, and restrained 3D atmospheric scenes.
 * **Mobile**: Preserve the hamburger navigation, readable single-column timeline, full-width cards, and no horizontal overflow.

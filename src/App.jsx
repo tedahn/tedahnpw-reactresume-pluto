@@ -45,7 +45,11 @@ function App() {
     <div className="App">
       <StructuredData data={resumeData} />
       <a href="#main-content" className="skip-link">Skip to content</a>
-      <Navigation activeSection={activeSection} name={resumeData.main.name} />
+      <Navigation
+        activeSection={activeSection}
+        name={resumeData.main.name}
+        hasProjects={resumeData.portfolio?.projects?.length > 0}
+      />
 
       <main id="main-content">
         <Hero data={resumeData.main} />

@@ -1906,6 +1906,10 @@ p {
   margin-top: clamp(5rem, 10vw, 9rem);
 }
 
+.field-notes-section--standalone {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
 .work-subhead {
   display: grid;
   grid-template-columns: minmax(140px, 0.35fr) 1fr;
