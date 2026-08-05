@@ -107,26 +107,7 @@
       "name": "GitLab CI, GitHub Actions & developer enablement"
     }
   ],
-  "projects": [
-    {
-      "name": "SMILE: AI-Assisted Engineering System",
-      "description": "I helped establish the engineering team and delivery process for Stanford's existing inquiry-based learning platform. We used specs, agent reviews, automated tests, GitHub Actions, and GCP to make the work repeatable.",
-      "url": "https://smilealways.seedsofempowerment.org/",
-      "keywords": [
-        "react",
-        "python",
-        "git",
-        "code",
-        "genai"
-      ]
-    },
-    {
-      "name": "Glow: A Skincare Routine You Can Follow",
-      "description": "Skincare advice is easy to collect and hard to follow. I built Glow to turn a photo into a routine you can actually use: what goes on in the morning, what goes on at night, and how to space things through the week. It also remembers what you already own before suggesting something new. The live demo uses sample data unless analysis is configured. Cosmetic guidance only.",
-      "url": "https://skincare-data-nine.vercel.app/",
-      "keywords": []
-    }
-  ],
+  "projects": [],
   "fieldNotes": [
     {
       "name": "Testing architectural understanding through implementation",
