@@ -1,82 +1,41 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-const Navigation = ({ activeSection, name, hasProjects }) => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const items = [{ id: 'experience', label: 'Experience' }, { id: 'work', label: 'Work' }, { id: 'notes', label: 'Notes' }, { id: 'contact', label: 'Contact' }];
 
+export default function Navigation({ name }) {
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState('');
+  const toggle = useRef(null);
   useEffect(() => {
-    const handleEscape = (event) => {
-      if (event.key === 'Escape') setIsMobileMenuOpen(false);
+    const onKey = event => {
+      if (event.key === 'Escape' && open) { setOpen(false); toggle.current?.focus(); }
     };
-
-    window.addEventListener('keydown', handleEscape);
-    return () => window.removeEventListener('keydown', handleEscape);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+  useEffect(() => {
+    const update = () => {
+      let current = '';
+      for (const { id } of items) {
+        if (document.getElementById(id)?.getBoundingClientRect().top <= 160) current = id;
+      }
+      setActive(current);
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
   }, []);
-
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'work', label: hasProjects ? 'Work + Ideas' : 'Ideas' },
-    { id: 'contact', label: 'Contact' }
-  ];
-
-  const toggleMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const handleLinkClick = () => {
-    setIsMobileMenuOpen(false);
-  };
-
-  const activeIndex = navItems.findIndex(item => item.id === activeSection);
-  const progressWidth = navItems.length > 1 ? ((activeIndex) / (navItems.length - 1)) * 100 : 0;
-
   return (
-    <nav className="nav-container" aria-label="Primary navigation">
-      {/* Progress indicator */}
-      <div className="nav-progress" style={{ width: `${progressWidth}%` }} />
-
-      {/* Site Name / Logo */}
-      <a href="#home" className="nav-logo" onClick={handleLinkClick}>{name}</a>
-
-      {/* Mobile Toggle Button */}
-      <button
-        className="mobile-menu-btn"
-        onClick={toggleMenu}
-        aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-        aria-expanded={isMobileMenuOpen}
-        aria-controls="nav"
-      >
-        <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
-      </button>
-
-      {/* Navigation Links */}
-      <ul id="nav" className={isMobileMenuOpen ? 'mobile-open' : ''}>
-        {navItems.map(item => (
-          <li key={item.id} className={activeSection === item.id ? 'current' : ''}>
-            <a
-              className="smoothscroll"
-              href={`#${item.id}`}
-              onClick={handleLinkClick}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      {/* Mobile Overlay Backdrop */}
-      <button
-        type="button"
-        className={`mobile-backdrop ${isMobileMenuOpen ? 'open' : ''}`}
-        onClick={() => setIsMobileMenuOpen(false)}
-        aria-label="Close navigation menu"
-        tabIndex={isMobileMenuOpen ? 0 : -1}
-      />
-    </nav>
+    <header className="site-header">
+      <nav className="navigation" aria-label="Primary navigation">
+        <a className="wordmark" href="#home" onClick={() => setOpen(false)}>{name}<span aria-hidden="true">.</span></a>
+        <button type="button" className="menu-toggle" ref={toggle} aria-expanded={open} aria-controls="primary-links" aria-label={open ? 'Close navigation' : 'Open navigation'} onClick={() => setOpen(value => !value)}><FontAwesomeIcon icon={open ? faXmark : faBars} aria-hidden="true" /></button>
+        <ul id="primary-links" className={open ? 'nav-links is-open' : 'nav-links'}>
+          {items.map(item => <li key={item.id}><a href={`#${item.id}`} aria-current={active === item.id ? 'location' : undefined} onClick={() => setOpen(false)}>{item.label}</a></li>)}
+        </ul>
+      </nav>
+    </header>
   );
-};
-
-export default Navigation;
+}

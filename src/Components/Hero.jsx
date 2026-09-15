@@ -1,156 +1,30 @@
-import React, { Suspense } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown, faArrowUpRightFromSquare, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
-const HeroScene = React.lazy(() => import('./HeroScene'));
-
-const Hero = ({ data }) => {
-  const prefersReducedMotion = useReducedMotion();
-
-  const nameParts = data.name.split(' ');
-  const firstName = nameParts[0] || '';
-  const lastName = nameParts[1] || '';
-
-  const letterVariants = {
-    hidden: { opacity: 0, y: 20, rotate: -5 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotate: 0,
-      transition: { duration: 0.4, ease: 'easeOut' },
-    },
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const fadeVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.6, ease: 'easeOut', delay: 0.4 },
-    },
-  };
-
-  const accentLineVariants = {
-    hidden: { width: 0 },
-    visible: {
-      width: 60,
-      transition: { duration: 0.6, ease: 'easeOut', delay: 0.5 },
-    },
-  };
-
-  const initial = prefersReducedMotion ? 'visible' : 'hidden';
-
-  const renderLetters = (word) =>
-    word.split('').map((char, i) => (
-      <motion.span key={i} className="hero-letter" variants={letterVariants}>
-        {char}
-      </motion.span>
-    ));
-
+export default function Hero({ data }) {
+  const initials = data.name.split(' ').map(part => part[0]).join('');
   return (
-    <section id="home" className="hero-section">
-      {/* 3D scene — right side background */}
-      <motion.div
-        className="hero-3d-canvas"
-        aria-hidden="true"
-        initial={prefersReducedMotion ? {} : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5, delay: 0.3 }}
-      >
-        <Suspense fallback={null}>
-          <HeroScene reducedMotion={prefersReducedMotion} />
-        </Suspense>
-      </motion.div>
-
-      <div className="hero-content">
-        <motion.h1
-          className="hero-name"
-          aria-label={data.name}
-          variants={containerVariants}
-          initial={initial}
-          animate="visible"
-        >
-          <span className="hero-name-first">{renderLetters(firstName)}</span>
-          <span className="hero-name-last">{renderLetters(lastName)}</span>
-        </motion.h1>
-
-        <motion.p
-          className="hero-tagline"
-          variants={fadeVariants}
-          initial={initial}
-          animate="visible"
-        >
-          {data.occupation}
-        </motion.p>
-
-        <motion.p
-          className="hero-intro"
-          variants={fadeVariants}
-          initial={initial}
-          animate="visible"
-        >
-          {data.description}
-        </motion.p>
-
-        <motion.div
-          className="hero-accent-line"
-          variants={accentLineVariants}
-          initial={initial}
-          animate="visible"
-        />
-
-        {data.availability && data.availability.collab && (
-          <motion.p
-            className="hero-status"
-            variants={fadeVariants}
-            initial={initial}
-            animate="visible"
-          >
-            Open to collaboration
-          </motion.p>
-        )}
-
-        <motion.div
-          className="hero-actions"
-          variants={fadeVariants}
-          initial={initial}
-          animate="visible"
-        >
-          <a className="hero-cta hero-cta--primary" href="#experience">View experience</a>
-          {data.resumeResources?.human && (
-            <a
-              className="hero-cta hero-cta--secondary"
-              href={data.resumeResources.human}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open resume
-            </a>
-          )}
-          {data.resumeResources?.ai && (
-            <a
-              className="hero-cta hero-cta--quiet"
-              href={data.resumeResources.ai}
-              target="_blank"
-              rel="noopener noreferrer"
-              type="text/markdown"
-            >
-              Resume for AI (.md)
-            </a>
-          )}
-        </motion.div>
+    <section id="home" className="profile-card" aria-labelledby="profile-name">
+      <div className="profile-banner" aria-hidden="true" />
+      <div className="profile-body">
+        <div className="profile-monogram" aria-hidden="true">{initials}<span>.</span></div>
+        <p className="eyebrow">{data.profileLabel}</p>
+        <h1 id="profile-name">{data.name}</h1>
+        <p className="profile-role">{data.occupation}</p>
+        <p className="profile-description">{data.description}</p>
+        <p className="profile-location"><FontAwesomeIcon icon={faLocationDot} aria-hidden="true" />{data.basecity}, {data.address.state}</p>
+        <div className="profile-actions">
+          <a className="button button-primary" href={data.resumeResources.printable}>View resume <FontAwesomeIcon icon={faArrowUpRightFromSquare} aria-hidden="true" /></a>
+          <a className="button button-secondary" href={`mailto:${data.email}`}><FontAwesomeIcon icon={faEnvelope} aria-hidden="true" /> Email me</a>
+        </div>
+        <div className="profile-socials">
+          {data.social.filter(network => network.url.startsWith('https://')).map(network => (
+            <a key={network.name} href={network.url} target="_blank" rel="noopener noreferrer">{network.name === 'github' ? 'GitHub' : 'LinkedIn'} <FontAwesomeIcon icon={faArrowUpRightFromSquare} aria-hidden="true" /></a>
+          ))}
+        </div>
       </div>
+      <a className="profile-explore" href="#work">Explore selected work <FontAwesomeIcon icon={faArrowDown} aria-hidden="true" /></a>
     </section>
   );
-};
-
-export default Hero;
+}

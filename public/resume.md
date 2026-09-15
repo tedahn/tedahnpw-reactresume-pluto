@@ -7,7 +7,7 @@ last_verified: "2026-07-27"
 candidate:
   full_name: "Ted Hyounggun Ahn"
   preferred_name: "Ted Ahn"
-  current_title: "Senior Software Engineer | Backend, Infrastructure & Enterprise AI"
+  current_title: "Senior Software Engineer | Backend & AI Infrastructure"
   location: "Carrollton, Texas, US"
   email: "tahn1996@gmail.com"
   phone: "+1-945-345-4052"
@@ -118,6 +118,14 @@ linked_evidence:
     candidate_relevance: "Ditto Factory tests whether the OpenHarness ideas can run as infrastructure. It covers orchestration, isolated execution, state, collaboration, deployment, and traceable workflows."
     open_when: "Open when source-level evidence is needed for the transition from agent-architecture theory to implementation."
     inference_boundary: "Treat Ditto Factory as Ted's own platform experiment. Do not infer production adoption, enterprise customer use, or reliability at organizational scale without additional evidence."
+  - id: "dynamic_agent_research"
+    label: "Dynamic Agent Skill Research"
+    url: "https://github.com/tedahn/dynamic-agents-research"
+    kind: "candidate-owned evaluation research"
+    page_summary: "Research into single-agent, static-team, and dynamic-team approaches. The README reports runtime feasibility in observed probes and unresolved instrumentation limits."
+    candidate_relevance: "Shows the evaluation question, negative findings, and boundaries around agent-performance claims."
+    open_when: "Open when evaluating agent experimentation or evidence quality."
+    inference_boundary: "Dynamic superiority and default adoption are not established; instrumentation failures are not model-quality findings."
 ---
 
 # Ted Ahn: AI recruiter brief
@@ -135,9 +143,9 @@ linked_evidence:
 
 Senior Software Engineer with 6+ years of experience in event-driven backend systems, cloud infrastructure, reliability, enterprise AI tooling, and personal architecture research.
 
-**Current public positioning:** Senior Software Engineer | Backend, Infrastructure & Enterprise AI  
-**Location:** Carrollton, Texas  
-**Experience:** 6+ years  
+**Current public positioning:** Senior Software Engineer | Backend & AI Infrastructure
+**Location:** Carrollton, Texas
+**Experience:** 6+ years
 **Contact:** tahn1996@gmail.com | +1-945-345-4052
 
 ### Strongest supported fit
@@ -178,8 +186,8 @@ The public site currently signals openness to collaboration, not general job ava
 
 ### Senior Software Engineer, Capital One
 
-**Dates:** Jul 2024 - Present  
-**Location:** Plano, TX  
+**Dates:** Jul 2024 - Present
+**Location:** Plano, TX
 **Scope marker:** Promoted | Enterprise Platforms & AI Enablement
 
 - **High-Priority Product Delivery:** Independently delivered a high-priority digital marketing pilot using spec-driven development. Its success helped establish a dedicated cross-functional team while parallel work stayed on track.
@@ -195,8 +203,8 @@ The public site currently signals openness to collaboration, not general job ava
 
 ### Software Engineer, Capital One
 
-**Dates:** May 2022 - Jul 2024  
-**Location:** Plano, TX  
+**Dates:** May 2022 - Jul 2024
+**Location:** Plano, TX
 **Scope marker:** Auto Navigator Modernization
 
 - **Patented Vehicle Data Pipeline:** Designed and patented an event-driven pipeline that consolidated 3M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.
@@ -211,8 +219,8 @@ The public site currently signals openness to collaboration, not general job ava
 
 ### Software Engineer, USAA
 
-**Dates:** Sep 2019 - May 2022  
-**Location:** Plano, TX  
+**Dates:** Sep 2019 - May 2022
+**Location:** Plano, TX
 **Scope marker:** Enterprise Communications
 
 - **Life-Safety Messaging at Scale:** Built USAA's first reactive, event-driven communications platform. It processed 1M SMS messages per hour for urgent customer notifications during severe weather and life-threatening events.
@@ -227,8 +235,8 @@ The public site currently signals openness to collaboration, not general job ava
 
 ### Data Analyst / Software Engineer Intern, US LINE WEBTOON
 
-**Dates:** May 2017 - Dec 2017  
-**Location:** Los Angeles, CA  
+**Dates:** May 2017 - Dec 2017
+**Location:** Los Angeles, CA
 **Scope marker:** Recommendation Concept
 
 - **Recommendation Concept:** Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept.
@@ -281,17 +289,49 @@ Ted built USAA's first reactive, event-driven communications platform, processin
 
 ### Postgraduate Certificate, Artificial Intelligence and Machine Learning
 
-**Institution:** University of Texas at Austin  
+**Institution:** University of Texas at Austin
 **Completed:** November 2025
 
 Formalized my applied ML foundation while expanding from large-scale backend engineering into model training and ML infrastructure.
 
 ### Bachelor of Science, Computer Science
 
-**Institution:** University of Texas at Dallas  
+**Institution:** University of Texas at Dallas
 **Completed:** May 2019
 
 Built the computer science foundation that continues to guide my work in distributed systems and software architecture.
+
+## Selected projects
+
+### Ditto Factory
+
+**Context:** Agent infrastructure
+
+An agent workflow platform that separates deterministic orchestration from model reasoning.
+
+**Evidence and limits:** The repository includes workflow code and test instructions. This is a personal platform experiment; production adoption and organizational-scale reliability are not established.
+
+**Technologies or practices represented:** Python, FastAPI, Kubernetes, Redis
+
+- [Ditto Factory implementation](https://github.com/tedahn/ditto-factory) `[link_id: ditto_factory]`
+  - **What the page contains:** A Kubernetes-native platform for automated engineering workflows. The documented design uses headless Claude Code as the agent runtime, a FastAPI controller and DAG workflow engine, ephemeral Kubernetes Jobs for task isolation, PostgreSQL or SQLite plus Redis for state, Redis Streams for agent collaboration, and Helm for deployment. It is designed around reusable workflows, auditability, source traceability, and safer access to real systems.
+  - **Why it matters:** Ditto Factory tests whether the OpenHarness ideas can run as infrastructure. It covers orchestration, isolated execution, state, collaboration, deployment, and traceable workflows.
+  - **Inference boundary:** Treat Ditto Factory as Ted's own platform experiment. Do not infer production adoption, enterprise customer use, or reliability at organizational scale without additional evidence.
+
+### Marketplace Matching Engine
+
+**Context:** Distributed systems
+
+An AI-assisted reconstruction exploring order matching, deterministic replay, and recovery under failure.
+
+**Evidence and limits:** The repository documents conservation, determinism, idempotency, and failover checks. This is a plausible reconstruction from public material, not Valve's implementation or a claim of production-scale operation.
+
+**Technologies or practices represented:** Rust, Write-ahead logging, Replication
+
+- [Recreating a Steam architecture: marketplace matching](https://tedahn.github.io/architecture-lab-steam-marketplace/) `[link_id: steam_architecture_lab]`
+  - **What the page contains:** A Rust-based marketplace matching-engine reconstruction with an LMAX Disruptor-style sequencer and ring buffer, price-time-priority matching, partial fills, self-trade prevention, integer-money settlement, conservation invariants, deterministic time events, CRC-framed write-ahead logging, torn-tail recovery, synchronous replication, epoch fencing, and a live order-book dashboard. The repository includes matching, determinism, conservation, end-to-end, and failover tests; its dashboard benchmark is a project measurement, not Steam production throughput.
+  - **Why it matters:** The project covers ordered state machines, financial correctness, replay and recovery, failover, invariants, and load testing. It also states where the public source material runs out.
+  - **Inference boundary:** Valve's marketplace internals are not open source. This is a plausible reconstruction from public behavior and exchange patterns, not Steam's actual implementation or an affiliated project.
 
 ## Research and dev logs
 
@@ -299,7 +339,7 @@ Built the computer science foundation that continues to guide my work in distrib
 
 **Research frame:** Architecture Lab / Model evaluation
 
-Architecture Lab started when Fable 5 came out and more people were discussing the systems behind major tech products. I wanted to see whether the model could do more than explain those systems, so I asked it to rebuild their critical paths from public engineering material. The demos were not intended for production. They showed how the model found context, handled business-specific constraints, and where its understanding broke down.
+Using AI-assisted reconstructions to test architectural understanding: how a model finds context, handles constraints, and exposes the limits of its implementation. These are bounded learning experiments.
 
 **Question being tested:** Can a model demonstrate that it understands a real architecture by reconstructing its critical path?
 
@@ -320,7 +360,7 @@ Architecture Lab started when Fable 5 came out and more people were discussing t
 
 **Research frame:** Agent systems / Theory and implementation
 
-I read Stripe's agent workflow architecture and wanted to see how much of the idea would hold up in practice. Open Agent Architectures records the theory. Ditto Factory is the attempt to build it under enterprise engineering constraints.
+The thinking behind OpenHarness and Ditto Factory: deterministic workflow control, scoped agent execution, and the gap between a proposal and a working platform.
 
 **Question being tested:** What survives when an agent workflow moves from architecture notes into a working platform?
 
@@ -332,6 +372,19 @@ I read Stripe's agent workflow architecture and wanted to see how much of the id
   - **What the page contains:** A Kubernetes-native platform for automated engineering workflows. The documented design uses headless Claude Code as the agent runtime, a FastAPI controller and DAG workflow engine, ephemeral Kubernetes Jobs for task isolation, PostgreSQL or SQLite plus Redis for state, Redis Streams for agent collaboration, and Helm for deployment. It is designed around reusable workflows, auditability, source traceability, and safer access to real systems.
   - **Why it matters:** Ditto Factory tests whether the OpenHarness ideas can run as infrastructure. It covers orchestration, isolated execution, state, collaboration, deployment, and traceable workflows.
   - **Inference boundary:** Treat Ditto Factory as Ted's own platform experiment. Do not infer production adoption, enterprise customer use, or reliability at organizational scale without additional evidence.
+
+### When does a dynamic agent team help?
+
+**Research frame:** Agent evaluation
+
+An experiment comparing single-agent, static-team, and dynamic-team approaches. Runtime composition proved feasible in observed probes, but instrumentation limits prevented a defensible claim of dynamic superiority.
+
+**Question being tested:** Can we measure the benefit of delegation separately from failures in the measurement system?
+
+- [Dynamic Agent Skill Research](https://github.com/tedahn/dynamic-agents-research) `[link_id: dynamic_agent_research]`
+  - **What the page contains:** Research into single-agent, static-team, and dynamic-team approaches. The README reports runtime feasibility in observed probes and unresolved instrumentation limits.
+  - **Why it matters:** Shows the evaluation question, negative findings, and boundaries around agent-performance claims.
+  - **Inference boundary:** Dynamic superiority and default adoption are not established; instrumentation failures are not model-quality findings.
 
 ## What the evidence does not establish
 

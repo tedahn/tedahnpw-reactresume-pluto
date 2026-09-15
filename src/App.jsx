@@ -1,79 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import About from './Components/About';
+import React from 'react';
+import Hero from './Components/Hero';
+import Navigation from './Components/Navigation';
 import Experience from './Components/Experience';
 import Work from './Components/Work';
+import About from './Components/About';
 import Contact from './Components/Contact';
 import Social from './Components/Social';
-import AnimatedSection from './Components/AnimatedSection';
-import Navigation from './Components/Navigation';
-import Hero from './Components/Hero';
 import StructuredData from './Components/StructuredData';
 import resumeData from './resumeData.json';
 
-function App() {
-  const [activeSection, setActiveSection] = useState('home'); // Default to first section
-
-  useEffect(() => {
-    // Simple scroll spy logic
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'experience', 'work', 'contact'];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          // Adjust offset to account for navbar height (~70px)
-          if (rect.top >= -100 && rect.top <= 300) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    // Run once on mount to set initial state correctly
-    handleScroll();
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  if (!resumeData || !resumeData.main || !resumeData.resume) {
-    return <div style={{ color: 'white', textAlign: 'center', marginTop: '50px' }}>Loading...</div>;
-  }
-
+export default function App() {
+  const { main, resume, portfolio } = resumeData;
   return (
-    <div className="App">
+    <>
       <StructuredData data={resumeData} />
-      <a href="#main-content" className="skip-link">Skip to content</a>
-      <Navigation
-        activeSection={activeSection}
-        name={resumeData.main.name}
-        hasProjects={resumeData.portfolio?.projects?.length > 0}
-      />
-
-      <main id="main-content">
-        <Hero data={resumeData.main} />
-
-        <AnimatedSection transition="wipe-left">
-          <About data={resumeData.main} skills={resumeData.resume.skills} />
-        </AnimatedSection>
-
-        <AnimatedSection transition="fade-up">
-          <Experience work={resumeData.resume.work} education={resumeData.resume.education} future={resumeData.future} />
-        </AnimatedSection>
-
-        <AnimatedSection transition="scale-in">
-          <Work data={resumeData.portfolio} />
-        </AnimatedSection>
-
-        <AnimatedSection transition="fade-in">
-          <Contact data={resumeData.main} />
-        </AnimatedSection>
+      <a className="skip-link" href="#main-content">Skip to content</a>
+      <Navigation name={main.name} />
+      <main id="main-content" className="page-layout" tabIndex={-1}>
+        <Hero data={main} />
+        <div className="main-column">
+          <header className="page-intro">
+            <p className="eyebrow">{main.profileLabel}</p>
+            <h2>{main.intro}</h2>
+            <p>{main.introDetail}</p>
+          </header>
+          <Experience work={resume.work} education={resume.education} />
+          <Work data={portfolio} />
+          <About data={main} skills={resume.skills} />
+          <Contact data={main} />
+        </div>
       </main>
-
-      <Social data={resumeData.main} />
-    </div>
+      <Social data={main} />
+    </>
   );
 }
-
-export default App;

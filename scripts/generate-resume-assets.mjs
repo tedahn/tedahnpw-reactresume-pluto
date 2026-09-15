@@ -24,10 +24,14 @@ const normalizeTextArtifact = (value, { asciiOnly = false, frontmatter = false }
     normalized = normalized
       .replaceAll('—', ':')
       .replaceAll('–', '-')
-      .replaceAll('·', '|');
+      .replaceAll('·', '|')
+      .replaceAll('’', "'")
+      .replaceAll('‘', "'")
+      .replaceAll('“', '"')
+      .replaceAll('”', '"');
   }
 
-  return `${normalized.trimEnd()}\n`;
+  return `${normalized.replace(/[ \t]+$/gm, '').trimEnd()}\n`;
 };
 
 const validateTextArtifact = async (filePath, { asciiOnly = false, frontmatter = false } = {}) => {
@@ -138,6 +142,7 @@ const structuredResume = {
     description: project.description,
     url: project.url,
     keywords: project.tools || [],
+    highlights: [project.context, project.evidence].filter(Boolean),
   })),
   fieldNotes: (portfolio.fieldNotes || []).map((note) => ({
     name: note.title,
@@ -180,6 +185,7 @@ const textLines = [
     ...portfolio.projects.flatMap((project) => [
       `${project.title}${project.url ? `: ${project.url}` : ''}`,
       project.description,
+      ...(project.evidence ? [project.evidence] : []),
       '',
     ]),
   ] : []),
@@ -204,6 +210,7 @@ const projectsHtml = portfolio.projects.map((project) => `
       ${project.url ? `<p><a href="${escapeHtml(project.url)}">${escapeHtml(project.linkLabel || 'View project')}</a></p>` : ''}
     </header>
     <p>${escapeHtml(project.description)}</p>
+    ${project.evidence ? `<p><strong>Evidence and limits:</strong> ${escapeHtml(project.evidence)}</p>` : ''}
   </article>`).join('');
 
 const resumeHtml = `<!doctype html>
@@ -225,7 +232,7 @@ const resumeHtml = `<!doctype html>
       <div><h1>${escapeHtml(main.fullname || main.name)}</h1><p>${escapeHtml(main.occupation)}</p></div>
       <p class="contact">${escapeHtml(main.basecity)}, ${escapeHtml(main.basestate)}<br><a href="mailto:${escapeHtml(main.email)}">${escapeHtml(main.email)}</a><br>${escapeHtml(main.phone)}</p>
     </header>
-    <div class="actions"><button type="button" onclick="window.print()">Print / save PDF</button><a href="/resume.txt" download>Download text</a><a href="/resume.md">AI recruiter brief</a><a href="/resume.json" download>Download JSON</a><a href="/">Portfolio</a></div>
+    <div class="actions"><button type="button" onclick="window.print()">Print / save PDF</button><a href="resume.txt" download>Download text</a><a href="resume.md">AI recruiter brief</a><a href="resume.json" download>Download JSON</a><a href="./">Portfolio</a></div>
     <p class="summary">${escapeHtml(main.description)}</p>
     <section><h2>Experience</h2>${workHtml}${future ? `<article><header><div><h3>${escapeHtml(future.title)}</h3></div><p>${escapeHtml(future.date)}</p></header><p>${escapeHtml(future.description)}</p></article>` : ''}</section>
     <section><h2>Education</h2>${educationHtml}</section>
@@ -261,7 +268,7 @@ const projectMarkdown = portfolio.projects.map((project) => `### ${project.title
 
 ${project.context ? `**Context:** ${project.context}\n\n` : ''}${project.description}
 
-${project.tools?.length ? `**Technologies or practices represented:** ${project.tools.join(', ')}\n\n` : ''}${project.url ? renderEvidenceLink(project.url, project.title) : '**Link status:** No public project URL is currently attached to this entry.'}`).join('\n\n');
+${project.evidence ? `**Evidence and limits:** ${project.evidence}\n\n` : ''}${project.tools?.length ? `**Technologies or practices represented:** ${project.tools.join(', ')}\n\n` : ''}${project.url ? renderEvidenceLink(project.url, project.title) : '**Link status:** No public project URL is currently attached to this entry.'}`).join('\n\n');
 
 const fieldNotesMarkdown = portfolio.fieldNotes.map((note) => `### ${note.title}
 

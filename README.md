@@ -1,62 +1,39 @@
-# Pluto: Modern React Portfolio 🪐
+# Ted Ahn — engineering portfolio
 
-The public portfolio of **Ted Ahn**, presenting senior software engineering work across backend systems, cloud infrastructure, distributed systems, and enterprise AI.
+A compact portfolio presenting backend experience, cloud reliability, and personal AI infrastructure experiments. Built with React 18 and Vite; published through the existing GitHub Pages workflow.
 
-> **Live Site**: [tedahn.com](https://www.tedahn.com/)
+## Experience
 
-## 🚀 Tech Stack
+- Compact profile with resume, email, GitHub, and LinkedIn actions.
+- Reverse-chronological experience with product context and separate education.
+- Two selected projects with expandable engineering walkthroughs and evidence limits.
+- Architecture notes, evaluation research, and accessible resume formats.
+- Responsive custom CSS, semantic disclosure controls, and keyboard navigation.
 
-*   **Core**: React 18, JavaScript (ES6+)
-*   **Build Tool**: [Vite](https://vitejs.dev/) (Fast HMR & Bundling)
-*   **Styling**: Custom CSS3, CSS Variables, Glassmorphism UI
-*   **Animations**: [Framer Motion](https://www.framer.com/motion/)
-*   **Atmosphere**: React Three Fiber / Three.js
-*   **Icons**: FontAwesome
+## Run locally
 
-## 🛠️ Usage
-
-This project uses `npm` and `vite`.
-
-### Setup
-```bash
-npm install
-```
-
-### Development
-Start the local dev server:
-```bash
+```sh
+npm ci
 npm run dev
 ```
 
-### Production Build
-Build the project for deployment:
-```bash
+## Validate and build
+
+```sh
+npm run check
 npm run build
+npm run preview
 ```
-The output is written to the `build` directory.
 
-## 📂 Project Structure
+The check renders the React application and validates resume links, section anchors, local assets, project evidence, and structured employment data. It does not replace desktop/mobile browser review. Production output goes to `build/`.
 
-*   `src/Components`: Reusable UI components (Experience, Work, Contact, etc.)
-*   `src/resumeData.json`: **Single Source of Truth** for all content (text, links, timeline).
-*   `src/styles.css`: Global styles, variables, and responsive layout.
-*   `public/images/impact`: Local imagery for public product-context links.
-*   `.project_context`: Long-lived product direction and resume-content governance.
-*   `.workflow_context`: Dated implementation and validation handoffs.
+## Content and maintenance
 
-## Agent and GPT Sol Context
+- `src/resumeData.json`: career content, projects, links, and resume metadata.
+- `src/Components/`: presentation components.
+- `src/styles.css`: design tokens and responsive styles.
+- `scripts/generate-resume-assets.mjs`: printable HTML, text, JSON, and Markdown exports.
+- `docs/plans/2026-09-15-minimal-portfolio.md`: implementation plan and visual review checklist.
+- `AGENTS.md` and `.project_context/`: maintenance and content governance.
 
-Start with:
-
-1. `AGENTS.md`
-2. `.project_context/overview.md`
-3. `.project_context/resume-content-governance.md`
-4. The newest relevant file in `.workflow_context/`
-
-A reusable maintenance brief is available at `docs/sol-resume-site-maintenance-prompt.md`.
-
-## 📜 License & Credits
-
-*   Designed & Developed by Ted Ahn.
-*   Original conceptual references: React FullpageJS, React Waypoint (Legacy).
-*   Feel free to fork for your own portfolio! Verification of personal data removal is recommended.
+Career results belong to Ted; personal project evidence is labeled separately from professional experience. Review and replace personal information before adapting this portfolio.

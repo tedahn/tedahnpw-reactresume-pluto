@@ -1,67 +1,33 @@
-# AGENTS.md
-
-This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
+# Portfolio maintenance
 
 ## Project
 
-Personal portfolio website for Ted Ahn at [tedahn.pw](https://tedahn.pw). React 18 + Vite, deployed to GitHub Pages. All content is driven by `src/resumeData.json` — never hardcode content in components.
+Ted Ahn's React 18 + Vite portfolio, deployed to GitHub Pages. `src/resumeData.json` is the source of career content, projects, and links. Never hardcode career facts in components.
 
-## Required Context
-
-Before changing the site, read:
-
-- .project_context/overview.md — long-lived product and design direction
-- .project_context/resume-content-governance.md — career-source hierarchy, approved public narrative, and public-safety rules
-- The newest relevant file in .workflow_context/ — dated implementation and validation state
-
-For a reusable GPT Sol task brief, see docs/sol-resume-site-maintenance-prompt.md.
+Before edits, read `.project_context/overview.md`, `.project_context/resume-content-governance.md`, and the newest relevant `.workflow_context/` record. Follow `.agent/rules.md` for maintenance conventions.
 
 ## Commands
 
-```bash
-npm run dev      # Start dev server (auto-opens browser, port 5173)
-npm run build    # Production build → build/ directory
-npm run preview  # Preview production build locally
-```
+- `npm ci`: install the pinned dependency tree.
+- `npm run check`: regenerate resumes and verify the rendered portfolio's core contracts.
+- `npm run build`: regenerate resume assets and build into `build/`.
+- `npm run dev`: development server.
+- `npm run preview`: inspect the production build.
 
-No test runner is configured. No linter is configured.
+## Design
 
-## Architecture
+The user-requested September 2026 redesign uses a compact profile card, a restrained charcoal palette with a warm accent, and experience plus implementation evidence. It replaces the previous 3D/glass-heavy direction.
 
-**Data flow:** `src/resumeData.json` → components read JSON props → rendered sections
+- Custom CSS and variables in `src/styles.css`; Google Sans / Google Sans Text, JetBrains Mono for metadata.
+- FontAwesome icons imported by the components that use them.
+- Avoid decorative canvas scenes, hidden-on-load content, and motion needed to understand the page.
+- Preserve visible focus states, semantic landmarks, reduced-motion support, expandable evidence, and mobile navigation.
+- Use initials unless the user supplies and approves a real portrait.
 
-**Key files:**
-- `src/App.jsx` — Root layout, scroll-spy logic for active nav section
-- `src/resumeData.json` — Single source of truth for all content (bio, experience, education, projects, social links)
-- `src/styles.css` — All styles in one file, CSS custom properties for theming
-- `src/icons.js` — FontAwesome library initialization (import icons here)
-- `src/Components/` — All UI components
+## Architecture and deployment
 
-**Components:**
-- `Experience.jsx` — Merges work + education arrays, sorts chronologically via custom date parser (handles iOS date quirks). Alternating left/right timeline on desktop, linear on mobile.
-- `Work.jsx` — Portfolio grid with dynamic icon mapping for tech tools (special cases for ML tools like pandas → chart-line, tensorflow → brain)
-- `ParticleBackground.jsx` — Canvas-based animated particle effect
-- `AnimatedSection.jsx` — Framer Motion wrapper (useInView, triggers at 10% visibility, once)
-- `Navigation.jsx` — Fixed glassmorphic header, hamburger menu on mobile
+`App.jsx` assembles data-driven components. `scripts/generate-resume-assets.mjs` produces HTML, Markdown, text, JSON, and discovery assets from the same data. `scripts/verify-portfolio.mjs` checks actual server-rendered markup and generated resources.
 
-**Responsive breakpoint:** 768px (`@media screen and (max-width: 768px)`)
+GitHub Actions deploys on push to `main` or `master`. Feature PRs do not deploy. Preserve `base: './'` in `vite.config.js` unless hosting explicitly changes. The existing canonical domain remains unchanged in this redesign.
 
-## Design Rules
-
-- **Glassmorphism** is mandatory: `backdrop-filter: blur()`, transparent backgrounds, glass borders
-- **Dark mode only**: background `#0f172a`, use CSS variables defined in `:root` of `styles.css`
-- **Typography**: Always use 'Google Sans' / 'Google Sans Text' fonts
-- **Icons**: FontAwesome via `@fortawesome/react-fontawesome` — no emoji, no other icon libraries
-- **Styling**: Custom CSS only (not Tailwind). Maintain the existing CSS custom property system.
-- **Animations**: Framer Motion for scroll-triggered entrance animations
-
-## Deployment
-
-GitHub Actions (`.github/workflows/deploy.yml`) auto-deploys on push to `main` or `master`:
-1. `npm ci` → `npm run build` → deploys `build/` to `gh-pages` branch
-
-**Do not** change `base: './'` in `vite.config.js` unless the hosting setup changes.
-
-## Project Context
-
-`.project_context/overview.md` is the long-living project vision document. Only update it if fundamental architecture or business goals change. `.agent/rules.md` contains additional development guidelines.
+Update durable design documentation when the product direction changes; record implementation and validation status in `.workflow_context/`. Never represent source/build validation as a completed browser review.

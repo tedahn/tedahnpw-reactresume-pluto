@@ -7,7 +7,7 @@ const StructuredData = ({ data }) => {
   const sameAs = main.social
     .map((network) => network.url)
     .filter((url) => url.startsWith('https://'));
-  const organizations = [...new Set(resume.work.map((role) => role.company))];
+  const organizations = [...new Set(resume.work.filter((role) => /present/i.test(role.dates)).map((role) => role.company))];
 
   const profile = {
     '@context': 'https://schema.org',
@@ -45,9 +45,10 @@ const StructuredData = ({ data }) => {
   };
 
   return (
-    <script type="application/ld+json">
-      {JSON.stringify(profile)}
-    </script>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(profile).replace(/</g, '\\u003c') }}
+    />
   );
 };
 

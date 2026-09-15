@@ -1,10 +1,10 @@
 Ted Hyounggun Ahn
-Senior Software Engineer · Backend, Infrastructure & Enterprise AI
+Senior Software Engineer · Backend & AI Infrastructure
 Carrollton, Texas · tahn1996@gmail.com · +1-945-345-4052
 https://tedahn.pw
 
 SUMMARY
-Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.
+I build event-driven backends and reliable cloud platforms. I’m also exploring how AI agents fit into real engineering workflows.
 
 EXPERIENCE
 Senior Software Engineer, Capital One
@@ -47,3 +47,12 @@ CORE SKILLS
 - Context engineering & spec-driven development
 - Multi-agent workflows & AI-assisted engineering
 - GitLab CI, GitHub Actions & developer enablement
+
+SELECTED PROJECTS
+Ditto Factory: https://github.com/tedahn/ditto-factory
+An agent workflow platform that separates deterministic orchestration from model reasoning.
+The repository includes workflow code and test instructions. This is a personal platform experiment; production adoption and organizational-scale reliability are not established.
+
+Marketplace Matching Engine: https://tedahn.github.io/architecture-lab-steam-marketplace/
+An AI-assisted reconstruction exploring order matching, deterministic replay, and recovery under failure.
+The repository documents conservation, determinism, idempotency, and failover checks. This is a plausible reconstruction from public material, not Valve’s implementation or a claim of production-scale operation.

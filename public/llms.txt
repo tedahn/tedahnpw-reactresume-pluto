@@ -1,6 +1,6 @@
 # Ted Ahn
 
-> Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.
+> I build event-driven backends and reliable cloud platforms. I’m also exploring how AI agents fit into real engineering workflows.
 
 ## Canonical profile
 - https://tedahn.pw/
@@ -10,9 +10,11 @@
 - Structured JSON resume: https://tedahn.pw/resume.json
 
 ## Work and research
-
+- Ditto Factory: https://github.com/tedahn/ditto-factory
+- Marketplace Matching Engine: https://tedahn.github.io/architecture-lab-steam-marketplace/
 - Testing architectural understanding through implementation: Recreating a Netflix architecture: Per-shot encoding: https://tedahn.github.io/architecture-lab-netflix-per-shot-encoding/
 - Testing architectural understanding through implementation: Recreating a Steam architecture: Marketplace matching: https://tedahn.github.io/architecture-lab-steam-marketplace/
 - Testing architectural understanding through implementation: Recreating a Spotify architecture: Recommendation systems: https://tedahn.github.io/architecture-lab-discoverify/
 - From agent architecture to enterprise workflows: Explore the idea: https://tedahn.github.io/open-agent-harness-page/
 - From agent architecture to enterprise workflows: Inspect the implementation: https://github.com/tedahn/ditto-factory
+- When does a dynamic agent team help?: Read the research and limitations: https://github.com/tedahn/dynamic-agents-research

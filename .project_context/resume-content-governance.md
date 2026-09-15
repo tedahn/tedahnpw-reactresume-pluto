@@ -62,9 +62,9 @@ Preserve these About-section quotations unless Ted explicitly requests a change:
 - Never hardcode biography, employment, education, achievements, projects, links, or contact details in components.
 - Adapt source material for web scanning; do not paste long resume bullets verbatim.
 - Preserve chronology, authorship, metrics, and attribution.
-- Keep the public project showcase omitted. Do not reintroduce SMILE or Glow project cards or generated resume entries unless Ted explicitly requests them.
+- The September 2026 user request authorizes a selected-work showcase for Ditto Factory and the Marketplace Matching Engine, with explicit experiment/reconstruction labels and evidence limits. Keep the previously removed SMILE and Glow entries omitted.
 - Keep public product links contextual and retain their local static images under public/images/impact/.
-- Do not reintroduce generated portraits. The current design is intentionally portrait-free.
+- Do not introduce generated portraits. The compact profile card uses initials.
 - Avoid duplicate claims across the hero, About, timeline, projects, and closing section.
 
 ## Required Validation
