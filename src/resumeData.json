@@ -3,10 +3,10 @@
     "name": "Ted Ahn",
     "fullname": "Ted Hyounggun Ahn",
     "legalname": "Hyounggun Ahn",
-    "occupation": "Senior Software Engineer · Backend, Infrastructure & Enterprise AI",
-    "description": "Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.",
+    "occupation": "Senior Software Engineer · Backend & AI Infrastructure",
+    "description": "I build event-driven backends and reliable cloud platforms. I’m also exploring how AI agents fit into real engineering workflows.",
     "bio": "Programming is both my profession and my passion.\n\nMy goal is to build connections in dynamic, interprofessional environments.\n\nTo me, being 'Customer-Oriented' means my work ethic is passion-driven and my engineering is people-driven.",
-    "contactmessage": "Open to conversations about distributed systems, enterprise AI, and how teams use AI-assisted engineering in practice.",
+    "contactmessage": "Interested in backend systems, AI infrastructure, or an engineering problem worth digging into? Let’s talk.",
     "email": "tahn1996@gmail.com",
     "phone": "+1-945-345-4052",
     "basecity": "Carrollton",
@@ -24,10 +24,10 @@
     },
     "website": "https://tedahn.pw",
     "resumeResources": {
-      "text": "/resume.txt",
-      "ai": "/resume.md",
-      "structured": "/resume.json",
-      "printable": "/resume.html"
+      "text": "resume.txt",
+      "ai": "resume.md",
+      "structured": "resume.json",
+      "printable": "resume.html"
     },
     "social": [
       {
@@ -48,7 +48,10 @@
         "iconType": "fab",
         "className": "github"
       }
-    ]
+    ],
+    "profileLabel": "Software engineer",
+    "intro": "Backend experience.\nA focus on what comes next.",
+    "introDetail": "Selected work across production systems, reliability, and AI-assisted engineering."
   },
   "resume": {
     "education": [
@@ -69,104 +72,104 @@
     ],
     "work": [
       {
-      "status": "Recommendation Concept",
+        "status": "Recommendation Concept",
         "company": "US LINE WEBTOON",
-      "title": "Data Analyst / Software Engineer Intern",
-      "dates": "May 2017 - Dec 2017",
+        "title": "Data Analyst / Software Engineer Intern",
+        "dates": "May 2017 - Dec 2017",
         "location": "Los Angeles, CA",
-      "graduated": "May 2017 - Dec 2017",
-      "achievements": [
+        "graduated": "May 2017 - Dec 2017",
+        "achievements": [
           {
-          "title": "Recommendation Concept",
-          "desc": "Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept."
-        }
+            "title": "Recommendation Concept",
+            "desc": "Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept."
+          }
         ]
       },
       {
-      "status": "Enterprise Communications",
+        "status": "Enterprise Communications",
         "company": "USAA",
         "title": "Software Engineer",
-      "dates": "Sep 2019 - May 2022",
+        "dates": "Sep 2019 - May 2022",
         "location": "Plano, TX",
-      "graduated": "Sep 2019 - May 2022",
+        "graduated": "Sep 2019 - May 2022",
         "achievements": [
           {
-          "title": "Life-Safety Messaging at Scale",
-          "desc": "Built USAA's first reactive, event-driven communications platform. It processed 1M SMS messages per hour for urgent customer notifications during severe weather and life-threatening events."
+            "title": "Life-Safety Messaging at Scale",
+            "desc": "Built USAA's first reactive, event-driven communications platform. It processed 1M SMS messages per hour for urgent customer notifications during severe weather and life-threatening events."
           },
           {
-          "title": "Greenfield Modernization",
-          "desc": "Maintained a critical 35-year-old on-premises platform while helping build its distributed replacement with OpenShift and GitLab CI. Also worked on proofs of concept, shared libraries, and security patches."
-        }
-      ],
-      "contextLinks": [
-        {
-          "label": "Natural disaster claims support",
-          "url": "https://www.usaa.com/support/insurance/claims/natural-disaster/",
-          "image": "images/impact/usaa-disaster.jpg",
-          "imageAlt": "A home and vehicle damaged by severe weather",
-          "context": "Customer-facing mission context for the severe-weather notification platform described above."
-        }
-      ]
-    },
+            "title": "Greenfield Modernization",
+            "desc": "Maintained a critical 35-year-old on-premises platform while helping build its distributed replacement with OpenShift and GitLab CI. Also worked on proofs of concept, shared libraries, and security patches."
+          }
+        ],
+        "contextLinks": [
+          {
+            "label": "Natural disaster claims support",
+            "url": "https://www.usaa.com/support/insurance/claims/natural-disaster/",
+            "image": "images/impact/usaa-disaster.jpg",
+            "imageAlt": "A home and vehicle damaged by severe weather",
+            "context": "Customer-facing mission context for the severe-weather notification platform described above."
+          }
+        ]
+      },
       {
-      "status": "Auto Navigator Modernization",
+        "status": "Auto Navigator Modernization",
         "company": "Capital One",
         "title": "Software Engineer",
-      "dates": "May 2022 - Jul 2024",
+        "dates": "May 2022 - Jul 2024",
         "location": "Plano, TX",
-      "graduated": "May 2022 - Jul 2024",
+        "graduated": "May 2022 - Jul 2024",
         "achievements": [
           {
-          "title": "Patented Vehicle Data Pipeline",
-          "desc": "Designed and patented an event-driven pipeline that consolidated 3M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features."
-        },
-        {
-          "title": "Reliability Under Pressure",
-          "desc": "Automated a patch and traced memory and thread leaks that threatened a high-visibility launch. The work helped prevent an outage and received the organization's inaugural award."
-        }
-      ],
-      "contextLinks": [
-        {
-          "label": "How Auto Navigator works",
-          "url": "https://www.capitalone.com/cars/how-auto-navigator-works",
-          "image": "images/impact/auto-navigator.jpg",
-          "imageAlt": "A selection of vehicles available through Auto Navigator",
-          "context": "Customer-facing context for the Auto Navigator marketplace and vehicle-data platform this work modernized."
-        }
-      ]
-    },
+            "title": "Patented Vehicle Data Pipeline",
+            "desc": "Designed and patented an event-driven pipeline that consolidated 3M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features."
+          },
+          {
+            "title": "Reliability Under Pressure",
+            "desc": "Automated a patch and traced memory and thread leaks that threatened a high-visibility launch. The work helped prevent an outage and received the organization's inaugural award."
+          }
+        ],
+        "contextLinks": [
+          {
+            "label": "How Auto Navigator works",
+            "url": "https://www.capitalone.com/cars/how-auto-navigator-works",
+            "image": "images/impact/auto-navigator.jpg",
+            "imageAlt": "A selection of vehicles available through Auto Navigator",
+            "context": "Customer-facing context for the Auto Navigator marketplace and vehicle-data platform this work modernized."
+          }
+        ]
+      },
       {
-      "status": "Promoted · Enterprise Platforms & AI Enablement",
+        "status": "Promoted · Enterprise Platforms & AI Enablement",
         "company": "Capital One",
         "title": "Senior Software Engineer",
-      "dates": "Jul 2024 - Present",
+        "dates": "Jul 2024 - Present",
         "location": "Plano, TX",
-      "graduated": "Jul 2024 - Present",
+        "graduated": "Jul 2024 - Present",
         "achievements": [
           {
-          "title": "High-Priority Product Delivery",
-          "desc": "Independently delivered a high-priority digital marketing pilot using spec-driven development. Its success helped establish a dedicated cross-functional team while parallel work stayed on track."
-        },
-        {
-          "title": "AI-Assisted Engineering",
-          "desc": "Co-developed knowledge systems and reusable context workflows for teams adopting AI-assisted development under enterprise governance."
-        },
-        {
-          "title": "Architecture and SRE Leadership",
-          "desc": "Automated failover and regional-isolation tests for cloud services to strengthen reliability standards."
-        }
-      ],
-      "contextLinks": [
-        {
-          "label": "Navigator Platform for dealers",
-          "url": "https://www.capitalone.com/cars/auto-financing/dealer",
-          "image": "images/impact/navigator-dealer.jpg",
-          "imageAlt": "Customers exploring a vehicle with a dealer",
-          "context": "Product context for the dealer marketing, lead-generation, and analytics ecosystem this organization serves."
-        }
-      ]
-    }
+            "title": "High-Priority Product Delivery",
+            "desc": "Independently delivered a high-priority digital marketing pilot using spec-driven development. Its success helped establish a dedicated cross-functional team while parallel work stayed on track."
+          },
+          {
+            "title": "AI-Assisted Engineering",
+            "desc": "Co-developed knowledge systems and reusable context workflows for teams adopting AI-assisted development under enterprise governance."
+          },
+          {
+            "title": "Architecture and SRE Leadership",
+            "desc": "Automated failover and regional-isolation tests for cloud services to strengthen reliability standards."
+          }
+        ],
+        "contextLinks": [
+          {
+            "label": "Navigator Platform for dealers",
+            "url": "https://www.capitalone.com/cars/auto-financing/dealer",
+            "image": "images/impact/navigator-dealer.jpg",
+            "imageAlt": "Customers exploring a vehicle with a dealer",
+            "context": "Product context for the dealer marketing, lead-generation, and analytics ecosystem this organization serves."
+          }
+        ]
+      }
     ],
     "skills": [
       {
@@ -190,12 +193,71 @@
     ]
   },
   "portfolio": {
-    "projects": [],
+    "projects": [
+      {
+        "title": "Ditto Factory",
+        "context": "Agent infrastructure",
+        "status": "Platform experiment",
+        "description": "An agent workflow platform that separates deterministic orchestration from model reasoning.",
+        "tools": [
+          "Python",
+          "FastAPI",
+          "Kubernetes",
+          "Redis"
+        ],
+        "url": "https://github.com/tedahn/ditto-factory",
+        "linkLabel": "View source",
+        "question": "How do agent workflows become infrastructure you can inspect and reason about?",
+        "focus": "My OpenHarness research explores predictable enterprise agent workflows. Ditto Factory is the implementation experiment: explicit workflow steps, isolated execution, and traceable results.",
+        "architecture": "A FastAPI controller compiles workflow templates into a DAG, persists execution state, and dispatches agent steps to ephemeral Kubernetes Jobs.",
+        "tradeoff": "Per-task isolation adds scheduling and operational overhead. The workflow engine controls sequencing while the model reasons within each step.",
+        "evidence": "The repository includes workflow code and test instructions. This is a personal platform experiment; production adoption and organizational-scale reliability are not established.",
+        "evidenceLinks": [
+          {
+            "label": "Workflow engine",
+            "url": "https://github.com/tedahn/ditto-factory/blob/main/controller/src/controller/workflows/engine.py"
+          },
+          {
+            "label": "Setup and test instructions",
+            "url": "https://github.com/tedahn/ditto-factory#quick-start"
+          }
+        ]
+      },
+      {
+        "title": "Marketplace Matching Engine",
+        "context": "Distributed systems",
+        "status": "Architecture Lab",
+        "description": "An AI-assisted reconstruction exploring order matching, deterministic replay, and recovery under failure.",
+        "tools": [
+          "Rust",
+          "Write-ahead logging",
+          "Replication"
+        ],
+        "url": "https://tedahn.github.io/architecture-lab-steam-marketplace/",
+        "linkLabel": "Read walkthrough",
+        "sourceUrl": "https://github.com/tedahn/architecture-lab-steam-marketplace",
+        "question": "What has to stay true when an order-matching system fails and replays its history?",
+        "focus": "Part of my Architecture Lab series: using model-assisted implementations to examine architectural understanding. The useful questions are about correctness, simplified assumptions, and where the reconstruction stops.",
+        "architecture": "A sequenced command stream feeds a deterministic matching and settlement core. A write-ahead log supports replay; a primary-backup pair explores recovery.",
+        "tradeoff": "The two-node replication model does not solve partition-time split-brain by itself. An external witness is described but not implemented.",
+        "evidence": "The repository documents conservation, determinism, idempotency, and failover checks. This is a plausible reconstruction from public material, not Valve’s implementation or a claim of production-scale operation.",
+        "evidenceLinks": [
+          {
+            "label": "Verification and limitations",
+            "url": "https://github.com/tedahn/architecture-lab-steam-marketplace#whats-verified"
+          },
+          {
+            "label": "Architecture and code map",
+            "url": "https://github.com/tedahn/architecture-lab-steam-marketplace#architecture--layout"
+          }
+        ]
+      }
+    ],
     "fieldNotes": [
       {
         "type": "Architecture Lab / Model evaluation",
         "title": "Testing architectural understanding through implementation",
-        "summary": "Architecture Lab started when Fable 5 came out and more people were discussing the systems behind major tech products. I wanted to see whether the model could do more than explain those systems, so I asked it to rebuild their critical paths from public engineering material. The demos were not intended for production. They showed how the model found context, handled business-specific constraints, and where its understanding broke down.",
+        "summary": "Using AI-assisted reconstructions to test architectural understanding: how a model finds context, handles constraints, and exposes the limits of its implementation. These are bounded learning experiments.",
         "question": "Can a model demonstrate that it understands a real architecture by reconstructing its critical path?",
         "links": [
           {
@@ -215,7 +277,7 @@
       {
         "type": "Agent systems / Theory and implementation",
         "title": "From agent architecture to enterprise workflows",
-        "summary": "I read Stripe's agent workflow architecture and wanted to see how much of the idea would hold up in practice. Open Agent Architectures records the theory. Ditto Factory is the attempt to build it under enterprise engineering constraints.",
+        "summary": "The thinking behind OpenHarness and Ditto Factory: deterministic workflow control, scoped agent execution, and the gap between a proposal and a working platform.",
         "question": "What survives when an agent workflow moves from architecture notes into a working platform?",
         "links": [
           {
@@ -227,8 +289,21 @@
             "url": "https://github.com/tedahn/ditto-factory"
           }
         ]
+      },
+      {
+        "type": "Agent evaluation",
+        "title": "When does a dynamic agent team help?",
+        "summary": "An experiment comparing single-agent, static-team, and dynamic-team approaches. Runtime composition proved feasible in observed probes, but instrumentation limits prevented a defensible claim of dynamic superiority.",
+        "question": "Can we measure the benefit of delegation separately from failures in the measurement system?",
+        "links": [
+          {
+            "label": "Read the research and limitations",
+            "url": "https://github.com/tedahn/dynamic-agents-research"
+          }
+        ]
       }
-    ]
+    ],
+    "intro": "Two ways I explore system behavior: building agent infrastructure and reconstructing the critical paths of distributed systems."
   },
   "aiResume": {
     "version": "2026-07-27",
@@ -405,6 +480,16 @@
         "candidateRelevance": "Ditto Factory tests whether the OpenHarness ideas can run as infrastructure. It covers orchestration, isolated execution, state, collaboration, deployment, and traceable workflows.",
         "openWhen": "Open when source-level evidence is needed for the transition from agent-architecture theory to implementation.",
         "boundary": "Treat Ditto Factory as Ted's own platform experiment. Do not infer production adoption, enterprise customer use, or reliability at organizational scale without additional evidence."
+      },
+      {
+        "id": "dynamic_agent_research",
+        "label": "Dynamic Agent Skill Research",
+        "url": "https://github.com/tedahn/dynamic-agents-research",
+        "kind": "candidate-owned evaluation research",
+        "pageSummary": "Research into single-agent, static-team, and dynamic-team approaches. The README reports runtime feasibility in observed probes and unresolved instrumentation limits.",
+        "candidateRelevance": "Shows the evaluation question, negative findings, and boundaries around agent-performance claims.",
+        "openWhen": "Open when evaluating agent experimentation or evidence quality.",
+        "boundary": "Dynamic superiority and default adoption are not established; instrumentation failures are not model-quality findings."
       }
     ]
   },

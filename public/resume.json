@@ -2,11 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
   "basics": {
     "name": "Ted Hyounggun Ahn",
-    "label": "Senior Software Engineer · Backend, Infrastructure & Enterprise AI",
+    "label": "Senior Software Engineer · Backend & AI Infrastructure",
     "email": "tahn1996@gmail.com",
     "phone": "+1-945-345-4052",
     "url": "https://tedahn.pw",
-    "summary": "Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.",
+    "summary": "I build event-driven backends and reliable cloud platforms. I’m also exploring how AI agents fit into real engineering workflows.",
     "location": {
       "city": "Carrollton",
       "region": "Texas",
@@ -107,12 +107,42 @@
       "name": "GitLab CI, GitHub Actions & developer enablement"
     }
   ],
-  "projects": [],
+  "projects": [
+    {
+      "name": "Ditto Factory",
+      "description": "An agent workflow platform that separates deterministic orchestration from model reasoning.",
+      "url": "https://github.com/tedahn/ditto-factory",
+      "keywords": [
+        "Python",
+        "FastAPI",
+        "Kubernetes",
+        "Redis"
+      ],
+      "highlights": [
+        "Agent infrastructure",
+        "The repository includes workflow code and test instructions. This is a personal platform experiment; production adoption and organizational-scale reliability are not established."
+      ]
+    },
+    {
+      "name": "Marketplace Matching Engine",
+      "description": "An AI-assisted reconstruction exploring order matching, deterministic replay, and recovery under failure.",
+      "url": "https://tedahn.github.io/architecture-lab-steam-marketplace/",
+      "keywords": [
+        "Rust",
+        "Write-ahead logging",
+        "Replication"
+      ],
+      "highlights": [
+        "Distributed systems",
+        "The repository documents conservation, determinism, idempotency, and failover checks. This is a plausible reconstruction from public material, not Valve’s implementation or a claim of production-scale operation."
+      ]
+    }
+  ],
   "fieldNotes": [
     {
       "name": "Testing architectural understanding through implementation",
       "type": "Architecture Lab / Model evaluation",
-      "summary": "Architecture Lab started when Fable 5 came out and more people were discussing the systems behind major tech products. I wanted to see whether the model could do more than explain those systems, so I asked it to rebuild their critical paths from public engineering material. The demos were not intended for production. They showed how the model found context, handled business-specific constraints, and where its understanding broke down.",
+      "summary": "Using AI-assisted reconstructions to test architectural understanding: how a model finds context, handles constraints, and exposes the limits of its implementation. These are bounded learning experiments.",
       "question": "Can a model demonstrate that it understands a real architecture by reconstructing its critical path?",
       "links": [
         {
@@ -132,7 +162,7 @@
     {
       "name": "From agent architecture to enterprise workflows",
       "type": "Agent systems / Theory and implementation",
-      "summary": "I read Stripe's agent workflow architecture and wanted to see how much of the idea would hold up in practice. Open Agent Architectures records the theory. Ditto Factory is the attempt to build it under enterprise engineering constraints.",
+      "summary": "The thinking behind OpenHarness and Ditto Factory: deterministic workflow control, scoped agent execution, and the gap between a proposal and a working platform.",
       "question": "What survives when an agent workflow moves from architecture notes into a working platform?",
       "links": [
         {
@@ -142,6 +172,18 @@
         {
           "label": "Inspect the implementation",
           "url": "https://github.com/tedahn/ditto-factory"
+        }
+      ]
+    },
+    {
+      "name": "When does a dynamic agent team help?",
+      "type": "Agent evaluation",
+      "summary": "An experiment comparing single-agent, static-team, and dynamic-team approaches. Runtime composition proved feasible in observed probes, but instrumentation limits prevented a defensible claim of dynamic superiority.",
+      "question": "Can we measure the benefit of delegation separately from failures in the measurement system?",
+      "links": [
+        {
+          "label": "Read the research and limitations",
+          "url": "https://github.com/tedahn/dynamic-agents-research"
         }
       ]
     }
