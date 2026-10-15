@@ -8,8 +8,8 @@
     "roleLine": "Senior Software Engineer · **Capital One** · Dallas–Fort Worth",
     "photo": { "src": "images/tedprofile/ted-ahn-336.jpg", "alt": "Ted Ahn" },
     "professionalBio": [
-      "Backend engineer building systems that have to stay up. At Capital One I designed and **patented an event-driven pipeline that moves 4M+ vehicle records a day**, and **rewrote and retired 4 of the 7** dealer vehicle-data systems.",
-      "Before that, at USAA, I built **the alerting platform that sends 1M SMS an hour** when severe weather hits. CS at UT Dallas; AI/ML postgraduate certificate from UT Austin."
+      "Backend engineer. Currently working on the marketing platform at **Capital One**.",
+      "In past roles I've **patented an event-driven pipeline that moves 4M+ vehicle records a day** and built **USAA's severe-weather alerting at 1M SMS an hour**. Studied CS at UT Dallas and AI/ML at UT Austin."
     ],
     "bio": "Senior software engineer building event-driven backend systems that have to stay up.",
     "contactmessage": "Not looking for a new role, but always happy to talk systems.",

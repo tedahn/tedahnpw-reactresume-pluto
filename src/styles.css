@@ -67,7 +67,6 @@ img { display: block; max-width: 100%; }
 .section-label { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.2; }
 .prose p { max-width: 480px; margin: 0 0 16px; }
 .prose strong { color: #fff; font-weight: 600; }
-.status-line { color: var(--muted); font-size: 18px; }
 .figure { color: var(--acc); font-family: var(--font-mono); font-size: 0.82em; white-space: nowrap; }
 
 /* Ornament */

@@ -9,7 +9,6 @@ const About = ({ main }) => (
       {(main.professionalBio || []).map((paragraph) => (
         <p key={paragraph}><Inline text={paragraph} /></p>
       ))}
-      {main.contactmessage && <p className="status-line">{main.contactmessage}</p>}
     </div>
   </Reveal>
 );
