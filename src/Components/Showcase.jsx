@@ -1,6 +1,31 @@
 import React from 'react';
 import Inline from './Inline';
 import Reveal from './Reveal';
+import { yearRange } from '../lib/dates';
+
+// Monogram circle for the organisation; personal work gets a small node mark instead.
+const CardMeta = ({ item }) => {
+  if (!item.org) return null;
+  return (
+    <div className="card-meta">
+      <span className="card-mark" aria-hidden="true">
+        {item.mark || (
+          <svg width="12" height="10" viewBox="0 0 34 18">
+            <path d="M5 9 L17 4 L29 9 M17 4 L17 14" fill="none" stroke="currentColor" strokeWidth="2.4" />
+            <circle cx="5" cy="9" r="3.4" fill="currentColor" />
+            <circle cx="17" cy="4" r="3.4" fill="currentColor" />
+            <circle cx="29" cy="9" r="3.4" fill="currentColor" />
+            <circle cx="17" cy="14" r="3.4" fill="currentColor" />
+          </svg>
+        )}
+      </span>
+      <span className="card-org">
+        <span>{item.org}</span>
+        {item.period && <span className="card-period">{yearRange(item.period)}</span>}
+      </span>
+    </div>
+  );
+};
 
 const GLYPHS = {
   curve: (
@@ -46,6 +71,7 @@ const Card = ({ item }) => {
     <>
       <CardMedia item={item} />
       <div className="card-body">
+        <CardMeta item={item} />
         <h3 className="card-title">
           {item.title}
           {item.url && <span className="card-arrow" aria-hidden="true"> ↗</span>}

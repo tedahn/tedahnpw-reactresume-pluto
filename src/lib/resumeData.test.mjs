@@ -11,6 +11,12 @@ function strings(value, path = '$') {
   return [];
 }
 
+test('every showcase card names its organisation and period', () => {
+  const cards = [...data.portfolio.showcase.work, ...data.portfolio.showcase.home];
+  const missing = cards.filter((card) => !card.org || !card.period).map((card) => card.title);
+  assert.deepEqual(missing, []);
+});
+
 test('every content string has balanced ** and ` markers', () => {
   const unbalanced = strings(data).filter(([, text]) =>
     (text.match(/\*\*/g) || []).length % 2 !== 0 || (text.match(/`/g) || []).length % 2 !== 0);

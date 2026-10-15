@@ -216,6 +216,9 @@
       "work": [
         {
           "title": "Dealer Marketing",
+          "org": "Capital One",
+          "mark": "C1",
+          "period": "Jul 2024 - Present",
           "summary": "Shared marketing capability and pilots now serving auto dealers nationally.",
           "image": "images/impact/navigator-dealer-640.jpg",
           "imageAlt": "Customers exploring a vehicle with a dealer",
@@ -223,6 +226,9 @@
         },
         {
           "title": "Vehicle Data Pipeline",
+          "org": "Capital One",
+          "mark": "C1",
+          "period": "May 2022 - Jul 2024",
           "summary": "Event-driven ingest behind Auto Navigator that replaced a 15-year-old system.",
           "image": "images/impact/auto-navigator.jpg",
           "imageAlt": "A selection of vehicles available through Auto Navigator",
@@ -230,6 +236,9 @@
         },
         {
           "title": "Severe-Weather Alerting",
+          "org": "USAA",
+          "mark": "U",
+          "period": "Sep 2019 - May 2022",
           "summary": "USAA's first reactive messaging platform, built for 1M SMS an hour.",
           "image": "images/impact/usaa-disaster-640.jpg",
           "imageAlt": "A home and vehicle damaged by severe weather",
@@ -239,18 +248,24 @@
       "home": [
         {
           "title": "Per-Shot Encoding",
+          "org": "Personal",
+          "period": "2026",
           "summary": "Rebuilding Netflix's quality-per-bit encoding optimizer with real VMAF.",
           "glyph": "curve",
           "url": "https://tedahn.github.io/architecture-lab-netflix-per-shot-encoding/"
         },
         {
           "title": "Marketplace Engine",
+          "org": "Personal",
+          "period": "2026",
           "summary": "A Steam-style matching engine with ring buffers, a write-ahead log and failover.",
           "glyph": "ring",
           "url": "https://tedahn.github.io/architecture-lab-steam-marketplace/"
         },
         {
           "title": "Ditto Factory",
+          "org": "Personal",
+          "period": "2026",
           "summary": "A Kubernetes-native platform for isolated, traceable agent workflows.",
           "glyph": "flow",
           "url": "https://github.com/tedahn/ditto-factory"
