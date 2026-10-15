@@ -215,6 +215,13 @@
     "showcase": {
       "work": [
         {
+          "title": "Dealer Marketing",
+          "summary": "Shared marketing capability and pilots now serving auto dealers nationally.",
+          "image": "images/impact/navigator-dealer-640.jpg",
+          "imageAlt": "Customers exploring a vehicle with a dealer",
+          "url": "https://www.capitalone.com/cars/auto-financing/dealer"
+        },
+        {
           "title": "Vehicle Data Pipeline",
           "summary": "Event-driven ingest behind Auto Navigator that replaced a 15-year-old system.",
           "image": "images/impact/auto-navigator.jpg",
@@ -227,13 +234,6 @@
           "image": "images/impact/usaa-disaster-640.jpg",
           "imageAlt": "A home and vehicle damaged by severe weather",
           "url": "https://www.usaa.com/support/insurance/claims/natural-disaster/"
-        },
-        {
-          "title": "Dealer Marketing",
-          "summary": "Shared marketing capability and pilots now serving auto dealers nationally.",
-          "image": "images/impact/navigator-dealer-640.jpg",
-          "imageAlt": "Customers exploring a vehicle with a dealer",
-          "url": "https://www.capitalone.com/cars/auto-financing/dealer"
         }
       ],
       "home": [
