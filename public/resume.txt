@@ -25,7 +25,7 @@ Sep 2019 - May 2022 · Plano, TX
 - Life-Safety Messaging at Scale: Built USAA's first reactive, event-driven communications platform. It processed 1M SMS messages per hour for urgent customer notifications during severe weather and life-threatening events.
 - Greenfield Modernization: Maintained a critical 35-year-old on-premises platform while helping build its distributed replacement with OpenShift and GitLab CI. Also worked on proofs of concept, shared libraries, and security patches.
 
-Data Analyst / Software Engineer Intern, US LINE WEBTOON
+Software Engineering Intern, LINE Webtoon
 May 2017 - Dec 2017 · Los Angeles, CA
 - Recommendation Concept: Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept.
 

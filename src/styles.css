@@ -78,7 +78,7 @@ img { display: block; max-width: 100%; }
 .roles { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
 .role-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .role-title { margin: 0; font-size: 19px; font-weight: 500; line-height: 1.4; }
-.role-company { color: var(--muted); font-weight: 400; }
+.role-company { color: var(--muted); font-weight: 400; white-space: nowrap; }
 .role-dates { color: var(--muted); font-family: var(--font-mono); font-size: 12px; white-space: nowrap; }
 .role-summary { margin: 2px 0 0; color: var(--body-2); font-size: 16px; line-height: 1.55; }
 
