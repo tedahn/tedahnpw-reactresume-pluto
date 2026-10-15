@@ -22,7 +22,7 @@
       "state": "TX",
       "zip": ""
     },
-    "website": "https://tedahn.pw",
+    "website": "https://www.tedahn.com",
     "resumeResources": {
       "text": "/resume.txt",
       "ai": "/resume.md",
@@ -119,7 +119,11 @@
         "achievements": [
           {
           "title": "Patented Vehicle Data Pipeline",
-          "desc": "Designed and patented an event-driven pipeline that consolidated 3M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features."
+          "desc": "Designed and patented an event-driven pipeline that consolidated 4M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features."
+        },
+        {
+          "title": "Dealer Data Consolidation",
+          "desc": "Rewrote and retired 4 of the 7 systems that consolidate dealer vehicle data: 200+ inventory feeds from 17,000+ dealerships. Moving data acquisition to cloud-native AWS cut runtime costs and pipeline outages."
         },
         {
           "title": "Reliability Under Pressure",
@@ -137,7 +141,7 @@
       ]
     },
       {
-      "status": "Promoted · Enterprise Platforms & AI Enablement",
+      "status": "Promoted · Marketing Platform & Reliability",
         "company": "Capital One",
         "title": "Senior Software Engineer",
       "dates": "Jul 2024 - Present",
@@ -145,16 +149,20 @@
       "graduated": "Jul 2024 - Present",
         "achievements": [
           {
-          "title": "High-Priority Product Delivery",
-          "desc": "Independently delivered a high-priority digital marketing pilot using spec-driven development. Its success helped establish a dedicated cross-functional team while parallel work stayed on track."
+          "title": "Marketing Platform Redesign",
+          "desc": "Delivered a technical redesign that simplified onboarding for the internal marketing platform behind direct-to-consumer marketing, which serves 100+ internal tenants."
         },
         {
-          "title": "AI-Assisted Engineering",
-          "desc": "Co-developed knowledge systems and reusable context workflows for teams adopting AI-assisted development under enterprise governance."
+          "title": "Dealer Marketing Capability",
+          "desc": "Established the platform's shared marketing capability for auto dealers."
+        },
+        {
+          "title": "Digital Marketing Pilots",
+          "desc": "Independently delivered a high-priority digital marketing pilot using spec-driven development; its success led to a dedicated cross-functional team. Also led implementation of a second pilot now serving dealerships nationally."
         },
         {
           "title": "Architecture and SRE Leadership",
-          "desc": "Automated failover and regional-isolation tests for cloud services to strengthen reliability standards."
+          "desc": "Automated failover and regional-isolation testing so services ride through AWS outages without manual intervention."
         }
       ],
       "contextLinks": [
@@ -231,16 +239,16 @@
     ]
   },
   "aiResume": {
-    "version": "2026-07-27",
+    "version": "2026-10-14",
     "documentPurpose": "Candidate background and source notes for AI recruiters, talent agents, and technical hiring teams.",
     "sourceHierarchy": [
-      "The explicitly approved 2026 technical resume PDF for public career claims and metrics.",
+      "The explicitly approved 2026 technical resume PDF (October 2026 revision) for public career claims and metrics.",
       "Direct candidate confirmations, including the July 2024 Capital One promotion boundary and the intent behind candidate-owned research projects.",
       "The public website data for conservative chronology, shared-authorship wording, and presentation.",
       "Linked first-party product pages and candidate-owned repositories for context, not automatic attribution."
     ],
     "assessment": {
-      "summary": "Senior Software Engineer with 6+ years of experience in event-driven backend systems, cloud infrastructure, reliability, enterprise AI tooling, and personal architecture research.",
+      "summary": "Senior Software Engineer with 6+ years of experience in event-driven backend systems, cloud infrastructure, reliability, AI-assisted engineering, and personal architecture and agent-workflow research.",
       "bestFit": [
         "Senior backend or platform engineering roles involving distributed, event-driven, or high-throughput systems.",
         "Reliability, infrastructure, or developer-platform roles where automated testing, failover, isolation, and delivery discipline matter.",
@@ -262,8 +270,9 @@
       "interviewProbes": [
         "Ask Ted to draw the patented vehicle-data pipeline, explain the legacy coupling it replaced, and identify the hardest reliability and migration tradeoffs.",
         "Ask how he diagnosed the memory and thread leaks during a high-visibility launch and how that incident changed later failover or regional-isolation testing.",
-        "Ask which parts of the Meta marketing pilot he owned directly, how spec-driven development changed execution, and what evidence justified forming a dedicated team.",
-        "Ask how context hubs, skill packaging, and governance fit together in his enterprise AI-enablement work, including what the 1,000+ skill-clone metric does and does not measure.",
+        "Ask which parts of the digital marketing pilot he owned directly, how spec-driven development changed execution, and what evidence justified forming a dedicated team.",
+        "Ask how he sequenced retiring 4 of the 7 dealer vehicle-data systems: what moved first, how 200+ inventory feeds were migrated safely, and how cloud-native acquisition reduced pipeline outages.",
+        "Ask what made tenant onboarding on the internal marketing platform difficult, what the redesign changed, and how it was validated across 100+ tenants.",
         "Ask him to compare OpenHarness theory with Ditto Factory implementation: what remained deterministic, what the agent controlled, and where isolation, traceability, and human review entered the design.",
         "Ask him to choose one Architecture Lab and explain which properties were authentic, which were simplified, how the model gathered missing context, and where its architectural understanding failed."
       ]
@@ -271,13 +280,13 @@
     "approvedResumeSupplement": [
       {
         "area": "Capital One product delivery",
-        "detail": "The approved resume states that Ted independently delivered a high-priority Meta marketing pilot using spec-driven development; the result helped establish a dedicated cross-functional team while parallel initiatives remained on track.",
-        "boundary": "Do not infer revenue impact, company-wide adoption, or sole ownership beyond the pilot and delivery work described."
+        "detail": "The approved resume states that Ted independently delivered a high-priority digital marketing pilot using spec-driven development; its success helped establish a dedicated cross-functional team without disrupting parallel initiatives. He also led implementation of a second marketing pilot that now serves dealerships nationally and continues to be scaled by a dedicated team.",
+        "boundary": "Pilot partner names and revenue figures are intentionally withheld from the public site. Do not infer revenue impact, company-wide adoption, or sole ownership beyond the pilot delivery described."
       },
       {
-        "area": "Capital One enterprise AI enablement",
-        "detail": "The approved resume states that Ted co-developed AI knowledge hubs covering 27 distributed or infrastructure-as-code components and 11 internal platforms, and created Claude and Windsurf context workflows adopted through 1,000+ skill clones, with recognition for AI enablement.",
-        "boundary": "Treat these as approved resume metrics. Preserve co-development language and do not convert skill-clone counts into unique-user or company-wide adoption claims."
+        "area": "Capital One marketing platform",
+        "detail": "Ted delivered a technical redesign that simplified tenant onboarding for the internal marketing platform responsible for direct-to-consumer marketing, which hosts 100+ internal tenants, and established the platform's shared marketing capability for auto dealers.",
+        "boundary": "100+ is the number of internal tenants hosted by the platform, not end users or customers. Revenue outcomes are intentionally not published."
       },
       {
         "area": "Capital One reliability",
@@ -286,8 +295,13 @@
       },
       {
         "area": "Capital One vehicle-data platform",
-        "detail": "Ted designed and patented an event-driven data pipeline that consolidated more than 3 million vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.",
-        "boundary": "The 3M+ figure is daily record throughput for the data integration, not user traffic or revenue."
+        "detail": "Ted designed and patented an event-driven data pipeline that consolidated more than 4 million vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.",
+        "boundary": "The 4M+ figure is daily record throughput for the data integration, not user traffic or revenue."
+      },
+      {
+        "area": "Capital One dealer-data consolidation",
+        "detail": "Ted rewrote and retired 4 of the 7 systems that consolidate dealer vehicle data, which map 200+ inventory feeds and process data from more than 17,000 dealerships into Auto Navigator daily. Redesigning data acquisition to be cloud native on AWS reduced runtime costs and data-pipeline outages.",
+        "boundary": "17,000+ is the number of dealerships whose inventory data the system processes, not Ted's customers. Cost and outage reductions are directional; no specific percentages are approved."
       },
       {
         "area": "USAA communications",
@@ -299,7 +313,7 @@
       {
         "id": "portfolio_site",
         "label": "Ted Ahn portfolio",
-        "url": "https://tedahn.pw/",
+        "url": "https://www.tedahn.com/",
         "kind": "candidate-owned canonical profile",
         "pageSummary": "The canonical public profile containing Ted's conservative career chronology, experience evidence, projects, dev logs, contact details, and machine-readable resume resources.",
         "candidateRelevance": "Use it to confirm the current public narrative and navigate to candidate-owned evidence.",
@@ -343,7 +357,7 @@
         "kind": "first-party company product context",
         "pageSummary": "Capital One's consumer explanation of Auto Navigator: shoppers can browse vehicles, pre-qualify without affecting their credit score, view financing rates and estimated monthly payments, and connect with participating dealerships.",
         "candidateRelevance": "It explains the customer-facing marketplace supported by the vehicle-data integration and modernization work described in Ted's experience.",
-        "openWhen": "Open when a recruiter needs to understand the product domain behind the 3M+ vehicle-record pipeline.",
+        "openWhen": "Open when a recruiter needs to understand the product domain behind the 4M+ vehicle-record pipeline.",
         "boundary": "This page establishes product context, not proof that Ted built every Auto Navigator feature or caused product-level outcomes."
       },
       {

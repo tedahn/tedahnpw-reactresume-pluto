@@ -4,7 +4,7 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ## Project
 
-Personal portfolio website for Ted Ahn at [tedahn.pw](https://tedahn.pw). React 18 + Vite, deployed to GitHub Pages. All content is driven by `src/resumeData.json` — never hardcode content in components.
+Personal portfolio website for Ted Ahn at [tedahn.com](https://www.tedahn.com). React 18 + Vite, deployed to GitHub Pages. All content is driven by `src/resumeData.json` — never hardcode content in components.
 
 ## Required Context
 

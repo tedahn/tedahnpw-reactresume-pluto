@@ -4,7 +4,7 @@
 
 **Repository**: `tedahnpw-reactresume-pluto`
 **Product**: Ted Ahn's Personal Portfolio Website
-**Domain**: [tedahn.pw](https://tedahn.pw)
+**Domain**: [tedahn.com](https://www.tedahn.com)
 
 This project is the public professional home of **Ted Ahn**, a Senior Software Engineer. Its primary purpose is to present a concise, recruiter-facing account of Ted's career progression, technical impact, leadership, and working philosophy to hiring managers, technical leaders, and collaborators.
 

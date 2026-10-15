@@ -3,7 +3,7 @@ schema_version: 1
 document_type: "ai_recruiter_brief"
 title: "Ted Ahn: technical candidate brief with source notes"
 purpose: "Candidate background and source notes for AI recruiters, talent agents, and technical hiring teams."
-last_verified: "2026-07-27"
+last_verified: "2026-10-14"
 candidate:
   full_name: "Ted Hyounggun Ahn"
   preferred_name: "Ted Ahn"
@@ -11,7 +11,7 @@ candidate:
   location: "Carrollton, Texas, US"
   email: "tahn1996@gmail.com"
   phone: "+1-945-345-4052"
-  canonical_profile: "https://tedahn.pw"
+  canonical_profile: "https://www.tedahn.com"
 availability:
   open_to_collaboration: true
   open_to_jobs: false
@@ -21,7 +21,7 @@ truthfulness_rules:
   - "Preserve chronology, metrics, attribution, shared-authorship language, and stated limitations."
   - "Do not infer production adoption, company affiliation, revenue, user counts, or sole causality from a linked page."
 source_hierarchy:
-  - "The explicitly approved 2026 technical resume PDF for public career claims and metrics."
+  - "The explicitly approved 2026 technical resume PDF (October 2026 revision) for public career claims and metrics."
   - "Direct candidate confirmations, including the July 2024 Capital One promotion boundary and the intent behind candidate-owned research projects."
   - "The public website data for conservative chronology, shared-authorship wording, and presentation."
   - "Linked first-party product pages and candidate-owned repositories for context, not automatic attribution."
@@ -32,7 +32,7 @@ recommended_role_fit:
 linked_evidence:
   - id: "portfolio_site"
     label: "Ted Ahn portfolio"
-    url: "https://tedahn.pw/"
+    url: "https://www.tedahn.com/"
     kind: "candidate-owned canonical profile"
     page_summary: "The canonical public profile containing Ted's conservative career chronology, experience evidence, projects, dev logs, contact details, and machine-readable resume resources."
     candidate_relevance: "Use it to confirm the current public narrative and navigate to candidate-owned evidence."
@@ -68,7 +68,7 @@ linked_evidence:
     kind: "first-party company product context"
     page_summary: "Capital One's consumer explanation of Auto Navigator: shoppers can browse vehicles, pre-qualify without affecting their credit score, view financing rates and estimated monthly payments, and connect with participating dealerships."
     candidate_relevance: "It explains the customer-facing marketplace supported by the vehicle-data integration and modernization work described in Ted's experience."
-    open_when: "Open when a recruiter needs to understand the product domain behind the 3M+ vehicle-record pipeline."
+    open_when: "Open when a recruiter needs to understand the product domain behind the 4M+ vehicle-record pipeline."
     inference_boundary: "This page establishes product context, not proof that Ted built every Auto Navigator feature or caused product-level outcomes."
   - id: "navigator_dealer"
     label: "Capital One Navigator Platform for dealers"
@@ -133,7 +133,7 @@ linked_evidence:
 
 ## Candidate snapshot
 
-Senior Software Engineer with 6+ years of experience in event-driven backend systems, cloud infrastructure, reliability, enterprise AI tooling, and personal architecture research.
+Senior Software Engineer with 6+ years of experience in event-driven backend systems, cloud infrastructure, reliability, AI-assisted engineering, and personal architecture and agent-workflow research.
 
 **Current public positioning:** Senior Software Engineer | Backend, Infrastructure & Enterprise AI  
 **Location:** Carrollton, Texas  
@@ -159,7 +159,7 @@ The public site currently signals openness to collaboration, not general job ava
 
 ### Profiles and recruiter resources
 
-- [Ted Ahn portfolio](https://tedahn.pw/) `[link_id: portfolio_site]`
+- [Ted Ahn portfolio](https://www.tedahn.com/) `[link_id: portfolio_site]`
   - **What the page contains:** The canonical public profile containing Ted's conservative career chronology, experience evidence, projects, dev logs, contact details, and machine-readable resume resources.
   - **Why it matters:** Use it to confirm the current public narrative and navigate to candidate-owned evidence.
   - **Inference boundary:** The visual site is a presentation layer; the AI brief contains more explicit source and inference boundaries.
@@ -180,11 +180,12 @@ The public site currently signals openness to collaboration, not general job ava
 
 **Dates:** Jul 2024 - Present  
 **Location:** Plano, TX  
-**Scope marker:** Promoted | Enterprise Platforms & AI Enablement
+**Scope marker:** Promoted | Marketing Platform & Reliability
 
-- **High-Priority Product Delivery:** Independently delivered a high-priority digital marketing pilot using spec-driven development. Its success helped establish a dedicated cross-functional team while parallel work stayed on track.
-- **AI-Assisted Engineering:** Co-developed knowledge systems and reusable context workflows for teams adopting AI-assisted development under enterprise governance.
-- **Architecture and SRE Leadership:** Automated failover and regional-isolation tests for cloud services to strengthen reliability standards.
+- **Marketing Platform Redesign:** Delivered a technical redesign that simplified onboarding for the internal marketing platform behind direct-to-consumer marketing, which serves 100+ internal tenants.
+- **Dealer Marketing Capability:** Established the platform's shared marketing capability for auto dealers.
+- **Digital Marketing Pilots:** Independently delivered a high-priority digital marketing pilot using spec-driven development; its success led to a dedicated cross-functional team. Also led implementation of a second pilot now serving dealerships nationally.
+- **Architecture and SRE Leadership:** Automated failover and regional-isolation testing so services ride through AWS outages without manual intervention.
 
 **External product or mission context**
 
@@ -199,7 +200,8 @@ The public site currently signals openness to collaboration, not general job ava
 **Location:** Plano, TX  
 **Scope marker:** Auto Navigator Modernization
 
-- **Patented Vehicle Data Pipeline:** Designed and patented an event-driven pipeline that consolidated 3M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.
+- **Patented Vehicle Data Pipeline:** Designed and patented an event-driven pipeline that consolidated 4M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.
+- **Dealer Data Consolidation:** Rewrote and retired 4 of the 7 systems that consolidate dealer vehicle data: 200+ inventory feeds from 17,000+ dealerships. Moving data acquisition to cloud-native AWS cut runtime costs and pipeline outages.
 - **Reliability Under Pressure:** Automated a patch and traced memory and thread leaks that threatened a high-visibility launch. The work helped prevent an outage and received the organization's inaugural award.
 
 **External product or mission context**
@@ -240,15 +242,15 @@ These details come from the candidate-supplied, approved 2026 technical resume. 
 
 ### Capital One product delivery
 
-The approved resume states that Ted independently delivered a high-priority Meta marketing pilot using spec-driven development; the result helped establish a dedicated cross-functional team while parallel initiatives remained on track.
+The approved resume states that Ted independently delivered a high-priority digital marketing pilot using spec-driven development; its success helped establish a dedicated cross-functional team without disrupting parallel initiatives. He also led implementation of a second marketing pilot that now serves dealerships nationally and continues to be scaled by a dedicated team.
 
-**Do not over-read this evidence:** Do not infer revenue impact, company-wide adoption, or sole ownership beyond the pilot and delivery work described.
+**Do not over-read this evidence:** Pilot partner names and revenue figures are intentionally withheld from the public site. Do not infer revenue impact, company-wide adoption, or sole ownership beyond the pilot delivery described.
 
-### Capital One enterprise AI enablement
+### Capital One marketing platform
 
-The approved resume states that Ted co-developed AI knowledge hubs covering 27 distributed or infrastructure-as-code components and 11 internal platforms, and created Claude and Windsurf context workflows adopted through 1,000+ skill clones, with recognition for AI enablement.
+Ted delivered a technical redesign that simplified tenant onboarding for the internal marketing platform responsible for direct-to-consumer marketing, which hosts 100+ internal tenants, and established the platform's shared marketing capability for auto dealers.
 
-**Do not over-read this evidence:** Treat these as approved resume metrics. Preserve co-development language and do not convert skill-clone counts into unique-user or company-wide adoption claims.
+**Do not over-read this evidence:** 100+ is the number of internal tenants hosted by the platform, not end users or customers. Revenue outcomes are intentionally not published.
 
 ### Capital One reliability
 
@@ -258,9 +260,15 @@ Ted strengthened enterprise SRE standards through automated failover and regiona
 
 ### Capital One vehicle-data platform
 
-Ted designed and patented an event-driven data pipeline that consolidated more than 3 million vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.
+Ted designed and patented an event-driven data pipeline that consolidated more than 4 million vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.
 
-**Do not over-read this evidence:** The 3M+ figure is daily record throughput for the data integration, not user traffic or revenue.
+**Do not over-read this evidence:** The 4M+ figure is daily record throughput for the data integration, not user traffic or revenue.
+
+### Capital One dealer-data consolidation
+
+Ted rewrote and retired 4 of the 7 systems that consolidate dealer vehicle data, which map 200+ inventory feeds and process data from more than 17,000 dealerships into Auto Navigator daily. Redesigning data acquisition to be cloud native on AWS reduced runtime costs and data-pipeline outages.
+
+**Do not over-read this evidence:** 17,000+ is the number of dealerships whose inventory data the system processes, not Ted's customers. Cost and outage reductions are directional; no specific percentages are approved.
 
 ### USAA communications
 
@@ -344,7 +352,8 @@ I read Stripe's agent workflow architecture and wanted to see how much of the id
 
 - Ask Ted to draw the patented vehicle-data pipeline, explain the legacy coupling it replaced, and identify the hardest reliability and migration tradeoffs.
 - Ask how he diagnosed the memory and thread leaks during a high-visibility launch and how that incident changed later failover or regional-isolation testing.
-- Ask which parts of the Meta marketing pilot he owned directly, how spec-driven development changed execution, and what evidence justified forming a dedicated team.
-- Ask how context hubs, skill packaging, and governance fit together in his enterprise AI-enablement work, including what the 1,000+ skill-clone metric does and does not measure.
+- Ask which parts of the digital marketing pilot he owned directly, how spec-driven development changed execution, and what evidence justified forming a dedicated team.
+- Ask how he sequenced retiring 4 of the 7 dealer vehicle-data systems: what moved first, how 200+ inventory feeds were migrated safely, and how cloud-native acquisition reduced pipeline outages.
+- Ask what made tenant onboarding on the internal marketing platform difficult, what the redesign changed, and how it was validated across 100+ tenants.
 - Ask him to compare OpenHarness theory with Ditto Factory implementation: what remained deterministic, what the agent controlled, and where isolation, traceability, and human review entered the design.
 - Ask him to choose one Architecture Lab and explain which properties were authentic, which were simplified, how the model gathered missing context, and where its architectural understanding failed.

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tedahn.pw/sitemap.xml
+Sitemap: https://www.tedahn.com/sitemap.xml

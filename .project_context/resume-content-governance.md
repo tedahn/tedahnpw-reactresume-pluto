@@ -18,7 +18,7 @@ The preferred positioning is:
 
 Career material is maintained outside this public repository. When reconciling content, use this order:
 
-1. The latest explicitly approved resume or CV for current titles, dates, positioning, and public claims.
+1. The latest explicitly approved resume or CV for current titles, dates, positioning, and public claims. The current approved resume is the October 2026 revision of the 2026 technical resume.
 2. The sibling career-ops repository for canonical chronology, authorship boundaries, supporting evidence, and internal interview context.
 3. Direct user confirmations, including the July 2024 Capital One promotion date.
 4. src/resumeData.json as the website's public presentation layer.
@@ -45,7 +45,10 @@ The current public narrative emphasizes:
 
 - Senior Software Engineer with 6+ years of experience
 - Capital One progression from Software Engineer to Senior Software Engineer in July 2024
-- A patented event-driven Auto Navigator data integration processing 3M+ vehicle records daily
+- A redesigned onboarding experience for an internal marketing platform hosting 100+ internal tenants, and the platform's shared marketing capability for auto dealers
+- Digital marketing pilots: one delivered independently with spec-driven development, and a second now serving dealerships nationally
+- A patented event-driven Auto Navigator data integration processing 4M+ vehicle records daily
+- Rewriting and retiring 4 of the 7 dealer vehicle-data systems, spanning 200+ inventory feeds and 17,000+ dealerships, by moving vehicle-data acquisition to cloud-native AWS
 - A reactive USAA communications platform processing 1M SMS messages per hour
 - Distributed systems, reliability, cloud-native infrastructure, and responsible AI-assisted engineering
 - UT Austin Postgraduate Certificate in Artificial Intelligence and Machine Learning, November 2025
@@ -55,6 +58,17 @@ Preserve these About-section quotations unless Ted explicitly requests a change:
 1. “Programming is both my profession and my passion.”
 2. “My goal is to build connections in dynamic, interprofessional environments.”
 3. “To me, being 'Customer-Oriented' means my work ethic is passion-driven and my engineering is people-driven.”
+
+### Withheld by Decision (2026-10-14)
+
+Ted made these decisions when approving the October 2026 resume sync:
+
+- Revenue figures and marketing-pilot partner names that appear in the private resume are intentionally excluded from the public site and from all generated assets.
+- The organization-wide award is described generically, without its proper name.
+- The former AI-enablement achievement and its metrics are no longer part of the approved resume and must not be reintroduced.
+- The resume PDF's summary line still states 3M+ for the Auto Navigator pipeline while its bullet states 4M+. Ted confirmed 4M+ as the correct figure; use 4M+ everywhere.
+
+Do not add any of the withheld material back without Ted's explicit approval.
 
 ## Website Content Rules
 
