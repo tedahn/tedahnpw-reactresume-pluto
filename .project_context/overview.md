@@ -37,7 +37,7 @@ Career-content governance lives in [resume-content-governance.md](resume-content
 * **Build System**: Vite 5 with base ./ and output in build/.
 * **Styling**: A single custom CSS system in src/styles.css using CSS variables, Grid/Flexbox, and a 768px responsive breakpoint.
 * **Pure logic**: `src/lib/` (inline markup, date ranges) with `node --test` unit tests (`npm test`).
-* **Motion**: CSS-only section fade and card lift; none under reduced motion. No three.js, Framer Motion, or icon libraries.
+* **Motion**: CSS-only hero-photo spin-in on load, section fade and card lift; none under reduced motion. No three.js, Framer Motion, or icon libraries.
 * **Deployment**: GitHub Pages through the repository workflow on main or master.
 
 ## Current Experience Direction (October 2026)

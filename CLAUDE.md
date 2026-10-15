@@ -56,7 +56,7 @@ No linter is configured.
 - **Dark only**: ink `#121a26`, panels `#18212f`, cream text `#f4f0e6`, accent sea-glass teal `#6fc3b2`; use the CSS variables in `:root` of `styles.css`.
 - **Typography**: Newsreader (an optical-size serif built for screen reading) for name, headings and body; JetBrains Mono for dates and figures.
 - **Signature**: node-and-edge ornament between sections; metrics in teal monospace via `` `figure` `` markup.
-- **Motion**: CSS-only fade and card lift; nothing animates under `prefers-reduced-motion`. No three.js, Framer Motion, or particle effects.
+- **Motion**: CSS-only: one spin-in of the hero photo on load, section fade, and card lift; nothing animates under `prefers-reduced-motion`. No three.js, Framer Motion, or particle effects.
 - **Icons**: none — use text links. No emoji.
 - **Styling**: Custom CSS only (not Tailwind), in a single `styles.css`.
 - **Spec**: `docs/superpowers/specs/2026-10-14-professional-redesign-design.md`.
