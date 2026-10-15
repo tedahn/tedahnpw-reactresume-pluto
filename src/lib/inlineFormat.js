@@ -1,5 +1,6 @@
-// Splits copy into text, **strong**, and `figure` tokens. Unmatched markers stay literal.
-const PATTERN = /\*\*(.+?)\*\*|`([^`]+)`/g;
+// Splits copy into text, **strong**, and `figure` tokens. Markers must hug their
+// content (no inner edge spaces; backticks not inside a word), so stray markers stay literal.
+const PATTERN = /\*\*(?=\S)(.+?)(?<=\S)\*\*|(?<![\w`])`([^`\s][^`]*?)`(?![\w`])/g;
 
 export function tokenize(text) {
   if (!text) return [];

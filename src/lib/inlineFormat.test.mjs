@@ -34,6 +34,21 @@ test('adjacent markers are both parsed', () => {
   ]);
 });
 
+test('a stray ** before real bold stays literal', () => {
+  assert.deepEqual(tokenize('C++ ** note and **bold**'), [
+    { type: 'text', value: 'C++ ** note and ' },
+    { type: 'strong', value: 'bold' },
+  ]);
+});
+
+test('an in-word backtick before a real figure stays literal', () => {
+  assert.deepEqual(tokenize('it`s `4M` fast'), [
+    { type: 'text', value: 'it`s ' },
+    { type: 'figure', value: '4M' },
+    { type: 'text', value: ' fast' },
+  ]);
+});
+
 test('unmatched markers stay literal', () => {
   assert.deepEqual(tokenize('C++ ** note and `tick'), [
     { type: 'text', value: 'C++ ** note and `tick' },

@@ -149,6 +149,10 @@ a.card:hover { transform: translateY(-3px); border-color: var(--acc); color: var
   .notes li { flex-wrap: wrap; gap: 0 12px; }
 }
 
+@media print {
+  .reveal-hidden { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal, .card, a { transition: none; }
