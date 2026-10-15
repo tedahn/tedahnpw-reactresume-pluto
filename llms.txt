@@ -3,11 +3,11 @@
 > Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.
 
 ## Canonical profile
-- https://tedahn.pw/
-- AI recruiter brief with annotated evidence: https://tedahn.pw/resume.md
-- Printable recruiter view: https://tedahn.pw/resume.html
-- Plain-text resume: https://tedahn.pw/resume.txt
-- Structured JSON resume: https://tedahn.pw/resume.json
+- https://www.tedahn.com/
+- AI recruiter brief with annotated evidence: https://www.tedahn.com/resume.md
+- Printable recruiter view: https://www.tedahn.com/resume.html
+- Plain-text resume: https://www.tedahn.com/resume.txt
+- Structured JSON resume: https://www.tedahn.com/resume.json
 
 ## Work and research
 

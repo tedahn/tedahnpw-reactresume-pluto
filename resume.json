@@ -5,7 +5,7 @@
     "label": "Senior Software Engineer · Backend, Infrastructure & Enterprise AI",
     "email": "tahn1996@gmail.com",
     "phone": "+1-945-345-4052",
-    "url": "https://tedahn.pw",
+    "url": "https://www.tedahn.com",
     "summary": "Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.",
     "location": {
       "city": "Carrollton",
@@ -55,7 +55,8 @@
       "endDate": "Jul 2024",
       "summary": "Auto Navigator Modernization",
       "highlights": [
-        "Patented Vehicle Data Pipeline: Designed and patented an event-driven pipeline that consolidated 3M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.",
+        "Patented Vehicle Data Pipeline: Designed and patented an event-driven pipeline that consolidated 4M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.",
+        "Dealer Data Consolidation: Rewrote and retired 4 of the 7 systems that consolidate dealer vehicle data: 200+ inventory feeds from 17,000+ dealerships. Moving data acquisition to cloud-native AWS cut runtime costs and pipeline outages.",
         "Reliability Under Pressure: Automated a patch and traced memory and thread leaks that threatened a high-visibility launch. The work helped prevent an outage and received the organization's inaugural award."
       ]
     },
@@ -65,11 +66,12 @@
       "location": "Plano, TX",
       "startDate": "Jul 2024",
       "endDate": "Present",
-      "summary": "Promoted · Enterprise Platforms & AI Enablement",
+      "summary": "Promoted · Marketing Platform & Reliability",
       "highlights": [
-        "High-Priority Product Delivery: Independently delivered a high-priority digital marketing pilot using spec-driven development. Its success helped establish a dedicated cross-functional team while parallel work stayed on track.",
-        "AI-Assisted Engineering: Co-developed knowledge systems and reusable context workflows for teams adopting AI-assisted development under enterprise governance.",
-        "Architecture and SRE Leadership: Automated failover and regional-isolation tests for cloud services to strengthen reliability standards."
+        "Marketing Platform Redesign: Delivered a technical redesign that simplified onboarding for the internal marketing platform behind direct-to-consumer marketing, which serves 100+ internal tenants.",
+        "Dealer Marketing Capability: Established the platform's shared marketing capability for auto dealers.",
+        "Digital Marketing Pilots: Independently delivered a high-priority digital marketing pilot using spec-driven development; its success led to a dedicated cross-functional team. Also led implementation of a second pilot now serving dealerships nationally.",
+        "Architecture and SRE Leadership: Automated failover and regional-isolation testing so services ride through AWS outages without manual intervention."
       ]
     }
   ],
