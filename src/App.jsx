@@ -24,7 +24,7 @@ function App() {
         <Ornament />
         <Experience work={resume.work} />
         <Ornament />
-        <Showcase id="work" title="Selected Work" items={showcase.work} />
+        <Showcase id="work" title="Professional Projects" items={showcase.work} />
         <Ornament />
         <Showcase id="home" title="Independent Projects" items={showcase.home} notes={portfolio.fieldNotes} />
       </main>

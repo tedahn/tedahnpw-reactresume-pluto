@@ -23,7 +23,7 @@ Future agents MUST treat the `.project_context` directories as the **source of t
 
 ## 3. Design Philosophy ("Ink & Sea-glass")
 *   **Visuals**: A quiet, editorial professional page: Ted's real photo in a teal ring, serif typography, the node-and-edge ornament between sections, and metrics in teal monospace. Spec: `docs/superpowers/specs/2026-10-14-professional-redesign-design.md`.
-*   **Composition**: The first viewport establishes identity (photo, name, role). Evidence follows in Experience, **Selected Work** (enterprise systems) and **Independent Projects** (personal projects and field notes), kept as separate sections.
+*   **Composition**: The first viewport establishes identity (photo, name, role). Evidence follows in Experience, **Professional Projects** (enterprise systems) and **Independent Projects** (personal projects and field notes), kept as separate sections.
 *   **Interaction**: Restrained: a CSS fade on section entry and a card lift on hover, both disabled under `prefers-reduced-motion`.
 *   **Accessibility**: Preserve semantic landmarks, the skip link, keyboard navigation, visible focus states, reduced-motion handling, and mobile readability.
 

@@ -26,7 +26,7 @@ Career-content governance lives in [resume-content-governance.md](resume-content
 * **Hero**: Ted's real photo in a teal ring, his name, and a monospace role line.
 * **About**: A short professional bio with the proof bolded inline, plus an availability status line.
 * **Experience**: Reverse-chronological roles with dates and a one-line summary whose metrics render in teal monospace.
-* **Selected Work**: Enterprise systems as cards linking to public product-context pages.
+* **Professional Projects**: Enterprise systems as cards linking to public product-context pages.
 * **Independent Projects**: Personal projects as cards, followed by field notes.
 * **Footer**: Email and links to the Markdown (AI), JSON, and plain-text résumé versions.
 

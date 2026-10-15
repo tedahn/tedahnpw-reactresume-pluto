@@ -32,7 +32,7 @@ No linter is configured.
 **Data flow:** `src/resumeData.json` → components read JSON props → rendered sections
 
 **Key files:**
-- `src/App.jsx` — Root layout: Header, Hero, About, Experience, Selected Work, Independent Projects, Footer
+- `src/App.jsx` — Root layout: Header, Hero, About, Experience, Professional Projects, Independent Projects, Footer
 - `src/resumeData.json` — Single source of truth for all content (bio, experience, education, showcase, field notes, social links)
 - `src/styles.css` — All styles in one file, CSS custom properties for theming
 - `src/lib/` — Pure logic with `node --test` tests (`inlineFormat.js`, `dates.js`)
@@ -44,7 +44,7 @@ No linter is configured.
 - `Hero.jsx` — Photo ring, name, monospace role line
 - `About.jsx` — `main.professionalBio` paragraphs and status line
 - `Experience.jsx` — Reverse-chronological roles via `src/lib/dates.js`
-- `Showcase.jsx` — Card grid used for "Selected Work" and "Independent Projects" (with field notes)
+- `Showcase.jsx` — Card grid used for "Professional Projects" and "Independent Projects" (with field notes)
 - `Inline.jsx` — Renders `**bold**` and `` `figure` `` markup from `src/lib/inlineFormat.js`
 - `Reveal.jsx` — IntersectionObserver fade-in, disabled for reduced motion
 - `Ornament.jsx`, `Footer.jsx`, `StructuredData.jsx`
