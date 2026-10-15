@@ -32,7 +32,7 @@ No linter is configured.
 **Data flow:** `src/resumeData.json` → components read JSON props → rendered sections
 
 **Key files:**
-- `src/App.jsx` — Root layout: Header, Hero, About, Experience, Built at Work, Tinkering at Home, Footer
+- `src/App.jsx` — Root layout: Header, Hero, About, Experience, Selected Work, Independent Projects, Footer
 - `src/resumeData.json` — Single source of truth for all content (bio, experience, education, showcase, field notes, social links)
 - `src/styles.css` — All styles in one file, CSS custom properties for theming
 - `src/lib/` — Pure logic with `node --test` tests (`inlineFormat.js`, `dates.js`)
@@ -44,7 +44,7 @@ No linter is configured.
 - `Hero.jsx` — Photo ring, name, monospace role line
 - `About.jsx` — `main.professionalBio` paragraphs and status line
 - `Experience.jsx` — Reverse-chronological roles via `src/lib/dates.js`
-- `Showcase.jsx` — Card grid used for "Built at Work" and "Tinkering at Home" (with field notes)
+- `Showcase.jsx` — Card grid used for "Selected Work" and "Independent Projects" (with field notes)
 - `Inline.jsx` — Renders `**bold**` and `` `figure` `` markup from `src/lib/inlineFormat.js`
 - `Reveal.jsx` — IntersectionObserver fade-in, disabled for reduced motion
 - `Ornament.jsx`, `Footer.jsx`, `StructuredData.jsx`
@@ -54,7 +54,7 @@ No linter is configured.
 ## Design Rules ("Ink & Sea-glass")
 
 - **Dark only**: ink `#121a26`, panels `#18212f`, cream text `#f4f0e6`, accent sea-glass teal `#6fc3b2`; use the CSS variables in `:root` of `styles.css`.
-- **Typography**: Cormorant Garamond (name, section labels, card titles), EB Garamond (body), JetBrains Mono (dates, figures, tags).
+- **Typography**: Cormorant Garamond (name, section labels, card titles), EB Garamond (body), JetBrains Mono (dates and figures).
 - **Signature**: node-and-edge ornament between sections; metrics in teal monospace via `` `figure` `` markup.
 - **Motion**: CSS-only fade and card lift; nothing animates under `prefers-reduced-motion`. No three.js, Framer Motion, or particle effects.
 - **Icons**: none — use text links. No emoji.

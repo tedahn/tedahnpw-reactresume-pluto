@@ -2,8 +2,6 @@ import React from 'react';
 import Inline from './Inline';
 import Reveal from './Reveal';
 
-const TAG_LABELS = { patented: 'Patented', production: 'In production', lab: 'Lab' };
-
 const GLYPHS = {
   curve: (
     <svg width="120" height="70" viewBox="0 0 120 70">
@@ -53,7 +51,6 @@ const Card = ({ item }) => {
           {item.url && <span className="card-arrow" aria-hidden="true"> ↗</span>}
         </h3>
         <p className="card-summary"><Inline text={item.summary} /></p>
-        {item.tag && <span className={`tag tag-${item.tag}`}>{TAG_LABELS[item.tag] || item.tag}</span>}
       </div>
     </>
   );
@@ -83,7 +80,6 @@ const Showcase = ({ id, title, items = [], notes = [] }) => {
               <li key={note.title}>
                 <span>
                   <a href={note.links?.[0]?.url} target="_blank" rel="noopener noreferrer">{note.title}</a>
-                  {note.type && <span className="note-type"> · {note.type.split(' / ')[0]}</span>}
                 </span>
                 {note.year && <span className="note-year">{note.year}</span>}
               </li>

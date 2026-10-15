@@ -126,7 +126,7 @@
         "title": "Software Engineer",
       "dates": "May 2022 - Jul 2024",
         "location": "Plano, TX",
-      "summary": "Patented vehicle-data pipeline at `4M+/day`; consolidated dealer data from `17,000+` dealerships.",
+      "summary": "Event-driven vehicle-data pipeline at `4M+/day`; consolidated dealer data from `17,000+` dealerships.",
       "graduated": "May 2022 - Jul 2024",
         "achievements": [
           {
@@ -217,7 +217,6 @@
         {
           "title": "Vehicle Data Pipeline",
           "summary": "Event-driven ingest behind Auto Navigator that replaced a 15-year-old system.",
-          "tag": "patented",
           "image": "images/impact/auto-navigator.jpg",
           "imageAlt": "A selection of vehicles available through Auto Navigator",
           "url": "https://www.capitalone.com/cars/how-auto-navigator-works"
@@ -225,7 +224,6 @@
         {
           "title": "Severe-Weather Alerting",
           "summary": "USAA's first reactive messaging platform, built for 1M SMS an hour.",
-          "tag": "production",
           "image": "images/impact/usaa-disaster-640.jpg",
           "imageAlt": "A home and vehicle damaged by severe weather",
           "url": "https://www.usaa.com/support/insurance/claims/natural-disaster/"
@@ -233,7 +231,6 @@
         {
           "title": "Dealer Marketing",
           "summary": "Shared marketing capability and pilots now serving auto dealers nationally.",
-          "tag": "production",
           "image": "images/impact/navigator-dealer-640.jpg",
           "imageAlt": "Customers exploring a vehicle with a dealer",
           "url": "https://www.capitalone.com/cars/auto-financing/dealer"
@@ -243,21 +240,18 @@
         {
           "title": "Per-Shot Encoding",
           "summary": "Rebuilding Netflix's quality-per-bit encoding optimizer with real VMAF.",
-          "tag": "lab",
           "glyph": "curve",
           "url": "https://tedahn.github.io/architecture-lab-netflix-per-shot-encoding/"
         },
         {
           "title": "Marketplace Engine",
           "summary": "A Steam-style matching engine with ring buffers, a write-ahead log and failover.",
-          "tag": "lab",
           "glyph": "ring",
           "url": "https://tedahn.github.io/architecture-lab-steam-marketplace/"
         },
         {
           "title": "Ditto Factory",
           "summary": "A Kubernetes-native platform for isolated, traceable agent workflows.",
-          "tag": "lab",
           "glyph": "flow",
           "url": "https://github.com/tedahn/ditto-factory"
         }

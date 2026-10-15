@@ -17,13 +17,13 @@ Future agents MUST treat the `.project_context` directories as the **source of t
 *   **Framework**: Use **React** (v18+) with **Vite**.
 *   **Styling**: Standard custom CSS in a single `src/styles.css`, driven by the `:root` token set (not Tailwind).
     *   **Dark only**: ink `#121a26`, panels `#18212f`, cream text `#f4f0e6`, sea-glass teal accent `#6fc3b2`.
-*   **Typography**: **Cormorant Garamond** for the name, section labels and card titles; **EB Garamond** for body copy; **JetBrains Mono** for dates, figures and tags.
+*   **Typography**: **Cormorant Garamond** for the name, section labels and card titles; **EB Garamond** for body copy; **JetBrains Mono** for dates and figures.
 *   **Icons**: None; use text links. No emoji.
 *   **Dependencies**: Runtime dependencies are `react` and `react-dom` only. Do not reintroduce three.js, Framer Motion or icon libraries without an approved spec.
 
 ## 3. Design Philosophy ("Ink & Sea-glass")
 *   **Visuals**: A quiet, editorial professional page: Ted's real photo in a teal ring, serif typography, the node-and-edge ornament between sections, and metrics in teal monospace. Spec: `docs/superpowers/specs/2026-10-14-professional-redesign-design.md`.
-*   **Composition**: The first viewport establishes identity (photo, name, role). Evidence follows in Experience, **Built at Work** (enterprise systems) and **Tinkering at Home** (personal labs and field notes), kept as separate sections.
+*   **Composition**: The first viewport establishes identity (photo, name, role). Evidence follows in Experience, **Selected Work** (enterprise systems) and **Independent Projects** (personal projects and field notes), kept as separate sections.
 *   **Interaction**: Restrained: a CSS fade on section entry and a card lift on hover, both disabled under `prefers-reduced-motion`.
 *   **Accessibility**: Preserve semantic landmarks, the skip link, keyboard navigation, visible focus states, reduced-motion handling, and mobile readability.
 

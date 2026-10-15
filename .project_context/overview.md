@@ -26,8 +26,8 @@ Career-content governance lives in [resume-content-governance.md](resume-content
 * **Hero**: Ted's real photo in a teal ring, his name, and a monospace role line.
 * **About**: A short professional bio with the proof bolded inline, plus an availability status line.
 * **Experience**: Reverse-chronological roles with dates and a one-line summary whose metrics render in teal monospace.
-* **Built at Work**: Enterprise systems as cards linking to public product-context pages.
-* **Tinkering at Home**: Personal labs as cards, followed by field notes.
+* **Selected Work**: Enterprise systems as cards linking to public product-context pages.
+* **Independent Projects**: Personal projects as cards, followed by field notes.
 * **Footer**: Email and links to the Markdown (AI), JSON, and plain-text résumé versions.
 
 ## Technical Architecture
@@ -45,6 +45,6 @@ Career-content governance lives in [resume-content-governance.md](resume-content
 * **Site goal**: Ted is employed and not searching, but easy to say yes to: a credible résumé in seconds, plus visible ongoing work.
 * **Brand**: *The reliable builder.* Production systems that don't break lead; personal architecture research supports.
 * **First Viewport**: Photo, name, and role line, then a bio whose bolded claims carry the proof.
-* **Work vs. Home**: Enterprise systems and personal labs are deliberately separate sections.
+* **Work vs. independent projects**: Enterprise systems and personal projects are deliberately separate sections.
 * **Resume Access**: The Markdown brief for AI recruiters and the HTML, plain-text, and JSON versions are derived from the canonical site data and linked from the header and footer.
 * **Mobile**: Single column with labels above content, one card per row at ≤560px, and no horizontal overflow at 390px.

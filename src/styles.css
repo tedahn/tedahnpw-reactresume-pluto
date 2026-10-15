@@ -8,10 +8,6 @@
   --rule: #263142;
   --acc: #6fc3b2;
   --acc-soft: rgba(111, 195, 178, 0.22);
-  --tag-production: #86c99a;
-  --tag-production-line: #4f8a62;
-  --tag-lab: #9fb4d8;
-  --tag-lab-line: #56688c;
   --font-display: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
   --font-body: 'EB Garamond', Georgia, serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
@@ -103,19 +99,10 @@ a.card:hover { transform: translateY(-3px); border-color: var(--acc); color: var
 .card-title { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 20px; line-height: 1.15; }
 .card-arrow { color: var(--acc); font-size: 0.8em; }
 .card-summary { margin: 0; color: var(--body-2); font-size: 15px; line-height: 1.45; }
-.tag {
-  align-self: flex-start; margin-top: auto; padding: 2px 8px;
-  border: 1px solid; border-radius: 99px;
-  font-family: var(--font-mono); font-size: 10.5px; line-height: 1.6;
-}
-.tag-patented { color: var(--acc); border-color: var(--acc); }
-.tag-production { color: var(--tag-production); border-color: var(--tag-production-line); }
-.tag-lab { color: var(--tag-lab); border-color: var(--tag-lab-line); }
 
 /* Notes */
 .notes { margin: 22px 0 0; padding: 0; list-style: none; }
 .notes li { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; font-size: 18.5px; line-height: 1.5; }
-.note-type { color: var(--muted); font-size: 13px; }
 .note-year { padding-top: 5px; color: var(--muted); font-family: var(--font-mono); font-size: 12px; white-space: nowrap; }
 
 /* Footer */

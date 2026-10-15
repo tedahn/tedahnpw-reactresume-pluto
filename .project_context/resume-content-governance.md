@@ -73,7 +73,7 @@ Do not add any of the withheld material back without Ted's explicit approval.
 - Adapt source material for web scanning; do not paste long resume bullets verbatim.
 - Preserve chronology, authorship, metrics, and attribution.
 - Keep `portfolio.projects` empty. Do not reintroduce SMILE or Glow project cards or generated resume entries unless Ted explicitly requests them.
-- Showcase cards (`portfolio.showcase.work` for enterprise systems, `portfolio.showcase.home` for personal labs) follow the same public-safety rules. Work cards link to public product-context pages, which provide context, not attribution. Keep the two sections separate.
+- Showcase cards (`portfolio.showcase.work` for enterprise systems, `portfolio.showcase.home` for independent projects) follow the same public-safety rules. Work cards link to public product-context pages, which provide context, not attribution. Keep the two sections separate.
 - Keep public product links contextual and retain their local static images under public/images/impact/.
 - Use only Ted's real photo (`public/images/tedprofile/`), approved 2026-10-14. Never use generated portraits.
 - Avoid duplicate claims across the hero, About, timeline, projects, and closing section.
