@@ -53,11 +53,7 @@ The current public narrative emphasizes:
 - Distributed systems, reliability, cloud-native infrastructure, and responsible AI-assisted engineering
 - UT Austin Postgraduate Certificate in Artificial Intelligence and Machine Learning, November 2025
 
-Preserve these About-section quotations unless Ted explicitly requests a change:
-
-1. “Programming is both my profession and my passion.”
-2. “My goal is to build connections in dynamic, interprofessional environments.”
-3. “To me, being 'Customer-Oriented' means my work ethic is passion-driven and my engineering is people-driven.”
+The three former About-section quotations were retired by Ted on 2026-10-14. The About section now uses `main.professionalBio`; do not reintroduce the quotations without Ted's explicit request.
 
 ### Withheld by Decision (2026-10-14)
 
@@ -76,9 +72,10 @@ Do not add any of the withheld material back without Ted's explicit approval.
 - Never hardcode biography, employment, education, achievements, projects, links, or contact details in components.
 - Adapt source material for web scanning; do not paste long resume bullets verbatim.
 - Preserve chronology, authorship, metrics, and attribution.
-- Keep the public project showcase omitted. Do not reintroduce SMILE or Glow project cards or generated resume entries unless Ted explicitly requests them.
+- Keep `portfolio.projects` empty. Do not reintroduce SMILE or Glow project cards or generated resume entries unless Ted explicitly requests them.
+- Showcase cards (`portfolio.showcase.work` for enterprise systems, `portfolio.showcase.home` for personal labs) follow the same public-safety rules. Work cards link to public product-context pages, which provide context, not attribution. Keep the two sections separate.
 - Keep public product links contextual and retain their local static images under public/images/impact/.
-- Do not reintroduce generated portraits. The current design is intentionally portrait-free.
+- Use only Ted's real photo (`public/images/tedprofile/`), approved 2026-10-14. Never use generated portraits.
 - Avoid duplicate claims across the hero, About, timeline, projects, and closing section.
 
 ## Required Validation

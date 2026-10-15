@@ -22,38 +22,44 @@ For a reusable GPT Sol task brief, see docs/sol-resume-site-maintenance-prompt.m
 npm run dev      # Start dev server (auto-opens browser, port 5173)
 npm run build    # Production build → build/ directory
 npm run preview  # Preview production build locally
+npm test         # node --test src/lib/ (pure-logic unit tests)
 ```
 
-No test runner is configured. No linter is configured.
+No linter is configured.
 
 ## Architecture
 
 **Data flow:** `src/resumeData.json` → components read JSON props → rendered sections
 
 **Key files:**
-- `src/App.jsx` — Root layout, scroll-spy logic for active nav section
-- `src/resumeData.json` — Single source of truth for all content (bio, experience, education, projects, social links)
+- `src/App.jsx` — Root layout: Header, Hero, About, Experience, Built at Work, Tinkering at Home, Footer
+- `src/resumeData.json` — Single source of truth for all content (bio, experience, education, showcase, field notes, social links)
 - `src/styles.css` — All styles in one file, CSS custom properties for theming
-- `src/icons.js` — FontAwesome library initialization (import icons here)
+- `src/lib/` — Pure logic with `node --test` tests (`inlineFormat.js`, `dates.js`)
 - `src/Components/` — All UI components
+- `scripts/generate-resume-assets.mjs` — Builds `public/resume.{md,json,html,txt}`, `llms.txt`, `sitemap.xml`, `robots.txt` from the JSON (runs before dev/build)
 
 **Components:**
-- `Experience.jsx` — Merges work + education arrays, sorts chronologically via custom date parser (handles iOS date quirks). Alternating left/right timeline on desktop, linear on mobile.
-- `Work.jsx` — Portfolio grid with dynamic icon mapping for tech tools (special cases for ML tools like pandas → chart-line, tensorflow → brain)
-- `ParticleBackground.jsx` — Canvas-based animated particle effect
-- `AnimatedSection.jsx` — Framer Motion wrapper (useInView, triggers at 10% visibility, once)
-- `Navigation.jsx` — Fixed glassmorphic header, hamburger menu on mobile
+- `Header.jsx` — Name plus Résumé / GitHub / LinkedIn text links
+- `Hero.jsx` — Photo ring, name, monospace role line
+- `About.jsx` — `main.professionalBio` paragraphs and status line
+- `Experience.jsx` — Reverse-chronological roles via `src/lib/dates.js`
+- `Showcase.jsx` — Card grid used for "Built at Work" and "Tinkering at Home" (with field notes)
+- `Inline.jsx` — Renders `**bold**` and `` `figure` `` markup from `src/lib/inlineFormat.js`
+- `Reveal.jsx` — IntersectionObserver fade-in, disabled for reduced motion
+- `Ornament.jsx`, `Footer.jsx`, `StructuredData.jsx`
 
-**Responsive breakpoint:** 768px (`@media screen and (max-width: 768px)`)
+**Responsive breakpoints:** 768px single column (`@media screen and (max-width: 768px)`); cards go 3 → 2 at 900px and → 1 at 560px.
 
-## Design Rules
+## Design Rules ("Ink & Sea-glass")
 
-- **Glassmorphism** is mandatory: `backdrop-filter: blur()`, transparent backgrounds, glass borders
-- **Dark mode only**: background `#0f172a`, use CSS variables defined in `:root` of `styles.css`
-- **Typography**: Always use 'Google Sans' / 'Google Sans Text' fonts
-- **Icons**: FontAwesome via `@fortawesome/react-fontawesome` — no emoji, no other icon libraries
-- **Styling**: Custom CSS only (not Tailwind). Maintain the existing CSS custom property system.
-- **Animations**: Framer Motion for scroll-triggered entrance animations
+- **Dark only**: ink `#121a26`, panels `#18212f`, cream text `#f4f0e6`, accent sea-glass teal `#6fc3b2`; use the CSS variables in `:root` of `styles.css`.
+- **Typography**: Cormorant Garamond (name, section labels, card titles), EB Garamond (body), JetBrains Mono (dates, figures, tags).
+- **Signature**: node-and-edge ornament between sections; metrics in teal monospace via `` `figure` `` markup.
+- **Motion**: CSS-only fade and card lift; nothing animates under `prefers-reduced-motion`. No three.js, Framer Motion, or particle effects.
+- **Icons**: none — use text links. No emoji.
+- **Styling**: Custom CSS only (not Tailwind), in a single `styles.css`.
+- **Spec**: `docs/superpowers/specs/2026-10-14-professional-redesign-design.md`.
 
 ## Deployment
 
