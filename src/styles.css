@@ -8,8 +8,8 @@
   --rule: #263142;
   --acc: #6fc3b2;
   --acc-soft: rgba(111, 195, 178, 0.22);
-  --font-display: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
-  --font-body: 'EB Garamond', Georgia, serif;
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Newsreader', Georgia, serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --page-width: 760px;
   --label-col: 150px;
@@ -22,8 +22,8 @@ body {
   background: var(--ink);
   color: var(--cream);
   font-family: var(--font-body);
-  font-size: 20px;
-  line-height: 1.9;
+  font-size: 19px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
@@ -54,7 +54,7 @@ img { display: block; max-width: 100%; }
 .hero-ring img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: var(--panel); }
 .hero h1 {
   margin: 18px 0 6px;
-  font-family: var(--font-display); font-weight: 600; font-size: 52px; line-height: 1.05; letter-spacing: 1.2px;
+  font-family: var(--font-display); font-weight: 500; font-size: 52px; line-height: 1.05; letter-spacing: 0.2px;
 }
 .role-line {
   margin: 0; color: var(--muted);
@@ -64,7 +64,7 @@ img { display: block; max-width: 100%; }
 
 /* Sections */
 .section { display: grid; grid-template-columns: var(--label-col) minmax(0, 1fr); gap: 28px; margin-top: 44px; }
-.section-label { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 26px; line-height: 1.2; }
+.section-label { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 26px; line-height: 1.2; }
 .prose p { max-width: 480px; margin: 0 0 16px; }
 .prose strong { color: #fff; font-weight: 600; }
 .figure { color: var(--acc); font-family: var(--font-mono); font-size: 0.82em; white-space: nowrap; }
@@ -77,7 +77,7 @@ img { display: block; max-width: 100%; }
 /* Experience */
 .roles { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; }
 .role-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
-.role-title { margin: 0; font-size: 19px; font-weight: 500; line-height: 1.4; }
+.role-title { margin: 0; font-size: 18.5px; font-weight: 500; line-height: 1.4; }
 .role-company { color: var(--muted); font-weight: 400; white-space: nowrap; }
 .role-dates { color: var(--muted); font-family: var(--font-mono); font-size: 12px; white-space: nowrap; }
 .role-summary { margin: 2px 0 0; color: var(--body-2); font-size: 16px; line-height: 1.55; }
@@ -95,7 +95,7 @@ a.card:hover { transform: translateY(-3px); border-color: var(--acc); color: var
 .card-media { width: 100%; height: 112px; border-bottom: 1px solid var(--acc-soft); object-fit: cover; }
 .card-glyph { display: flex; align-items: center; justify-content: center; background: #0d131c; color: var(--acc); }
 .card-body { display: flex; flex: 1; flex-direction: column; gap: 6px; padding: 12px 13px 14px; }
-.card-title { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 20px; line-height: 1.15; }
+.card-title { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 20px; line-height: 1.15; }
 .card-arrow { color: var(--acc); font-size: 0.8em; }
 .card-summary { margin: 0; color: var(--body-2); font-size: 15px; line-height: 1.45; }
 .card-meta { margin: auto 0 0; padding-top: 6px; color: var(--muted); font-size: 13.5px; line-height: 1.4; }
@@ -123,7 +123,7 @@ a.card:hover { transform: translateY(-3px); border-color: var(--acc); color: var
 }
 
 @media screen and (max-width: 768px) {
-  body { font-size: 18px; }
+  body { font-size: 17.5px; }
   .page { padding: 20px 16px 40px; }
   .site-header nav { gap: 16px; }
   .hero h1 { font-size: 38px; }

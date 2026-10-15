@@ -15,7 +15,7 @@ The website is a living, public-safe reflection of Ted's professional journey:
 * **Customer-Oriented Engineering**: Passion-driven work and people-driven engineering.
 * **Senior Technical Positioning**: Backend, distributed and event-driven systems, cloud infrastructure, reliability, enterprise AI, and AI-assisted engineering.
 * **Evidence-Led Storytelling**: Clear chronology, defensible metrics, shared-authorship boundaries, and public product context without overstating causality.
-* **Ink & Sea-glass**: Ink-navy surfaces, cream serif typography (Cormorant Garamond and EB Garamond), a sea-glass teal accent, JetBrains Mono for data, a node-and-edge ornament, and restrained motion. Spec: `docs/superpowers/specs/2026-10-14-professional-redesign-design.md`.
+* **Ink & Sea-glass**: Ink-navy surfaces, cream serif typography (Newsreader), a sea-glass teal accent, JetBrains Mono for data, a node-and-edge ornament, and restrained motion. Spec: `docs/superpowers/specs/2026-10-14-professional-redesign-design.md`.
 * **Technical Excellence**: React 18, Vite, responsive layouts, semantic content structure, and locally managed visual assets.
 
 Career-content governance lives in [resume-content-governance.md](resume-content-governance.md).

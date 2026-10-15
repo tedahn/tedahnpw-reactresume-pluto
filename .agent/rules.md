@@ -17,7 +17,7 @@ Future agents MUST treat the `.project_context` directories as the **source of t
 *   **Framework**: Use **React** (v18+) with **Vite**.
 *   **Styling**: Standard custom CSS in a single `src/styles.css`, driven by the `:root` token set (not Tailwind).
     *   **Dark only**: ink `#121a26`, panels `#18212f`, cream text `#f4f0e6`, sea-glass teal accent `#6fc3b2`.
-*   **Typography**: **Cormorant Garamond** for the name, section labels and card titles; **EB Garamond** for body copy; **JetBrains Mono** for dates and figures.
+*   **Typography**: **Newsreader** (screen-optimised serif with optical sizes) for the name, headings and body copy; **JetBrains Mono** for dates and figures.
 *   **Icons**: None; use text links. No emoji.
 *   **Dependencies**: Runtime dependencies are `react` and `react-dom` only. Do not reintroduce three.js, Framer Motion or icon libraries without an approved spec.
 
