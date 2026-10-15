@@ -5,8 +5,14 @@
     "legalname": "Hyounggun Ahn",
     "occupation": "Senior Software Engineer · Backend, Infrastructure & Enterprise AI",
     "description": "Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.",
-    "bio": "Programming is both my profession and my passion.\n\nMy goal is to build connections in dynamic, interprofessional environments.\n\nTo me, being 'Customer-Oriented' means my work ethic is passion-driven and my engineering is people-driven.",
-    "contactmessage": "Open to conversations about distributed systems, enterprise AI, and how teams use AI-assisted engineering in practice.",
+    "roleLine": "Senior Software Engineer · **Capital One** · Dallas–Fort Worth",
+    "photo": { "src": "images/tedprofile/ted-ahn-336.jpg", "alt": "Ted Ahn" },
+    "professionalBio": [
+      "Backend engineer building systems that have to stay up. At Capital One I designed and **patented an event-driven pipeline that moves 4M+ vehicle records a day**, and **retired 4 of the 7 legacy systems** it replaced.",
+      "Before that, at USAA, I built **the alerting platform that sends 1M SMS an hour** when severe weather hits. CS at UT Dallas; AI/ML postgraduate certificate from UT Austin."
+    ],
+    "bio": "Senior software engineer building event-driven backend systems that have to stay up.",
+    "contactmessage": "Not looking for a new role, but always happy to talk systems.",
     "email": "tahn1996@gmail.com",
     "phone": "+1-945-345-4052",
     "basecity": "Carrollton",
@@ -32,18 +38,21 @@
     "social": [
       {
         "name": "email",
+        "label": "Email",
         "url": "mailto:tahn1996@gmail.com",
         "iconType": "fas",
         "className": "paper-plane"
       },
       {
         "name": "linkedin",
+        "label": "LinkedIn",
         "url": "https://www.linkedin.com/in/tedahn/",
         "iconType": "fab",
         "className": "linkedin"
       },
       {
         "name": "github",
+        "label": "GitHub",
         "url": "https://github.com/tedahn",
         "iconType": "fab",
         "className": "github"
@@ -74,6 +83,7 @@
       "title": "Data Analyst / Software Engineer Intern",
       "dates": "May 2017 - Dec 2017",
         "location": "Los Angeles, CA",
+      "summary": "Spring MVC and Apache Spark batch job to test a recommendation concept.",
       "graduated": "May 2017 - Dec 2017",
       "achievements": [
           {
@@ -88,6 +98,7 @@
         "title": "Software Engineer",
       "dates": "Sep 2019 - May 2022",
         "location": "Plano, TX",
+      "summary": "Reactive alerting platform at `1M SMS/hr`; kept a 35-year-old system running while building its replacement.",
       "graduated": "Sep 2019 - May 2022",
         "achievements": [
           {
@@ -115,6 +126,7 @@
         "title": "Software Engineer",
       "dates": "May 2022 - Jul 2024",
         "location": "Plano, TX",
+      "summary": "Patented vehicle-data pipeline at `4M+/day`; consolidated dealer data from `17,000+` dealerships.",
       "graduated": "May 2022 - Jul 2024",
         "achievements": [
           {
@@ -146,6 +158,7 @@
         "title": "Senior Software Engineer",
       "dates": "Jul 2024 - Present",
         "location": "Plano, TX",
+      "summary": "Onboarding redesign for an internal marketing platform with `100+` tenants; failover testing that rides through AWS outages.",
       "graduated": "Jul 2024 - Present",
         "achievements": [
           {
@@ -199,9 +212,61 @@
   },
   "portfolio": {
     "projects": [],
+    "showcase": {
+      "work": [
+        {
+          "title": "Vehicle Data Pipeline",
+          "summary": "Event-driven ingest behind Auto Navigator that replaced a 15-year-old system.",
+          "tag": "patented",
+          "image": "images/impact/auto-navigator.jpg",
+          "imageAlt": "A selection of vehicles available through Auto Navigator",
+          "url": "https://www.capitalone.com/cars/how-auto-navigator-works"
+        },
+        {
+          "title": "Severe-Weather Alerting",
+          "summary": "USAA's first reactive messaging platform, built for 1M SMS an hour.",
+          "tag": "production",
+          "image": "images/impact/usaa-disaster-640.jpg",
+          "imageAlt": "A home and vehicle damaged by severe weather",
+          "url": "https://www.usaa.com/support/insurance/claims/natural-disaster/"
+        },
+        {
+          "title": "Dealer Marketing",
+          "summary": "Shared marketing capability and pilots now serving auto dealers nationally.",
+          "tag": "production",
+          "image": "images/impact/navigator-dealer-640.jpg",
+          "imageAlt": "Customers exploring a vehicle with a dealer",
+          "url": "https://www.capitalone.com/cars/auto-financing/dealer"
+        }
+      ],
+      "home": [
+        {
+          "title": "Per-Shot Encoding",
+          "summary": "Rebuilding Netflix's quality-per-bit encoding optimizer with real VMAF.",
+          "tag": "lab",
+          "glyph": "curve",
+          "url": "https://tedahn.github.io/architecture-lab-netflix-per-shot-encoding/"
+        },
+        {
+          "title": "Marketplace Engine",
+          "summary": "A Steam-style matching engine with ring buffers, a write-ahead log and failover.",
+          "tag": "lab",
+          "glyph": "ring",
+          "url": "https://tedahn.github.io/architecture-lab-steam-marketplace/"
+        },
+        {
+          "title": "Ditto Factory",
+          "summary": "A Kubernetes-native platform for isolated, traceable agent workflows.",
+          "tag": "lab",
+          "glyph": "flow",
+          "url": "https://github.com/tedahn/ditto-factory"
+        }
+      ]
+    },
     "fieldNotes": [
       {
         "type": "Architecture Lab / Model evaluation",
+        "year": "2026",
         "title": "Testing architectural understanding through implementation",
         "summary": "Architecture Lab started when Fable 5 came out and more people were discussing the systems behind major tech products. I wanted to see whether the model could do more than explain those systems, so I asked it to rebuild their critical paths from public engineering material. The demos were not intended for production. They showed how the model found context, handled business-specific constraints, and where its understanding broke down.",
         "question": "Can a model demonstrate that it understands a real architecture by reconstructing its critical path?",
@@ -222,6 +287,7 @@
       },
       {
         "type": "Agent systems / Theory and implementation",
+        "year": "2026",
         "title": "From agent architecture to enterprise workflows",
         "summary": "I read Stripe's agent workflow architecture and wanted to see how much of the idea would hold up in practice. Open Agent Architectures records the theory. Ditto Factory is the attempt to build it under enterprise engineering constraints.",
         "question": "What survives when an agent workflow moves from architecture notes into a working platform?",
