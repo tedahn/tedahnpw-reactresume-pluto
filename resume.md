@@ -227,7 +227,7 @@ The public site currently signals openness to collaboration, not general job ava
   - **Why it matters:** It helps a recruiter understand the life-safety and time-sensitive customer setting in which Ted's high-throughput notification platform operated.
   - **Inference boundary:** The page does not document Ted's contribution. It was not retrievable during the 2026-07-27 evidence review, so this summary is intentionally limited to its known first-party purpose.
 
-### Data Analyst / Software Engineer Intern, US LINE WEBTOON
+### Software Engineering Intern, LINE Webtoon
 
 **Dates:** May 2017 - Dec 2017  
 **Location:** Los Angeles, CA  
