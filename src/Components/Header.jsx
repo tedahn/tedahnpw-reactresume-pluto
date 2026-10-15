@@ -1,4 +1,5 @@
 import React from 'react';
+import { NodeMark } from './Ornament';
 
 const PROFILE_NETWORKS = ['github', 'linkedin'];
 
@@ -8,7 +9,9 @@ const Header = ({ main }) => {
 
   return (
     <header className="site-header">
-      <a className="site-name" href="#top">{main.name}</a>
+      <a className="site-mark" href="#top" aria-label={`${main.name} — back to top`}>
+        <NodeMark width={28} height={15} />
+      </a>
       <nav aria-label="Résumé and profiles">
         <a href={resumeHref}>Résumé</a>
         {profiles.map((network) => (
