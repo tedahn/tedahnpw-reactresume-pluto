@@ -36,7 +36,11 @@ const StructuredData = ({ data }) => {
         name: item.school,
       })),
     },
-    hasPart: [...(portfolio?.projects || []), ...(portfolio?.fieldNotes || [])].map((item) => ({
+    hasPart: [
+      ...(portfolio?.projects || []),
+      ...(portfolio?.showcase?.home || []),
+      ...(portfolio?.fieldNotes || []),
+    ].map((item) => ({
       '@type': 'CreativeWork',
       name: item.title,
       description: item.description || item.summary,
