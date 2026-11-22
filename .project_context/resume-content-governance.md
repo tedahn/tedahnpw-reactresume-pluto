@@ -58,6 +58,7 @@ Rewritten on 2026-11-22 because Capital One monitors the site. The public narrat
 - Describe the patent only from its published text. Credit Ted as having "led the design" and as a co-inventor; do not tie the patent to a named production system or attach internal figures to it.
 - Do not publish job-search signals: no recruiter-facing wording, role-fit recommendations, interview questions, availability notes for recruiters, or "what I want next" framing. The Markdown asset is an "AI-readable profile", not a recruiter brief.
 - USAA, a former employer, keeps its existing public description.
+- Webtoon may also watch the site. Its entry stays soft (rewritten 2026-11-22): Ted was its first US software engineering intern, built an early data-analysis pipeline and an internal engagement dashboard, and explored how to help readers discover titles. Do not name internal tools (including the dashboard's internal name), describe Webtoon's data or metrics, list tools used, or claim credit for founding Webtoon's data team or internship program.
 
 The three former About-section quotations were retired by Ted on 2026-10-14. The About section uses `main.professionalBio`; do not reintroduce the quotations without Ted's explicit request.
 

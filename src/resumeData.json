@@ -81,17 +81,21 @@
     ],
     "work": [
       {
-        "status": "Recommendation Concept",
+        "status": "Early Data Analysis",
         "company": "Webtoon",
         "title": "Software Engineering Intern",
         "dates": "May 2017 - Dec 2017",
         "location": "Los Angeles, CA",
-        "summary": "User behavior studies.",
+        "summary": "First US software engineering intern; early data-analysis work.",
         "graduated": "May 2017 - Dec 2017",
         "achievements": [
           {
-            "title": "Recommendation Concept",
-            "desc": "Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept."
+            "title": "First US Engineering Intern",
+            "desc": "Joined as Webtoon's first software engineering intern in the US."
+          },
+          {
+            "title": "Data Analysis",
+            "desc": "Built an early data-analysis pipeline and an internal engagement dashboard, and explored how to help readers discover titles."
           }
         ]
       },
