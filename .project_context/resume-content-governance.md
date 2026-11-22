@@ -4,7 +4,7 @@ This document defines the durable rules for maintaining Ted Ahn's public resume 
 
 ## Audience and Purpose
 
-The site is a public, recruiter-facing portfolio for hiring managers, technical leaders, collaborators, and engineering peers. It should establish Ted's current professional identity in the first viewport, show clear career progression, and support claims with concise evidence.
+The site is Ted's public professional profile for technical leaders, collaborators, and engineering peers. Ted's current employer, Capital One, actively monitors it (confirmed 2026-11-22), so it must read as an employer-friendly profile, not a job search. It should establish Ted's current professional identity in the first viewport, show clear career progression, and support claims with concise evidence.
 
 The preferred positioning is:
 
@@ -41,33 +41,31 @@ Prefer defensible verbs such as “supported,” “enabled,” “helped delive
 
 ## Approved Public Narrative
 
-The current public narrative emphasizes:
+Rewritten on 2026-11-22 because Capital One monitors the site. The public narrative emphasizes:
 
 - Senior Software Engineer with 6+ years of experience
 - Capital One progression from Software Engineer to Senior Software Engineer in July 2024
-- A redesigned onboarding experience for an internal marketing platform hosting 100+ internal tenants, and the platform's shared marketing capability for auto dealers
-- Digital marketing pilots: one delivered independently with spec-driven development, and a second now serving dealerships nationally
-- A patented event-driven Auto Navigator data integration processing 4M+ vehicle records daily
-- US 12,748,724 B2, on which Ted is one of six named inventors and led the design (confirmed by Ted on 2026-11-22)
-- Rewriting and retiring 4 of the 7 dealer vehicle-data systems, spanning 200+ inventory feeds and 17,000+ dealerships, by moving vehicle-data acquisition to cloud-native AWS
+- Marketing platform work at Capital One: a simplified onboarding redesign, a shared marketing capability for auto dealers, digital marketing pilots built with spec-driven development, and automated failover and resilience testing
+- Event-driven vehicle-data pipelines behind Auto Navigator, and modernizing dealer-data ingestion on cloud-native AWS
+- US 12,748,724 B2, "Converting a data stream into files": Ted is one of six named inventors and led the design (confirmed by Ted on 2026-11-22)
 - A reactive USAA communications platform processing 1M SMS messages per hour
 - Distributed systems, reliability, cloud-native infrastructure, and responsible AI-assisted engineering
 - UT Austin Postgraduate Certificate in Artificial Intelligence and Machine Learning, November 2025
 
-The three former About-section quotations were retired by Ted on 2026-10-14. The About section now uses `main.professionalBio`; do not reintroduce the quotations without Ted's explicit request.
+### Employer-friendly rules (2026-11-22)
 
-### Withheld by Decision (2026-10-14)
+- Describe Capital One work only in general terms. Do not publish internal figures (record volumes, dealership or feed counts, tenant counts, system counts, the age of replaced systems), internal incidents, award names, pilot priority or team-formation details, or internal platform descriptions.
+- Describe the patent only from its published text. Credit Ted as having "led the design" and as a co-inventor; do not tie the patent to a named production system or attach internal figures to it.
+- Do not publish job-search signals: no recruiter-facing wording, role-fit recommendations, interview questions, availability notes for recruiters, or "what I want next" framing. The Markdown asset is an "AI-readable profile", not a recruiter brief.
+- USAA, a former employer, keeps its existing public description.
 
-Ted made these decisions when approving the October 2026 resume sync:
+The three former About-section quotations were retired by Ted on 2026-10-14. The About section uses `main.professionalBio`; do not reintroduce the quotations without Ted's explicit request.
 
-- Revenue figures and marketing-pilot partner names that appear in the private resume are intentionally excluded from the public site and from all generated assets.
-- The organization-wide award is described generically, without its proper name.
-- The former AI-enablement achievement and its metrics are no longer part of the approved resume and must not be reintroduced.
-- The resume PDF's summary line still states 3M+ for the Auto Navigator pipeline while its bullet states 4M+. Ted confirmed 4M+ as the correct figure; use 4M+ everywhere.
+### Withheld by Decision
 
-### Patent wording (2026-11-22)
-
-Ted works where the site may be monitored, so the patent entry stays within what the published patent says. Public copy describes the method only from the patent text, credits Ted as having "led the design" (not "principal designer and architect"), and does not tie the patent to a named production system or attach internal figures to it. Ted chose to leave the pre-existing bio and experience lines unchanged for now.
+- Revenue figures and marketing-pilot partner names are excluded from the public site and from all generated assets.
+- The former AI-enablement achievement and its metrics must not be reintroduced.
+- Everything listed under the employer-friendly rules above stays out until Ted explicitly approves otherwise.
 
 Do not add any of the withheld material back without Ted's explicit approval.
 

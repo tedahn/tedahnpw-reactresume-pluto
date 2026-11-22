@@ -28,7 +28,7 @@ For career reconciliation, use the latest explicitly approved resume first, the 
 - Preserve unrelated worktree changes.
 
 # Success criteria
-The first viewport communicates Ted's current senior-engineering identity; the timeline shows clear progression; evidence is concise and recruiter-readable; public claims are defensible; desktop and mobile remain polished.
+The first viewport communicates Ted's current senior-engineering identity; the timeline shows clear progression; evidence is concise, general, and safe for Ted's current employer to read; public claims are defensible; desktop and mobile remain polished.
 
 # Validation
 Check every changed claim against its source, verify chronology, search for hardcoded career facts and duplicate IDs, check local assets and relevant links, run npm run build, and visually inspect desktop plus a 390px-class mobile viewport. Report withheld material, unresolved conflicts, and validation limitations.
