@@ -105,16 +105,16 @@
         "title": "Software Engineer",
         "dates": "Sep 2019 - May 2022",
         "location": "Plano, TX",
-        "summary": "Reactive alerting platform at `1M SMS/hr`; kept a 35-year-old system running while building its replacement.",
+        "summary": "Reactive severe-weather alerting platform built for `1M SMS/hr`; helped modernize a critical legacy system.",
         "graduated": "Sep 2019 - May 2022",
         "achievements": [
           {
             "title": "Life-Safety Messaging at Scale",
-            "desc": "Built USAA's first reactive, event-driven communications platform. It processed 1M SMS messages per hour for urgent customer notifications during severe weather and life-threatening events."
+            "desc": "Built a reactive, event-driven communications platform that sent urgent severe-weather and life-safety notifications at up to 1M SMS an hour."
           },
           {
-            "title": "Greenfield Modernization",
-            "desc": "Maintained a critical 35-year-old on-premises platform while helping build its distributed replacement with OpenShift and GitLab CI. Also worked on proofs of concept, shared libraries, and security patches."
+            "title": "Legacy Modernization",
+            "desc": "Kept a critical legacy platform running while helping build its distributed replacement with OpenShift and GitLab CI."
           }
         ],
         "contextLinks": [
@@ -265,7 +265,7 @@
           "title": "Severe-Weather Alerting",
           "org": "USAA",
           "period": "Sep 2019 - May 2022",
-          "summary": "USAA's first reactive messaging platform, built for 1M SMS an hour.",
+          "summary": "Reactive severe-weather alerting, built for 1M SMS an hour.",
           "image": "images/impact/usaa-disaster-640.jpg",
           "imageAlt": "A home and vehicle damaged by severe weather",
           "url": "https://www.usaa.com/support/insurance/claims/natural-disaster/"

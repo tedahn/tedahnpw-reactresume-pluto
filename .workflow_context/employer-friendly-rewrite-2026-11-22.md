@@ -26,3 +26,7 @@ Historical files in `docs/` and older `.workflow_context/` notes, and the reposi
 Ted asked to add his Webtoon contributions softly, since Webtoon may also watch the site. The entry now reads: first US software engineering intern; built an early data-analysis pipeline and an internal engagement dashboard, and explored how to help readers discover titles (folded into the data-analysis bullet rather than a separate recommendation-prototype item). The internal dashboard name, data details, tool names and any claims about founding the data team or internship program are deliberately left out. USAA is unchanged.
 
 Main page versus resume: the main-page Experience line shows only `summary` ("First US software engineering intern; early data-analysis work."); the generated resume files carry both achievement bullets.
+
+## USAA light touch (same day)
+
+The USAA entry keeps the 1M SMS/hour figure but drops "USAA's first", the 35-year-old system and the proofs-of-concept and security-patch detail. Main page: Experience line and project card updated; the About bio is unchanged. Resume files: "Life-Safety Messaging at Scale" and "Legacy Modernization".
