@@ -9,16 +9,16 @@ Building event-driven, cloud-native systems across backend, infrastructure, and 
 EXPERIENCE
 Senior Software Engineer, Capital One
 Jul 2024 - Present · Plano, TX
-- Marketing Platform Redesign: Delivered a technical redesign that simplified onboarding for the internal marketing platform behind direct-to-consumer marketing, which serves 100+ internal tenants.
+- Marketing Platform Onboarding: Delivered a technical redesign that simplified onboarding for an internal marketing platform.
 - Dealer Marketing Capability: Established the platform's shared marketing capability for auto dealers.
-- Digital Marketing Pilots: Independently delivered a high-priority digital marketing pilot using spec-driven development; its success led to a dedicated cross-functional team. Also led implementation of a second pilot now serving dealerships nationally.
-- Architecture and SRE Leadership: Automated failover and regional-isolation testing so services ride through AWS outages without manual intervention.
+- Digital Marketing Pilots: Delivered digital marketing pilots using spec-driven development.
+- Resilience Testing: Automated failover and resilience testing for production services.
 
 Software Engineer, Capital One
 May 2022 - Jul 2024 · Plano, TX
-- Patented Vehicle Data Pipeline: Designed and patented an event-driven pipeline that consolidated 4M+ vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.
-- Dealer Data Consolidation: Rewrote and retired 4 of the 7 systems that consolidate dealer vehicle data: 200+ inventory feeds from 17,000+ dealerships. Moving data acquisition to cloud-native AWS cut runtime costs and pipeline outages.
-- Reliability Under Pressure: Automated a patch and traced memory and thread leaks that threatened a high-visibility launch. The work helped prevent an outage and received the organization's inaugural award.
+- Event-Driven Vehicle Data Pipeline: Led the design of an event-driven vehicle-data pipeline that supplies data for analytics and ML features, and co-invented a related Capital One patent (US 12,748,724).
+- Dealer Data Modernization: Helped modernize dealer vehicle-data ingestion by rewriting legacy systems and moving data acquisition to cloud-native AWS, improving reliability and efficiency.
+- Reliability Engineering: Diagnosed and fixed performance issues ahead of a major launch and automated the fix, work that was recognized with an organization award.
 
 Software Engineer, USAA
 Sep 2019 - May 2022 · Plano, TX
@@ -29,9 +29,9 @@ Software Engineering Intern, Webtoon
 May 2017 - Dec 2017 · Los Angeles, CA
 - Recommendation Concept: Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept.
 
-2026 & Beyond
-What I want to work on next
-I want to keep working on enterprise AI, infrastructure, and backend systems, especially where better architecture can make a team faster and more reliable.
+2026
+Current focus
+Enterprise AI, infrastructure, and backend systems, especially where better architecture makes a team faster and more reliable.
 
 PATENTS
 US 12,748,724 B2: Converting a data stream into files
