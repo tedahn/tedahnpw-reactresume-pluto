@@ -236,6 +236,20 @@ The public site currently signals openness to collaboration, not general job ava
 - **Recommendation Concept:** Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept.
 
 
+## Patents
+
+### US 12,748,724 B2: Converting a data stream into files
+
+**Issued:** 2026-09-29  
+**Filed:** 2024-04-09  
+**Assignee:** Capital One Services, LLC  
+**Inventors:** Justin Leonard, Dennis J. Mire, Sarvani Maddina, Ravi Kalidindi, Arun Gopalakrishna, Hyounggun Ahn  
+**Record:** [US 12,748,724 B2](https://patents.google.com/patent/US12748724B2)
+
+Partitioned worker nodes read a data stream in parallel, convert it into legacy-format files, and publish a done file once every file has landed. The method behind the Auto Navigator vehicle-data pipeline.
+
+**Inference boundary:** Ted is one of 6 named inventors; this is a shared invention, not a sole-authorship claim.
+
 ## Approved resume details that add recruiter context
 
 These details come from the candidate-supplied, approved 2026 technical resume. Each includes an explicit boundary against overstatement.
@@ -260,9 +274,9 @@ Ted strengthened enterprise SRE standards through automated failover and regiona
 
 ### Capital One vehicle-data platform
 
-Ted designed and patented an event-driven data pipeline that consolidated more than 4 million vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.
+Ted designed and patented an event-driven data pipeline that consolidated more than 4 million vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features. The method is granted as US Patent 12,748,724 B2, "Converting a data stream into files" (filed April 9, 2024; issued September 29, 2026; assigned to Capital One Services, LLC), with Ted as one of six named inventors.
 
-**Do not over-read this evidence:** The 4M+ figure is daily record throughput for the data integration, not user traffic or revenue.
+**Do not over-read this evidence:** The 4M+ figure is daily record throughput for the data integration, not user traffic or revenue. The patent names six co-inventors; do not read it as sole invention.
 
 ### Capital One dealer-data consolidation
 
