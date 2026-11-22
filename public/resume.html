@@ -39,7 +39,7 @@
     <section><h2>Patents</h2>
   <article>
     <header><div><h3><a href="https://patents.google.com/patent/US20250315406A1/en">Converting a data stream into files</a></h3><p>US 12,748,724 B2 · Capital One Services, LLC</p></div><p>Issued 2026-09-29<br>Filed 2024-04-09</p></header>
-    <p>Partitioned worker nodes read a data stream in parallel, convert it into legacy-format files, and publish a done file once every file has landed. The method behind the Auto Navigator vehicle-data pipeline.</p>
+    <p>Designed the bridge from the Auto Navigator event stream back to file-based legacy consumers so they kept the stream&#039;s guarantees: work is partitioned by vehicle key across parallel workers that scale out horizontally, and the pipeline heals itself, with workers checking in, failed workers retried, and idempotent output making reruns safe.</p>
     <p>Role: Principal designer and architect</p>
     <p>Inventors: Justin Leonard, Dennis J. Mire, Sarvani Maddina, Ravi Kalidindi, Arun Gopalakrishna, Hyounggun Ahn</p>
   </article></section>
