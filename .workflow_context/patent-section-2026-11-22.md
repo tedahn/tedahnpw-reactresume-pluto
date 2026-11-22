@@ -21,6 +21,6 @@ Ted asked for the details of US 12,748,724 to appear on the site. The patent is 
 - `npm test` and `npm run build` pass; all four generated `resume.*` assets contain US 12,748,724.
 - Desktop (1280px) and 390px mobile previews show the section with no horizontal overflow, no duplicate IDs and no console errors.
 
-## Open item
+## Attribution decision
 
-The approved narrative still says Ted "designed and patented" the pipeline, while the patent names six inventors. Wording is left unchanged pending Ted's decision.
+Ted confirmed that he was the principal designer and architect of the patented method. The site now shows "Principal designer and architect" beside the co-inventor credit, and the existing "designed and patented" wording stands. The AI brief credits the design to Ted and the invention as shared; inventor order on the patent does not indicate contribution.

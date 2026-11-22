@@ -36,6 +36,7 @@ I want to keep working on enterprise AI, infrastructure, and backend systems, es
 PATENTS
 US 12,748,724 B2: Converting a data stream into files
 Issued 2026-09-29 · Filed 2024-04-09 · Capital One Services, LLC
+Role: Principal designer and architect
 Inventors: Justin Leonard, Dennis J. Mire, Sarvani Maddina, Ravi Kalidindi, Arun Gopalakrishna, Hyounggun Ahn
 Partitioned worker nodes read a data stream in parallel, convert it into legacy-format files, and publish a done file once every file has landed. The method behind the Auto Navigator vehicle-data pipeline.
 https://patents.google.com/patent/US12748724B2

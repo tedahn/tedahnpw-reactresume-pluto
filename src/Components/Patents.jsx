@@ -22,7 +22,7 @@ const Patents = ({ patents = [], self }) => {
               </div>
               {patent.summary && <p className="role-summary"><Inline text={patent.summary} /></p>}
               <p className="patent-meta">
-                {patent.assignee}
+                {[patent.role, patent.assignee].filter(Boolean).join(' · ')}
                 {coInventors.length > 0 && ` · Co-invented with ${coInventors.join(', ')}`}
               </p>
             </li>

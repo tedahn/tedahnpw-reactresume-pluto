@@ -47,7 +47,7 @@ The current public narrative emphasizes:
 - Capital One progression from Software Engineer to Senior Software Engineer in July 2024
 - A redesigned onboarding experience for an internal marketing platform hosting 100+ internal tenants, and the platform's shared marketing capability for auto dealers
 - Digital marketing pilots: one delivered independently with spec-driven development, and a second now serving dealerships nationally
-- A patented event-driven Auto Navigator data integration processing 4M+ vehicle records daily
+- A patented event-driven Auto Navigator data integration processing 4M+ vehicle records daily: US 12,748,724 B2, on which Ted is one of six named inventors and, as he directly confirmed on 2026-11-22, the principal designer and architect
 - Rewriting and retiring 4 of the 7 dealer vehicle-data systems, spanning 200+ inventory feeds and 17,000+ dealerships, by moving vehicle-data acquisition to cloud-native AWS
 - A reactive USAA communications platform processing 1M SMS messages per hour
 - Distributed systems, reliability, cloud-native infrastructure, and responsible AI-assisted engineering
