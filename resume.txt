@@ -36,9 +36,9 @@ I want to keep working on enterprise AI, infrastructure, and backend systems, es
 PATENTS
 US 12,748,724 B2: Converting a data stream into files
 Issued 2026-09-29 · Filed 2024-04-09 · Capital One Services, LLC
-Role: Principal designer and architect
+Role: Led the design
 Inventors: Justin Leonard, Dennis J. Mire, Sarvani Maddina, Ravi Kalidindi, Arun Gopalakrishna, Hyounggun Ahn
-Designed the bridge from the Auto Navigator event stream back to file-based legacy consumers so they kept the stream's guarantees: work is partitioned by vehicle key across parallel workers that scale out horizontally, and the pipeline heals itself, with workers checking in, failed workers retried, and idempotent output making reruns safe.
+Converts an event stream back into files for systems that still consume files. Parallel workers each take a partition of the stream, check in when they start, are retried if they fail, and write idempotent output so reruns are safe.
 Published application US 2025/0315406 A1: https://patents.google.com/patent/US20250315406A1/en
 
 EDUCATION
