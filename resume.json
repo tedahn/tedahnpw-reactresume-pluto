@@ -30,9 +30,10 @@
       "location": "Los Angeles, CA",
       "startDate": "May 2017",
       "endDate": "Dec 2017",
-      "summary": "Recommendation Concept",
+      "summary": "Early Data Analysis",
       "highlights": [
-        "Recommendation Concept: Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept."
+        "First US Engineering Intern: Joined as Webtoon's first software engineering intern in the US.",
+        "Data Analysis: Built an early data-analysis pipeline and an internal engagement dashboard, and explored how to help readers discover titles."
       ]
     },
     {

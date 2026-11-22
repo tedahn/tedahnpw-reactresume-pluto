@@ -213,9 +213,10 @@ Senior Software Engineer with 6+ years of experience in event-driven backend sys
 
 **Dates:** May 2017 - Dec 2017  
 **Location:** Los Angeles, CA  
-**Scope marker:** Recommendation Concept
+**Scope marker:** Early Data Analysis
 
-- **Recommendation Concept:** Built a Spring MVC and Apache Spark batch job using precomputed title behavior and traffic data to test a recommendation concept.
+- **First US Engineering Intern:** Joined as Webtoon's first software engineering intern in the US.
+- **Data Analysis:** Built an early data-analysis pipeline and an internal engagement dashboard, and explored how to help readers discover titles.
 
 
 ## Patents
