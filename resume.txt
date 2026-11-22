@@ -39,7 +39,7 @@ Issued 2026-09-29 · Filed 2024-04-09 · Capital One Services, LLC
 Role: Principal designer and architect
 Inventors: Justin Leonard, Dennis J. Mire, Sarvani Maddina, Ravi Kalidindi, Arun Gopalakrishna, Hyounggun Ahn
 Partitioned worker nodes read a data stream in parallel, convert it into legacy-format files, and publish a done file once every file has landed. The method behind the Auto Navigator vehicle-data pipeline.
-https://patents.google.com/patent/US12748724B2
+Published application US 2025/0315406 A1: https://patents.google.com/patent/US20250315406A1/en
 
 EDUCATION
 Postgraduate Certificate, Artificial Intelligence and Machine Learning, University of Texas at Austin

@@ -245,7 +245,7 @@ The public site currently signals openness to collaboration, not general job ava
 **Assignee:** Capital One Services, LLC  
 **Ted's role:** Principal designer and architect (directly confirmed by Ted)  
 **Inventors:** Justin Leonard, Dennis J. Mire, Sarvani Maddina, Ravi Kalidindi, Arun Gopalakrishna, Hyounggun Ahn  
-**Record:** [US 12,748,724 B2](https://patents.google.com/patent/US12748724B2)
+**Record:** [Published application US 2025/0315406 A1](https://patents.google.com/patent/US20250315406A1/en)
 
 Partitioned worker nodes read a data stream in parallel, convert it into legacy-format files, and publish a done file once every file has landed. The method behind the Auto Navigator vehicle-data pipeline.
 

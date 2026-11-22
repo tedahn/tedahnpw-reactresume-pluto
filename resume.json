@@ -126,7 +126,7 @@
         "Arun Gopalakrishna",
         "Hyounggun Ahn"
       ],
-      "url": "https://patents.google.com/patent/US12748724B2",
+      "url": "https://patents.google.com/patent/US20250315406A1/en",
       "summary": "Partitioned worker nodes read a data stream in parallel, convert it into legacy-format files, and publish a done file once every file has landed. The method behind the Auto Navigator vehicle-data pipeline."
     }
   ],
