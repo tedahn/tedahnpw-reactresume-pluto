@@ -199,8 +199,8 @@ Senior Software Engineer with 6+ years of experience in event-driven backend sys
 **Location:** Plano, TX  
 **Scope marker:** Enterprise Communications
 
-- **Life-Safety Messaging at Scale:** Built USAA's first reactive, event-driven communications platform. It processed 1M SMS messages per hour for urgent customer notifications during severe weather and life-threatening events.
-- **Greenfield Modernization:** Maintained a critical 35-year-old on-premises platform while helping build its distributed replacement with OpenShift and GitLab CI. Also worked on proofs of concept, shared libraries, and security patches.
+- **Life-Safety Messaging at Scale:** Built a reactive, event-driven communications platform that sent urgent severe-weather and life-safety notifications at up to 1M SMS an hour.
+- **Legacy Modernization:** Kept a critical legacy platform running while helping build its distributed replacement with OpenShift and GitLab CI.
 
 **External product or mission context**
 
