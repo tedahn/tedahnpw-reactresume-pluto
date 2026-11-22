@@ -189,6 +189,19 @@
       ]
     }
     ],
+    "patents": [
+      {
+        "title": "Converting a data stream into files",
+        "number": "US 12,748,724 B2",
+        "issued": "Sep 2026",
+        "issuedDate": "2026-09-29",
+        "filedDate": "2024-04-09",
+        "assignee": "Capital One Services, LLC",
+        "inventors": ["Justin Leonard", "Dennis J. Mire", "Sarvani Maddina", "Ravi Kalidindi", "Arun Gopalakrishna", "Hyounggun Ahn"],
+        "summary": "Partitioned worker nodes read a data stream in parallel, convert it into legacy-format files, and publish a done file once every file has landed. The method behind the Auto Navigator vehicle-data pipeline.",
+        "url": "https://patents.google.com/patent/US12748724B2"
+      }
+    ],
     "skills": [
       {
         "name": "Java, Python & JavaScript"
@@ -367,8 +380,8 @@
       },
       {
         "area": "Capital One vehicle-data platform",
-        "detail": "Ted designed and patented an event-driven data pipeline that consolidated more than 4 million vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features.",
-        "boundary": "The 4M+ figure is daily record throughput for the data integration, not user traffic or revenue."
+        "detail": "Ted designed and patented an event-driven data pipeline that consolidated more than 4 million vehicle records each day. It replaced a 15-year-old system and supplied data for analytics and ML features. The method is granted as US Patent 12,748,724 B2, \"Converting a data stream into files\" (filed April 9, 2024; issued September 29, 2026; assigned to Capital One Services, LLC), with Ted as one of six named inventors.",
+        "boundary": "The 4M+ figure is daily record throughput for the data integration, not user traffic or revenue. The patent names six co-inventors; do not read it as sole invention."
       },
       {
         "area": "Capital One dealer-data consolidation",

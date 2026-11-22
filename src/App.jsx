@@ -3,6 +3,7 @@ import Header from './Components/Header';
 import Hero from './Components/Hero';
 import About from './Components/About';
 import Experience from './Components/Experience';
+import Patents from './Components/Patents';
 import Showcase from './Components/Showcase';
 import Ornament from './Components/Ornament';
 import Footer from './Components/Footer';
@@ -23,6 +24,7 @@ function App() {
         <About main={main} />
         <Ornament />
         <Experience work={resume.work} />
+        <Patents patents={resume.patents} self={main.legalname} />
         <Ornament />
         <Showcase id="work" title="Professional Projects" items={showcase.work} />
         <Ornament />

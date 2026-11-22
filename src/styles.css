@@ -95,6 +95,9 @@ img { display: block; max-width: 100%; }
 .role-company { color: var(--muted); font-weight: 400; white-space: nowrap; }
 .role-dates { color: var(--muted); font-family: var(--font-mono); font-size: 12px; white-space: nowrap; }
 .role-summary { margin: 2px 0 0; color: var(--body-2); font-size: 16px; line-height: 1.55; }
+.patent-meta { margin: 4px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+.role-title a { text-decoration: underline; text-decoration-color: var(--acc-soft); text-underline-offset: 3px; }
+.role-title a:hover { text-decoration-color: var(--acc); }
 
 /* Showcase cards */
 .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }

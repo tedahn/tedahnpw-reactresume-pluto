@@ -77,6 +77,8 @@ const parseRange = (value = '') => {
 };
 
 const yamlValue = (value) => JSON.stringify(String(value));
+const patents = resume.patents || [];
+const patentInventors = (patent) => (patent.inventors || []).join(', ');
 const linkEvidenceByUrl = new Map(aiResume.linkEvidence.map((link) => [link.url, link]));
 const markdownLink = (link) => `[${link.label}](${link.url})`;
 
@@ -133,6 +135,17 @@ const structuredResume = {
     summary: item.description,
   })),
   skills: resume.skills.map((skill) => ({ name: skill.name })),
+  patents: patents.map((patent) => ({
+    name: patent.title,
+    number: patent.number,
+    issuer: 'United States Patent and Trademark Office',
+    filedDate: patent.filedDate,
+    releaseDate: patent.issuedDate,
+    assignee: patent.assignee,
+    inventors: patent.inventors,
+    url: patent.url,
+    summary: patent.summary,
+  })),
   projects: portfolio.projects.map((project) => ({
     name: project.title,
     description: project.description,
@@ -165,6 +178,17 @@ const textLines = [
     '',
   ]),
   ...(future ? [future.date, future.title, future.description, ''] : []),
+  ...(patents.length > 0 ? [
+    'PATENTS',
+    ...patents.flatMap((patent) => [
+      `${patent.number}: ${patent.title}`,
+      `Issued ${patent.issuedDate} · Filed ${patent.filedDate} · ${patent.assignee}`,
+      `Inventors: ${patentInventors(patent)}`,
+      patent.summary,
+      patent.url,
+      '',
+    ]),
+  ] : []),
   'EDUCATION',
   ...resume.education.slice().reverse().flatMap((item) => [
     `${item.degree}, ${item.school}`,
@@ -189,6 +213,13 @@ const workHtml = resume.work.slice().reverse().map((role) => `
   <article>
     <header><div><h3>${escapeHtml(role.title)}</h3><p>${escapeHtml(role.company)}</p></div><p>${escapeHtml(role.dates)}<br>${escapeHtml(role.location)}</p></header>
     <ul>${role.achievements.map((achievement) => `<li><strong>${escapeHtml(achievement.title)}.</strong> ${escapeHtml(achievement.desc)}</li>`).join('')}</ul>
+  </article>`).join('');
+
+const patentsHtml = patents.map((patent) => `
+  <article>
+    <header><div><h3><a href="${escapeHtml(patent.url)}">${escapeHtml(patent.title)}</a></h3><p>${escapeHtml(patent.number)} · ${escapeHtml(patent.assignee)}</p></div><p>Issued ${escapeHtml(patent.issuedDate)}<br>Filed ${escapeHtml(patent.filedDate)}</p></header>
+    <p>${escapeHtml(patent.summary)}</p>
+    <p>Inventors: ${escapeHtml(patentInventors(patent))}</p>
   </article>`).join('');
 
 const educationHtml = resume.education.slice().reverse().map((item) => `
@@ -228,7 +259,7 @@ const resumeHtml = `<!doctype html>
     <div class="actions"><button type="button" onclick="window.print()">Print / save PDF</button><a href="/resume.txt" download>Download text</a><a href="/resume.md">AI recruiter brief</a><a href="/resume.json" download>Download JSON</a><a href="/">Portfolio</a></div>
     <p class="summary">${escapeHtml(main.description)}</p>
     <section><h2>Experience</h2>${workHtml}${future ? `<article><header><div><h3>${escapeHtml(future.title)}</h3></div><p>${escapeHtml(future.date)}</p></header><p>${escapeHtml(future.description)}</p></article>` : ''}</section>
-    <section><h2>Education</h2>${educationHtml}</section>
+${patents.length > 0 ? `    <section><h2>Patents</h2>${patentsHtml}</section>\n` : ''}    <section><h2>Education</h2>${educationHtml}</section>
 ${portfolio.projects.length > 0 ? `    <section><h2>Selected projects</h2>${projectsHtml}</section>` : ''}
     <section><h2>Core skills</h2><ul class="skills">${resume.skills.map((skill) => `<li>${escapeHtml(skill.name)}</li>`).join('')}</ul></section>
   </main>
@@ -243,6 +274,18 @@ const workMarkdown = resume.work.slice().reverse().map((role) => `### ${role.tit
 
 ${role.achievements.map((achievement) => `- **${achievement.title}:** ${achievement.desc}`).join('\n')}
 ${role.contextLinks?.length ? `\n**External product or mission context**\n\n${role.contextLinks.map((link) => renderEvidenceLink(link.url, link.label)).join('\n')}` : ''}`).join('\n\n');
+
+const patentsMarkdown = patents.map((patent) => `### ${patent.number}: ${patent.title}
+
+**Issued:** ${patent.issuedDate}  
+**Filed:** ${patent.filedDate}  
+**Assignee:** ${patent.assignee}  
+**Inventors:** ${patentInventors(patent)}  
+**Record:** [${patent.number}](${patent.url})
+
+${patent.summary}
+
+**Inference boundary:** Ted is one of ${(patent.inventors || []).length} named inventors; this is a shared invention, not a sole-authorship claim.`).join('\n\n');
 
 const educationMarkdown = resume.education.slice().reverse().map((item) => `### ${item.degree}
 
@@ -347,7 +390,11 @@ ${['portfolio_site', 'linkedin', 'github_profile'].map((id) => {
 
 ${workMarkdown}
 
-## Approved resume details that add recruiter context
+${patents.length > 0 ? `## Patents
+
+${patentsMarkdown}
+
+` : ''}## Approved resume details that add recruiter context
 
 These details come from the candidate-supplied, approved 2026 technical resume. Each includes an explicit boundary against overstatement.
 
