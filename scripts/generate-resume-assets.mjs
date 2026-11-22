@@ -187,7 +187,7 @@ const textLines = [
       ...(patent.role ? [`Role: ${patent.role}`] : []),
       `Inventors: ${patentInventors(patent)}`,
       patent.summary,
-      patent.url,
+      `${patent.urlLabel ? `${patent.urlLabel}: ` : ''}${patent.url}`,
       '',
     ]),
   ] : []),
@@ -284,7 +284,7 @@ const patentsMarkdown = patents.map((patent) => `### ${patent.number}: ${patent.
 **Filed:** ${patent.filedDate}  
 **Assignee:** ${patent.assignee}  
 ${patent.role ? `**Ted's role:** ${patent.role} (directly confirmed by Ted)  \n` : ''}**Inventors:** ${patentInventors(patent)}  
-**Record:** [${patent.number}](${patent.url})
+**Record:** [${patent.urlLabel || patent.number}](${patent.url})
 
 ${patent.summary}
 

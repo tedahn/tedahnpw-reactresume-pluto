@@ -21,6 +21,10 @@ Ted asked for the details of US 12,748,724 to appear on the site. The patent is 
 - `npm test` and `npm run build` pass; all four generated `resume.*` assets contain US 12,748,724.
 - Desktop (1280px) and 390px mobile previews show the section with no horizontal overflow, no duplicate IDs and no console errors.
 
+## Link
+
+As of 2026-11-22 Google Patents returns 404 for US12748724B2 and USPTO's image server refuses automated browsers. The entry links to the published application US20250315406A1 (same application 18/630,398, title and inventors) via `url` and `urlLabel`. Switch `url` to the B2 page once Google Patents indexes the grant.
+
 ## Attribution decision
 
 Ted confirmed that he was the principal designer and architect of the patented method. The site now shows "Principal designer and architect" beside the co-inventor credit, and the existing "designed and patented" wording stands. The AI brief credits the design to Ted and the invention as shared; inventor order on the patent does not indicate contribution.
