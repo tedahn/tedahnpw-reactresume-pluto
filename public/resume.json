@@ -117,7 +117,7 @@
       "filedDate": "2024-04-09",
       "releaseDate": "2026-09-29",
       "assignee": "Capital One Services, LLC",
-      "role": "Principal designer and architect",
+      "role": "Led the design",
       "inventors": [
         "Justin Leonard",
         "Dennis J. Mire",
@@ -127,7 +127,7 @@
         "Hyounggun Ahn"
       ],
       "url": "https://patents.google.com/patent/US20250315406A1/en",
-      "summary": "Designed the bridge from the Auto Navigator event stream back to file-based legacy consumers so they kept the stream's guarantees: work is partitioned by vehicle key across parallel workers that scale out horizontally, and the pipeline heals itself, with workers checking in, failed workers retried, and idempotent output making reruns safe."
+      "summary": "Converts an event stream back into files for systems that still consume files. Parallel workers each take a partition of the stream, check in when they start, are retried if they fail, and write idempotent output so reruns are safe."
     }
   ],
   "projects": [],

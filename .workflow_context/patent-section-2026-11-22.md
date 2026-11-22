@@ -32,3 +32,7 @@ At Ted's request the patent summary leads with his design role and the design in
 ## Attribution decision
 
 Ted confirmed that he was the principal designer and architect of the patented method. The site now shows "Principal designer and architect" beside the co-inventor credit, and the existing "designed and patented" wording stands. The AI brief credits the design to Ted and the invention as shared; inventor order on the patent does not indicate contribution.
+
+## Dialed back (same day)
+
+Because Ted's employer may monitor the site, the patent entry now describes the method only from the published patent text, the role reads "Led the design", and the patent entry and AI-brief supplement no longer tie the patent to Auto Navigator or to internal figures. The interview probe was reworded to match. The pre-existing bio, experience and showcase lines (4M+, 15-year-old system) are unchanged pending Ted's decision.
