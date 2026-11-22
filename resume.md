@@ -215,7 +215,7 @@ Senior Software Engineer with 6+ years of experience in event-driven backend sys
 **Location:** Los Angeles, CA  
 **Scope marker:** Early Data Analysis
 
-- **First US Intern and Engineer:** Joined as Webtoon's first intern and first software engineer in the US.
+- **First Intern and First US Engineer:** Joined as Webtoon's first intern and its first software engineer in the US.
 - **Data Analysis:** Built an early data-analysis pipeline and an internal engagement dashboard, and explored how to help readers discover titles.
 
 
