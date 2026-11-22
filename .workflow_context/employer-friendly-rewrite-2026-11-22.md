@@ -34,3 +34,5 @@ The USAA entry keeps the 1M SMS/hour figure but drops "USAA's first", the 35-yea
 ## Webtoon correction (same day)
 
 Ted clarified that he was Webtoon's first intern of any kind and its first software engineer in the US. The main-page line now reads "First US intern and first US software engineer; early data-analysis work." and the first bullet is "First US Intern and Engineer".
+
+Ted then confirmed he was Webtoon's first intern across all offices. The wording drops the location qualifier from the intern claim only: "Webtoon's first intern and first US software engineer".
