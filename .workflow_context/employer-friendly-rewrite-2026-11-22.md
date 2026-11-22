@@ -30,3 +30,7 @@ Main page versus resume: the main-page Experience line shows only `summary` ("Fi
 ## USAA light touch (same day)
 
 The USAA entry keeps the 1M SMS/hour figure but drops "USAA's first", the 35-year-old system and the proofs-of-concept and security-patch detail. Main page: Experience line and project card updated; the About bio is unchanged. Resume files: "Life-Safety Messaging at Scale" and "Legacy Modernization".
+
+## Webtoon correction (same day)
+
+Ted clarified that he was Webtoon's first intern of any kind and its first software engineer in the US. The main-page line now reads "First US intern and first US software engineer; early data-analysis work." and the first bullet is "First US Intern and Engineer".

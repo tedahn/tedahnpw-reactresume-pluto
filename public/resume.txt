@@ -27,7 +27,7 @@ Sep 2019 - May 2022 · Plano, TX
 
 Software Engineering Intern, Webtoon
 May 2017 - Dec 2017 · Los Angeles, CA
-- First US Engineering Intern: Joined as Webtoon's first software engineering intern in the US.
+- First US Intern and Engineer: Joined as Webtoon's first intern and first software engineer in the US.
 - Data Analysis: Built an early data-analysis pipeline and an internal engagement dashboard, and explored how to help readers discover titles.
 
 2026
