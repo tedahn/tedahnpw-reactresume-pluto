@@ -35,3 +35,7 @@ Copies of the old résumé files may persist in search-engine caches or web arch
 - Korean copy is a direct translation of the current public English. Company and product names, people's names and the `1M SMS/hr` figure stay in English. Dates read `2024 — 현재`.
 - `index.html` metadata and structured data stay English for search engines; `document.title` and `<html lang>` change at runtime.
 - Tested: ko-KR and en-US browsers at 390px and 1280px (all section labels, dates, no overflow, no console errors), switching on the home page carries over to the résumé page and back.
+
+## Korean copy review (2026-11-24, later)
+
+Reviewed every Korean string against the English for meaning, natural phrasing and a Korean professional audience. Changes: bio restructured into natural Korean ("…를 개발하는 백엔드 엔지니어입니다"), the patent line says the technology was co-invented and registered as a Capital One patent (a patent is not itself "invented"), UT Austin reads as a completed course (수료), Webtoon reads "미국 법인 첫 소프트웨어 엔지니어" (not "America's first"), consent uses the standard Korean "개인정보 수집·이용에 동의합니다" with "제3자에게 제공되지 않습니다", the request intro's subject is fixed, and product/tech terms follow Korean developer usage (Kubernetes, WAL(Write-Ahead Log), Steam 마켓 방식). No claims, figures or names were added.
