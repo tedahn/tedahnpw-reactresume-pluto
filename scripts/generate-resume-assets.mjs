@@ -240,6 +240,56 @@ const projectsHtml = portfolio.projects.map((project) => `
     <p>${escapeHtml(project.description)}</p>
   </article>`).join('');
 
+const request = data.resumeRequest;
+const requestEnabled = Boolean(request?.endpoint);
+const requestFieldHtml = (field) => `<label class="field"><span>${escapeHtml(field.label)}${field.required ? '' : ' <em>(optional)</em>'}</span><input name="${escapeHtml(field.name)}" type="${escapeHtml(field.type)}" autocomplete="${escapeHtml(field.autocomplete || 'off')}" maxlength="${field.name === 'website' ? 300 : 160}"${field.required ? ' required' : ''}></label>`;
+const requestHtml = requestEnabled ? `
+    <section class="request" aria-labelledby="request-heading"><h2 id="request-heading">${escapeHtml(request.heading)}</h2>
+      <p>${escapeHtml(request.intro)}</p>
+      <form id="resume-request" data-endpoint="${escapeHtml(request.endpoint)}" data-sending="${escapeHtml(request.sending)}" data-success="${escapeHtml(request.success)}" data-error="${escapeHtml(request.error)}" novalidate>
+        <fieldset class="langs"><legend>${escapeHtml(request.languageLabel)}</legend>${request.languages.map((lang, index) => `<label><input type="radio" name="language" value="${escapeHtml(lang.value)}"${index === 0 ? ' required' : ''}> ${escapeHtml(lang.label)}</label>`).join('')}</fieldset>
+        <div class="grid">${request.fields.map(requestFieldHtml).join('')}</div>
+        <label class="field"><span>${escapeHtml(request.noteLabel)} <em>(optional)</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
+        <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>
+        <label class="consent"><input type="checkbox" name="consent" required> ${escapeHtml(request.consent)}</label>
+        <p class="privacy">${escapeHtml(request.privacy)}</p>
+        <button type="submit">${escapeHtml(request.submit)}</button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <script>
+    (function () {
+      var form = document.getElementById('resume-request');
+      if (!form) return;
+      var status = form.querySelector('.status');
+      var button = form.querySelector('button[type="submit"]');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var data = {};
+        new FormData(form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
+        data.consent = form.elements.consent.checked;
+        data.page = location.pathname;
+        button.disabled = true;
+        status.className = 'status';
+        status.textContent = form.dataset.sending;
+        fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
+          .then(function (response) { return response.json(); })
+          .then(function (result) {
+            if (!result || !result.ok) throw new Error(result && result.error);
+            form.reset();
+            status.className = 'status ok';
+            status.textContent = form.dataset.success;
+          })
+          .catch(function () {
+            status.className = 'status err';
+            status.textContent = form.dataset.error;
+          })
+          .finally(function () { button.disabled = false; });
+      });
+    }());
+    </script>` : '';
+
 const resumeHtml = `<!doctype html>
 <html lang="en">
 <head>
@@ -250,7 +300,7 @@ const resumeHtml = `<!doctype html>
   <link rel="canonical" href="${canonicalUrl}/resume.html">
   <title>${escapeHtml(main.name)} | Resume</title>
   <style>
-    :root{font-family:Arial,sans-serif;color:#142033;background:#f4f7fa}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:0 auto;padding:48px;background:#fff}h1{font-size:2.4rem;margin:.2rem 0}h2{margin-top:2.5rem;border-bottom:2px solid #142033;padding-bottom:.45rem}h3{margin:0 0 .25rem;font-size:1.05rem}p{line-height:1.5}header{display:flex;justify-content:space-between;gap:2rem}article{padding:1.1rem 0;border-bottom:1px solid #d9e0e8}article header>p{text-align:right;margin:0}ul{padding-left:1.25rem}li{margin:.55rem 0;line-height:1.45}.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 2rem}.actions a,.actions button{border:1px solid #142033;background:#fff;color:#142033;padding:.7rem 1rem;text-decoration:none;font:inherit;cursor:pointer}.actions button{background:#142033;color:#fff}.contact{margin:.4rem 0}.summary{font-size:1.05rem}.skills{columns:2}@media(max-width:650px){main{padding:24px}header{display:block}article header>p{text-align:left}}@media print{body{background:#fff}main{padding:0;max-width:none}.actions{display:none}article{break-inside:avoid}a{color:inherit;text-decoration:none}}
+    :root{font-family:Arial,sans-serif;color:#142033;background:#f4f7fa}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:0 auto;padding:48px;background:#fff}h1{font-size:2.4rem;margin:.2rem 0}h2{margin-top:2.5rem;border-bottom:2px solid #142033;padding-bottom:.45rem}h3{margin:0 0 .25rem;font-size:1.05rem}p{line-height:1.5}header{display:flex;justify-content:space-between;gap:2rem}article{padding:1.1rem 0;border-bottom:1px solid #d9e0e8}article header>p{text-align:right;margin:0}ul{padding-left:1.25rem}li{margin:.55rem 0;line-height:1.45}.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 2rem}.actions a,.actions button{border:1px solid #142033;background:#fff;color:#142033;padding:.7rem 1rem;text-decoration:none;font:inherit;cursor:pointer}.actions button{background:#142033;color:#fff}.contact{margin:.4rem 0}.summary{font-size:1.05rem}.skills{columns:2}.request form{display:grid;gap:1rem;margin-top:1rem}.request .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.request .field{display:grid;gap:.35rem}.request .field span{font-weight:bold;font-size:.92rem}.request em{font-weight:normal;color:#5a6676}.request input,.request textarea{font:inherit;padding:.6rem .7rem;border:1px solid #9aa6b4;border-radius:2px;width:100%}.request input:focus,.request textarea:focus,.request button:focus{outline:2px solid #142033;outline-offset:2px}.request fieldset{border:0;padding:0;margin:0;display:flex;gap:1.25rem;flex-wrap:wrap}.request fieldset label{display:inline-flex;align-items:center;gap:.45rem;cursor:pointer}.request fieldset input,.request .consent input{width:auto;margin:0}.request legend{font-weight:bold;font-size:.92rem;margin-bottom:.4rem}.request .consent{display:flex;gap:.6rem;align-items:flex-start;line-height:1.45}.request .consent input{margin-top:.3rem}.request .privacy{font-size:.88rem;color:#5a6676;margin:0}.request button{justify-self:start;border:1px solid #142033;background:#142033;color:#fff;padding:.75rem 1.2rem;font:inherit;cursor:pointer}.request button:disabled{opacity:.6;cursor:wait}.request .status{margin:0;min-height:1.5em}.request .status.ok{color:#1d6b4f}.request .status.err{color:#a3332d}.request .hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}@media(max-width:650px){main{padding:24px}header{display:block}article header>p{text-align:left}.request .grid{grid-template-columns:1fr}}@media print{body{background:#fff}main{padding:0;max-width:none}.actions,.request{display:none}article{break-inside:avoid}a{color:inherit;text-decoration:none}}
   </style>
 </head>
 <body>
@@ -259,12 +309,13 @@ const resumeHtml = `<!doctype html>
       <div><h1>${escapeHtml(main.fullname || main.name)}</h1><p>${escapeHtml(main.occupation)}</p></div>
       <p class="contact">${escapeHtml(main.basecity)}, ${escapeHtml(main.basestate)}<br><a href="mailto:${escapeHtml(main.email)}">${escapeHtml(main.email)}</a><br>${escapeHtml(main.phone)}</p>
     </header>
-    <div class="actions"><button type="button" onclick="window.print()">Print / save PDF</button><a href="/resume.txt" download>Download text</a><a href="/resume.md">AI-readable profile</a><a href="/resume.json" download>Download JSON</a><a href="/">Portfolio</a></div>
+    <div class="actions"><button type="button" onclick="window.print()">Print / save PDF</button><a href="/resume.txt" download>Download text</a><a href="/resume.md">AI-readable profile</a><a href="/resume.json" download>Download JSON</a><a href="/">Portfolio</a>${requestEnabled ? `<a href="#request-heading">${escapeHtml(request.heading)}</a>` : ''}</div>
     <p class="summary">${escapeHtml(main.description)}</p>
     <section><h2>Experience</h2>${workHtml}${future ? `<article><header><div><h3>${escapeHtml(future.title)}</h3></div><p>${escapeHtml(future.date)}</p></header><p>${escapeHtml(future.description)}</p></article>` : ''}</section>
 ${patents.length > 0 ? `    <section><h2>Patents</h2>${patentsHtml}</section>\n` : ''}    <section><h2>Education</h2>${educationHtml}</section>
 ${portfolio.projects.length > 0 ? `    <section><h2>Selected projects</h2>${projectsHtml}</section>` : ''}
     <section><h2>Core skills</h2><ul class="skills">${resume.skills.map((skill) => `<li>${escapeHtml(skill.name)}</li>`).join('')}</ul></section>
+${requestHtml}
   </main>
 </body>
 </html>`;

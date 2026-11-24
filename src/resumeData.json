@@ -480,5 +480,72 @@
     "title": "Current focus",
     "date": "2026",
     "description": "Enterprise AI, infrastructure, and backend systems, especially where better architecture makes a team faster and more reliable."
+  },
+  "resumeRequest": {
+    "endpoint": "https://script.google.com/macros/s/AKfycbwVLF30xfJmjPIdNWd3RuCotGSpSNNE-R2bPtOJIRwn-UVnCC7Q-WMGwTWB9BDdbUUC3Q/exec",
+    "heading": "Get a copy by email",
+    "intro": "Leave your details and choose a language. I review each request personally and email the résumé, usually within a day or two.",
+    "languageLabel": "Résumé language",
+    "languages": [
+      {
+        "value": "en",
+        "label": "English"
+      },
+      {
+        "value": "ko",
+        "label": "한국어 (Korean)"
+      }
+    ],
+    "fields": [
+      {
+        "name": "name",
+        "label": "Name",
+        "type": "text",
+        "autocomplete": "name",
+        "required": true
+      },
+      {
+        "name": "email",
+        "label": "Email",
+        "type": "email",
+        "autocomplete": "email",
+        "required": true
+      },
+      {
+        "name": "role",
+        "label": "Role",
+        "type": "text",
+        "autocomplete": "organization-title",
+        "required": true
+      },
+      {
+        "name": "organization",
+        "label": "Organization or institution",
+        "type": "text",
+        "autocomplete": "organization",
+        "required": true
+      },
+      {
+        "name": "website",
+        "label": "LinkedIn or website",
+        "type": "url",
+        "autocomplete": "url",
+        "required": false
+      },
+      {
+        "name": "phone",
+        "label": "Phone",
+        "type": "tel",
+        "autocomplete": "tel",
+        "required": false
+      }
+    ],
+    "noteLabel": "Anything you would like to know",
+    "consent": "I agree that Ted may keep these details privately to send the résumé and follow up.",
+    "privacy": "Your details go only to Ted, are stored privately, and are never shared. Email tahn1996@gmail.com to have them deleted.",
+    "submit": "Email me the résumé",
+    "sending": "Sending…",
+    "success": "Thanks, your request is in. I review each one personally and will email the résumé soon; check your spam folder if it doesn’t arrive.",
+    "error": "Something went wrong. Please try again, or email tahn1996@gmail.com directly."
   }
 }
