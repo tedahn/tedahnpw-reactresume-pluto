@@ -28,7 +28,8 @@ Career-content governance lives in [resume-content-governance.md](resume-content
 * **Experience**: Reverse-chronological roles with dates and a one-line summary whose metrics render in teal monospace.
 * **Professional Projects**: Enterprise systems as cards linking to public product-context pages.
 * **Independent Projects**: Personal projects as cards, followed by field notes.
-* **Footer**: Email and links to the Markdown (AI), JSON, and plain-text résumé versions.
+* **Footer**: Email and a link to the résumé request page.
+* **Résumé request page** (`resume.html`): a standalone page in the same Ink & Sea-glass style with only a request form. It is generated from `resumeRequest` in `src/resumeData.json`.
 
 ## Technical Architecture
 
@@ -46,5 +47,5 @@ Career-content governance lives in [resume-content-governance.md](resume-content
 * **Brand**: *The reliable builder.* Production systems that don't break lead; personal architecture research supports.
 * **First Viewport**: Photo, name, and role line, then a bio whose bolded claims carry the proof.
 * **Work vs. independent projects**: Enterprise systems and personal projects are deliberately separate sections.
-* **Resume Access**: The AI-readable Markdown profile and the HTML, plain-text, and JSON versions are derived from the canonical site data and linked from the header and footer.
+* **Resume Access (changed 2026-11-24)**: The résumé is available only by request. Visitors fill in the form on `resume.html`, and Ted reviews each request and emails a PDF. The site no longer publishes résumé files (the former `resume.md`, `resume.json` and `resume.txt` were removed).
 * **Mobile**: Single column with labels above content, one card per row at ≤560px, and no horizontal overflow at 390px.
