@@ -20,3 +20,11 @@ Ted asked for `resume.html` to stop showing his experience and become a page tha
 ## Note
 
 Copies of the old résumé files may persist in search-engine caches or web archives for a while after removal.
+
+## Korean / English page (2026-11-24, later)
+
+- The request page now has Korean copy (`resumeRequest.ko`) and an EN / 한국어 switch in the header.
+- Language order: `?lang=ko` or `?lang=en` in the URL, then the visitor's saved switch choice (localStorage), then `navigator.languages` (first `ko` or `en` match; otherwise English). No IP or location lookup: the browser language is more accurate (a Korean speaker abroad, a foreigner in Seoul) and needs no permission prompt or third-party service.
+- The résumé language follows the page language until the visitor picks one, so it is never empty on load but stays a single choice.
+- Korean text uses Noto Serif KR (Google Fonts, loaded by unicode range) behind Newsreader; Korean labels drop the monospace uppercase style.
+- Tested with browser locales ko-KR, en-US, ja-JP and fr-FR, the `?lang=` override, switch persistence after reload, and that a visitor's résumé choice is not overwritten by switching the page language. Korean submit and confirmation tested with a mocked endpoint at 390px and 1280px: no overflow, no console errors.
