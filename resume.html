@@ -12,9 +12,11 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <title>Request my résumé | Ted Ahn</title>
-  <style>:root{--ink:#121a26;--panel:#18212f;--field:#0f1620;--cream:#f4f0e6;--muted:#b4ab97;--body-2:#cfc8b8;--rule:#263142;--acc:#6fc3b2;--acc-soft:rgba(111,195,178,.22);--err:#e8968c;--display:'Newsreader',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;color-scheme:dark}
+  <link rel="alternate" hreflang="en" href="https://www.tedahn.com/resume.html?lang=en">
+  <link rel="alternate" hreflang="ko" href="https://www.tedahn.com/resume.html?lang=ko">
+  <style>:root{--ink:#121a26;--panel:#18212f;--field:#0f1620;--cream:#f4f0e6;--muted:#b4ab97;--body-2:#cfc8b8;--rule:#263142;--acc:#6fc3b2;--acc-soft:rgba(111,195,178,.22);--err:#e8968c;--display:'Newsreader','Noto Serif KR',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box}
 html{background:var(--ink)}
 body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--display);font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -24,6 +26,15 @@ a{color:inherit;text-decoration:none;transition:color .2s ease}a:hover{color:var
 .page{max-width:760px;margin:0 auto;padding:26px 32px 46px}
 .site-header{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;line-height:1.4}
 .site-header nav{display:flex;gap:22px;color:var(--muted)}
+.site-header .right{display:flex;align-items:center;gap:22px}
+.switch{display:inline-flex;padding:2px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+.switch button{padding:4px 10px;border-radius:999px;background:transparent;color:var(--muted);font:inherit;box-shadow:none}
+.switch button:hover{transform:none;box-shadow:none;color:var(--cream)}
+.switch button[aria-pressed=true]{background:var(--acc-soft);color:var(--cream)}
+html[lang=ko] body{word-break:keep-all}
+html[lang=ko] legend,html[lang=ko] .field-label,html[lang=ko] .eyebrow{font-family:var(--display);font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:none}
+html[lang=ko] .lang small{font-family:var(--display);font-size:13px;letter-spacing:0}
+html[lang=ko] .lede,html[lang=ko] .done p{line-height:1.75}
 .site-mark{display:inline-flex;padding:4px;margin-left:-4px;color:var(--acc);opacity:.85}.site-mark:hover{opacity:1}
 .intro{margin-top:40px;text-align:center}
 .ring{position:relative;width:96px;height:96px;margin:0 auto;padding:4px;border-radius:50%;border:2px solid var(--acc-soft);box-shadow:inset 0 0 0 1px rgba(244,240,230,.12),0 10px 40px -10px var(--acc-soft)}
@@ -75,73 +86,77 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
 .panel.sent form{display:none}.panel.sent .done{display:block}
 .note{margin:22px 0 0;text-align:center;color:var(--muted);font-size:15px}
 .site-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);color:var(--muted);font-size:15px;line-height:1.5}
-@media (max-width:768px){body{font-size:17.5px}.page{padding:20px 16px 40px}.site-header nav{gap:16px}h1{font-size:36px}.panel{padding:22px 18px 22px}.grid{grid-template-columns:1fr}}
+@media (max-width:768px){body{font-size:17.5px}.page{padding:20px 16px 40px}.site-header nav,.site-header .right{gap:14px}h1{font-size:36px}.panel{padding:22px 18px 22px}.grid{grid-template-columns:1fr}}
 @media (max-width:380px){.langs{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){a,button,input,textarea,.lang span{transition:none}.ring::before{animation:none}button:hover{transform:none}}</style>
 </head>
 <body>
-  <a class="skip-link" href="#request">Skip to the form</a>
+  <a class="skip-link" href="#request" data-i18n="skip">Skip to the form</a>
   <div class="page">
     <header class="site-header">
       <a class="site-mark" href="./" aria-label="Ted Ahn: home"><svg width="28" height="15" viewBox="0 0 34 18" aria-hidden="true"><path d="M5 9 L17 4 L29 9 M17 4 L17 14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="5" cy="9" r="2.4" fill="currentColor"/><circle cx="17" cy="4" r="2.4" fill="currentColor"/><circle cx="29" cy="9" r="2.4" fill="currentColor"/><circle cx="17" cy="14" r="2.4" fill="currentColor"/></svg></a>
+      <div class="right">
       <nav aria-label="Site">
-        <a href="./">Home</a>
+        <a href="./" data-i18n="home">Home</a>
         <a href="https://www.linkedin.com/in/tedahn/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://github.com/tedahn" target="_blank" rel="noopener noreferrer">GitHub</a>
       </nav>
+      <div class="switch" role="group" aria-label="Page language" data-i18n-aria="switchLabel"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ko" lang="ko" aria-pressed="false">한국어</button></div>
+      </div>
     </header>
     <main>
       <section class="intro" aria-labelledby="request-heading">
         <div class="ring"><img src="images/tedprofile/ted-ahn-336.jpg" alt="Ted Ahn" width="96" height="96"></div>
-        <p class="eyebrow">Résumé</p>
-        <h1 id="request-heading">Request my résumé</h1>
-        <p class="lede">Leave your details and choose a language. I review each request personally and email the résumé, usually within a day or two.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Résumé</p>
+        <h1 id="request-heading" data-i18n="heading">Request my résumé</h1>
+        <p class="lede" data-i18n="intro">Leave your details and choose a language. I review each request personally and email the résumé, usually within a day or two.</p>
       </section>
       <div class="ornament" aria-hidden="true"><span></span><svg width="34" height="18" viewBox="0 0 34 18" aria-hidden="true"><path d="M5 9 L17 4 L29 9 M17 4 L17 14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="5" cy="9" r="2.4" fill="currentColor"/><circle cx="17" cy="4" r="2.4" fill="currentColor"/><circle cx="29" cy="9" r="2.4" fill="currentColor"/><circle cx="17" cy="14" r="2.4" fill="currentColor"/></svg><span></span></div>
       <div class="panel" id="request">
-        <form id="resume-request" data-endpoint="https://script.google.com/macros/s/AKfycbwVLF30xfJmjPIdNWd3RuCotGSpSNNE-R2bPtOJIRwn-UVnCC7Q-WMGwTWB9BDdbUUC3Q/exec" data-sending="Sending…" data-error="Something went wrong. Please try again, or email tahn1996@gmail.com directly." data-invalid="Please choose a language and fill in the highlighted fields." novalidate>
-          <fieldset class="langs"><legend>Résumé language</legend>
-            <label class="lang"><input type="radio" name="language" value="en" required><span><b lang="en">English</b><small>PDF in English</small></span></label>
-            <label class="lang"><input type="radio" name="language" value="ko"><span><b lang="ko">한국어</b><small>PDF in Korean</small></span></label>
+        <form id="resume-request" data-endpoint="https://script.google.com/macros/s/AKfycbwVLF30xfJmjPIdNWd3RuCotGSpSNNE-R2bPtOJIRwn-UVnCC7Q-WMGwTWB9BDdbUUC3Q/exec" novalidate>
+          <fieldset class="langs"><legend data-i18n="languageLabel">Résumé language</legend>
+            <label class="lang"><input type="radio" name="language" value="en" required><span><b lang="en">English</b><small data-i18n="hint_en">PDF in English</small></span></label>
+            <label class="lang"><input type="radio" name="language" value="ko"><span><b lang="ko">한국어</b><small data-i18n="hint_ko">PDF in Korean</small></span></label>
           </fieldset>
           <div class="grid">
           <label class="field">
-            <span class="field-label">Name</span>
+            <span class="field-label"><span data-i18n="field_name">Name</span></span>
             <input name="name" type="text" autocomplete="name" maxlength="160" required>
           </label>
           <label class="field">
-            <span class="field-label">Email</span>
+            <span class="field-label"><span data-i18n="field_email">Email</span></span>
             <input name="email" type="email" autocomplete="email" maxlength="160" required>
           </label>
           <label class="field">
-            <span class="field-label">Role</span>
+            <span class="field-label"><span data-i18n="field_role">Role</span></span>
             <input name="role" type="text" autocomplete="organization-title" maxlength="160" required>
           </label>
           <label class="field">
-            <span class="field-label">Organization or institution</span>
+            <span class="field-label"><span data-i18n="field_organization">Organization or institution</span></span>
             <input name="organization" type="text" autocomplete="organization" maxlength="160" required>
           </label>
           <label class="field">
-            <span class="field-label">LinkedIn or website <em>optional</em></span>
+            <span class="field-label"><span data-i18n="field_website">LinkedIn or website</span> <em data-i18n="optional">optional</em></span>
             <input name="website" type="text" inputmode="url" placeholder="linkedin.com/in/…" autocomplete="url" maxlength="300">
           </label>
           <label class="field">
-            <span class="field-label">Phone <em>optional</em></span>
+            <span class="field-label"><span data-i18n="field_phone">Phone</span> <em data-i18n="optional">optional</em></span>
             <input name="phone" type="tel" autocomplete="tel" maxlength="160">
           </label>
           </div>
-          <label class="field"><span class="field-label">Anything you would like to know <em>optional</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
+          <label class="field"><span class="field-label"><span data-i18n="noteLabel">Anything you would like to know</span> <em data-i18n="optional">optional</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
           <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>
-          <label class="consent"><input type="checkbox" name="consent" required><span>I agree that Ted may keep these details privately to send the résumé and follow up.</span></label>
-          <p class="privacy">Your details go only to Ted, are stored privately, and are never shared. Email tahn1996@gmail.com to have them deleted.</p>
-          <div class="actions"><button type="submit">Request the résumé</button><p class="status" role="status" aria-live="polite"></p></div>
+          <label class="consent"><input type="checkbox" name="consent" required><span data-i18n="consent">I agree that Ted may keep these details privately to send the résumé and follow up.</span></label>
+          <p class="privacy" data-i18n="privacy">Your details go only to Ted, are stored privately, and are never shared. Email tahn1996@gmail.com to have them deleted.</p>
+          <div class="actions"><button type="submit" data-i18n="submit">Request the résumé</button><p class="status" role="status" aria-live="polite"></p></div>
         </form>
-        <div class="done" tabindex="-1" role="status"><span class="check" aria-hidden="true">✓</span><h2>Request received</h2><p>Thanks. I review each request personally and will email the résumé soon. If it doesn’t arrive, check your spam folder.</p></div>
-        <noscript><p class="note">This form needs JavaScript. You can also email tahn1996@gmail.com to ask for the résumé.</p></noscript>
+        <div class="done" tabindex="-1" role="status"><span class="check" aria-hidden="true">✓</span><h2 data-i18n="successHeading">Request received</h2><p data-i18n="success">Thanks. I review each request personally and will email the résumé soon. If it doesn’t arrive, check your spam folder.</p></div>
+        <noscript><p class="note">This form needs JavaScript. You can also email tahn1996@gmail.com to ask for the résumé.<br><span lang="ko">이 양식은 JavaScript가 필요합니다. tahn1996@gmail.com으로 직접 이력서를 요청하셔도 됩니다.</span></p></noscript>
       </div>
     </main>
     <footer class="site-footer"><a href="mailto:tahn1996@gmail.com">tahn1996@gmail.com</a><span>© 2026 Ted Ahn</span></footer>
   </div>
+  <script>var I18N = {"en":{"title":"Request my résumé | Ted Ahn","eyebrow":"Résumé","heading":"Request my résumé","intro":"Leave your details and choose a language. I review each request personally and email the résumé, usually within a day or two.","languageLabel":"Résumé language","noteLabel":"Anything you would like to know","consent":"I agree that Ted may keep these details privately to send the résumé and follow up.","privacy":"Your details go only to Ted, are stored privately, and are never shared. Email tahn1996@gmail.com to have them deleted.","submit":"Request the résumé","sending":"Sending…","successHeading":"Request received","success":"Thanks. I review each request personally and will email the résumé soon. If it doesn’t arrive, check your spam folder.","invalid":"Please fill in the highlighted fields.","error":"Something went wrong. Please try again, or email tahn1996@gmail.com directly.","noscript":"This form needs JavaScript. You can also email tahn1996@gmail.com to ask for the résumé.","optional":"optional","home":"Home","skip":"Skip to the form","switchLabel":"Page language","hint_en":"PDF in English","hint_ko":"PDF in Korean","field_name":"Name","field_email":"Email","field_role":"Role","field_organization":"Organization or institution","field_website":"LinkedIn or website","field_phone":"Phone"},"ko":{"title":"이력서 요청 | Ted Ahn","eyebrow":"이력서","heading":"이력서 요청","intro":"정보를 남기고 받으실 언어를 선택해 주세요. 요청은 제가 직접 확인한 뒤, 보통 하루 이틀 안에 이메일로 보내드립니다.","languageLabel":"이력서 언어","noteLabel":"궁금하신 점","consent":"이력서 발송과 후속 연락을 위해 Ted가 위 정보를 비공개로 보관하는 데 동의합니다.","privacy":"입력하신 정보는 Ted에게만 전달되어 비공개로 보관되며 외부에 공유되지 않습니다. 삭제를 원하시면 tahn1996@gmail.com으로 알려 주세요.","submit":"이력서 요청하기","sending":"보내는 중…","successHeading":"요청이 접수되었습니다","success":"감사합니다. 요청을 직접 확인한 뒤 이력서를 이메일로 보내드리겠습니다. 메일이 오지 않으면 스팸함도 확인해 주세요.","invalid":"표시된 항목을 입력해 주세요.","error":"문제가 발생했습니다. 다시 시도하시거나 tahn1996@gmail.com으로 직접 연락 주세요.","noscript":"이 양식은 JavaScript가 필요합니다. tahn1996@gmail.com으로 직접 이력서를 요청하셔도 됩니다.","optional":"선택","home":"홈","skip":"양식으로 건너뛰기","switchLabel":"페이지 언어","hint_en":"영문 PDF","hint_ko":"국문 PDF","field_name":"이름","field_email":"이메일","field_role":"직책","field_organization":"회사 또는 기관","field_website":"LinkedIn 또는 웹사이트","field_phone":"전화번호"}};</script>
   <script>(function () {
   var form = document.getElementById('resume-request');
   if (!form) return;
@@ -149,6 +164,49 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
   var status = form.querySelector('.status');
   var button = form.querySelector('button[type="submit"]');
   var langs = form.querySelector('.langs');
+  var lang = 'en';
+  var languageTouched = false;
+  var storageKey = 'siteLang';
+
+  // Page language: ?lang= in the link, then the visitor's own choice, then the browser's preferred languages.
+  function detect() {
+    var param = new URLSearchParams(location.search).get('lang');
+    if (param === 'ko' || param === 'en') return param;
+    try { var saved = localStorage.getItem(storageKey); if (saved === 'ko' || saved === 'en') return saved; } catch (e) {}
+    var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+    for (var i = 0; i < prefs.length; i++) {
+      var code = String(prefs[i]).toLowerCase();
+      if (code.indexOf('ko') === 0) return 'ko';
+      if (code.indexOf('en') === 0) return 'en';
+    }
+    return 'en';
+  }
+
+  function apply(next) {
+    lang = next;
+    var dict = I18N[lang];
+    document.documentElement.lang = lang;
+    document.title = dict.title;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) { el.textContent = dict[el.getAttribute('data-i18n')]; });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', dict[el.getAttribute('data-i18n-aria')]); });
+    document.querySelectorAll('.switch button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
+    if (status.textContent) status.textContent = status.className === 'status err' ? (form.classList.contains('tried') && !form.checkValidity() ? dict.invalid : dict.error) : '';
+    // Suggest the matching résumé language until the visitor picks one themselves.
+    if (!languageTouched) {
+      var radio = form.querySelector('input[name="language"][value="' + lang + '"]');
+      if (radio) radio.checked = true;
+    }
+  }
+
+  document.querySelectorAll('.switch button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      try { localStorage.setItem(storageKey, b.dataset.lang); } catch (e) {}
+      apply(b.dataset.lang);
+    });
+  });
+  langs.addEventListener('change', function () { languageTouched = true; });
+  apply(detect());
+
   function checkLangs() { langs.classList.toggle('missing', !form.querySelector('input[name="language"]:checked')); }
   function recheck() {
     if (!form.classList.contains('tried')) return;
@@ -161,14 +219,14 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
     event.preventDefault();
     form.classList.add('tried');
     checkLangs();
-    if (!form.checkValidity()) { status.className = 'status err'; status.textContent = form.dataset.invalid; form.reportValidity(); return; }
+    if (!form.checkValidity()) { status.className = 'status err'; status.textContent = I18N[lang].invalid; form.reportValidity(); return; }
     var data = {};
     new FormData(form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
     data.consent = form.elements.consent.checked;
     data.page = location.pathname;
     button.disabled = true;
     status.className = 'status';
-    status.textContent = form.dataset.sending;
+    status.textContent = I18N[lang].sending;
     fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
       .then(function (response) { return response.json(); })
       .then(function (result) {
@@ -176,12 +234,11 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
         form.reset();
         status.textContent = '';
         panel.classList.add('sent');
-        var done = panel.querySelector('.done');
-        done.focus();
+        panel.querySelector('.done').focus();
       })
       .catch(function () {
         status.className = 'status err';
-        status.textContent = form.dataset.error;
+        status.textContent = I18N[lang].error;
       })
       .finally(function () { button.disabled = false; });
   });
