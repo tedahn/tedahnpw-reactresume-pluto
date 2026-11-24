@@ -70,7 +70,7 @@ The three former About-section quotations were retired by Ted on 2026-10-14. The
 
 ### Korean copy (2026-11-24)
 
-- The Korean overlay (`ko` and `resumeRequest.ko` in `src/resumeData.json`) is a translation of the approved English, not a separate narrative. It must not add figures, names or claims the English does not have, and every withheld item below stays out of it too.
+- The Korean overlay (`ko` and `resumeRequest.ko` in `src/resumeData.json`) is a translation of the approved English, adapted for Korean readers. It may add short, public, verifiable context that a Korean recruiter would otherwise lack: what a company, product or school is (e.g. Capital One as a US bank holding company, USAA, Auto Navigator, 텍사스대학교), the Webtoon entity as 네이버웹툰 미국 법인 (approved by Ted 2026-11-24), and years in US financial services. It must not add internal figures, partner names, award names or new achievement claims, and every withheld item below stays out of it too.
 
 ### Withheld by Decision
 

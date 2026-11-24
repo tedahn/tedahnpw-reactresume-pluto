@@ -102,6 +102,7 @@ html[lang='ko'] .role-line { font-family: var(--font-body); font-size: 14px; let
 .role-title { margin: 0; font-size: 18.5px; font-weight: 500; line-height: 1.4; }
 .role-company { color: var(--muted); font-weight: 400; white-space: nowrap; }
 .role-dates { color: var(--muted); font-family: var(--font-mono); font-size: 12px; white-space: nowrap; }
+.role-context { margin: 0; color: var(--acc); font-size: 13.5px; line-height: 1.5; opacity: 0.9; }
 .role-summary { margin: 2px 0 0; color: var(--body-2); font-size: 16px; line-height: 1.55; }
 .patent-meta { margin: 4px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
 .role-title a { text-decoration: underline; text-decoration-color: var(--acc-soft); text-underline-offset: 3px; }

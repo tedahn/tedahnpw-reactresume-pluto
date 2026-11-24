@@ -631,10 +631,10 @@
       "title": "안형근 Ted Ahn — 소프트웨어 엔지니어링 & AI"
     },
     "main": {
-      "roleLine": "시니어 소프트웨어 엔지니어 · **Capital One** · 미국 댈러스–포트워스",
+      "roleLine": "시니어 소프트웨어 엔지니어 · **Capital One** · 미국 텍사스 댈러스",
       "professionalBio": [
-        "**Capital One**에서 마케팅 플랫폼을 개발하는 백엔드 엔지니어입니다.",
-        "이전에는 **이벤트 스트림을 파일로 변환하는 기술을 공동 발명해 Capital One 특허로 등록**했고, **시간당 SMS 100만 건 규모의 USAA 악천후 알림 플랫폼**을 구축했습니다. UT Dallas에서 컴퓨터공학을 전공했고, UT Austin에서 AI·머신러닝 과정을 수료했습니다."
+        "미국 금융권(Capital One·USAA)에서 7년 넘게 일해 온 백엔드 엔지니어입니다. 현재 **Capital One**에서 마케팅 플랫폼을 개발하고 있습니다.",
+        "이전에는 **이벤트 스트림을 파일로 변환하는 기술을 공동 발명해 Capital One 특허로 등록**했고, 악천후·재난 때 회원에게 긴급 알림을 보내는 **USAA 알림 플랫폼을 시간당 SMS 100만 건 규모로** 구축했습니다. 텍사스대학교 댈러스(UT Dallas)에서 컴퓨터공학을 전공했고, 텍사스대학교 오스틴(UT Austin)에서 AI·머신러닝 과정을 수료했습니다."
       ],
       "photo": {
         "alt": "안형근 (Ted Ahn)"
@@ -643,19 +643,22 @@
     "work": {
       "Webtoon | May 2017 - Dec 2017": {
         "title": "소프트웨어 엔지니어링 인턴",
-        "summary": "Webtoon 최초의 인턴이자 미국 법인 첫 소프트웨어 엔지니어, 초기 데이터 분석 담당."
+        "summary": "Webtoon 최초의 인턴이자 미국 법인 첫 소프트웨어 엔지니어, 초기 데이터 분석 담당.",
+        "company": "네이버웹툰 미국 법인"
       },
       "USAA | Sep 2019 - May 2022": {
         "title": "소프트웨어 엔지니어",
-        "summary": "`1M SMS/hr` 규모로 설계한 리액티브 악천후 알림 플랫폼 구축, 핵심 레거시 시스템 현대화 참여."
+        "summary": "악천후·재난 때 회원에게 보내는 긴급 알림을 위해 `1M SMS/hr` 규모로 설계한 리액티브 플랫폼 구축, 핵심 레거시 시스템 현대화 참여.",
+        "context": "미군과 가족을 위한 미국 은행·보험 금융그룹"
       },
       "Capital One | May 2022 - Jul 2024": {
         "title": "소프트웨어 엔지니어",
-        "summary": "Auto Navigator의 이벤트 기반 차량 데이터 파이프라인 개발, 딜러 데이터 수집 시스템을 AWS 클라우드 네이티브로 전환."
+        "summary": "Auto Navigator(차량 검색·오토론 사전심사·딜러 연결 서비스)의 이벤트 기반 차량 데이터 파이프라인 개발, 딜러 데이터 수집 시스템을 AWS 클라우드 네이티브로 전환."
       },
       "Capital One | Jul 2024 - Present": {
         "title": "시니어 소프트웨어 엔지니어",
-        "summary": "자동차 딜러 대상 마케팅을 포함한 마케팅 플랫폼 기능 개발."
+        "summary": "자동차 딜러 대상 마케팅을 포함한 마케팅 플랫폼 기능 개발.",
+        "context": "미국 대형 은행지주회사 · 신용카드·오토론·리테일뱅킹"
       }
     },
     "patents": {
@@ -674,12 +677,12 @@
       },
       "Vehicle Data Pipeline": {
         "title": "차량 데이터 파이프라인",
-        "summary": "Auto Navigator에 쓰이는 이벤트 기반 차량 데이터 수집.",
+        "summary": "Capital One의 차량 검색·오토론 사전심사 서비스 Auto Navigator에 쓰이는 이벤트 기반 차량 데이터 수집.",
         "imageAlt": "Auto Navigator에서 볼 수 있는 다양한 차량"
       },
       "Severe-Weather Alerting": {
         "title": "악천후 알림",
-        "summary": "시간당 SMS 100만 건 규모로 설계한 리액티브 악천후 알림.",
+        "summary": "악천후·재난 때 회원에게 보내는 긴급 알림, 시간당 SMS 100만 건 규모로 설계.",
         "imageAlt": "악천후로 피해를 입은 주택과 차량"
       },
       "Per-Shot Encoding": {
