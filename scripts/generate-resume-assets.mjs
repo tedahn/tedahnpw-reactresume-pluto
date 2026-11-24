@@ -7,7 +7,7 @@ const sourcePath = path.join(root, 'src', 'resumeData.json');
 const publicDirectory = path.join(root, 'public');
 const data = JSON.parse(await readFile(sourcePath, 'utf8'));
 
-const { main, resume, portfolio, aiResume, future } = data;
+const { main, portfolio } = data;
 const canonicalUrl = main.website.replace(/\/$/, '');
 const mojibakeMarkers = ['â€”', 'â€“', 'Â·', 'ï»¿', '�'];
 
@@ -71,397 +71,203 @@ const escapeHtml = (value = '') => String(value)
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#039;');
 
-const parseRange = (value = '') => {
-  const [start = '', end = ''] = value.split(' - ').map((part) => part.trim());
-  return { startDate: start, endDate: end };
-};
-
-const yamlValue = (value) => JSON.stringify(String(value));
-const patents = resume.patents || [];
-const patentInventors = (patent) => (patent.inventors || []).join(', ');
-const linkEvidenceByUrl = new Map(aiResume.linkEvidence.map((link) => [link.url, link]));
-const markdownLink = (link) => `[${link.label}](${link.url})`;
-
-const linkedEvidenceFrontmatter = aiResume.linkEvidence.map((link) => `
-  - id: ${yamlValue(link.id)}
-    label: ${yamlValue(link.label)}
-    url: ${yamlValue(link.url)}
-    kind: ${yamlValue(link.kind)}
-    page_summary: ${yamlValue(link.pageSummary)}
-    relevance: ${yamlValue(link.relevance)}
-    open_when: ${yamlValue(link.openWhen)}
-    inference_boundary: ${yamlValue(link.boundary)}`).join('');
-
-const renderEvidenceLink = (url, fallbackLabel) => {
-  const link = linkEvidenceByUrl.get(url);
-  if (!link) return `- ${fallbackLabel || url}: no annotated evidence record is available.`;
-
-  return `- ${markdownLink(link)} \`[link_id: ${link.id}]\`
-  - **What the page contains:** ${link.pageSummary}
-  - **Why it matters:** ${link.relevance}
-  - **Inference boundary:** ${link.boundary}`;
-};
-
-const structuredResume = {
-  $schema: 'https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json',
-  basics: {
-    name: main.fullname || main.name,
-    label: main.occupation,
-    email: main.email,
-    phone: main.phone,
-    url: canonicalUrl,
-    summary: main.description,
-    location: {
-      city: main.basecity,
-      region: main.basestate,
-      countryCode: main.basecountry,
-    },
-    profiles: main.social
-      .filter((network) => network.url.startsWith('https://'))
-      .map((network) => ({ network: network.name, url: network.url })),
-  },
-  work: resume.work.map((role) => ({
-    name: role.company,
-    position: role.title,
-    location: role.location,
-    ...parseRange(role.dates),
-    summary: role.status,
-    highlights: role.achievements.map((achievement) => `${achievement.title}: ${achievement.desc}`),
-  })),
-  education: resume.education.map((item) => ({
-    institution: item.school,
-    studyType: item.degree,
-    endDate: item.graduated,
-    summary: item.description,
-  })),
-  skills: resume.skills.map((skill) => ({ name: skill.name })),
-  patents: patents.map((patent) => ({
-    name: patent.title,
-    number: patent.number,
-    issuer: 'United States Patent and Trademark Office',
-    filedDate: patent.filedDate,
-    releaseDate: patent.issuedDate,
-    assignee: patent.assignee,
-    role: patent.role,
-    inventors: patent.inventors,
-    url: patent.url,
-    summary: patent.summary,
-  })),
-  projects: portfolio.projects.map((project) => ({
-    name: project.title,
-    description: project.description,
-    url: project.url,
-    keywords: project.tools || [],
-  })),
-  fieldNotes: (portfolio.fieldNotes || []).map((note) => ({
-    name: note.title,
-    type: note.type,
-    summary: note.summary,
-    question: note.question,
-    links: note.links,
-  })),
-};
-
-const textLines = [
-  main.fullname || main.name,
-  main.occupation,
-  `${main.basecity}, ${main.basestate} · ${main.email} · ${main.phone}`,
-  canonicalUrl,
-  '',
-  'SUMMARY',
-  main.description,
-  '',
-  'EXPERIENCE',
-  ...resume.work.slice().reverse().flatMap((role) => [
-    `${role.title}, ${role.company}`,
-    `${role.dates} · ${role.location}`,
-    ...role.achievements.map((achievement) => `- ${achievement.title}: ${achievement.desc}`),
-    '',
-  ]),
-  ...(future ? [future.date, future.title, future.description, ''] : []),
-  ...(patents.length > 0 ? [
-    'PATENTS',
-    ...patents.flatMap((patent) => [
-      `${patent.number}: ${patent.title}`,
-      `Issued ${patent.issuedDate} · Filed ${patent.filedDate} · ${patent.assignee}`,
-      ...(patent.role ? [`Role: ${patent.role}`] : []),
-      `Inventors: ${patentInventors(patent)}`,
-      patent.summary,
-      `${patent.urlLabel ? `${patent.urlLabel}: ` : ''}${patent.url}`,
-      '',
-    ]),
-  ] : []),
-  'EDUCATION',
-  ...resume.education.slice().reverse().flatMap((item) => [
-    `${item.degree}, ${item.school}`,
-    item.graduated,
-    item.description,
-    '',
-  ]),
-  'CORE SKILLS',
-  ...resume.skills.map((skill) => `- ${skill.name}`),
-  ...(portfolio.projects.length > 0 ? [
-    '',
-    'SELECTED PROJECTS',
-    ...portfolio.projects.flatMap((project) => [
-      `${project.title}${project.url ? `: ${project.url}` : ''}`,
-      project.description,
-      '',
-    ]),
-  ] : []),
-];
-
-const workHtml = resume.work.slice().reverse().map((role) => `
-  <article>
-    <header><div><h3>${escapeHtml(role.title)}</h3><p>${escapeHtml(role.company)}</p></div><p>${escapeHtml(role.dates)}<br>${escapeHtml(role.location)}</p></header>
-    <ul>${role.achievements.map((achievement) => `<li><strong>${escapeHtml(achievement.title)}.</strong> ${escapeHtml(achievement.desc)}</li>`).join('')}</ul>
-  </article>`).join('');
-
-const patentsHtml = patents.map((patent) => `
-  <article>
-    <header><div><h3><a href="${escapeHtml(patent.url)}">${escapeHtml(patent.title)}</a></h3><p>${escapeHtml(patent.number)} · ${escapeHtml(patent.assignee)}</p></div><p>Issued ${escapeHtml(patent.issuedDate)}<br>Filed ${escapeHtml(patent.filedDate)}</p></header>
-    <p>${escapeHtml(patent.summary)}</p>
-    ${patent.role ? `<p>Role: ${escapeHtml(patent.role)}</p>` : ''}
-    <p>Inventors: ${escapeHtml(patentInventors(patent))}</p>
-  </article>`).join('');
-
-const educationHtml = resume.education.slice().reverse().map((item) => `
-  <article>
-    <header><div><h3>${escapeHtml(item.degree)}</h3><p>${escapeHtml(item.school)}</p></div><p>${escapeHtml(item.graduated)}</p></header>
-    <p>${escapeHtml(item.description)}</p>
-  </article>`).join('');
-
-const projectsHtml = portfolio.projects.map((project) => `
-  <article>
-    <header>
-      <div><h3>${escapeHtml(project.title)}</h3>${project.context ? `<p>${escapeHtml(project.context)}</p>` : ''}</div>
-      ${project.url ? `<p><a href="${escapeHtml(project.url)}">${escapeHtml(project.linkLabel || 'View project')}</a></p>` : ''}
-    </header>
-    <p>${escapeHtml(project.description)}</p>
-  </article>`).join('');
-
 const request = data.resumeRequest;
-const requestEnabled = Boolean(request?.endpoint);
-const requestFieldHtml = (field) => `<label class="field"><span>${escapeHtml(field.label)}${field.required ? '' : ' <em>(optional)</em>'}</span><input name="${escapeHtml(field.name)}" type="${escapeHtml(field.type)}" autocomplete="${escapeHtml(field.autocomplete || 'off')}" maxlength="${field.name === 'website' ? 300 : 160}"${field.required ? ' required' : ''}></label>`;
-const requestHtml = requestEnabled ? `
-    <section class="request" aria-labelledby="request-heading"><h2 id="request-heading">${escapeHtml(request.heading)}</h2>
-      <p>${escapeHtml(request.intro)}</p>
-      <form id="resume-request" data-endpoint="${escapeHtml(request.endpoint)}" data-sending="${escapeHtml(request.sending)}" data-success="${escapeHtml(request.success)}" data-error="${escapeHtml(request.error)}" novalidate>
-        <fieldset class="langs"><legend>${escapeHtml(request.languageLabel)}</legend>${request.languages.map((lang, index) => `<label><input type="radio" name="language" value="${escapeHtml(lang.value)}"${index === 0 ? ' required' : ''}> ${escapeHtml(lang.label)}</label>`).join('')}</fieldset>
-        <div class="grid">${request.fields.map(requestFieldHtml).join('')}</div>
-        <label class="field"><span>${escapeHtml(request.noteLabel)} <em>(optional)</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
-        <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>
-        <label class="consent"><input type="checkbox" name="consent" required> ${escapeHtml(request.consent)}</label>
-        <p class="privacy">${escapeHtml(request.privacy)}</p>
-        <button type="submit">${escapeHtml(request.submit)}</button>
-        <p class="status" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-    <script>
-    (function () {
-      var form = document.getElementById('resume-request');
-      if (!form) return;
-      var status = form.querySelector('.status');
-      var button = form.querySelector('button[type="submit"]');
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        if (!form.checkValidity()) { form.reportValidity(); return; }
-        var data = {};
-        new FormData(form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
-        data.consent = form.elements.consent.checked;
-        data.page = location.pathname;
-        button.disabled = true;
-        status.className = 'status';
-        status.textContent = form.dataset.sending;
-        fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
-          .then(function (response) { return response.json(); })
-          .then(function (result) {
-            if (!result || !result.ok) throw new Error(result && result.error);
-            form.reset();
-            status.className = 'status ok';
-            status.textContent = form.dataset.success;
-          })
-          .catch(function () {
-            status.className = 'status err';
-            status.textContent = form.dataset.error;
-          })
-          .finally(function () { button.disabled = false; });
-      });
-    }());
-    </script>` : '';
+if (!request?.endpoint) throw new Error('resumeRequest.endpoint is required: resume.html is the request page.');
+
+const profiles = main.social.filter((network) => ['github', 'linkedin'].includes(network.name));
+const nodeMark = (w, h) => `<svg width="${w}" height="${h}" viewBox="0 0 34 18" aria-hidden="true"><path d="M5 9 L17 4 L29 9 M17 4 L17 14" fill="none" stroke="currentColor" stroke-width="1.2"/>${[[5, 9], [17, 4], [29, 9], [17, 14]].map(([cx, cy]) => `<circle cx="${cx}" cy="${cy}" r="2.4" fill="currentColor"/>`).join('')}</svg>`;
+
+const fieldHtml = (field) => `
+          <label class="field">
+            <span class="field-label">${escapeHtml(field.label)}${field.required ? '' : ' <em>optional</em>'}</span>
+            <input name="${escapeHtml(field.name)}" type="${escapeHtml(field.type)}"${field.inputmode ? ` inputmode="${escapeHtml(field.inputmode)}"` : ''}${field.placeholder ? ` placeholder="${escapeHtml(field.placeholder)}"` : ''} autocomplete="${escapeHtml(field.autocomplete || 'off')}" maxlength="${field.name === 'website' ? 300 : 160}"${field.required ? ' required' : ''}>
+          </label>`;
+
+const css = `
+:root{--ink:#121a26;--panel:#18212f;--field:#0f1620;--cream:#f4f0e6;--muted:#b4ab97;--body-2:#cfc8b8;--rule:#263142;--acc:#6fc3b2;--acc-soft:rgba(111,195,178,.22);--err:#e8968c;--display:'Newsreader',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--ink)}
+body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--display);font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none;transition:color .2s ease}a:hover{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+.skip-link{position:absolute;left:16px;top:-60px;z-index:10;padding:8px 14px;border-radius:6px;background:var(--acc);color:var(--ink);font-size:16px}.skip-link:focus{top:16px;color:var(--ink)}
+.page{max-width:760px;margin:0 auto;padding:26px 32px 46px}
+.site-header{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;line-height:1.4}
+.site-header nav{display:flex;gap:22px;color:var(--muted)}
+.site-mark{display:inline-flex;padding:4px;margin-left:-4px;color:var(--acc);opacity:.85}.site-mark:hover{opacity:1}
+.intro{margin-top:40px;text-align:center}
+.ring{position:relative;width:96px;height:96px;margin:0 auto;padding:4px;border-radius:50%;border:2px solid var(--acc-soft);box-shadow:inset 0 0 0 1px rgba(244,240,230,.12),0 10px 40px -10px var(--acc-soft)}
+.ring::before{content:'';position:absolute;inset:-2px;padding:2px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0deg 200deg,var(--acc) 300deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:spin 18s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--panel)}
+.eyebrow{margin:20px 0 4px;color:var(--acc);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+h1{margin:0;font-weight:500;font-size:48px;line-height:1.08;letter-spacing:.2px}
+.lede{max-width:520px;margin:14px auto 0;color:var(--body-2);font-size:18px;line-height:1.6}
+.ornament{display:flex;align-items:center;justify-content:center;gap:12px;margin:34px 0 30px;color:var(--acc)}
+.ornament span{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--acc))}.ornament span:last-child{background:linear-gradient(90deg,var(--acc),transparent)}
+.panel{background:var(--panel);border:2px solid var(--acc-soft);border-radius:12px;box-shadow:0 18px 50px -24px var(--acc-soft);padding:30px 32px 28px}
+form{display:grid;gap:22px}
+fieldset{margin:0;padding:0;border:0;min-width:0}
+legend,.field-label{display:block;margin-bottom:8px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.field-label em,legend em{font-style:normal;text-transform:none;letter-spacing:0;color:#857d6c;margin-left:4px}
+.langs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lang{position:relative;display:block;cursor:pointer}
+.lang input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.lang span{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border:1.5px solid var(--rule);border-radius:10px;background:var(--field);transition:border-color .2s ease,background .2s ease}
+.lang b{font-weight:500;font-size:22px;line-height:1.2}
+.lang small{color:var(--muted);font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.lang:hover span{border-color:var(--acc-soft)}
+.lang input:checked+span{border-color:var(--acc);background:rgba(111,195,178,.08);box-shadow:inset 0 0 0 1px var(--acc)}
+.lang input:checked+span b::after{content:'';display:inline-block;width:8px;height:8px;margin-left:10px;border-radius:50%;background:var(--acc);vertical-align:middle}
+.lang input:focus-visible+span{outline:2px solid var(--acc);outline-offset:3px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
+.field{display:block;min-width:0}
+input[type=text],input[type=email],input[type=tel],textarea{display:block;width:100%;padding:11px 13px;border:1.5px solid var(--rule);border-radius:8px;background:var(--field);color:var(--cream);font:17px/1.4 var(--display);transition:border-color .2s ease}
+input::placeholder,textarea::placeholder{color:#6f7a88}
+input:hover,textarea:hover{border-color:#34415a}
+input:focus,textarea:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(111,195,178,.18)}
+textarea{resize:vertical;min-height:92px}
+.tried input:invalid,.tried textarea:invalid{border-color:var(--err)}
+.tried .langs.missing .lang span{border-color:var(--err)}
+.consent{display:flex;gap:12px;align-items:flex-start;color:var(--body-2);font-size:16px;line-height:1.5;cursor:pointer}
+.consent input{flex:none;width:18px;height:18px;margin:3px 0 0;accent-color:var(--acc)}
+.privacy{margin:-8px 0 0 30px;color:var(--muted);font-size:14px;line-height:1.5}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
+button{border:0;border-radius:999px;padding:13px 26px;background:var(--acc);color:var(--ink);font:600 17px/1.2 var(--display);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+button:hover{transform:translateY(-1px);box-shadow:0 8px 24px -10px var(--acc)}
+button:disabled{opacity:.6;cursor:wait;transform:none}
+.status{margin:0;font-size:16px;line-height:1.5}.status.err{color:var(--err)}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.done{display:none;text-align:center;padding:10px 0}
+.done .check{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;border:2px solid var(--acc);color:var(--acc);font:500 24px/1 var(--mono)}
+.done h2{margin:14px 0 6px;font-weight:500;font-size:30px;line-height:1.2}
+.done p{max-width:440px;margin:0 auto;color:var(--body-2);font-size:17px}
+.panel.sent form{display:none}.panel.sent .done{display:block}
+.note{margin:22px 0 0;text-align:center;color:var(--muted);font-size:15px}
+.site-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);color:var(--muted);font-size:15px;line-height:1.5}
+@media (max-width:768px){body{font-size:17.5px}.page{padding:20px 16px 40px}.site-header nav{gap:16px}h1{font-size:36px}.panel{padding:22px 18px 22px}.grid{grid-template-columns:1fr}}
+@media (max-width:380px){.langs{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){a,button,input,textarea,.lang span{transition:none}.ring::before{animation:none}button:hover{transform:none}}
+`;
+
+const script = `
+(function () {
+  var form = document.getElementById('resume-request');
+  if (!form) return;
+  var panel = form.closest('.panel');
+  var status = form.querySelector('.status');
+  var button = form.querySelector('button[type="submit"]');
+  var langs = form.querySelector('.langs');
+  function checkLangs() { langs.classList.toggle('missing', !form.querySelector('input[name="language"]:checked')); }
+  function recheck() {
+    if (!form.classList.contains('tried')) return;
+    checkLangs();
+    if (form.checkValidity() && status.className === 'status err') { status.className = 'status'; status.textContent = ''; }
+  }
+  form.addEventListener('change', recheck);
+  form.addEventListener('input', recheck);
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    form.classList.add('tried');
+    checkLangs();
+    if (!form.checkValidity()) { status.className = 'status err'; status.textContent = form.dataset.invalid; form.reportValidity(); return; }
+    var data = {};
+    new FormData(form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
+    data.consent = form.elements.consent.checked;
+    data.page = location.pathname;
+    button.disabled = true;
+    status.className = 'status';
+    status.textContent = form.dataset.sending;
+    fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
+      .then(function (response) { return response.json(); })
+      .then(function (result) {
+        if (!result || !result.ok) throw new Error(result && result.error);
+        form.reset();
+        status.textContent = '';
+        panel.classList.add('sent');
+        var done = panel.querySelector('.done');
+        done.focus();
+      })
+      .catch(function () {
+        status.className = 'status err';
+        status.textContent = form.dataset.error;
+      })
+      .finally(function () { button.disabled = false; });
+  });
+}());
+`;
+
+const photo = main.photo ? `<div class="ring"><img src="${escapeHtml(main.photo.src.replace(/^\//, ''))}" alt="${escapeHtml(main.photo.alt)}" width="96" height="96"></div>` : '';
 
 const resumeHtml = `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#121a26">
   <meta name="robots" content="index,follow">
-  <meta name="description" content="Printable resume for ${escapeHtml(main.name)}.">
+  <meta name="description" content="${escapeHtml(request.pageDescription)}">
   <link rel="canonical" href="${canonicalUrl}/resume.html">
-  <title>${escapeHtml(main.name)} | Resume</title>
-  <style>
-    :root{font-family:Arial,sans-serif;color:#142033;background:#f4f7fa}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:0 auto;padding:48px;background:#fff}h1{font-size:2.4rem;margin:.2rem 0}h2{margin-top:2.5rem;border-bottom:2px solid #142033;padding-bottom:.45rem}h3{margin:0 0 .25rem;font-size:1.05rem}p{line-height:1.5}header{display:flex;justify-content:space-between;gap:2rem}article{padding:1.1rem 0;border-bottom:1px solid #d9e0e8}article header>p{text-align:right;margin:0}ul{padding-left:1.25rem}li{margin:.55rem 0;line-height:1.45}.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 2rem}.actions a,.actions button{border:1px solid #142033;background:#fff;color:#142033;padding:.7rem 1rem;text-decoration:none;font:inherit;cursor:pointer}.actions button{background:#142033;color:#fff}.contact{margin:.4rem 0}.summary{font-size:1.05rem}.skills{columns:2}.request form{display:grid;gap:1rem;margin-top:1rem}.request .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.request .field{display:grid;gap:.35rem}.request .field span{font-weight:bold;font-size:.92rem}.request em{font-weight:normal;color:#5a6676}.request input,.request textarea{font:inherit;padding:.6rem .7rem;border:1px solid #9aa6b4;border-radius:2px;width:100%}.request input:focus,.request textarea:focus,.request button:focus{outline:2px solid #142033;outline-offset:2px}.request fieldset{border:0;padding:0;margin:0;display:flex;gap:1.25rem;flex-wrap:wrap}.request fieldset label{display:inline-flex;align-items:center;gap:.45rem;cursor:pointer}.request fieldset input,.request .consent input{width:auto;margin:0}.request legend{font-weight:bold;font-size:.92rem;margin-bottom:.4rem}.request .consent{display:flex;gap:.6rem;align-items:flex-start;line-height:1.45}.request .consent input{margin-top:.3rem}.request .privacy{font-size:.88rem;color:#5a6676;margin:0}.request button{justify-self:start;border:1px solid #142033;background:#142033;color:#fff;padding:.75rem 1.2rem;font:inherit;cursor:pointer}.request button:disabled{opacity:.6;cursor:wait}.request .status{margin:0;min-height:1.5em}.request .status.ok{color:#1d6b4f}.request .status.err{color:#a3332d}.request .hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}@media(max-width:650px){main{padding:24px}header{display:block}article header>p{text-align:left}.request .grid{grid-template-columns:1fr}}@media print{body{background:#fff}main{padding:0;max-width:none}.actions,.request{display:none}article{break-inside:avoid}a{color:inherit;text-decoration:none}}
-  </style>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+  <title>${escapeHtml(request.heading)} | ${escapeHtml(main.name)}</title>
+  <style>${css.trim()}</style>
 </head>
 <body>
-  <main>
-    <header>
-      <div><h1>${escapeHtml(main.fullname || main.name)}</h1><p>${escapeHtml(main.occupation)}</p></div>
-      <p class="contact">${escapeHtml(main.basecity)}, ${escapeHtml(main.basestate)}<br><a href="mailto:${escapeHtml(main.email)}">${escapeHtml(main.email)}</a><br>${escapeHtml(main.phone)}</p>
+  <a class="skip-link" href="#request">Skip to the form</a>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-mark" href="./" aria-label="${escapeHtml(main.name)}: home">${nodeMark(28, 15)}</a>
+      <nav aria-label="Site">
+        <a href="./">Home</a>
+${profiles.map((network) => `        <a href="${escapeHtml(network.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(network.label || network.name)}</a>`).join('\n')}
+      </nav>
     </header>
-    <div class="actions"><button type="button" onclick="window.print()">Print / save PDF</button><a href="/resume.txt" download>Download text</a><a href="/resume.md">AI-readable profile</a><a href="/resume.json" download>Download JSON</a><a href="/">Portfolio</a>${requestEnabled ? `<a href="#request-heading">${escapeHtml(request.heading)}</a>` : ''}</div>
-    <p class="summary">${escapeHtml(main.description)}</p>
-    <section><h2>Experience</h2>${workHtml}${future ? `<article><header><div><h3>${escapeHtml(future.title)}</h3></div><p>${escapeHtml(future.date)}</p></header><p>${escapeHtml(future.description)}</p></article>` : ''}</section>
-${patents.length > 0 ? `    <section><h2>Patents</h2>${patentsHtml}</section>\n` : ''}    <section><h2>Education</h2>${educationHtml}</section>
-${portfolio.projects.length > 0 ? `    <section><h2>Selected projects</h2>${projectsHtml}</section>` : ''}
-    <section><h2>Core skills</h2><ul class="skills">${resume.skills.map((skill) => `<li>${escapeHtml(skill.name)}</li>`).join('')}</ul></section>
-${requestHtml}
-  </main>
+    <main>
+      <section class="intro" aria-labelledby="request-heading">
+        ${photo}
+        <p class="eyebrow">${escapeHtml(request.eyebrow)}</p>
+        <h1 id="request-heading">${escapeHtml(request.heading)}</h1>
+        <p class="lede">${escapeHtml(request.intro)}</p>
+      </section>
+      <div class="ornament" aria-hidden="true"><span></span>${nodeMark(34, 18)}<span></span></div>
+      <div class="panel" id="request">
+        <form id="resume-request" data-endpoint="${escapeHtml(request.endpoint)}" data-sending="${escapeHtml(request.sending)}" data-error="${escapeHtml(request.error)}" data-invalid="${escapeHtml(request.invalid)}" novalidate>
+          <fieldset class="langs"><legend>${escapeHtml(request.languageLabel)}</legend>
+${request.languages.map((lang, index) => `            <label class="lang"><input type="radio" name="language" value="${escapeHtml(lang.value)}"${index === 0 ? ' required' : ''}><span><b lang="${escapeHtml(lang.value)}">${escapeHtml(lang.label)}</b><small>${escapeHtml(lang.hint || '')}</small></span></label>`).join('\n')}
+          </fieldset>
+          <div class="grid">${request.fields.map(fieldHtml).join('')}
+          </div>
+          <label class="field"><span class="field-label">${escapeHtml(request.noteLabel)} <em>optional</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
+          <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>
+          <label class="consent"><input type="checkbox" name="consent" required><span>${escapeHtml(request.consent)}</span></label>
+          <p class="privacy">${escapeHtml(request.privacy)}</p>
+          <div class="actions"><button type="submit">${escapeHtml(request.submit)}</button><p class="status" role="status" aria-live="polite"></p></div>
+        </form>
+        <div class="done" tabindex="-1" role="status"><span class="check" aria-hidden="true">✓</span><h2>${escapeHtml(request.successHeading)}</h2><p>${escapeHtml(request.success)}</p></div>
+        <noscript><p class="note">${escapeHtml(request.noscript)}</p></noscript>
+      </div>
+    </main>
+    <footer class="site-footer"><a href="mailto:${escapeHtml(main.email)}">${escapeHtml(main.email)}</a><span>© ${new Date().getFullYear()} ${escapeHtml(main.name)}</span></footer>
+  </div>
+  <script>${script.trim()}</script>
 </body>
 </html>`;
 
-const workMarkdown = resume.work.slice().reverse().map((role) => `### ${role.title}, ${role.company}
-
-**Dates:** ${role.dates}  
-**Location:** ${role.location}  
-**Scope marker:** ${role.status}
-
-${role.achievements.map((achievement) => `- **${achievement.title}:** ${achievement.desc}`).join('\n')}
-${role.contextLinks?.length ? `\n**External product or mission context**\n\n${role.contextLinks.map((link) => renderEvidenceLink(link.url, link.label)).join('\n')}` : ''}`).join('\n\n');
-
-const patentsMarkdown = patents.map((patent) => `### ${patent.number}: ${patent.title}
-
-**Issued:** ${patent.issuedDate}  
-**Filed:** ${patent.filedDate}  
-**Assignee:** ${patent.assignee}  
-${patent.role ? `**Ted's role:** ${patent.role}  \n` : ''}**Inventors:** ${patentInventors(patent)}  
-**Record:** [${patent.urlLabel || patent.number}](${patent.url})
-
-${patent.summary}
-
-**Inference boundary:** Ted is one of ${(patent.inventors || []).length} named inventors; Ted led the design, and the invention is shared. Inventor order does not indicate contribution. The patent text is the only public description of the method; do not attach production systems or metrics to it.`).join('\n\n');
-
-const educationMarkdown = resume.education.slice().reverse().map((item) => `### ${item.degree}
-
-**Institution:** ${item.school}  
-**Completed:** ${item.graduated}
-
-${item.description}`).join('\n\n');
-
-const projectMarkdown = portfolio.projects.map((project) => `### ${project.title}
-
-${project.context ? `**Context:** ${project.context}\n\n` : ''}${project.description}
-
-${project.tools?.length ? `**Technologies or practices represented:** ${project.tools.join(', ')}\n\n` : ''}${project.url ? renderEvidenceLink(project.url, project.title) : '**Link status:** No public project URL is currently attached to this entry.'}`).join('\n\n');
-
-const fieldNotesMarkdown = portfolio.fieldNotes.map((note) => `### ${note.title}
-
-**Research frame:** ${note.type}
-
-${note.summary}
-
-**Question being tested:** ${note.question}
-
-${note.links.map((link) => renderEvidenceLink(link.url, link.label)).join('\n')}`).join('\n\n');
-
-const aiMarkdown = `---
-schema_version: 1
-document_type: ${yamlValue('professional_profile')}
-title: ${yamlValue(`${main.name}: professional profile with source notes`)}
-purpose: ${yamlValue(aiResume.documentPurpose)}
-last_verified: ${yamlValue(aiResume.version)}
-person:
-  full_name: ${yamlValue(main.fullname || main.name)}
-  preferred_name: ${yamlValue(main.name)}
-  current_title: ${yamlValue(main.occupation)}
-  location: ${yamlValue(`${main.basecity}, ${main.basestate}, ${main.basecountry}`)}
-  email: ${yamlValue(main.email)}
-  phone: ${yamlValue(main.phone)}
-  canonical_profile: ${yamlValue(canonicalUrl)}
-truthfulness_rules:
-  - ${yamlValue('Treat career claims, personal demonstrations, and external product-context pages as different evidence classes.')}
-  - ${yamlValue('Preserve chronology, metrics, attribution, shared-authorship language, and stated limitations.')}
-  - ${yamlValue('Do not infer production adoption, company affiliation, revenue, user counts, or sole causality from a linked page.')}
-source_hierarchy:
-${aiResume.sourceHierarchy.map((source) => `  - ${yamlValue(source)}`).join('\n')}
-linked_evidence:${linkedEvidenceFrontmatter}
----
-
-# ${main.name}: professional profile
-
-> ${aiResume.documentPurpose} It summarizes linked evidence so a reader does not need to open every link.
-
-## Reader contract
-
-- Start with the evidence in this document. Links are supporting material, not homework required to understand this profile.
-- Treat explicit inference boundaries as part of the evidence.
-- If a link conflicts with a claim here, preserve the claim and flag the conflict instead of guessing.
-- Do not turn project benchmarks, product-page marketing, repository activity, or prototype behavior into unverified professional impact.
-
-## Snapshot
-
-${aiResume.assessment.summary}
-
-**Current public positioning:** ${main.occupation}  
-**Location:** ${main.basecity}, ${main.basestate}  
-**Experience:** 6+ years  
-**Contact:** ${main.email} · ${main.phone}
-
-### Evidence-based strengths
-
-${aiResume.assessment.evidenceBasedStrengths.map((strength) => `- ${strength}`).join('\n')}
-
-### Profiles
-
-${['portfolio_site', 'linkedin', 'github_profile'].map((id) => {
-  const link = aiResume.linkEvidence.find((item) => item.id === id);
-  return renderEvidenceLink(link.url, link.label);
-}).join('\n')}
-
-## Career chronology
-
-**Chronology note:** At Capital One, Ted was a Software Engineer from May 2022 through July 2024, then a Senior Software Engineer from July 2024 to present.
-
-${workMarkdown}
-
-${patents.length > 0 ? `## Patents
-
-${patentsMarkdown}
-
-` : ''}## Core capabilities
-
-${resume.skills.map((skill) => `- ${skill.name}`).join('\n')}
-
-## Education
-
-${educationMarkdown}
-
-${portfolio.projects.length > 0 ? `## Selected projects
-
-${projectMarkdown}
-
-` : ''}## Research and dev logs
-
-${fieldNotesMarkdown}
-
-## What the evidence does not establish
-
-${aiResume.assessment.nonClaims.map((claim) => `- ${claim}`).join('\n')}
-`;
-
-const llmsText = `# ${main.name}\n\n> ${main.description}\n\n## Canonical profile\n- ${canonicalUrl}/\n- AI-readable profile with annotated evidence: ${canonicalUrl}/resume.md\n- Printable resume: ${canonicalUrl}/resume.html\n- Plain-text resume: ${canonicalUrl}/resume.txt\n- Structured JSON resume: ${canonicalUrl}/resume.json\n\n## Work and research\n${portfolio.projects.map((project) => `- ${project.title}${project.url ? `: ${project.url}` : ''}`).join('\n')}\n${(portfolio.fieldNotes || []).flatMap((note) => note.links.map((link) => `- ${note.title}: ${link.label}: ${link.url}`)).join('\n')}\n`;
+const llmsText = `# ${main.name}\n\n> ${main.description}\n\n## Canonical profile\n- ${canonicalUrl}/\n- Résumé by request (form; sent by email after review): ${canonicalUrl}/resume.html\n\n## Work and research\n${portfolio.projects.map((project) => `- ${project.title}${project.url ? `: ${project.url}` : ''}`).join('\n')}\n${(portfolio.fieldNotes || []).flatMap((note) => note.links.map((link) => `- ${note.title}: ${link.label}: ${link.url}`)).join('\n')}\n`;
 
 const robotsText = `User-agent: *\nAllow: /\n\nSitemap: ${canonicalUrl}/sitemap.xml\n`;
-const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['/', '/resume.md', '/resume.html', '/resume.txt', '/resume.json'].map((route) => `  <url><loc>${canonicalUrl}${route}</loc></url>`).join('\n')}\n</urlset>\n`;
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${['/', '/resume.html'].map((route) => `  <url><loc>${canonicalUrl}${route}</loc></url>`).join('\n')}\n</urlset>\n`;
 
 await Promise.all([
-  writeTextArtifact('resume.json', JSON.stringify(structuredResume, null, 2)),
-  writeTextArtifact('resume.txt', textLines.join('\n')),
   writeTextArtifact('resume.html', resumeHtml),
-  writeTextArtifact('resume.md', aiMarkdown, { asciiOnly: true, frontmatter: true }),
   writeTextArtifact('llms.txt', llmsText),
   writeTextArtifact('robots.txt', robotsText),
   writeTextArtifact('sitemap.xml', sitemapXml),
 ]);
 
-console.log('Generated printable and machine-readable resume assets from src/resumeData.json.');
+console.log('Generated the résumé request page, llms.txt, robots.txt and sitemap.xml from src/resumeData.json.');

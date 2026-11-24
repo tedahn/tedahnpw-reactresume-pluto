@@ -4,7 +4,7 @@ import { NodeMark } from './Ornament';
 const PROFILE_NETWORKS = ['github', 'linkedin'];
 
 const Header = ({ main }) => {
-  const resumeHref = (main.resumeResources?.printable || 'resume.html').replace(/^\//, '');
+  const resumeHref = (main.resumeResources?.request || 'resume.html').replace(/^\//, '');
   const profiles = main.social.filter((network) => PROFILE_NETWORKS.includes(network.name));
 
   return (

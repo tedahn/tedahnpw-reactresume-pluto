@@ -33,10 +33,7 @@
     },
     "website": "https://www.tedahn.com",
     "resumeResources": {
-      "text": "/resume.txt",
-      "ai": "/resume.md",
-      "structured": "/resume.json",
-      "printable": "/resume.html"
+      "request": "/resume.html"
     },
     "social": [
       {
@@ -483,17 +480,21 @@
   },
   "resumeRequest": {
     "endpoint": "https://script.google.com/macros/s/AKfycbwVLF30xfJmjPIdNWd3RuCotGSpSNNE-R2bPtOJIRwn-UVnCC7Q-WMGwTWB9BDdbUUC3Q/exec",
-    "heading": "Get a copy by email",
+    "eyebrow": "Résumé",
+    "heading": "Request my résumé",
+    "pageDescription": "Request Ted Ahn's résumé by email, in English or Korean.",
     "intro": "Leave your details and choose a language. I review each request personally and email the résumé, usually within a day or two.",
     "languageLabel": "Résumé language",
     "languages": [
       {
         "value": "en",
-        "label": "English"
+        "label": "English",
+        "hint": "PDF in English"
       },
       {
         "value": "ko",
-        "label": "한국어 (Korean)"
+        "label": "한국어",
+        "hint": "PDF in Korean"
       }
     ],
     "fields": [
@@ -528,7 +529,9 @@
       {
         "name": "website",
         "label": "LinkedIn or website",
-        "type": "url",
+        "type": "text",
+        "inputmode": "url",
+        "placeholder": "linkedin.com/in/…",
         "autocomplete": "url",
         "required": false
       },
@@ -543,9 +546,12 @@
     "noteLabel": "Anything you would like to know",
     "consent": "I agree that Ted may keep these details privately to send the résumé and follow up.",
     "privacy": "Your details go only to Ted, are stored privately, and are never shared. Email tahn1996@gmail.com to have them deleted.",
-    "submit": "Email me the résumé",
+    "submit": "Request the résumé",
     "sending": "Sending…",
-    "success": "Thanks, your request is in. I review each one personally and will email the résumé soon; check your spam folder if it doesn’t arrive.",
+    "successHeading": "Request received",
+    "success": "Thanks. I review each request personally and will email the résumé soon. If it doesn’t arrive, check your spam folder.",
+    "invalid": "Please choose a language and fill in the highlighted fields.",
+    "noscript": "This form needs JavaScript. You can also email tahn1996@gmail.com to ask for the résumé.",
     "error": "Something went wrong. Please try again, or email tahn1996@gmail.com directly."
   }
 }

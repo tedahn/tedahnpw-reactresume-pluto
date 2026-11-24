@@ -4,10 +4,7 @@
 
 ## Canonical profile
 - https://www.tedahn.com/
-- AI-readable profile with annotated evidence: https://www.tedahn.com/resume.md
-- Printable resume: https://www.tedahn.com/resume.html
-- Plain-text resume: https://www.tedahn.com/resume.txt
-- Structured JSON resume: https://www.tedahn.com/resume.json
+- Résumé by request (form; sent by email after review): https://www.tedahn.com/resume.html
 
 ## Work and research
 

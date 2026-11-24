@@ -37,10 +37,10 @@ No linter is configured.
 - `src/styles.css` — All styles in one file, CSS custom properties for theming
 - `src/lib/` — Pure logic with `node --test` tests (`inlineFormat.js`, `dates.js`)
 - `src/Components/` — All UI components
-- `scripts/generate-resume-assets.mjs` — Builds `public/resume.{md,json,html,txt}`, `llms.txt`, `sitemap.xml`, `robots.txt` from the JSON (runs before dev/build)
+- `scripts/generate-resume-assets.mjs` — Builds `public/resume.html` (the résumé request form page, styled to match the home page), `llms.txt`, `sitemap.xml`, `robots.txt` from the JSON (runs before dev/build). The résumé itself is never published on the site; it is only emailed after Ted approves a request.
 
 **Components:**
-- `Header.jsx` — Name plus Résumé / GitHub / LinkedIn text links
+- `Header.jsx` — Name plus Résumé (request page) / GitHub / LinkedIn text links
 - `Hero.jsx` — Photo ring, name, monospace role line
 - `About.jsx` — `main.professionalBio` paragraphs and status line
 - `Experience.jsx` — Reverse-chronological roles via `src/lib/dates.js`

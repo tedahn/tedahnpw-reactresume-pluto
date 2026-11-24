@@ -3,103 +3,188 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#121a26">
   <meta name="robots" content="index,follow">
-  <meta name="description" content="Printable resume for Ted Ahn.">
+  <meta name="description" content="Request Ted Ahn&#039;s résumé by email, in English or Korean.">
   <link rel="canonical" href="https://www.tedahn.com/resume.html">
-  <title>Ted Ahn | Resume</title>
-  <style>
-    :root{font-family:Arial,sans-serif;color:#142033;background:#f4f7fa}*{box-sizing:border-box}body{margin:0}main{max-width:900px;margin:0 auto;padding:48px;background:#fff}h1{font-size:2.4rem;margin:.2rem 0}h2{margin-top:2.5rem;border-bottom:2px solid #142033;padding-bottom:.45rem}h3{margin:0 0 .25rem;font-size:1.05rem}p{line-height:1.5}header{display:flex;justify-content:space-between;gap:2rem}article{padding:1.1rem 0;border-bottom:1px solid #d9e0e8}article header>p{text-align:right;margin:0}ul{padding-left:1.25rem}li{margin:.55rem 0;line-height:1.45}.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 2rem}.actions a,.actions button{border:1px solid #142033;background:#fff;color:#142033;padding:.7rem 1rem;text-decoration:none;font:inherit;cursor:pointer}.actions button{background:#142033;color:#fff}.contact{margin:.4rem 0}.summary{font-size:1.05rem}.skills{columns:2}.request form{display:grid;gap:1rem;margin-top:1rem}.request .grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.request .field{display:grid;gap:.35rem}.request .field span{font-weight:bold;font-size:.92rem}.request em{font-weight:normal;color:#5a6676}.request input,.request textarea{font:inherit;padding:.6rem .7rem;border:1px solid #9aa6b4;border-radius:2px;width:100%}.request input:focus,.request textarea:focus,.request button:focus{outline:2px solid #142033;outline-offset:2px}.request fieldset{border:0;padding:0;margin:0;display:flex;gap:1.25rem;flex-wrap:wrap}.request fieldset label{display:inline-flex;align-items:center;gap:.45rem;cursor:pointer}.request fieldset input,.request .consent input{width:auto;margin:0}.request legend{font-weight:bold;font-size:.92rem;margin-bottom:.4rem}.request .consent{display:flex;gap:.6rem;align-items:flex-start;line-height:1.45}.request .consent input{margin-top:.3rem}.request .privacy{font-size:.88rem;color:#5a6676;margin:0}.request button{justify-self:start;border:1px solid #142033;background:#142033;color:#fff;padding:.75rem 1.2rem;font:inherit;cursor:pointer}.request button:disabled{opacity:.6;cursor:wait}.request .status{margin:0;min-height:1.5em}.request .status.ok{color:#1d6b4f}.request .status.err{color:#a3332d}.request .hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}@media(max-width:650px){main{padding:24px}header{display:block}article header>p{text-align:left}.request .grid{grid-template-columns:1fr}}@media print{body{background:#fff}main{padding:0;max-width:none}.actions,.request{display:none}article{break-inside:avoid}a{color:inherit;text-decoration:none}}
-  </style>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+  <title>Request my résumé | Ted Ahn</title>
+  <style>:root{--ink:#121a26;--panel:#18212f;--field:#0f1620;--cream:#f4f0e6;--muted:#b4ab97;--body-2:#cfc8b8;--rule:#263142;--acc:#6fc3b2;--acc-soft:rgba(111,195,178,.22);--err:#e8968c;--display:'Newsreader',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--ink)}
+body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--display);font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none;transition:color .2s ease}a:hover{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+.skip-link{position:absolute;left:16px;top:-60px;z-index:10;padding:8px 14px;border-radius:6px;background:var(--acc);color:var(--ink);font-size:16px}.skip-link:focus{top:16px;color:var(--ink)}
+.page{max-width:760px;margin:0 auto;padding:26px 32px 46px}
+.site-header{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;line-height:1.4}
+.site-header nav{display:flex;gap:22px;color:var(--muted)}
+.site-mark{display:inline-flex;padding:4px;margin-left:-4px;color:var(--acc);opacity:.85}.site-mark:hover{opacity:1}
+.intro{margin-top:40px;text-align:center}
+.ring{position:relative;width:96px;height:96px;margin:0 auto;padding:4px;border-radius:50%;border:2px solid var(--acc-soft);box-shadow:inset 0 0 0 1px rgba(244,240,230,.12),0 10px 40px -10px var(--acc-soft)}
+.ring::before{content:'';position:absolute;inset:-2px;padding:2px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0deg 200deg,var(--acc) 300deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:spin 18s linear infinite;pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:var(--panel)}
+.eyebrow{margin:20px 0 4px;color:var(--acc);font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+h1{margin:0;font-weight:500;font-size:48px;line-height:1.08;letter-spacing:.2px}
+.lede{max-width:520px;margin:14px auto 0;color:var(--body-2);font-size:18px;line-height:1.6}
+.ornament{display:flex;align-items:center;justify-content:center;gap:12px;margin:34px 0 30px;color:var(--acc)}
+.ornament span{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--acc))}.ornament span:last-child{background:linear-gradient(90deg,var(--acc),transparent)}
+.panel{background:var(--panel);border:2px solid var(--acc-soft);border-radius:12px;box-shadow:0 18px 50px -24px var(--acc-soft);padding:30px 32px 28px}
+form{display:grid;gap:22px}
+fieldset{margin:0;padding:0;border:0;min-width:0}
+legend,.field-label{display:block;margin-bottom:8px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.field-label em,legend em{font-style:normal;text-transform:none;letter-spacing:0;color:#857d6c;margin-left:4px}
+.langs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lang{position:relative;display:block;cursor:pointer}
+.lang input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.lang span{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border:1.5px solid var(--rule);border-radius:10px;background:var(--field);transition:border-color .2s ease,background .2s ease}
+.lang b{font-weight:500;font-size:22px;line-height:1.2}
+.lang small{color:var(--muted);font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.lang:hover span{border-color:var(--acc-soft)}
+.lang input:checked+span{border-color:var(--acc);background:rgba(111,195,178,.08);box-shadow:inset 0 0 0 1px var(--acc)}
+.lang input:checked+span b::after{content:'';display:inline-block;width:8px;height:8px;margin-left:10px;border-radius:50%;background:var(--acc);vertical-align:middle}
+.lang input:focus-visible+span{outline:2px solid var(--acc);outline-offset:3px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
+.field{display:block;min-width:0}
+input[type=text],input[type=email],input[type=tel],textarea{display:block;width:100%;padding:11px 13px;border:1.5px solid var(--rule);border-radius:8px;background:var(--field);color:var(--cream);font:17px/1.4 var(--display);transition:border-color .2s ease}
+input::placeholder,textarea::placeholder{color:#6f7a88}
+input:hover,textarea:hover{border-color:#34415a}
+input:focus,textarea:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(111,195,178,.18)}
+textarea{resize:vertical;min-height:92px}
+.tried input:invalid,.tried textarea:invalid{border-color:var(--err)}
+.tried .langs.missing .lang span{border-color:var(--err)}
+.consent{display:flex;gap:12px;align-items:flex-start;color:var(--body-2);font-size:16px;line-height:1.5;cursor:pointer}
+.consent input{flex:none;width:18px;height:18px;margin:3px 0 0;accent-color:var(--acc)}
+.privacy{margin:-8px 0 0 30px;color:var(--muted);font-size:14px;line-height:1.5}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
+button{border:0;border-radius:999px;padding:13px 26px;background:var(--acc);color:var(--ink);font:600 17px/1.2 var(--display);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+button:hover{transform:translateY(-1px);box-shadow:0 8px 24px -10px var(--acc)}
+button:disabled{opacity:.6;cursor:wait;transform:none}
+.status{margin:0;font-size:16px;line-height:1.5}.status.err{color:var(--err)}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.done{display:none;text-align:center;padding:10px 0}
+.done .check{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;border:2px solid var(--acc);color:var(--acc);font:500 24px/1 var(--mono)}
+.done h2{margin:14px 0 6px;font-weight:500;font-size:30px;line-height:1.2}
+.done p{max-width:440px;margin:0 auto;color:var(--body-2);font-size:17px}
+.panel.sent form{display:none}.panel.sent .done{display:block}
+.note{margin:22px 0 0;text-align:center;color:var(--muted);font-size:15px}
+.site-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);color:var(--muted);font-size:15px;line-height:1.5}
+@media (max-width:768px){body{font-size:17.5px}.page{padding:20px 16px 40px}.site-header nav{gap:16px}h1{font-size:36px}.panel{padding:22px 18px 22px}.grid{grid-template-columns:1fr}}
+@media (max-width:380px){.langs{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){a,button,input,textarea,.lang span{transition:none}.ring::before{animation:none}button:hover{transform:none}}</style>
 </head>
 <body>
-  <main>
-    <header>
-      <div><h1>Ted Hyounggun Ahn</h1><p>Senior Software Engineer · Backend, Infrastructure &amp; Enterprise AI</p></div>
-      <p class="contact">Carrollton, Texas<br><a href="mailto:tahn1996@gmail.com">tahn1996@gmail.com</a><br>+1-945-345-4052</p>
+  <a class="skip-link" href="#request">Skip to the form</a>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-mark" href="./" aria-label="Ted Ahn: home"><svg width="28" height="15" viewBox="0 0 34 18" aria-hidden="true"><path d="M5 9 L17 4 L29 9 M17 4 L17 14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="5" cy="9" r="2.4" fill="currentColor"/><circle cx="17" cy="4" r="2.4" fill="currentColor"/><circle cx="29" cy="9" r="2.4" fill="currentColor"/><circle cx="17" cy="14" r="2.4" fill="currentColor"/></svg></a>
+      <nav aria-label="Site">
+        <a href="./">Home</a>
+        <a href="https://www.linkedin.com/in/tedahn/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/tedahn" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
     </header>
-    <div class="actions"><button type="button" onclick="window.print()">Print / save PDF</button><a href="/resume.txt" download>Download text</a><a href="/resume.md">AI-readable profile</a><a href="/resume.json" download>Download JSON</a><a href="/">Portfolio</a><a href="#request-heading">Get a copy by email</a></div>
-    <p class="summary">Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.</p>
-    <section><h2>Experience</h2>
-  <article>
-    <header><div><h3>Senior Software Engineer</h3><p>Capital One</p></div><p>Jul 2024 - Present<br>Plano, TX</p></header>
-    <ul><li><strong>Marketing Platform Onboarding.</strong> Delivered a technical redesign that simplified onboarding for an internal marketing platform.</li><li><strong>Dealer Marketing Capability.</strong> Established the platform&#039;s shared marketing capability for auto dealers.</li><li><strong>Digital Marketing Pilots.</strong> Delivered digital marketing pilots using spec-driven development.</li><li><strong>Resilience Testing.</strong> Automated failover and resilience testing for production services.</li></ul>
-  </article>
-  <article>
-    <header><div><h3>Software Engineer</h3><p>Capital One</p></div><p>May 2022 - Jul 2024<br>Plano, TX</p></header>
-    <ul><li><strong>Event-Driven Vehicle Data Pipeline.</strong> Led the design of an event-driven vehicle-data pipeline that supplies data for analytics and ML features, and co-invented a related Capital One patent (US 12,748,724).</li><li><strong>Dealer Data Modernization.</strong> Helped modernize dealer vehicle-data ingestion by rewriting legacy systems and moving data acquisition to cloud-native AWS, improving reliability and efficiency.</li><li><strong>Reliability Engineering.</strong> Diagnosed and fixed performance issues ahead of a major launch and automated the fix, work that was recognized with an organization award.</li></ul>
-  </article>
-  <article>
-    <header><div><h3>Software Engineer</h3><p>USAA</p></div><p>Sep 2019 - May 2022<br>Plano, TX</p></header>
-    <ul><li><strong>Life-Safety Messaging at Scale.</strong> Built a reactive, event-driven communications platform that sent urgent severe-weather and life-safety notifications at up to 1M SMS an hour.</li><li><strong>Legacy Modernization.</strong> Kept a critical legacy platform running while helping build its distributed replacement with OpenShift and GitLab CI.</li></ul>
-  </article>
-  <article>
-    <header><div><h3>Software Engineering Intern</h3><p>Webtoon</p></div><p>May 2017 - Dec 2017<br>Los Angeles, CA</p></header>
-    <ul><li><strong>First Intern and First US Engineer.</strong> Joined as Webtoon&#039;s first intern and its first software engineer in the US.</li><li><strong>Data Analysis.</strong> Built an early data-analysis pipeline and an internal engagement dashboard, and explored how to help readers discover titles.</li></ul>
-  </article><article><header><div><h3>Current focus</h3></div><p>2026</p></header><p>Enterprise AI, infrastructure, and backend systems, especially where better architecture makes a team faster and more reliable.</p></article></section>
-    <section><h2>Patents</h2>
-  <article>
-    <header><div><h3><a href="https://patents.google.com/patent/US20250315406A1/en">Converting a data stream into files</a></h3><p>US 12,748,724 B2 · Capital One Services, LLC</p></div><p>Issued 2026-09-29<br>Filed 2024-04-09</p></header>
-    <p>Converts an event stream back into files for systems that still consume files. Parallel workers each take a partition of the stream, check in when they start, are retried if they fail, and write idempotent output so reruns are safe.</p>
-    <p>Role: Led the design</p>
-    <p>Inventors: Justin Leonard, Dennis J. Mire, Sarvani Maddina, Ravi Kalidindi, Arun Gopalakrishna, Hyounggun Ahn</p>
-  </article></section>
-    <section><h2>Education</h2>
-  <article>
-    <header><div><h3>Postgraduate Certificate, Artificial Intelligence and Machine Learning</h3><p>University of Texas at Austin</p></div><p>November 2025</p></header>
-    <p>Formalized my applied ML foundation while expanding from large-scale backend engineering into model training and ML infrastructure.</p>
-  </article>
-  <article>
-    <header><div><h3>Bachelor of Science, Computer Science</h3><p>University of Texas at Dallas</p></div><p>May 2019</p></header>
-    <p>Built the computer science foundation that continues to guide my work in distributed systems and software architecture.</p>
-  </article></section>
-
-    <section><h2>Core skills</h2><ul class="skills"><li>Java, Python &amp; JavaScript</li><li>AWS, GCP, Kubernetes &amp; OpenShift</li><li>Event-driven, streaming &amp; high-throughput systems</li><li>Context engineering &amp; spec-driven development</li><li>Multi-agent workflows &amp; AI-assisted engineering</li><li>GitLab CI, GitHub Actions &amp; developer enablement</li></ul></section>
-
-    <section class="request" aria-labelledby="request-heading"><h2 id="request-heading">Get a copy by email</h2>
-      <p>Leave your details and choose a language. I review each request personally and email the résumé, usually within a day or two.</p>
-      <form id="resume-request" data-endpoint="https://script.google.com/macros/s/AKfycbwVLF30xfJmjPIdNWd3RuCotGSpSNNE-R2bPtOJIRwn-UVnCC7Q-WMGwTWB9BDdbUUC3Q/exec" data-sending="Sending…" data-success="Thanks, your request is in. I review each one personally and will email the résumé soon; check your spam folder if it doesn’t arrive." data-error="Something went wrong. Please try again, or email tahn1996@gmail.com directly." novalidate>
-        <fieldset class="langs"><legend>Résumé language</legend><label><input type="radio" name="language" value="en" required> English</label><label><input type="radio" name="language" value="ko"> 한국어 (Korean)</label></fieldset>
-        <div class="grid"><label class="field"><span>Name</span><input name="name" type="text" autocomplete="name" maxlength="160" required></label><label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="160" required></label><label class="field"><span>Role</span><input name="role" type="text" autocomplete="organization-title" maxlength="160" required></label><label class="field"><span>Organization or institution</span><input name="organization" type="text" autocomplete="organization" maxlength="160" required></label><label class="field"><span>LinkedIn or website <em>(optional)</em></span><input name="website" type="url" autocomplete="url" maxlength="300"></label><label class="field"><span>Phone <em>(optional)</em></span><input name="phone" type="tel" autocomplete="tel" maxlength="160"></label></div>
-        <label class="field"><span>Anything you would like to know <em>(optional)</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
-        <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>
-        <label class="consent"><input type="checkbox" name="consent" required> I agree that Ted may keep these details privately to send the résumé and follow up.</label>
-        <p class="privacy">Your details go only to Ted, are stored privately, and are never shared. Email tahn1996@gmail.com to have them deleted.</p>
-        <button type="submit">Email me the résumé</button>
-        <p class="status" role="status" aria-live="polite"></p>
-      </form>
-    </section>
-    <script>
-    (function () {
-      var form = document.getElementById('resume-request');
-      if (!form) return;
-      var status = form.querySelector('.status');
-      var button = form.querySelector('button[type="submit"]');
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        if (!form.checkValidity()) { form.reportValidity(); return; }
-        var data = {};
-        new FormData(form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
-        data.consent = form.elements.consent.checked;
-        data.page = location.pathname;
-        button.disabled = true;
-        status.className = 'status';
-        status.textContent = form.dataset.sending;
-        fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
-          .then(function (response) { return response.json(); })
-          .then(function (result) {
-            if (!result || !result.ok) throw new Error(result && result.error);
-            form.reset();
-            status.className = 'status ok';
-            status.textContent = form.dataset.success;
-          })
-          .catch(function () {
-            status.className = 'status err';
-            status.textContent = form.dataset.error;
-          })
-          .finally(function () { button.disabled = false; });
-      });
-    }());
-    </script>
-  </main>
+    <main>
+      <section class="intro" aria-labelledby="request-heading">
+        <div class="ring"><img src="images/tedprofile/ted-ahn-336.jpg" alt="Ted Ahn" width="96" height="96"></div>
+        <p class="eyebrow">Résumé</p>
+        <h1 id="request-heading">Request my résumé</h1>
+        <p class="lede">Leave your details and choose a language. I review each request personally and email the résumé, usually within a day or two.</p>
+      </section>
+      <div class="ornament" aria-hidden="true"><span></span><svg width="34" height="18" viewBox="0 0 34 18" aria-hidden="true"><path d="M5 9 L17 4 L29 9 M17 4 L17 14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="5" cy="9" r="2.4" fill="currentColor"/><circle cx="17" cy="4" r="2.4" fill="currentColor"/><circle cx="29" cy="9" r="2.4" fill="currentColor"/><circle cx="17" cy="14" r="2.4" fill="currentColor"/></svg><span></span></div>
+      <div class="panel" id="request">
+        <form id="resume-request" data-endpoint="https://script.google.com/macros/s/AKfycbwVLF30xfJmjPIdNWd3RuCotGSpSNNE-R2bPtOJIRwn-UVnCC7Q-WMGwTWB9BDdbUUC3Q/exec" data-sending="Sending…" data-error="Something went wrong. Please try again, or email tahn1996@gmail.com directly." data-invalid="Please choose a language and fill in the highlighted fields." novalidate>
+          <fieldset class="langs"><legend>Résumé language</legend>
+            <label class="lang"><input type="radio" name="language" value="en" required><span><b lang="en">English</b><small>PDF in English</small></span></label>
+            <label class="lang"><input type="radio" name="language" value="ko"><span><b lang="ko">한국어</b><small>PDF in Korean</small></span></label>
+          </fieldset>
+          <div class="grid">
+          <label class="field">
+            <span class="field-label">Name</span>
+            <input name="name" type="text" autocomplete="name" maxlength="160" required>
+          </label>
+          <label class="field">
+            <span class="field-label">Email</span>
+            <input name="email" type="email" autocomplete="email" maxlength="160" required>
+          </label>
+          <label class="field">
+            <span class="field-label">Role</span>
+            <input name="role" type="text" autocomplete="organization-title" maxlength="160" required>
+          </label>
+          <label class="field">
+            <span class="field-label">Organization or institution</span>
+            <input name="organization" type="text" autocomplete="organization" maxlength="160" required>
+          </label>
+          <label class="field">
+            <span class="field-label">LinkedIn or website <em>optional</em></span>
+            <input name="website" type="text" inputmode="url" placeholder="linkedin.com/in/…" autocomplete="url" maxlength="300">
+          </label>
+          <label class="field">
+            <span class="field-label">Phone <em>optional</em></span>
+            <input name="phone" type="tel" autocomplete="tel" maxlength="160">
+          </label>
+          </div>
+          <label class="field"><span class="field-label">Anything you would like to know <em>optional</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
+          <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>
+          <label class="consent"><input type="checkbox" name="consent" required><span>I agree that Ted may keep these details privately to send the résumé and follow up.</span></label>
+          <p class="privacy">Your details go only to Ted, are stored privately, and are never shared. Email tahn1996@gmail.com to have them deleted.</p>
+          <div class="actions"><button type="submit">Request the résumé</button><p class="status" role="status" aria-live="polite"></p></div>
+        </form>
+        <div class="done" tabindex="-1" role="status"><span class="check" aria-hidden="true">✓</span><h2>Request received</h2><p>Thanks. I review each request personally and will email the résumé soon. If it doesn’t arrive, check your spam folder.</p></div>
+        <noscript><p class="note">This form needs JavaScript. You can also email tahn1996@gmail.com to ask for the résumé.</p></noscript>
+      </div>
+    </main>
+    <footer class="site-footer"><a href="mailto:tahn1996@gmail.com">tahn1996@gmail.com</a><span>© 2026 Ted Ahn</span></footer>
+  </div>
+  <script>(function () {
+  var form = document.getElementById('resume-request');
+  if (!form) return;
+  var panel = form.closest('.panel');
+  var status = form.querySelector('.status');
+  var button = form.querySelector('button[type="submit"]');
+  var langs = form.querySelector('.langs');
+  function checkLangs() { langs.classList.toggle('missing', !form.querySelector('input[name="language"]:checked')); }
+  function recheck() {
+    if (!form.classList.contains('tried')) return;
+    checkLangs();
+    if (form.checkValidity() && status.className === 'status err') { status.className = 'status'; status.textContent = ''; }
+  }
+  form.addEventListener('change', recheck);
+  form.addEventListener('input', recheck);
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    form.classList.add('tried');
+    checkLangs();
+    if (!form.checkValidity()) { status.className = 'status err'; status.textContent = form.dataset.invalid; form.reportValidity(); return; }
+    var data = {};
+    new FormData(form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
+    data.consent = form.elements.consent.checked;
+    data.page = location.pathname;
+    button.disabled = true;
+    status.className = 'status';
+    status.textContent = form.dataset.sending;
+    fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
+      .then(function (response) { return response.json(); })
+      .then(function (result) {
+        if (!result || !result.ok) throw new Error(result && result.error);
+        form.reset();
+        status.textContent = '';
+        panel.classList.add('sent');
+        var done = panel.querySelector('.done');
+        done.focus();
+      })
+      .catch(function () {
+        status.className = 'status err';
+        status.textContent = form.dataset.error;
+      })
+      .finally(function () { button.disabled = false; });
+  });
+}());</script>
 </body>
 </html>
