@@ -17,7 +17,7 @@
       <div><h1>Ted Hyounggun Ahn</h1><p>Senior Software Engineer · Backend, Infrastructure &amp; Enterprise AI</p></div>
       <p class="contact">Carrollton, Texas<br><a href="mailto:tahn1996@gmail.com">tahn1996@gmail.com</a><br>+1-945-345-4052</p>
     </header>
-    <div class="actions"><button type="button" onclick="window.print()">Print / save PDF</button><a href="/resume.txt" download>Download text</a><a href="/resume.md">AI-readable profile</a><a href="/resume.json" download>Download JSON</a><a href="/">Portfolio</a></div>
+    <div class="actions"><button type="button" onclick="window.print()">Print / save PDF</button><a href="/resume.txt" download>Download text</a><a href="/resume.md">AI-readable profile</a><a href="/resume.json" download>Download JSON</a><a href="/">Portfolio</a><a href="#request-heading">Get a copy by email</a></div>
     <p class="summary">Building event-driven, cloud-native systems across backend, infrastructure, and AI-assisted engineering.</p>
     <section><h2>Experience</h2>
   <article>
@@ -55,6 +55,51 @@
 
     <section><h2>Core skills</h2><ul class="skills"><li>Java, Python &amp; JavaScript</li><li>AWS, GCP, Kubernetes &amp; OpenShift</li><li>Event-driven, streaming &amp; high-throughput systems</li><li>Context engineering &amp; spec-driven development</li><li>Multi-agent workflows &amp; AI-assisted engineering</li><li>GitLab CI, GitHub Actions &amp; developer enablement</li></ul></section>
 
+    <section class="request" aria-labelledby="request-heading"><h2 id="request-heading">Get a copy by email</h2>
+      <p>Leave your details and choose a language. The PDF arrives in your inbox in a minute or two, and I may follow up with more detail.</p>
+      <form id="resume-request" data-endpoint="https://script.google.com/macros/s/AKfycbwVLF30xfJmjPIdNWd3RuCotGSpSNNE-R2bPtOJIRwn-UVnCC7Q-WMGwTWB9BDdbUUC3Q/exec" data-sending="Sending…" data-success="Thanks. The résumé is on its way; check your inbox (and spam folder) in a minute or two." data-error="Something went wrong. Please try again, or email tahn1996@gmail.com directly." novalidate>
+        <fieldset class="langs"><legend>Résumé language</legend><label><input type="radio" name="language" value="en" checked> English</label><label><input type="radio" name="language" value="ko"> 한국어 (Korean)</label><label><input type="radio" name="language" value="both"> Both</label></fieldset>
+        <div class="grid"><label class="field"><span>Name</span><input name="name" type="text" autocomplete="name" maxlength="160" required></label><label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="160" required></label><label class="field"><span>Role</span><input name="role" type="text" autocomplete="organization-title" maxlength="160" required></label><label class="field"><span>Organization or institution</span><input name="organization" type="text" autocomplete="organization" maxlength="160" required></label><label class="field"><span>LinkedIn or website <em>(optional)</em></span><input name="website" type="url" autocomplete="url" maxlength="300"></label><label class="field"><span>Phone <em>(optional)</em></span><input name="phone" type="tel" autocomplete="tel" maxlength="160"></label></div>
+        <label class="field"><span>Anything you would like to know <em>(optional)</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
+        <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>
+        <label class="consent"><input type="checkbox" name="consent" required> I agree that Ted may keep these details privately to send the résumé and follow up.</label>
+        <p class="privacy">Your details go only to Ted, are stored privately, and are never shared. Email tahn1996@gmail.com to have them deleted.</p>
+        <button type="submit">Email me the résumé</button>
+        <p class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <script>
+    (function () {
+      var form = document.getElementById('resume-request');
+      if (!form) return;
+      var status = form.querySelector('.status');
+      var button = form.querySelector('button[type="submit"]');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        var data = {};
+        new FormData(form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
+        data.consent = form.elements.consent.checked;
+        data.page = location.pathname;
+        button.disabled = true;
+        status.className = 'status';
+        status.textContent = form.dataset.sending;
+        fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
+          .then(function (response) { return response.json(); })
+          .then(function (result) {
+            if (!result || !result.ok) throw new Error(result && result.error);
+            form.reset();
+            status.className = 'status ok';
+            status.textContent = form.dataset.success;
+          })
+          .catch(function () {
+            status.className = 'status err';
+            status.textContent = form.dataset.error;
+          })
+          .finally(function () { button.disabled = false; });
+      });
+    }());
+    </script>
   </main>
 </body>
 </html>

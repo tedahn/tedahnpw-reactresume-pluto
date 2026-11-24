@@ -22,6 +22,6 @@ Ted asked for a way for visitors to request his résumé by email, choosing Engl
 - `npm run build` passes; unit tests pass when run by file.
 - Tested against a local mock endpoint at 1280px and 390px: submissions send the expected payload, an empty submit is blocked by browser validation, there is no horizontal overflow, and there are no console errors other than a missing favicon on the test server.
 
-## To finish
+## Live
 
-Ted deploys the Apps Script as a web app (Execute as: Me; Who has access: Anyone) and provides the `/exec` URL, which goes in `resumeRequest.endpoint`.
+Deployed 2026-11-24 as a web app (Execute as: Me; access: Anyone). The `/exec` URL is in `resumeRequest.endpoint`. A live end-to-end test sent both PDFs and logged a row.

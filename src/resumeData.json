@@ -482,7 +482,7 @@
     "description": "Enterprise AI, infrastructure, and backend systems, especially where better architecture makes a team faster and more reliable."
   },
   "resumeRequest": {
-    "endpoint": "",
+    "endpoint": "https://script.google.com/macros/s/AKfycbwVLF30xfJmjPIdNWd3RuCotGSpSNNE-R2bPtOJIRwn-UVnCC7Q-WMGwTWB9BDdbUUC3Q/exec",
     "heading": "Get a copy by email",
     "intro": "Leave your details and choose a language. The PDF arrives in your inbox in a minute or two, and I may follow up with more detail.",
     "languageLabel": "Résumé language",
