@@ -35,12 +35,13 @@ No linter is configured.
 - `src/App.jsx` — Root layout: Header, Hero, About, Experience, Professional Projects, Independent Projects, Footer
 - `src/resumeData.json` — Single source of truth for all content (bio, experience, education, showcase, field notes, social links)
 - `src/styles.css` — All styles in one file, CSS custom properties for theming
-- `src/lib/` — Pure logic with `node --test` tests (`inlineFormat.js`, `dates.js`)
+- `src/lib/` — Pure logic with `node --test` tests (`inlineFormat.js`, `dates.js`, `i18n.js`)
+- **Korean / English**: the whole site switches language. English is the source; Korean lives in `resumeData.json` under `ko` (overlays keyed by role `company | dates`, card title, patent number and note title) plus `ui` / `ko.ui` for interface labels, and `resumeRequest.ko` for the request page. `src/lib/i18n.js` picks the language: `?lang=` link, then the saved EN / 한국어 switch choice (`localStorage.siteLang`, shared with `resume.html`), then the browser's preferred language. When you change English copy, update the Korean overlay in the same change.
 - `src/Components/` — All UI components
 - `scripts/generate-resume-assets.mjs` — Builds `public/resume.html` (the résumé request form page, styled to match the home page), `llms.txt`, `sitemap.xml`, `robots.txt` from the JSON (runs before dev/build). The résumé itself is never published on the site; it is only emailed after Ted approves a request.
 
 **Components:**
-- `Header.jsx` — Name plus Résumé (request page) / GitHub / LinkedIn text links
+- `Header.jsx` — Node mark, Résumé (request page) / GitHub / LinkedIn text links, and the EN / 한국어 switch
 - `Hero.jsx` — Photo ring, name, monospace role line
 - `About.jsx` — `main.professionalBio` paragraphs and status line
 - `Experience.jsx` — Reverse-chronological roles via `src/lib/dates.js`

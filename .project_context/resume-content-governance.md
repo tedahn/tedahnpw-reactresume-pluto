@@ -68,6 +68,10 @@ The three former About-section quotations were retired by Ted on 2026-10-14. The
 - Nothing is sent automatically. Ted reviews each request and chooses what to send. Anything he sends from the public option must follow this document's public narrative and employer-friendly rules. Fuller résumés are sent only when Ted approves them for a specific requester.
 - Keep the form copy neutral: no recruiter, availability, or job-search wording. Don't describe the versions or what each one contains on the site. Never commit the Apps Script source, the Sheet, requester data, or the fuller résumés to this repository.
 
+### Korean copy (2026-11-24)
+
+- The Korean overlay (`ko` and `resumeRequest.ko` in `src/resumeData.json`) is a translation of the approved English, not a separate narrative. It must not add figures, names or claims the English does not have, and every withheld item below stays out of it too.
+
 ### Withheld by Decision
 
 - Revenue figures and marketing-pilot partner names are excluded from the public site and from all generated assets.

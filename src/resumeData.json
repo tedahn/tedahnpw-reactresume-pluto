@@ -590,5 +590,119 @@
       "switchLabel": "페이지 언어"
     },
     "error": "Something went wrong. Please try again, or email tahn1996@gmail.com directly."
+  },
+  "ui": {
+    "skip": "Skip to content",
+    "intro": "Introduction",
+    "resume": "Résumé",
+    "profiles": "Résumé and profiles",
+    "home": "back to top",
+    "about": "About",
+    "experience": "Experience",
+    "patent": "Patent",
+    "patents": "Patents",
+    "coInvented": "Co-invented with",
+    "professionalProjects": "Professional Projects",
+    "independentProjects": "Independent Projects",
+    "notes": "Notes",
+    "now": "now",
+    "requestResume": "Request my résumé",
+    "switchLabel": "Site language",
+    "title": "Ted Ahn — Software Engineering & AI"
+  },
+  "ko": {
+    "ui": {
+      "skip": "본문으로 건너뛰기",
+      "intro": "소개",
+      "resume": "이력서",
+      "profiles": "이력서와 프로필",
+      "home": "맨 위로",
+      "about": "소개",
+      "experience": "경력",
+      "patent": "특허",
+      "patents": "특허",
+      "coInvented": "공동 발명자",
+      "professionalProjects": "업무 프로젝트",
+      "independentProjects": "개인 프로젝트",
+      "notes": "노트",
+      "now": "현재",
+      "requestResume": "이력서 요청",
+      "switchLabel": "사이트 언어",
+      "title": "안형근 Ted Ahn — 소프트웨어 엔지니어링 & AI"
+    },
+    "main": {
+      "roleLine": "시니어 소프트웨어 엔지니어 · **Capital One** · 미국 댈러스–포트워스",
+      "professionalBio": [
+        "백엔드 엔지니어입니다. 현재 **Capital One**에서 마케팅 플랫폼을 만들고 있습니다.",
+        "이전에는 **이벤트 스트림을 파일로 변환하는 Capital One 특허를 공동 발명**했고, **시간당 SMS 100만 건 규모의 USAA 악천후 알림 플랫폼**을 구축했습니다. UT Dallas에서 컴퓨터공학을, UT Austin에서 AI·머신러닝을 공부했습니다."
+      ],
+      "photo": {
+        "alt": "안형근 (Ted Ahn)"
+      }
+    },
+    "work": {
+      "Webtoon | May 2017 - Dec 2017": {
+        "title": "소프트웨어 엔지니어링 인턴",
+        "summary": "Webtoon의 첫 인턴이자 미국 첫 소프트웨어 엔지니어. 초기 데이터 분석 담당."
+      },
+      "USAA | Sep 2019 - May 2022": {
+        "title": "소프트웨어 엔지니어",
+        "summary": "`1M SMS/hr` 규모로 설계한 리액티브 악천후 알림 플랫폼 구축, 핵심 레거시 시스템 현대화 참여."
+      },
+      "Capital One | May 2022 - Jul 2024": {
+        "title": "소프트웨어 엔지니어",
+        "summary": "Auto Navigator를 뒷받침하는 이벤트 기반 차량 데이터 파이프라인 개발, 딜러 데이터 수집을 클라우드 네이티브 AWS로 전환."
+      },
+      "Capital One | Jul 2024 - Present": {
+        "title": "시니어 소프트웨어 엔지니어",
+        "summary": "자동차 딜러 대상 마케팅을 포함한 마케팅 플랫폼 기능 개발."
+      }
+    },
+    "patents": {
+      "US 12,748,724 B2": {
+        "title": "데이터 스트림을 파일로 변환하는 기술",
+        "issued": "2026년 9월",
+        "role": "설계 주도",
+        "summary": "파일을 입력으로 쓰는 시스템을 위해 이벤트 스트림을 다시 파일로 변환합니다. 병렬 워커가 스트림 파티션을 하나씩 맡아 시작 시 체크인하고, 실패하면 재시도되며, 멱등성 있는 출력으로 재실행해도 안전합니다."
+      }
+    },
+    "showcase": {
+      "Dealer Marketing": {
+        "title": "딜러 마케팅",
+        "summary": "자동차 딜러를 위한 마케팅 기능.",
+        "imageAlt": "딜러와 함께 차량을 살펴보는 고객"
+      },
+      "Vehicle Data Pipeline": {
+        "title": "차량 데이터 파이프라인",
+        "summary": "Auto Navigator를 뒷받침하는 이벤트 기반 차량 데이터 수집.",
+        "imageAlt": "Auto Navigator에서 볼 수 있는 다양한 차량"
+      },
+      "Severe-Weather Alerting": {
+        "title": "악천후 알림",
+        "summary": "시간당 SMS 100만 건 규모로 설계한 리액티브 악천후 알림.",
+        "imageAlt": "악천후로 피해를 입은 주택과 차량"
+      },
+      "Per-Shot Encoding": {
+        "summary": "실제 VMAF로 Netflix의 비트당 화질 최적화 인코더를 다시 구현.",
+        "org": "개인"
+      },
+      "Marketplace Engine": {
+        "title": "마켓플레이스 엔진",
+        "summary": "링 버퍼, WAL(선행 기록 로그), 페일오버를 갖춘 Steam 방식의 매칭 엔진.",
+        "org": "개인"
+      },
+      "Ditto Factory": {
+        "summary": "격리되고 추적 가능한 에이전트 워크플로우를 위한 쿠버네티스 네이티브 플랫폼.",
+        "org": "개인"
+      }
+    },
+    "fieldNotes": {
+      "Testing architectural understanding through implementation": {
+        "title": "직접 구현하며 아키텍처 이해도 검증하기"
+      },
+      "From agent architecture to enterprise workflows": {
+        "title": "에이전트 아키텍처에서 엔터프라이즈 워크플로우까지"
+      }
+    }
   }
 }

@@ -192,7 +192,7 @@ const script = `
   var langs = form.querySelector('.langs');
   var lang = 'en';
   var languageTouched = false;
-  var storageKey = 'resumePageLang';
+  var storageKey = 'siteLang';
 
   // Page language: ?lang= in the link, then the visitor's own choice, then the browser's preferred languages.
   function detect() {

@@ -48,4 +48,5 @@ Career-content governance lives in [resume-content-governance.md](resume-content
 * **First Viewport**: Photo, name, and role line, then a bio whose bolded claims carry the proof.
 * **Work vs. independent projects**: Enterprise systems and personal projects are deliberately separate sections.
 * **Resume Access (changed 2026-11-24)**: The résumé is available only by request. Visitors fill in the form on `resume.html`, and Ted reviews each request and emails a PDF. The site no longer publishes résumé files (the former `resume.md`, `resume.json` and `resume.txt` were removed).
+* **Languages (2026-11-24)**: The whole site, including the résumé request page, shows in Korean or English. English is the source; the Korean overlay in `resumeData.json` must say the same things and follow the same public-safety rules. Language order: `?lang=` link, then the visitor's saved switch choice, then the browser's preferred language.
 * **Mobile**: Single column with labels above content, one card per row at ≤560px, and no horizontal overflow at 390px.

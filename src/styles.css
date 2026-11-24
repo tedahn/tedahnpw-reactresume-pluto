@@ -8,8 +8,8 @@
   --rule: #263142;
   --acc: #6fc3b2;
   --acc-soft: rgba(111, 195, 178, 0.22);
-  --font-display: 'Newsreader', Georgia, serif;
-  --font-body: 'Newsreader', Georgia, serif;
+  --font-display: 'Newsreader', 'Noto Serif KR', Georgia, serif;
+  --font-body: 'Newsreader', 'Noto Serif KR', Georgia, serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --page-width: 760px;
   --label-col: 150px;
@@ -43,6 +43,14 @@ img { display: block; max-width: 100%; }
 /* Header */
 .site-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 17px; line-height: 1.4; }
 .site-header nav { display: flex; gap: 22px; color: var(--muted); font-size: 16px; }
+.header-right { display: flex; align-items: center; gap: 22px; }
+.lang-switch { display: inline-flex; padding: 2px; border: 1px solid var(--rule); border-radius: 999px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; }
+.lang-switch button { padding: 4px 10px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); font: inherit; cursor: pointer; transition: color 0.2s ease, background 0.2s ease; }
+.lang-switch button:hover { color: var(--cream); }
+.lang-switch button[aria-pressed='true'] { background: var(--acc-soft); color: var(--cream); }
+html[lang='ko'] body { word-break: keep-all; }
+html[lang='ko'] .prose p { line-height: 1.8; }
+html[lang='ko'] .role-line { font-family: var(--font-body); font-size: 14px; letter-spacing: 0.02em; text-transform: none; }
 .site-mark { display: inline-flex; padding: 4px; margin-left: -4px; color: var(--acc); opacity: 0.85; }
 .site-mark:hover { color: var(--acc); opacity: 1; }
 
@@ -143,6 +151,7 @@ a.card:hover { transform: translateY(-3px); border-color: var(--acc); color: var
   body { font-size: 17.5px; }
   .page { padding: 20px 16px 40px; }
   .site-header nav { gap: 16px; }
+  .header-right { gap: 14px; }
   .hero h1 { font-size: 38px; }
   .section { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 36px; }
 }
@@ -160,7 +169,7 @@ a.card:hover { transform: translateY(-3px); border-color: var(--acc); color: var
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal, .card, a { transition: none; }
+  .reveal, .card, a, .lang-switch button { transition: none; }
   .hero-ring::before { animation: none; }
   .reveal-hidden { opacity: 1; transform: none; }
   a.card:hover { transform: none; }

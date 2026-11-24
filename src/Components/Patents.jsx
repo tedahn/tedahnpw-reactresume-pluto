@@ -2,12 +2,12 @@ import React from 'react';
 import Inline from './Inline';
 import Reveal from './Reveal';
 
-const Patents = ({ patents = [], self }) => {
+const Patents = ({ patents = [], self, t = {} }) => {
   if (patents.length === 0) return null;
 
   return (
     <Reveal className="section" id="patents" aria-labelledby="patents-title">
-      <h2 id="patents-title" className="section-label">{patents.length > 1 ? 'Patents' : 'Patent'}</h2>
+      <h2 id="patents-title" className="section-label">{patents.length > 1 ? (t.patents || 'Patents') : (t.patent || 'Patent')}</h2>
       <ol className="section-body roles">
         {patents.map((patent) => {
           const coInventors = (patent.inventors || []).filter((name) => name !== self);
@@ -23,7 +23,7 @@ const Patents = ({ patents = [], self }) => {
               {patent.summary && <p className="role-summary"><Inline text={patent.summary} /></p>}
               <p className="patent-meta">
                 {[patent.role, patent.assignee].filter(Boolean).join(' · ')}
-                {coInventors.length > 0 && ` · Co-invented with ${coInventors.join(', ')}`}
+                {coInventors.length > 0 && ` · ${t.coInvented || 'Co-invented with'} ${coInventors.join(', ')}`}
               </p>
             </li>
           );
