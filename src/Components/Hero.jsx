@@ -9,6 +9,7 @@ const Hero = ({ main, t = {} }) => (
       </div>
     )}
     <h1>{main.name}</h1>
+    {main.nameSecondary && <p className="name-secondary" lang="en">{main.nameSecondary}</p>}
     <p className="role-line"><Inline text={main.roleLine || main.occupation} /></p>
   </section>
 );

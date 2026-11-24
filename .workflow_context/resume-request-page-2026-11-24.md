@@ -43,3 +43,7 @@ Reviewed every Korean string against the English for meaning, natural phrasing a
 ## Korean audience context (2026-11-24, later)
 
 Ted approved adding context that Korean recruiters lack. Korean only: one-line company descriptions under the most recent role at Capital One (미국 대형 은행지주회사 · 신용카드·오토론·리테일뱅킹) and USAA (미군과 가족을 위한 미국 은행·보험 금융그룹), rendered by a new optional `context` field in `Experience.jsx` (shown once per company); Auto Navigator explained as 차량 검색·오토론 사전심사·딜러 연결 서비스; severe-weather alerts framed as emergency alerts to members during storms and disasters; schools as 텍사스대학교 댈러스/오스틴; location as 미국 텍사스 댈러스; and a 미국 금융권 7년+ framing line in the bio. Webtoon is shown as 네이버웹툰 미국 법인 at Ted's request. Company and product descriptions were checked against public sources (Capital One and Apple App Store for Auto Navigator; Korea Times and Naver for WEBTOON Entertainment as Naver Webtoon's US headquarters). Governance now allows this kind of public context in Korean only; no internal figures or new claims.
+
+## Korean name (2026-11-24, later)
+
+At Ted's suggestion the Korean site uses his Korean name: the hero shows 안형근 with "Ted Ahn" underneath (`ko.main.name` / `ko.main.nameSecondary`), and the footer, page titles and the résumé page's privacy line use 안형근. Structured data now lists 안형근 as an alternate name. English is unchanged.

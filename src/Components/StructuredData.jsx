@@ -18,7 +18,7 @@ const StructuredData = ({ data }) => {
     mainEntity: {
       '@type': 'Person',
       name: main.fullname || main.name,
-      alternateName: main.name,
+      alternateName: [main.name, data.ko?.main?.name].filter(Boolean),
       url: main.website,
       email: `mailto:${main.email}`,
       jobTitle: main.occupation,
