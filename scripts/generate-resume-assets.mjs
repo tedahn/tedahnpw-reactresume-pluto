@@ -81,7 +81,7 @@ const i18n = {
     title: `${request.heading} | ${main.name}`, eyebrow: request.eyebrow, heading: request.heading, intro: request.intro,
     languageLabel: request.languageLabel, noteLabel: request.noteLabel, consent: request.consent, privacy: request.privacy,
     submit: request.submit, sending: request.sending, successHeading: request.successHeading, success: request.success,
-    invalid: request.invalid, error: request.error, noscript: request.noscript, optional: request.optional,
+    invalid: request.invalid, error: request.error, ownerName: request.ownerName || main.name, noscript: request.noscript, optional: request.optional,
     home: request.home, skip: request.skip, switchLabel: request.switchLabel,
     ...Object.fromEntries(request.languages.map((lang) => [`hint_${lang.value}`, lang.hint || ''])),
     ...Object.fromEntries(request.fields.map((field) => [`field_${field.name}`, field.label])),
@@ -90,7 +90,7 @@ const i18n = {
 i18n.ko = {
   ...i18n.en,
   ...Object.fromEntries(Object.entries(ko).filter(([, value]) => typeof value === 'string')),
-  title: `${ko.pageTitle || request.heading} | ${main.name}`,
+  title: `${ko.pageTitle || request.heading} | ${ko.ownerName || main.name}`,
   ...Object.fromEntries(Object.entries(ko.languageHints || {}).map(([key, value]) => [`hint_${key}`, value])),
   ...Object.fromEntries(Object.entries(ko.fieldLabels || {}).map(([key, value]) => [`field_${key}`, value])),
 };
@@ -331,7 +331,7 @@ ${request.languages.map((lang, index) => `            <label class="lang"><input
         <noscript><p class="note">${escapeHtml(request.noscript)}<br><span lang="ko">${escapeHtml(i18n.ko.noscript)}</span></p></noscript>
       </div>
     </main>
-    <footer class="site-footer"><a href="mailto:${escapeHtml(main.email)}">${escapeHtml(main.email)}</a><span>© ${new Date().getFullYear()} ${escapeHtml(main.name)}</span></footer>
+    <footer class="site-footer"><a href="mailto:${escapeHtml(main.email)}">${escapeHtml(main.email)}</a><span>© ${new Date().getFullYear()} <span ${t('ownerName')}>${escapeHtml(request.ownerName || main.name)}</span></span></footer>
   </div>
   <script>var I18N = ${JSON.stringify(i18n).replaceAll('<', '\\u003c')};</script>
   <script>${script.trim()}</script>

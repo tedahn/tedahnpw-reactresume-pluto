@@ -78,6 +78,7 @@ html[lang='ko'] .role-line { font-family: var(--font-body); font-size: 14px; let
   margin: 18px 0 6px;
   font-family: var(--font-display); font-weight: 500; font-size: 52px; line-height: 1.05; letter-spacing: 0.2px;
 }
+.name-secondary { margin: -2px 0 8px; color: var(--muted); font-family: var(--font-display); font-size: 20px; line-height: 1.3; letter-spacing: 0.02em; }
 .role-line {
   margin: 0; color: var(--muted);
   font-family: var(--font-mono); font-size: 12px; line-height: 1.6; letter-spacing: 0.08em; text-transform: uppercase;

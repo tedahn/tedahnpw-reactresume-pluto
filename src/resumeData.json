@@ -576,7 +576,7 @@
       },
       "noteLabel": "궁금하신 점",
       "consent": "이력서 발송과 후속 연락을 위한 개인정보 수집·이용에 동의합니다.",
-      "privacy": "입력하신 정보는 Ted에게만 전달되어 비공개로 보관되며, 제3자에게 제공되지 않습니다. 삭제를 원하시면 tahn1996@gmail.com으로 알려 주세요.",
+      "privacy": "입력하신 정보는 안형근에게만 전달되어 비공개로 보관되며, 제3자에게 제공되지 않습니다. 삭제를 원하시면 tahn1996@gmail.com으로 알려 주세요.",
       "submit": "이력서 요청하기",
       "sending": "보내는 중…",
       "successHeading": "요청이 접수되었습니다",
@@ -587,9 +587,11 @@
       "optional": "선택",
       "home": "홈",
       "skip": "양식으로 건너뛰기",
-      "switchLabel": "페이지 언어"
+      "switchLabel": "페이지 언어",
+      "ownerName": "안형근"
     },
-    "error": "Something went wrong. Please try again, or email tahn1996@gmail.com directly."
+    "error": "Something went wrong. Please try again, or email tahn1996@gmail.com directly.",
+    "ownerName": "Ted Ahn"
   },
   "ui": {
     "skip": "Skip to content",
@@ -628,7 +630,7 @@
       "now": "현재",
       "requestResume": "이력서 요청",
       "switchLabel": "사이트 언어",
-      "title": "안형근 Ted Ahn — 소프트웨어 엔지니어링 & AI"
+      "title": "안형근 (Ted Ahn) — 소프트웨어 엔지니어링 & AI"
     },
     "main": {
       "roleLine": "시니어 소프트웨어 엔지니어 · **Capital One** · 미국 텍사스 댈러스",
@@ -637,8 +639,10 @@
         "이전에는 **이벤트 스트림을 파일로 변환하는 기술을 공동 발명해 Capital One 특허로 등록**했고, 악천후·재난 때 회원에게 긴급 알림을 보내는 **USAA 알림 플랫폼을 시간당 SMS 100만 건 규모로** 구축했습니다. 텍사스대학교 댈러스(UT Dallas)에서 컴퓨터공학을 전공했고, 텍사스대학교 오스틴(UT Austin)에서 AI·머신러닝 과정을 수료했습니다."
       ],
       "photo": {
-        "alt": "안형근 (Ted Ahn)"
-      }
+        "alt": "안형근"
+      },
+      "name": "안형근",
+      "nameSecondary": "Ted Ahn"
     },
     "work": {
       "Webtoon | May 2017 - Dec 2017": {
