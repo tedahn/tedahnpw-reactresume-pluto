@@ -247,7 +247,7 @@ const requestHtml = requestEnabled ? `
     <section class="request" aria-labelledby="request-heading"><h2 id="request-heading">${escapeHtml(request.heading)}</h2>
       <p>${escapeHtml(request.intro)}</p>
       <form id="resume-request" data-endpoint="${escapeHtml(request.endpoint)}" data-sending="${escapeHtml(request.sending)}" data-success="${escapeHtml(request.success)}" data-error="${escapeHtml(request.error)}" novalidate>
-        <fieldset class="langs"><legend>${escapeHtml(request.languageLabel)}</legend>${request.languages.map((lang, index) => `<label><input type="radio" name="language" value="${escapeHtml(lang.value)}"${index === 0 ? ' checked' : ''}> ${escapeHtml(lang.label)}</label>`).join('')}</fieldset>
+        <fieldset class="langs"><legend>${escapeHtml(request.languageLabel)}</legend>${request.languages.map((lang, index) => `<label><input type="radio" name="language" value="${escapeHtml(lang.value)}"${index === 0 ? ' required' : ''}> ${escapeHtml(lang.label)}</label>`).join('')}</fieldset>
         <div class="grid">${request.fields.map(requestFieldHtml).join('')}</div>
         <label class="field"><span>${escapeHtml(request.noteLabel)} <em>(optional)</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
         <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>

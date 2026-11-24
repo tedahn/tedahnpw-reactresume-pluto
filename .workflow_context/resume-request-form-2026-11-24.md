@@ -2,7 +2,7 @@
 
 ## Direction
 
-Ted asked for a way for visitors to request his résumé by email, choosing English or Korean, while keeping a private record of who asked (name, email, role, organization or institution, LinkedIn or website, optional phone and note).
+Ted asked for a way for visitors to request his résumé by email, choosing English or Korean (one per request), while keeping a private record of who asked (name, email, role, organization or institution, LinkedIn or website, optional phone and note).
 
 ## Implementation
 

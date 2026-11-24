@@ -494,10 +494,6 @@
       {
         "value": "ko",
         "label": "한국어 (Korean)"
-      },
-      {
-        "value": "both",
-        "label": "Both"
       }
     ],
     "fields": [
