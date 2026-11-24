@@ -64,9 +64,9 @@ The three former About-section quotations were retired by Ted on 2026-10-14. The
 
 ### Résumé request form (2026-11-24)
 
-- `resume.html` may show a form, driven by `resumeRequest` in `src/resumeData.json`, that emails a résumé PDF in English or Korean and records the request in Ted's private Google Sheet.
-- The automatically sent PDFs must follow this document's public narrative and employer-friendly rules. Fuller résumés are shared only by Ted personally.
-- Keep the form copy neutral: no recruiter, availability, or job-search wording. Never commit the Apps Script source, the Sheet, or requester data to this repository.
+- `resume.html` may show a form, driven by `resumeRequest` in `src/resumeData.json`, where a visitor asks for the résumé in English or Korean. Each request is recorded in Ted's private Google Sheet.
+- Nothing is sent automatically. Ted reviews each request and chooses what to send. Anything he sends from the public option must follow this document's public narrative and employer-friendly rules. Fuller résumés are sent only when Ted approves them for a specific requester.
+- Keep the form copy neutral: no recruiter, availability, or job-search wording. Don't describe the versions or what each one contains on the site. Never commit the Apps Script source, the Sheet, requester data, or the fuller résumés to this repository.
 
 ### Withheld by Decision
 
