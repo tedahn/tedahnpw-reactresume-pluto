@@ -52,6 +52,10 @@ Rewritten on 2026-11-22 because Capital One monitors the site. The public narrat
 - Distributed systems, reliability, cloud-native infrastructure, and responsible AI-assisted engineering
 - UT Austin Postgraduate Certificate in Artificial Intelligence and Machine Learning, November 2025
 
+### Business framing (2026-11-25)
+
+- Ted chose to keep the public site mostly technical but to say why each piece of work mattered, in soft, figure-free terms (e.g. alerts that reach members when it matters most; listings kept current for car buyers; tools that help dealers reach car buyers). Describe the purpose of the work, not company outcomes: no revenue, growth, conversion or adoption claims. Business results with numbers belong only in the detailed résumé sent on approval.
+
 ### Employer-friendly rules (2026-11-22)
 
 - Describe Capital One work only in general terms. Do not publish internal figures (record volumes, dealership or feed counts, tenant counts, system counts, the age of replaced systems), internal incidents, award names, pilot priority or team-formation details, or internal platform descriptions.

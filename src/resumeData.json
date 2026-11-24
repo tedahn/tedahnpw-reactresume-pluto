@@ -102,7 +102,7 @@
         "title": "Software Engineer",
         "dates": "Sep 2019 - May 2022",
         "location": "Plano, TX",
-        "summary": "Reactive severe-weather alerting platform built for `1M SMS/hr`; helped modernize a critical legacy system.",
+        "summary": "Reactive severe-weather alerting built for `1M SMS/hr`, so warnings reach members when it matters most; helped modernize a critical legacy system.",
         "graduated": "Sep 2019 - May 2022",
         "achievements": [
           {
@@ -130,7 +130,7 @@
         "title": "Software Engineer",
         "dates": "May 2022 - Jul 2024",
         "location": "Plano, TX",
-        "summary": "Event-driven vehicle-data pipelines behind Auto Navigator; moved dealer-data ingestion to cloud-native AWS.",
+        "summary": "Event-driven vehicle-data pipelines that keep Auto Navigator listings current for car buyers; moved dealer-data ingestion to cloud-native AWS.",
         "graduated": "May 2022 - Jul 2024",
         "achievements": [
           {
@@ -162,7 +162,7 @@
         "title": "Senior Software Engineer",
         "dates": "Jul 2024 - Present",
         "location": "Plano, TX",
-        "summary": "Builds marketing platform capabilities, including marketing for auto dealers.",
+        "summary": "Builds marketing platform capabilities, including tools that help auto dealers reach car buyers.",
         "graduated": "Jul 2024 - Present",
         "achievements": [
           {
@@ -244,7 +244,7 @@
           "title": "Dealer Marketing",
           "org": "Capital One",
           "period": "Jul 2024 - Present",
-          "summary": "Marketing capabilities for auto dealers.",
+          "summary": "Marketing tools that help auto dealers reach car buyers.",
           "image": "images/impact/navigator-dealer-640.jpg",
           "imageAlt": "Customers exploring a vehicle with a dealer",
           "url": "https://www.capitalone.com/cars/auto-financing/dealer"
@@ -253,7 +253,7 @@
           "title": "Vehicle Data Pipeline",
           "org": "Capital One",
           "period": "May 2022 - Jul 2024",
-          "summary": "Event-driven vehicle-data ingestion behind Auto Navigator.",
+          "summary": "Event-driven vehicle-data ingestion that keeps Auto Navigator listings current.",
           "image": "images/impact/auto-navigator.jpg",
           "imageAlt": "A selection of vehicles available through Auto Navigator",
           "url": "https://www.capitalone.com/cars/how-auto-navigator-works"
@@ -262,7 +262,7 @@
           "title": "Severe-Weather Alerting",
           "org": "USAA",
           "period": "Sep 2019 - May 2022",
-          "summary": "Reactive severe-weather alerting, built for 1M SMS an hour.",
+          "summary": "Severe-weather alerts that reach members fast, built for 1M SMS an hour.",
           "image": "images/impact/usaa-disaster-640.jpg",
           "imageAlt": "A home and vehicle damaged by severe weather",
           "url": "https://www.usaa.com/support/insurance/claims/natural-disaster/"
@@ -635,8 +635,8 @@
     "main": {
       "roleLine": "시니어 소프트웨어 엔지니어 · **Capital One** · 미국 텍사스 댈러스",
       "professionalBio": [
-        "미국 금융권(Capital One·USAA)에서 7년 넘게 일해 온 백엔드 엔지니어입니다. 현재 **Capital One**에서 마케팅 플랫폼을 개발하고 있습니다.",
-        "이전에는 **이벤트 스트림을 파일로 변환하는 기술을 공동 발명해 Capital One 특허로 등록**했고, 악천후·재난 때 회원에게 긴급 알림을 보내는 **USAA 알림 플랫폼을 시간당 SMS 100만 건 규모로** 구축했습니다. 텍사스대학교 댈러스(UT Dallas)에서 컴퓨터공학을 전공했고, 텍사스대학교 오스틴(UT Austin)에서 AI·머신러닝 과정을 수료했습니다."
+        "미국 금융권에서 7년 넘게 일한 백엔드 엔지니어로, 지금은 **Capital One**에서 마케팅 플랫폼을 만들고 있습니다.",
+        "**이벤트 스트림을 파일로 변환하는 Capital One 특허의 공동 발명자**이고, USAA에서는 **시간당 SMS 100만 건 규모의 재난 알림 플랫폼**을 구축했습니다. 텍사스대 댈러스에서 컴퓨터공학을 전공하고, 텍사스대 오스틴에서 AI·머신러닝 과정을 수료했습니다."
       ],
       "photo": {
         "alt": "안형근"
@@ -652,16 +652,16 @@
       },
       "USAA | Sep 2019 - May 2022": {
         "title": "소프트웨어 엔지니어",
-        "summary": "악천후·재난 때 회원에게 보내는 긴급 알림을 위해 `1M SMS/hr` 규모로 설계한 리액티브 플랫폼 구축, 핵심 레거시 시스템 현대화 참여.",
+        "summary": "재난 때 회원에게 경보가 제때 닿도록 `1M SMS/hr` 규모의 리액티브 알림 플랫폼 구축, 핵심 레거시 시스템 현대화 참여.",
         "context": "미군과 가족을 위한 미국 은행·보험 금융그룹"
       },
       "Capital One | May 2022 - Jul 2024": {
         "title": "소프트웨어 엔지니어",
-        "summary": "Auto Navigator(차량 검색·오토론 사전심사·딜러 연결 서비스)의 이벤트 기반 차량 데이터 파이프라인 개발, 딜러 데이터 수집 시스템을 AWS 클라우드 네이티브로 전환."
+        "summary": "Auto Navigator(차량 구매·오토론 서비스)의 매물 정보를 최신으로 유지하는 이벤트 기반 차량 데이터 파이프라인 개발, 딜러 데이터 수집을 AWS 클라우드 네이티브로 전환."
       },
       "Capital One | Jul 2024 - Present": {
         "title": "시니어 소프트웨어 엔지니어",
-        "summary": "자동차 딜러 대상 마케팅을 포함한 마케팅 플랫폼 기능 개발.",
+        "summary": "딜러가 차량 구매 고객을 만나도록 돕는 기능 등 마케팅 플랫폼 기능 개발.",
         "context": "미국 대형 은행지주회사 · 신용카드·오토론·리테일뱅킹"
       }
     },
@@ -670,27 +670,27 @@
         "title": "데이터 스트림을 파일로 변환하는 기술",
         "issued": "2026년 9월",
         "role": "설계 주도",
-        "summary": "파일을 입력으로 받는 기존 시스템을 위해 이벤트 스트림을 다시 파일로 변환하는 기술입니다. 병렬 워커가 스트림 파티션을 하나씩 맡아 시작할 때 체크인하고, 실패하면 재시도되며, 멱등성을 보장하는 출력 덕분에 재실행해도 안전합니다."
+        "summary": "파일을 입력으로 받는 기존 시스템을 위해 이벤트 스트림을 다시 파일로 변환합니다. 병렬 워커가 파티션을 하나씩 맡아 시작 시 체크인하고, 실패하면 재시도되며, 멱등성 있는 출력으로 재실행해도 안전합니다."
       }
     },
     "showcase": {
       "Dealer Marketing": {
         "title": "딜러 마케팅",
-        "summary": "자동차 딜러를 위한 마케팅 기능.",
+        "summary": "딜러가 차량 구매 고객을 만나도록 돕는 마케팅 기능.",
         "imageAlt": "딜러와 함께 차량을 살펴보는 고객"
       },
       "Vehicle Data Pipeline": {
         "title": "차량 데이터 파이프라인",
-        "summary": "Capital One의 차량 검색·오토론 사전심사 서비스 Auto Navigator에 쓰이는 이벤트 기반 차량 데이터 수집.",
+        "summary": "Auto Navigator 매물 정보를 최신으로 유지하는 이벤트 기반 차량 데이터 수집.",
         "imageAlt": "Auto Navigator에서 볼 수 있는 다양한 차량"
       },
       "Severe-Weather Alerting": {
-        "title": "악천후 알림",
-        "summary": "악천후·재난 때 회원에게 보내는 긴급 알림, 시간당 SMS 100만 건 규모로 설계.",
+        "title": "재난 알림",
+        "summary": "회원에게 신속히 닿는 재난 알림, 시간당 SMS 100만 건 규모로 설계.",
         "imageAlt": "악천후로 피해를 입은 주택과 차량"
       },
       "Per-Shot Encoding": {
-        "summary": "실제 VMAF 측정으로 Netflix의 비트당 화질 최적화 인코딩을 재구현하는 프로젝트.",
+        "summary": "실제 VMAF로 Netflix의 비트당 화질 최적화 인코딩을 재구현 중.",
         "org": "개인"
       },
       "Marketplace Engine": {
