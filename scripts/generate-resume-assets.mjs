@@ -74,17 +74,40 @@ const escapeHtml = (value = '') => String(value)
 const request = data.resumeRequest;
 if (!request?.endpoint) throw new Error('resumeRequest.endpoint is required: resume.html is the request page.');
 
+const ko = request.ko || {};
+const fieldText = (field) => ({ label: field.label });
+const i18n = {
+  en: {
+    title: `${request.heading} | ${main.name}`, eyebrow: request.eyebrow, heading: request.heading, intro: request.intro,
+    languageLabel: request.languageLabel, noteLabel: request.noteLabel, consent: request.consent, privacy: request.privacy,
+    submit: request.submit, sending: request.sending, successHeading: request.successHeading, success: request.success,
+    invalid: request.invalid, error: request.error, noscript: request.noscript, optional: request.optional,
+    home: request.home, skip: request.skip, switchLabel: request.switchLabel,
+    ...Object.fromEntries(request.languages.map((lang) => [`hint_${lang.value}`, lang.hint || ''])),
+    ...Object.fromEntries(request.fields.map((field) => [`field_${field.name}`, field.label])),
+  },
+};
+i18n.ko = {
+  ...i18n.en,
+  ...Object.fromEntries(Object.entries(ko).filter(([, value]) => typeof value === 'string')),
+  title: `${ko.pageTitle || request.heading} | ${main.name}`,
+  ...Object.fromEntries(Object.entries(ko.languageHints || {}).map(([key, value]) => [`hint_${key}`, value])),
+  ...Object.fromEntries(Object.entries(ko.fieldLabels || {}).map(([key, value]) => [`field_${key}`, value])),
+};
+delete i18n.ko.pageTitle;
+const t = (key) => `data-i18n="${key}"`;
+
 const profiles = main.social.filter((network) => ['github', 'linkedin'].includes(network.name));
 const nodeMark = (w, h) => `<svg width="${w}" height="${h}" viewBox="0 0 34 18" aria-hidden="true"><path d="M5 9 L17 4 L29 9 M17 4 L17 14" fill="none" stroke="currentColor" stroke-width="1.2"/>${[[5, 9], [17, 4], [29, 9], [17, 14]].map(([cx, cy]) => `<circle cx="${cx}" cy="${cy}" r="2.4" fill="currentColor"/>`).join('')}</svg>`;
 
 const fieldHtml = (field) => `
           <label class="field">
-            <span class="field-label">${escapeHtml(field.label)}${field.required ? '' : ' <em>optional</em>'}</span>
+            <span class="field-label"><span ${t(`field_${field.name}`)}>${escapeHtml(field.label)}</span>${field.required ? '' : ` <em ${t('optional')}>${escapeHtml(request.optional)}</em>`}</span>
             <input name="${escapeHtml(field.name)}" type="${escapeHtml(field.type)}"${field.inputmode ? ` inputmode="${escapeHtml(field.inputmode)}"` : ''}${field.placeholder ? ` placeholder="${escapeHtml(field.placeholder)}"` : ''} autocomplete="${escapeHtml(field.autocomplete || 'off')}" maxlength="${field.name === 'website' ? 300 : 160}"${field.required ? ' required' : ''}>
           </label>`;
 
 const css = `
-:root{--ink:#121a26;--panel:#18212f;--field:#0f1620;--cream:#f4f0e6;--muted:#b4ab97;--body-2:#cfc8b8;--rule:#263142;--acc:#6fc3b2;--acc-soft:rgba(111,195,178,.22);--err:#e8968c;--display:'Newsreader',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;color-scheme:dark}
+:root{--ink:#121a26;--panel:#18212f;--field:#0f1620;--cream:#f4f0e6;--muted:#b4ab97;--body-2:#cfc8b8;--rule:#263142;--acc:#6fc3b2;--acc-soft:rgba(111,195,178,.22);--err:#e8968c;--display:'Newsreader','Noto Serif KR',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace;color-scheme:dark}
 *,*::before,*::after{box-sizing:border-box}
 html{background:var(--ink)}
 body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--display);font-size:19px;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -94,6 +117,15 @@ a{color:inherit;text-decoration:none;transition:color .2s ease}a:hover{color:var
 .page{max-width:760px;margin:0 auto;padding:26px 32px 46px}
 .site-header{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;line-height:1.4}
 .site-header nav{display:flex;gap:22px;color:var(--muted)}
+.site-header .right{display:flex;align-items:center;gap:22px}
+.switch{display:inline-flex;padding:2px;border:1px solid var(--rule);border-radius:999px;font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+.switch button{padding:4px 10px;border-radius:999px;background:transparent;color:var(--muted);font:inherit;box-shadow:none}
+.switch button:hover{transform:none;box-shadow:none;color:var(--cream)}
+.switch button[aria-pressed=true]{background:var(--acc-soft);color:var(--cream)}
+html[lang=ko] body{word-break:keep-all}
+html[lang=ko] legend,html[lang=ko] .field-label,html[lang=ko] .eyebrow{font-family:var(--display);font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:none}
+html[lang=ko] .lang small{font-family:var(--display);font-size:13px;letter-spacing:0}
+html[lang=ko] .lede,html[lang=ko] .done p{line-height:1.75}
 .site-mark{display:inline-flex;padding:4px;margin-left:-4px;color:var(--acc);opacity:.85}.site-mark:hover{opacity:1}
 .intro{margin-top:40px;text-align:center}
 .ring{position:relative;width:96px;height:96px;margin:0 auto;padding:4px;border-radius:50%;border:2px solid var(--acc-soft);box-shadow:inset 0 0 0 1px rgba(244,240,230,.12),0 10px 40px -10px var(--acc-soft)}
@@ -145,7 +177,7 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
 .panel.sent form{display:none}.panel.sent .done{display:block}
 .note{margin:22px 0 0;text-align:center;color:var(--muted);font-size:15px}
 .site-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);color:var(--muted);font-size:15px;line-height:1.5}
-@media (max-width:768px){body{font-size:17.5px}.page{padding:20px 16px 40px}.site-header nav{gap:16px}h1{font-size:36px}.panel{padding:22px 18px 22px}.grid{grid-template-columns:1fr}}
+@media (max-width:768px){body{font-size:17.5px}.page{padding:20px 16px 40px}.site-header nav,.site-header .right{gap:14px}h1{font-size:36px}.panel{padding:22px 18px 22px}.grid{grid-template-columns:1fr}}
 @media (max-width:380px){.langs{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){a,button,input,textarea,.lang span{transition:none}.ring::before{animation:none}button:hover{transform:none}}
 `;
@@ -158,6 +190,49 @@ const script = `
   var status = form.querySelector('.status');
   var button = form.querySelector('button[type="submit"]');
   var langs = form.querySelector('.langs');
+  var lang = 'en';
+  var languageTouched = false;
+  var storageKey = 'siteLang';
+
+  // Page language: ?lang= in the link, then the visitor's own choice, then the browser's preferred languages.
+  function detect() {
+    var param = new URLSearchParams(location.search).get('lang');
+    if (param === 'ko' || param === 'en') return param;
+    try { var saved = localStorage.getItem(storageKey); if (saved === 'ko' || saved === 'en') return saved; } catch (e) {}
+    var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+    for (var i = 0; i < prefs.length; i++) {
+      var code = String(prefs[i]).toLowerCase();
+      if (code.indexOf('ko') === 0) return 'ko';
+      if (code.indexOf('en') === 0) return 'en';
+    }
+    return 'en';
+  }
+
+  function apply(next) {
+    lang = next;
+    var dict = I18N[lang];
+    document.documentElement.lang = lang;
+    document.title = dict.title;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) { el.textContent = dict[el.getAttribute('data-i18n')]; });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', dict[el.getAttribute('data-i18n-aria')]); });
+    document.querySelectorAll('.switch button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
+    if (status.textContent) status.textContent = status.className === 'status err' ? (form.classList.contains('tried') && !form.checkValidity() ? dict.invalid : dict.error) : '';
+    // Suggest the matching résumé language until the visitor picks one themselves.
+    if (!languageTouched) {
+      var radio = form.querySelector('input[name="language"][value="' + lang + '"]');
+      if (radio) radio.checked = true;
+    }
+  }
+
+  document.querySelectorAll('.switch button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      try { localStorage.setItem(storageKey, b.dataset.lang); } catch (e) {}
+      apply(b.dataset.lang);
+    });
+  });
+  langs.addEventListener('change', function () { languageTouched = true; });
+  apply(detect());
+
   function checkLangs() { langs.classList.toggle('missing', !form.querySelector('input[name="language"]:checked')); }
   function recheck() {
     if (!form.classList.contains('tried')) return;
@@ -170,14 +245,14 @@ const script = `
     event.preventDefault();
     form.classList.add('tried');
     checkLangs();
-    if (!form.checkValidity()) { status.className = 'status err'; status.textContent = form.dataset.invalid; form.reportValidity(); return; }
+    if (!form.checkValidity()) { status.className = 'status err'; status.textContent = I18N[lang].invalid; form.reportValidity(); return; }
     var data = {};
     new FormData(form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
     data.consent = form.elements.consent.checked;
     data.page = location.pathname;
     button.disabled = true;
     status.className = 'status';
-    status.textContent = form.dataset.sending;
+    status.textContent = I18N[lang].sending;
     fetch(form.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
       .then(function (response) { return response.json(); })
       .then(function (result) {
@@ -185,12 +260,11 @@ const script = `
         form.reset();
         status.textContent = '';
         panel.classList.add('sent');
-        var done = panel.querySelector('.done');
-        done.focus();
+        panel.querySelector('.done').focus();
       })
       .catch(function () {
         status.className = 'status err';
-        status.textContent = form.dataset.error;
+        status.textContent = I18N[lang].error;
       })
       .finally(function () { button.disabled = false; });
   });
@@ -213,47 +287,53 @@ const resumeHtml = `<!doctype html>
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
-  <title>${escapeHtml(request.heading)} | ${escapeHtml(main.name)}</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Noto+Serif+KR:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <title>${escapeHtml(i18n.en.title)}</title>
+  <link rel="alternate" hreflang="en" href="${canonicalUrl}/resume.html?lang=en">
+  <link rel="alternate" hreflang="ko" href="${canonicalUrl}/resume.html?lang=ko">
   <style>${css.trim()}</style>
 </head>
 <body>
-  <a class="skip-link" href="#request">Skip to the form</a>
+  <a class="skip-link" href="#request" ${t('skip')}>${escapeHtml(request.skip)}</a>
   <div class="page">
     <header class="site-header">
       <a class="site-mark" href="./" aria-label="${escapeHtml(main.name)}: home">${nodeMark(28, 15)}</a>
+      <div class="right">
       <nav aria-label="Site">
-        <a href="./">Home</a>
+        <a href="./" ${t('home')}>${escapeHtml(request.home)}</a>
 ${profiles.map((network) => `        <a href="${escapeHtml(network.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(network.label || network.name)}</a>`).join('\n')}
       </nav>
+      <div class="switch" role="group" aria-label="${escapeHtml(request.switchLabel)}" data-i18n-aria="switchLabel"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><button type="button" data-lang="ko" lang="ko" aria-pressed="false">한국어</button></div>
+      </div>
     </header>
     <main>
       <section class="intro" aria-labelledby="request-heading">
         ${photo}
-        <p class="eyebrow">${escapeHtml(request.eyebrow)}</p>
-        <h1 id="request-heading">${escapeHtml(request.heading)}</h1>
-        <p class="lede">${escapeHtml(request.intro)}</p>
+        <p class="eyebrow" ${t('eyebrow')}>${escapeHtml(request.eyebrow)}</p>
+        <h1 id="request-heading" ${t('heading')}>${escapeHtml(request.heading)}</h1>
+        <p class="lede" ${t('intro')}>${escapeHtml(request.intro)}</p>
       </section>
       <div class="ornament" aria-hidden="true"><span></span>${nodeMark(34, 18)}<span></span></div>
       <div class="panel" id="request">
-        <form id="resume-request" data-endpoint="${escapeHtml(request.endpoint)}" data-sending="${escapeHtml(request.sending)}" data-error="${escapeHtml(request.error)}" data-invalid="${escapeHtml(request.invalid)}" novalidate>
-          <fieldset class="langs"><legend>${escapeHtml(request.languageLabel)}</legend>
-${request.languages.map((lang, index) => `            <label class="lang"><input type="radio" name="language" value="${escapeHtml(lang.value)}"${index === 0 ? ' required' : ''}><span><b lang="${escapeHtml(lang.value)}">${escapeHtml(lang.label)}</b><small>${escapeHtml(lang.hint || '')}</small></span></label>`).join('\n')}
+        <form id="resume-request" data-endpoint="${escapeHtml(request.endpoint)}" novalidate>
+          <fieldset class="langs"><legend ${t('languageLabel')}>${escapeHtml(request.languageLabel)}</legend>
+${request.languages.map((lang, index) => `            <label class="lang"><input type="radio" name="language" value="${escapeHtml(lang.value)}"${index === 0 ? ' required' : ''}><span><b lang="${escapeHtml(lang.value)}">${escapeHtml(lang.label)}</b><small ${t(`hint_${lang.value}`)}>${escapeHtml(lang.hint || '')}</small></span></label>`).join('\n')}
           </fieldset>
           <div class="grid">${request.fields.map(fieldHtml).join('')}
           </div>
-          <label class="field"><span class="field-label">${escapeHtml(request.noteLabel)} <em>optional</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
+          <label class="field"><span class="field-label"><span ${t('noteLabel')}>${escapeHtml(request.noteLabel)}</span> <em ${t('optional')}>${escapeHtml(request.optional)}</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
           <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>
-          <label class="consent"><input type="checkbox" name="consent" required><span>${escapeHtml(request.consent)}</span></label>
-          <p class="privacy">${escapeHtml(request.privacy)}</p>
-          <div class="actions"><button type="submit">${escapeHtml(request.submit)}</button><p class="status" role="status" aria-live="polite"></p></div>
+          <label class="consent"><input type="checkbox" name="consent" required><span ${t('consent')}>${escapeHtml(request.consent)}</span></label>
+          <p class="privacy" ${t('privacy')}>${escapeHtml(request.privacy)}</p>
+          <div class="actions"><button type="submit" ${t('submit')}>${escapeHtml(request.submit)}</button><p class="status" role="status" aria-live="polite"></p></div>
         </form>
-        <div class="done" tabindex="-1" role="status"><span class="check" aria-hidden="true">✓</span><h2>${escapeHtml(request.successHeading)}</h2><p>${escapeHtml(request.success)}</p></div>
-        <noscript><p class="note">${escapeHtml(request.noscript)}</p></noscript>
+        <div class="done" tabindex="-1" role="status"><span class="check" aria-hidden="true">✓</span><h2 ${t('successHeading')}>${escapeHtml(request.successHeading)}</h2><p ${t('success')}>${escapeHtml(request.success)}</p></div>
+        <noscript><p class="note">${escapeHtml(request.noscript)}<br><span lang="ko">${escapeHtml(i18n.ko.noscript)}</span></p></noscript>
       </div>
     </main>
     <footer class="site-footer"><a href="mailto:${escapeHtml(main.email)}">${escapeHtml(main.email)}</a><span>© ${new Date().getFullYear()} ${escapeHtml(main.name)}</span></footer>
   </div>
+  <script>var I18N = ${JSON.stringify(i18n).replaceAll('<', '\\u003c')};</script>
   <script>${script.trim()}</script>
 </body>
 </html>`;

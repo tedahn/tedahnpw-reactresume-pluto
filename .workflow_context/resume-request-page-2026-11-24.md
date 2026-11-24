@@ -20,3 +20,18 @@ Ted asked for `resume.html` to stop showing his experience and become a page tha
 ## Note
 
 Copies of the old résumé files may persist in search-engine caches or web archives for a while after removal.
+
+## Korean / English page (2026-11-24, later)
+
+- The request page now has Korean copy (`resumeRequest.ko`) and an EN / 한국어 switch in the header.
+- Language order: `?lang=ko` or `?lang=en` in the URL, then the visitor's saved switch choice (localStorage), then `navigator.languages` (first `ko` or `en` match; otherwise English). No IP or location lookup: the browser language is more accurate (a Korean speaker abroad, a foreigner in Seoul) and needs no permission prompt or third-party service.
+- The résumé language follows the page language until the visitor picks one, so it is never empty on load but stays a single choice.
+- Korean text uses Noto Serif KR (Google Fonts, loaded by unicode range) behind Newsreader; Korean labels drop the monospace uppercase style.
+- Tested with browser locales ko-KR, en-US, ja-JP and fr-FR, the `?lang=` override, switch persistence after reload, and that a visitor's résumé choice is not overwritten by switching the page language. Korean submit and confirmation tested with a mocked endpoint at 390px and 1280px: no overflow, no console errors.
+
+## Whole site in Korean (2026-11-24, later)
+
+- Ted asked for the language switch to cover the whole site. `src/lib/i18n.js` (tested) detects the language and applies the Korean overlay; `App.jsx` holds the language in state and passes interface labels to each section. The header has the EN / 한국어 switch; the choice is saved as `localStorage.siteLang` and shared with `resume.html`.
+- Korean copy is a direct translation of the current public English. Company and product names, people's names and the `1M SMS/hr` figure stay in English. Dates read `2024 — 현재`.
+- `index.html` metadata and structured data stay English for search engines; `document.title` and `<html lang>` change at runtime.
+- Tested: ko-KR and en-US browsers at 390px and 1280px (all section labels, dates, no overflow, no console errors), switching on the home page carries over to the résumé page and back.

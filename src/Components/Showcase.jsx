@@ -4,12 +4,12 @@ import Reveal from './Reveal';
 import { yearRange } from '../lib/dates';
 
 // Quiet footnote: "Capital One · 2024 — now".
-const CardMeta = ({ item }) => {
+const CardMeta = ({ item, nowLabel }) => {
   if (!item.org) return null;
   return (
     <p className="card-meta">
       {item.org}
-      {item.period && <> · <span className="card-period">{yearRange(item.period)}</span></>}
+      {item.period && <> · <span className="card-period">{yearRange(item.period, nowLabel)}</span></>}
     </p>
   );
 };
@@ -53,7 +53,7 @@ const CardMedia = ({ item }) =>
     <div className="card-media card-glyph" aria-hidden="true">{GLYPHS[item.glyph] || GLYPHS.flow}</div>
   );
 
-const Card = ({ item }) => {
+const Card = ({ item, nowLabel }) => {
   const content = (
     <>
       <CardMedia item={item} />
@@ -63,7 +63,7 @@ const Card = ({ item }) => {
           {item.url && <span className="card-arrow" aria-hidden="true"> ↗</span>}
         </h3>
         <p className="card-summary"><Inline text={item.summary} /></p>
-        <CardMeta item={item} />
+        <CardMeta item={item} nowLabel={nowLabel} />
       </div>
     </>
   );
@@ -75,7 +75,7 @@ const Card = ({ item }) => {
   );
 };
 
-const Showcase = ({ id, title, items = [], notes = [] }) => {
+const Showcase = ({ id, title, items = [], notes = [], t = {} }) => {
   if (!items.length && !notes.length) return null;
 
   return (
@@ -84,11 +84,11 @@ const Showcase = ({ id, title, items = [], notes = [] }) => {
       <div className="section-body">
         {items.length > 0 && (
           <div className="cards">
-            {items.map((item) => <Card key={item.title} item={item} />)}
+            {items.map((item) => <Card key={item.url || item.title} item={item} nowLabel={t.now} />)}
           </div>
         )}
         {notes.length > 0 && (
-          <ul className="notes" aria-label="Notes">
+          <ul className="notes" aria-label={t.notes || 'Notes'}>
             {notes.map((note) => (
               <li key={note.title}>
                 <span>

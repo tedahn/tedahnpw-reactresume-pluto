@@ -13,6 +13,7 @@ test('yearRange formats current, multi-year and same-year roles', () => {
   assert.equal(yearRange('Jul 2024 - Present'), '2024 — now');
   assert.equal(yearRange('May 2022 - Jul 2024'), '2022 — 2024');
   assert.equal(yearRange('May 2017 - Dec 2017'), '2017');
+  assert.equal(yearRange('Jul 2024 - Present', '현재'), '2024 — 현재');
 });
 
 test('yearRange falls back to the raw string when it cannot parse', () => {

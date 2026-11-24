@@ -1,8 +1,8 @@
 import React from 'react';
 import Inline from './Inline';
 
-const Hero = ({ main }) => (
-  <section className="hero" id="top" aria-label="Introduction">
+const Hero = ({ main, t = {} }) => (
+  <section className="hero" id="top" aria-label={t.intro || 'Introduction'}>
     {main.photo && (
       <div className="hero-ring">
         <img src={main.photo.src} alt={main.photo.alt} width="168" height="168" />

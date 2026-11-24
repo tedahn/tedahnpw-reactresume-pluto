@@ -14,11 +14,11 @@ function splitRange(dates) {
 }
 
 // "Jul 2024 - Present" -> "2024 — now"; "May 2017 - Dec 2017" -> "2017".
-export function yearRange(dates) {
+export function yearRange(dates, nowLabel = 'now') {
   const [start, end] = splitRange(dates);
   const startYear = parseMonthYear(start)?.getUTCFullYear();
   if (!startYear) return dates || '';
-  if (!end || /^present$/i.test(end)) return `${startYear} — now`;
+  if (!end || /^present$/i.test(end)) return `${startYear} — ${nowLabel}`;
   const endYear = parseMonthYear(end)?.getUTCFullYear();
   if (!endYear || endYear === startYear) return `${startYear}`;
   return `${startYear} — ${endYear}`;
