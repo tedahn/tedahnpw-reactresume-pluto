@@ -62,6 +62,12 @@ Rewritten on 2026-11-22 because Capital One monitors the site. The public narrat
 
 The three former About-section quotations were retired by Ted on 2026-10-14. The About section uses `main.professionalBio`; do not reintroduce the quotations without Ted's explicit request.
 
+### Résumé request form (2026-11-24)
+
+- `resume.html` may show a form, driven by `resumeRequest` in `src/resumeData.json`, that emails a résumé PDF in English or Korean and records the request in Ted's private Google Sheet.
+- The automatically sent PDFs must follow this document's public narrative and employer-friendly rules. Fuller résumés are shared only by Ted personally.
+- Keep the form copy neutral: no recruiter, availability, or job-search wording. Never commit the Apps Script source, the Sheet, or requester data to this repository.
+
 ### Withheld by Decision
 
 - Revenue figures and marketing-pilot partner names are excluded from the public site and from all generated assets.
