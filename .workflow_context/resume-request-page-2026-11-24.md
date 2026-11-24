@@ -51,3 +51,7 @@ At Ted's suggestion the Korean site uses his Korean name: the hero shows 안형�
 ## Korean copy tightened (2026-11-25)
 
 Ted asked whether the Korean read as over-translated or wordy. It did in the places where Korean-audience context was added: the bio and two role summaries were as long as or longer than the English, although Korean normally runs about 60% of English character length. Tightened: the bio (no repeated Capital One, patent phrased as "특허의 공동 발명자", school names without doubled English), USAA and Auto Navigator summaries, the vehicle and alerting cards (severe-weather alerting now "재난 알림"), and the patent summary. Company descriptor lines are unchanged.
+
+## Why-it-mattered clauses (2026-11-25)
+
+Ted asked whether to lean on business or technical achievements. Decision: business-first in the detailed résumé, technical with a soft "why it mattered" on the public site. Added purpose clauses in English and Korean to the three Capital One/USAA role summaries and the Dealer Marketing, Vehicle Data Pipeline and Severe-Weather Alerting cards. No figures or outcome claims; governance records the rule.
