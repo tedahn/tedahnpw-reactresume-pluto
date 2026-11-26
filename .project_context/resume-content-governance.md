@@ -68,9 +68,9 @@ The three former About-section quotations were retired by Ted on 2026-10-14. The
 
 ### Résumé request form (2026-11-24)
 
-- `resume.html` is a request page only, driven by `resumeRequest` in `src/resumeData.json`: a visitor asks for the résumé in English or Korean, and each request is recorded in Ted's private Google Sheet. Do not publish the résumé itself on the site in any format (HTML, Markdown, JSON, text or PDF), and do not reintroduce `resume.md`, `resume.json` or `resume.txt` without Ted's explicit approval.
+- `resume.html` is a request page only, driven by `resumeRequest` in `src/resumeData.json`: since 2026-11-27 a visitor gives only an email address and gets the résumé in the page's language (the EN / 한국어 switch), and each request is recorded in Ted's private Google Sheet. Do not publish the résumé itself on the site in any format (HTML, Markdown, JSON, text or PDF), and do not reintroduce `resume.md`, `resume.json` or `resume.txt` without Ted's explicit approval.
 - Nothing is sent automatically. Ted reviews each request and chooses what to send. Anything he sends from the public option must follow this document's public narrative and employer-friendly rules. Fuller résumés are sent only when Ted approves them for a specific requester.
-- Keep the form copy neutral: no recruiter, availability, or job-search wording. Don't describe the versions or what each one contains on the site. Never commit the Apps Script source, the Sheet, requester data, or the fuller résumés to this repository.
+- Keep the form copy neutral: no recruiter, availability, or job-search wording. Don't describe the versions or what each one contains on the site. Never commit the Apps Script source, the Sheet, requester data, visit data, or the fuller résumés to this repository. Do not add third-party analytics, cookies or IP-based lookups without Ted's approval.
 
 ### Korean copy (2026-11-24)
 

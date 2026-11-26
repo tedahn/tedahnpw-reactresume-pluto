@@ -37,6 +37,7 @@ No linter is configured.
 - `src/styles.css` — All styles in one file, CSS custom properties for theming
 - `src/lib/` — Pure logic with `node --test` tests (`inlineFormat.js`, `dates.js`)
 - `src/Components/` — All UI components
+- `src/lib/analytics.js` — First-party visit log (tested). Sends a page view and time on page to the same private Apps Script as the request form, which appends them to the Visits tab of Ted's private Sheet. No cookies, IP addresses or third-party scripts; skips bots, Do Not Track / Global Privacy Control, and devices opted out with `?notrack=1`. Only runs on tedahn.com. Inlined into `resume.html` by the generator, so keep it import-free.
 - `scripts/generate-resume-assets.mjs` — Builds `public/resume.{md,json,html,txt}`, `llms.txt`, `sitemap.xml`, `robots.txt` from the JSON (runs before dev/build)
 
 **Components:**

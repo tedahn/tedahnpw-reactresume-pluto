@@ -29,7 +29,8 @@ Career-content governance lives in [resume-content-governance.md](resume-content
 * **Professional Projects**: Enterprise systems as cards linking to public product-context pages.
 * **Independent Projects**: Personal projects as cards, followed by field notes.
 * **Footer**: Email and a link to the résumé request page.
-* **Résumé request page** (`resume.html`): a standalone page in the same Ink & Sea-glass style with only a request form. It is generated from `resumeRequest` in `src/resumeData.json`. It shows in Korean or English: a `?lang=ko`/`?lang=en` link wins, then the visitor's saved choice from the EN / 한국어 switch, then the browser's preferred language (Korean only when `ko` is preferred; everything else is English). The résumé language is pre-selected to match until the visitor picks one.
+* **Visit log** (`src/lib/analytics.js`, 2026-11-27): first-party page-view and time-on-page events go to Ted's private Apps Script and land in the Visits tab of his private Sheet. No cookies, IP addresses or third-party analytics.
+* **Résumé request page** (`resume.html`): a standalone page in the same Ink & Sea-glass style with only a request form (email only since 2026-11-27; the résumé comes in the page's language). It is generated from `resumeRequest` in `src/resumeData.json`. It shows in Korean or English: a `?lang=ko`/`?lang=en` link wins, then the visitor's saved choice from the EN / 한국어 switch, then the browser's preferred language (Korean only when `ko` is preferred; everything else is English). The résumé language is pre-selected to match until the visitor picks one.
 
 ## Technical Architecture
 

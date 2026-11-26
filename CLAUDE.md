@@ -38,6 +38,7 @@ No linter is configured.
 - `src/lib/` — Pure logic with `node --test` tests (`inlineFormat.js`, `dates.js`, `i18n.js`)
 - **Korean / English**: the whole site switches language. English is the source; Korean lives in `resumeData.json` under `ko` (overlays keyed by role `company | dates`, card title, patent number and note title) plus `ui` / `ko.ui` for interface labels, and `resumeRequest.ko` for the request page. `src/lib/i18n.js` picks the language: `?lang=` link, then the saved EN / 한국어 switch choice (`localStorage.siteLang`, shared with `resume.html`), then the browser's preferred language. When you change English copy, update the Korean overlay in the same change.
 - `src/Components/` — All UI components
+- `src/lib/analytics.js` — First-party visit log (tested). Sends a page view and time on page to the same private Apps Script as the request form, which appends them to the Visits tab of Ted's private Sheet. No cookies, IP addresses or third-party scripts; skips bots, Do Not Track / Global Privacy Control, and devices opted out with `?notrack=1`. Only runs on tedahn.com. Inlined into `resume.html` by the generator, so keep it import-free.
 - `scripts/generate-resume-assets.mjs` — Builds `public/resume.html` (the résumé request form page, styled to match the home page), `llms.txt`, `sitemap.xml`, `robots.txt` from the JSON (runs before dev/build). The résumé itself is never published on the site; it is only emailed after Ted approves a request.
 
 **Components:**
