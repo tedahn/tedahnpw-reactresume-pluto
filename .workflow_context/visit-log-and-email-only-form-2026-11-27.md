@@ -21,3 +21,8 @@ Ted asked for metrics showing when and who visits tedahn.com, and for the résum
 - `npm run build` passes; all `src/lib` tests pass by file.
 - Headless Chrome against a mock endpoint at 1280px (en-US) and 390px (ko-KR): view and leave events and the request payload (with visitor ID) are as expected, empty submit shows the localized error, no horizontal overflow, no console errors.
 - The Apps Script logic was exercised with mocked Google services before deployment.
+
+## Follow-up (2026-11-27, later)
+
+- Ted asked to keep the English / 한국어 language cards so it is clear which résumé the visitor gets. They are back above the email field, pre-selected to match the page language until the visitor picks one; the hint line pointing to the page switch was removed.
+- Ted asked to remove the privacy notice under the form, since it surprised visitors. The form is now the language cards, the email field and the button.

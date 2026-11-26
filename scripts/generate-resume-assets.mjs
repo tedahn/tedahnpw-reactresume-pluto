@@ -80,10 +80,11 @@ const ko = request.ko || {};
 const i18n = {
   en: {
     title: `${request.heading} | ${main.name}`, eyebrow: request.eyebrow, heading: request.heading, intro: request.intro,
-    languageHint: request.languageHint, privacy: request.privacy,
+    languageLabel: request.languageLabel,
     submit: request.submit, sending: request.sending, successHeading: request.successHeading, success: request.success,
     invalid: request.invalid, error: request.error, ownerName: request.ownerName || main.name, noscript: request.noscript,
     home: request.home, skip: request.skip, switchLabel: request.switchLabel,
+    ...Object.fromEntries(request.languages.map((lang) => [`hint_${lang.value}`, lang.hint || ''])),
     ...Object.fromEntries(request.fields.map((field) => [`field_${field.name}`, field.label])),
   },
 };
@@ -91,6 +92,7 @@ i18n.ko = {
   ...i18n.en,
   ...Object.fromEntries(Object.entries(ko).filter(([, value]) => typeof value === 'string')),
   title: `${ko.pageTitle || request.heading} | ${ko.ownerName || main.name}`,
+  ...Object.fromEntries(Object.entries(ko.languageHints || {}).map(([key, value]) => [`hint_${key}`, value])),
   ...Object.fromEntries(Object.entries(ko.fieldLabels || {}).map(([key, value]) => [`field_${key}`, value])),
 };
 delete i18n.ko.pageTitle;
@@ -122,7 +124,8 @@ a{color:inherit;text-decoration:none;transition:color .2s ease}a:hover{color:var
 .switch button:hover{transform:none;box-shadow:none;color:var(--cream)}
 .switch button[aria-pressed=true]{background:var(--acc-soft);color:var(--cream)}
 html[lang=ko] body{word-break:keep-all}
-html[lang=ko] .field-label,html[lang=ko] .eyebrow{font-family:var(--display);font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:none}
+html[lang=ko] legend,html[lang=ko] .field-label,html[lang=ko] .eyebrow{font-family:var(--display);font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:none}
+html[lang=ko] .lang small{font-family:var(--display);font-size:13px;letter-spacing:0}
 html[lang=ko] .lede,html[lang=ko] .done p{line-height:1.75}
 .site-mark{display:inline-flex;padding:4px;margin-left:-4px;color:var(--acc);opacity:.85}.site-mark:hover{opacity:1}
 .intro{margin-top:40px;text-align:center}
@@ -137,15 +140,25 @@ h1{margin:0;font-weight:500;font-size:48px;line-height:1.08;letter-spacing:.2px}
 .ornament span{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--acc))}.ornament span:last-child{background:linear-gradient(90deg,var(--acc),transparent)}
 .panel{background:var(--panel);border:2px solid var(--acc-soft);border-radius:12px;box-shadow:0 18px 50px -24px var(--acc-soft);padding:30px 32px 28px}
 form{display:grid;gap:22px}
-.field-label{display:block;margin-bottom:8px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+fieldset{margin:0;padding:0;border:0;min-width:0}
+legend,.field-label{display:block;margin-bottom:8px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.langs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lang{position:relative;display:block;cursor:pointer}
+.lang input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.lang span{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border:1.5px solid var(--rule);border-radius:10px;background:var(--field);transition:border-color .2s ease,background .2s ease}
+.lang b{font-weight:500;font-size:22px;line-height:1.2}
+.lang small{color:var(--muted);font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.lang:hover span{border-color:var(--acc-soft)}
+.lang input:checked+span{border-color:var(--acc);background:rgba(111,195,178,.08);box-shadow:inset 0 0 0 1px var(--acc)}
+.lang input:checked+span b::after{content:'';display:inline-block;width:8px;height:8px;margin-left:10px;border-radius:50%;background:var(--acc);vertical-align:middle}
+.lang input:focus-visible+span{outline:2px solid var(--acc);outline-offset:3px}
 .field{display:block;min-width:0}
 input[type=email]{display:block;width:100%;padding:11px 13px;border:1.5px solid var(--rule);border-radius:8px;background:var(--field);color:var(--cream);font:17px/1.4 var(--display);transition:border-color .2s ease}
 input::placeholder{color:#6f7a88}
 input:hover{border-color:#34415a}
 input:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(111,195,178,.18)}
 .tried input:invalid{border-color:var(--err)}
-.hint{margin:8px 0 0;color:var(--muted);font-size:14.5px;line-height:1.5}
-.privacy{margin:-6px 0 0;color:var(--muted);font-size:14px;line-height:1.5}
+.tried .langs.missing .lang span{border-color:var(--err)}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
 button{border:0;border-radius:999px;padding:13px 26px;background:var(--acc);color:var(--ink);font:600 17px/1.2 var(--display);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
 button:hover{transform:translateY(-1px);box-shadow:0 8px 24px -10px var(--acc)}
@@ -160,7 +173,8 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
 .note{margin:22px 0 0;text-align:center;color:var(--muted);font-size:15px}
 .site-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);color:var(--muted);font-size:15px;line-height:1.5}
 @media (max-width:768px){body{font-size:17.5px}.page{padding:20px 16px 40px}.site-header nav,.site-header .right{gap:14px}h1{font-size:36px}.panel{padding:22px 18px 22px}}
-@media (prefers-reduced-motion:reduce){a,button,input{transition:none}.ring::before{animation:none}button:hover{transform:none}}
+@media (max-width:380px){.langs{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){a,button,input,.lang span{transition:none}.ring::before{animation:none}button:hover{transform:none}}
 `;
 
 const script = `
@@ -170,7 +184,9 @@ const script = `
   var panel = form.closest('.panel');
   var status = form.querySelector('.status');
   var button = form.querySelector('button[type="submit"]');
+  var langs = form.querySelector('.langs');
   var lang = 'en';
+  var languageTouched = false;
   var storageKey = 'siteLang';
 
   // Page language: ?lang= in the link, then the visitor's own choice, then the browser's preferred languages.
@@ -196,6 +212,11 @@ const script = `
     document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', dict[el.getAttribute('data-i18n-aria')]); });
     document.querySelectorAll('.switch button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
     if (status.textContent) status.textContent = status.className === 'status err' ? (form.classList.contains('tried') && !form.checkValidity() ? dict.invalid : dict.error) : '';
+    // Pre-select the résumé language that matches the page until the visitor picks one themselves.
+    if (!languageTouched) {
+      var radio = form.querySelector('input[name="language"][value="' + lang + '"]');
+      if (radio) radio.checked = true;
+    }
   }
 
   document.querySelectorAll('.switch button').forEach(function (b) {
@@ -204,10 +225,13 @@ const script = `
       apply(b.dataset.lang);
     });
   });
+  langs.addEventListener('change', function () { languageTouched = true; });
   apply(detect());
 
+  function checkLangs() { langs.classList.toggle('missing', !form.querySelector('input[name="language"]:checked')); }
   function recheck() {
     if (!form.classList.contains('tried')) return;
+    checkLangs();
     if (form.checkValidity() && status.className === 'status err') { status.className = 'status'; status.textContent = ''; }
   }
   form.addEventListener('change', recheck);
@@ -215,11 +239,10 @@ const script = `
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     form.classList.add('tried');
+    checkLangs();
     if (!form.checkValidity()) { status.className = 'status err'; status.textContent = I18N[lang].invalid; form.reportValidity(); return; }
     var data = {};
     new FormData(form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
-    // The résumé comes in the page's language; the EN / 한국어 switch changes both.
-    data.language = lang;
     data.page = location.pathname;
     try { data.vid = localStorage.getItem('tedahn.vid') || ''; } catch (e) {}
     button.disabled = true;
@@ -288,10 +311,10 @@ ${profiles.map((network) => `        <a href="${escapeHtml(network.url)}" target
       <div class="ornament" aria-hidden="true"><span></span>${nodeMark(34, 18)}<span></span></div>
       <div class="panel" id="request">
         <form id="resume-request" data-endpoint="${escapeHtml(request.endpoint)}" novalidate>
-          <div>${request.fields.map(fieldHtml).join('')}
-          <p class="hint" ${t('languageHint')}>${escapeHtml(request.languageHint)}</p></div>
+          <fieldset class="langs"><legend ${t('languageLabel')}>${escapeHtml(request.languageLabel)}</legend>
+${request.languages.map((lang, index) => `            <label class="lang"><input type="radio" name="language" value="${escapeHtml(lang.value)}"${index === 0 ? ' required' : ''}><span><b lang="${escapeHtml(lang.value)}">${escapeHtml(lang.label)}</b><small ${t(`hint_${lang.value}`)}>${escapeHtml(lang.hint || '')}</small></span></label>`).join('\n')}
+          </fieldset>${request.fields.map(fieldHtml).join('')}
           <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>
-          <p class="privacy" ${t('privacy')}>${escapeHtml(request.privacy)}</p>
           <div class="actions"><button type="submit" ${t('submit')}>${escapeHtml(request.submit)}</button><p class="status" role="status" aria-live="polite"></p></div>
         </form>
         <div class="done" tabindex="-1" role="status"><span class="check" aria-hidden="true">✓</span><h2 ${t('successHeading')}>${escapeHtml(request.successHeading)}</h2><p ${t('success')}>${escapeHtml(request.success)}</p></div>
