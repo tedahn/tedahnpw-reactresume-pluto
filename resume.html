@@ -32,8 +32,7 @@ a{color:inherit;text-decoration:none;transition:color .2s ease}a:hover{color:var
 .switch button:hover{transform:none;box-shadow:none;color:var(--cream)}
 .switch button[aria-pressed=true]{background:var(--acc-soft);color:var(--cream)}
 html[lang=ko] body{word-break:keep-all}
-html[lang=ko] legend,html[lang=ko] .field-label,html[lang=ko] .eyebrow{font-family:var(--display);font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:none}
-html[lang=ko] .lang small{font-family:var(--display);font-size:13px;letter-spacing:0}
+html[lang=ko] .field-label,html[lang=ko] .eyebrow{font-family:var(--display);font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:none}
 html[lang=ko] .lede,html[lang=ko] .done p{line-height:1.75}
 .site-mark{display:inline-flex;padding:4px;margin-left:-4px;color:var(--acc);opacity:.85}.site-mark:hover{opacity:1}
 .intro{margin-top:40px;text-align:center}
@@ -48,31 +47,15 @@ h1{margin:0;font-weight:500;font-size:48px;line-height:1.08;letter-spacing:.2px}
 .ornament span{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--acc))}.ornament span:last-child{background:linear-gradient(90deg,var(--acc),transparent)}
 .panel{background:var(--panel);border:2px solid var(--acc-soft);border-radius:12px;box-shadow:0 18px 50px -24px var(--acc-soft);padding:30px 32px 28px}
 form{display:grid;gap:22px}
-fieldset{margin:0;padding:0;border:0;min-width:0}
-legend,.field-label{display:block;margin-bottom:8px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.field-label em,legend em{font-style:normal;text-transform:none;letter-spacing:0;color:#857d6c;margin-left:4px}
-.langs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.lang{position:relative;display:block;cursor:pointer}
-.lang input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.lang span{display:flex;flex-direction:column;gap:2px;padding:14px 16px;border:1.5px solid var(--rule);border-radius:10px;background:var(--field);transition:border-color .2s ease,background .2s ease}
-.lang b{font-weight:500;font-size:22px;line-height:1.2}
-.lang small{color:var(--muted);font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
-.lang:hover span{border-color:var(--acc-soft)}
-.lang input:checked+span{border-color:var(--acc);background:rgba(111,195,178,.08);box-shadow:inset 0 0 0 1px var(--acc)}
-.lang input:checked+span b::after{content:'';display:inline-block;width:8px;height:8px;margin-left:10px;border-radius:50%;background:var(--acc);vertical-align:middle}
-.lang input:focus-visible+span{outline:2px solid var(--acc);outline-offset:3px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
+.field-label{display:block;margin-bottom:8px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .field{display:block;min-width:0}
-input[type=text],input[type=email],input[type=tel],textarea{display:block;width:100%;padding:11px 13px;border:1.5px solid var(--rule);border-radius:8px;background:var(--field);color:var(--cream);font:17px/1.4 var(--display);transition:border-color .2s ease}
-input::placeholder,textarea::placeholder{color:#6f7a88}
-input:hover,textarea:hover{border-color:#34415a}
-input:focus,textarea:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(111,195,178,.18)}
-textarea{resize:vertical;min-height:92px}
-.tried input:invalid,.tried textarea:invalid{border-color:var(--err)}
-.tried .langs.missing .lang span{border-color:var(--err)}
-.consent{display:flex;gap:12px;align-items:flex-start;color:var(--body-2);font-size:16px;line-height:1.5;cursor:pointer}
-.consent input{flex:none;width:18px;height:18px;margin:3px 0 0;accent-color:var(--acc)}
-.privacy{margin:-8px 0 0 30px;color:var(--muted);font-size:14px;line-height:1.5}
+input[type=email]{display:block;width:100%;padding:11px 13px;border:1.5px solid var(--rule);border-radius:8px;background:var(--field);color:var(--cream);font:17px/1.4 var(--display);transition:border-color .2s ease}
+input::placeholder{color:#6f7a88}
+input:hover{border-color:#34415a}
+input:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(111,195,178,.18)}
+.tried input:invalid{border-color:var(--err)}
+.hint{margin:8px 0 0;color:var(--muted);font-size:14.5px;line-height:1.5}
+.privacy{margin:-6px 0 0;color:var(--muted);font-size:14px;line-height:1.5}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
 button{border:0;border-radius:999px;padding:13px 26px;background:var(--acc);color:var(--ink);font:600 17px/1.2 var(--display);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
 button:hover{transform:translateY(-1px);box-shadow:0 8px 24px -10px var(--acc)}
@@ -86,9 +69,8 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
 .panel.sent form{display:none}.panel.sent .done{display:block}
 .note{margin:22px 0 0;text-align:center;color:var(--muted);font-size:15px}
 .site-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);color:var(--muted);font-size:15px;line-height:1.5}
-@media (max-width:768px){body{font-size:17.5px}.page{padding:20px 16px 40px}.site-header nav,.site-header .right{gap:14px}h1{font-size:36px}.panel{padding:22px 18px 22px}.grid{grid-template-columns:1fr}}
-@media (max-width:380px){.langs{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){a,button,input,textarea,.lang span{transition:none}.ring::before{animation:none}button:hover{transform:none}}</style>
+@media (max-width:768px){body{font-size:17.5px}.page{padding:20px 16px 40px}.site-header nav,.site-header .right{gap:14px}h1{font-size:36px}.panel{padding:22px 18px 22px}}
+@media (prefers-reduced-motion:reduce){a,button,input{transition:none}.ring::before{animation:none}button:hover{transform:none}}</style>
 </head>
 <body>
   <a class="skip-link" href="#request" data-i18n="skip">Skip to the form</a>
@@ -109,45 +91,19 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
         <div class="ring"><img src="images/tedprofile/ted-ahn-336.jpg" alt="Ted Ahn" width="96" height="96"></div>
         <p class="eyebrow" data-i18n="eyebrow">Résumé</p>
         <h1 id="request-heading" data-i18n="heading">Request my résumé</h1>
-        <p class="lede" data-i18n="intro">Leave your details and choose a language. I review each request personally and email the résumé, usually within a day or two.</p>
+        <p class="lede" data-i18n="intro">Enter your email and I&#039;ll send you my résumé in English. I review each request personally, usually within a day or two.</p>
       </section>
       <div class="ornament" aria-hidden="true"><span></span><svg width="34" height="18" viewBox="0 0 34 18" aria-hidden="true"><path d="M5 9 L17 4 L29 9 M17 4 L17 14" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="5" cy="9" r="2.4" fill="currentColor"/><circle cx="17" cy="4" r="2.4" fill="currentColor"/><circle cx="29" cy="9" r="2.4" fill="currentColor"/><circle cx="17" cy="14" r="2.4" fill="currentColor"/></svg><span></span></div>
       <div class="panel" id="request">
         <form id="resume-request" data-endpoint="https://script.google.com/macros/s/AKfycbwVLF30xfJmjPIdNWd3RuCotGSpSNNE-R2bPtOJIRwn-UVnCC7Q-WMGwTWB9BDdbUUC3Q/exec" novalidate>
-          <fieldset class="langs"><legend data-i18n="languageLabel">Résumé language</legend>
-            <label class="lang"><input type="radio" name="language" value="en" required><span><b lang="en">English</b><small data-i18n="hint_en">PDF in English</small></span></label>
-            <label class="lang"><input type="radio" name="language" value="ko"><span><b lang="ko">한국어</b><small data-i18n="hint_ko">PDF in Korean</small></span></label>
-          </fieldset>
-          <div class="grid">
-          <label class="field">
-            <span class="field-label"><span data-i18n="field_name">Name</span></span>
-            <input name="name" type="text" autocomplete="name" maxlength="160" required>
-          </label>
+          <div>
           <label class="field">
             <span class="field-label"><span data-i18n="field_email">Email</span></span>
-            <input name="email" type="email" autocomplete="email" maxlength="160" required>
+            <input name="email" type="email" placeholder="you@company.com" autocomplete="email" maxlength="254" required>
           </label>
-          <label class="field">
-            <span class="field-label"><span data-i18n="field_role">Role</span></span>
-            <input name="role" type="text" autocomplete="organization-title" maxlength="160" required>
-          </label>
-          <label class="field">
-            <span class="field-label"><span data-i18n="field_organization">Organization or institution</span></span>
-            <input name="organization" type="text" autocomplete="organization" maxlength="160" required>
-          </label>
-          <label class="field">
-            <span class="field-label"><span data-i18n="field_website">LinkedIn or website</span> <em data-i18n="optional">optional</em></span>
-            <input name="website" type="text" inputmode="url" placeholder="linkedin.com/in/…" autocomplete="url" maxlength="300">
-          </label>
-          <label class="field">
-            <span class="field-label"><span data-i18n="field_phone">Phone</span> <em data-i18n="optional">optional</em></span>
-            <input name="phone" type="tel" autocomplete="tel" maxlength="160">
-          </label>
-          </div>
-          <label class="field"><span class="field-label"><span data-i18n="noteLabel">Anything you would like to know</span> <em data-i18n="optional">optional</em></span><textarea name="note" rows="3" maxlength="1000"></textarea></label>
+          <p class="hint" data-i18n="languageHint">Want it in Korean? Switch the page to 한국어 above.</p></div>
           <label class="hp" aria-hidden="true">Company URL<input name="company_url" tabindex="-1" autocomplete="off"></label>
-          <label class="consent"><input type="checkbox" name="consent" required><span data-i18n="consent">I agree that Ted may keep these details privately to send the résumé and follow up.</span></label>
-          <p class="privacy" data-i18n="privacy">Your details go only to Ted, are stored privately, and are never shared. Email tahn1996@gmail.com to have them deleted.</p>
+          <p class="privacy" data-i18n="privacy">Your email goes only to Ted, is kept privately to send the résumé, and is never shared. Email tahn1996@gmail.com to have it deleted.</p>
           <div class="actions"><button type="submit" data-i18n="submit">Request the résumé</button><p class="status" role="status" aria-live="polite"></p></div>
         </form>
         <div class="done" tabindex="-1" role="status"><span class="check" aria-hidden="true">✓</span><h2 data-i18n="successHeading">Request received</h2><p data-i18n="success">Thanks. I review each request personally and will email the résumé soon. If it doesn’t arrive, check your spam folder.</p></div>
@@ -156,16 +112,14 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
     </main>
     <footer class="site-footer"><a href="mailto:tahn1996@gmail.com">tahn1996@gmail.com</a><span>© 2026 <span data-i18n="ownerName">Ted Ahn</span></span></footer>
   </div>
-  <script>var I18N = {"en":{"title":"Request my résumé | Ted Ahn","eyebrow":"Résumé","heading":"Request my résumé","intro":"Leave your details and choose a language. I review each request personally and email the résumé, usually within a day or two.","languageLabel":"Résumé language","noteLabel":"Anything you would like to know","consent":"I agree that Ted may keep these details privately to send the résumé and follow up.","privacy":"Your details go only to Ted, are stored privately, and are never shared. Email tahn1996@gmail.com to have them deleted.","submit":"Request the résumé","sending":"Sending…","successHeading":"Request received","success":"Thanks. I review each request personally and will email the résumé soon. If it doesn’t arrive, check your spam folder.","invalid":"Please fill in the highlighted fields.","error":"Something went wrong. Please try again, or email tahn1996@gmail.com directly.","ownerName":"Ted Ahn","noscript":"This form needs JavaScript. You can also email tahn1996@gmail.com to ask for the résumé.","optional":"optional","home":"Home","skip":"Skip to the form","switchLabel":"Page language","hint_en":"PDF in English","hint_ko":"PDF in Korean","field_name":"Name","field_email":"Email","field_role":"Role","field_organization":"Organization or institution","field_website":"LinkedIn or website","field_phone":"Phone"},"ko":{"title":"이력서 요청 | 안형근","eyebrow":"이력서","heading":"이력서 요청","intro":"정보를 남기고 받으실 언어를 선택해 주세요. 요청을 직접 확인한 뒤, 보통 하루 이틀 안에 이력서를 이메일로 보내드립니다.","languageLabel":"이력서 언어","noteLabel":"궁금하신 점","consent":"이력서 발송과 후속 연락을 위한 개인정보 수집·이용에 동의합니다.","privacy":"입력하신 정보는 안형근에게만 전달되어 비공개로 보관되며, 제3자에게 제공되지 않습니다. 삭제를 원하시면 tahn1996@gmail.com으로 알려 주세요.","submit":"이력서 요청하기","sending":"보내는 중…","successHeading":"요청이 접수되었습니다","success":"감사합니다. 요청을 확인한 뒤 이력서를 이메일로 보내드리겠습니다. 메일이 보이지 않으면 스팸함도 확인해 주세요.","invalid":"표시된 항목을 입력해 주세요.","error":"문제가 발생했습니다. 다시 시도하시거나 tahn1996@gmail.com으로 직접 연락 주세요.","ownerName":"안형근","noscript":"이 양식은 JavaScript가 필요합니다. tahn1996@gmail.com으로 직접 이력서를 요청하셔도 됩니다.","optional":"선택","home":"홈","skip":"양식으로 건너뛰기","switchLabel":"페이지 언어","hint_en":"영문 PDF","hint_ko":"국문 PDF","field_name":"이름","field_email":"이메일","field_role":"직책","field_organization":"회사 또는 기관","field_website":"LinkedIn 또는 웹사이트","field_phone":"전화번호"}};</script>
+  <script>var I18N = {"en":{"title":"Request my résumé | Ted Ahn","eyebrow":"Résumé","heading":"Request my résumé","intro":"Enter your email and I'll send you my résumé in English. I review each request personally, usually within a day or two.","languageHint":"Want it in Korean? Switch the page to 한국어 above.","privacy":"Your email goes only to Ted, is kept privately to send the résumé, and is never shared. Email tahn1996@gmail.com to have it deleted.","submit":"Request the résumé","sending":"Sending…","successHeading":"Request received","success":"Thanks. I review each request personally and will email the résumé soon. If it doesn’t arrive, check your spam folder.","invalid":"Please enter a valid email address.","error":"Something went wrong. Please try again, or email tahn1996@gmail.com directly.","ownerName":"Ted Ahn","noscript":"This form needs JavaScript. You can also email tahn1996@gmail.com to ask for the résumé.","home":"Home","skip":"Skip to the form","switchLabel":"Page language","field_email":"Email"},"ko":{"title":"이력서 요청 | 안형근","eyebrow":"이력서","heading":"이력서 요청","intro":"이메일을 남겨 주시면 국문 이력서를 보내드립니다. 요청은 직접 확인하며, 보통 하루 이틀 안에 보내드립니다.","languageHint":"영문 이력서를 원하시면 위에서 EN을 선택해 주세요.","privacy":"이메일은 이력서 발송 목적으로만 안형근에게 전달되어 비공개로 보관되며, 제3자에게 제공되지 않습니다. 삭제를 원하시면 tahn1996@gmail.com으로 알려 주세요.","submit":"이력서 요청하기","sending":"보내는 중…","successHeading":"요청이 접수되었습니다","success":"감사합니다. 요청을 확인한 뒤 이력서를 이메일로 보내드리겠습니다. 메일이 보이지 않으면 스팸함도 확인해 주세요.","invalid":"올바른 이메일 주소를 입력해 주세요.","error":"문제가 발생했습니다. 다시 시도하시거나 tahn1996@gmail.com으로 직접 연락 주세요.","ownerName":"안형근","noscript":"이 양식은 JavaScript가 필요합니다. tahn1996@gmail.com으로 직접 이력서를 요청하셔도 됩니다.","home":"홈","skip":"양식으로 건너뛰기","switchLabel":"페이지 언어","field_email":"이메일"}};</script>
   <script>(function () {
   var form = document.getElementById('resume-request');
   if (!form) return;
   var panel = form.closest('.panel');
   var status = form.querySelector('.status');
   var button = form.querySelector('button[type="submit"]');
-  var langs = form.querySelector('.langs');
   var lang = 'en';
-  var languageTouched = false;
   var storageKey = 'siteLang';
 
   // Page language: ?lang= in the link, then the visitor's own choice, then the browser's preferred languages.
@@ -191,11 +145,6 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
     document.querySelectorAll('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', dict[el.getAttribute('data-i18n-aria')]); });
     document.querySelectorAll('.switch button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.lang === lang)); });
     if (status.textContent) status.textContent = status.className === 'status err' ? (form.classList.contains('tried') && !form.checkValidity() ? dict.invalid : dict.error) : '';
-    // Suggest the matching résumé language until the visitor picks one themselves.
-    if (!languageTouched) {
-      var radio = form.querySelector('input[name="language"][value="' + lang + '"]');
-      if (radio) radio.checked = true;
-    }
   }
 
   document.querySelectorAll('.switch button').forEach(function (b) {
@@ -204,13 +153,10 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
       apply(b.dataset.lang);
     });
   });
-  langs.addEventListener('change', function () { languageTouched = true; });
   apply(detect());
 
-  function checkLangs() { langs.classList.toggle('missing', !form.querySelector('input[name="language"]:checked')); }
   function recheck() {
     if (!form.classList.contains('tried')) return;
-    checkLangs();
     if (form.checkValidity() && status.className === 'status err') { status.className = 'status'; status.textContent = ''; }
   }
   form.addEventListener('change', recheck);
@@ -218,12 +164,13 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     form.classList.add('tried');
-    checkLangs();
     if (!form.checkValidity()) { status.className = 'status err'; status.textContent = I18N[lang].invalid; form.reportValidity(); return; }
     var data = {};
     new FormData(form).forEach(function (value, key) { data[key] = typeof value === 'string' ? value.trim() : value; });
-    data.consent = form.elements.consent.checked;
+    // The résumé comes in the page's language; the EN / 한국어 switch changes both.
+    data.language = lang;
     data.page = location.pathname;
+    try { data.vid = localStorage.getItem('tedahn.vid') || ''; } catch (e) {}
     button.disabled = true;
     status.className = 'status';
     status.textContent = I18N[lang].sending;
@@ -243,5 +190,165 @@ button:disabled{opacity:.6;cursor:wait;transform:none}
       .finally(function () { button.disabled = false; });
   });
 }());</script>
+  <script type="module">// First-party visit log. Each page view (and how long the visitor stayed) is sent to Ted's
+// private Apps Script, which appends it to the Visits tab of his private Google Sheet.
+// No cookies, no third-party scripts, no IP address. A random visitor ID in localStorage lets
+// the log show returning visitors and, if a visitor later requests the résumé, who they are.
+// This file is also inlined into public/resume.html by scripts/generate-resume-assets.mjs,
+// so it must stay plain browser JavaScript with no imports.
+
+export const VISITOR_KEY = 'tedahn.vid';
+export const COUNT_KEY = 'tedahn.visits';
+export const SESSION_KEY = 'tedahn.session';
+export const OPT_OUT_KEY = 'tedahn.notrack';
+export const DEBUG_KEY = 'tedahn.trackdebug';
+export const TRACKED_HOSTS = ['tedahn.com', 'www.tedahn.com'];
+
+const BOT_PATTERN = /bot|crawl|spider|slurp|headless|lighthouse|pagespeed|preview|facebookexternalhit|embedly|quora link|whatsapp|telegram|discord|slack|vkshare|w3c_validator/i;
+
+// Ted's own devices opt out once with ?notrack=1 (and back in with ?notrack=0).
+export function optOutChange(search = '') {
+  const value = new URLSearchParams(search).get('notrack');
+  if (value === '1') return 'out';
+  if (value === '0') return 'in';
+  return null;
+}
+
+export function shouldTrack({ hostname = '', ua = '', webdriver = false, dnt = null, gpc = false, optedOut = false, debug = false } = {}) {
+  if (optedOut) return false;
+  if (gpc === true || dnt === '1' || dnt === 'yes') return false;
+  if (webdriver && !debug) return false;
+  if (BOT_PATTERN.test(ua)) return false;
+  return debug || TRACKED_HOSTS.includes(String(hostname).toLowerCase());
+}
+
+export function deviceType(ua = '', width = 0) {
+  if (/ipad|tablet|(android(?!.*mobile))/i.test(ua)) return 'tablet';
+  if (/mobi|iphone|ipod|android/i.test(ua)) return 'mobile';
+  if (width && width < 768) return 'mobile';
+  return 'desktop';
+}
+
+// Campaign tags: utm_source / utm_medium / utm_campaign, or a short ?ref= tag Ted adds to links he shares.
+export function sourceFrom(search = '') {
+  const params = new URLSearchParams(search);
+  const ref = params.get('ref');
+  const utm = ['utm_source', 'utm_medium', 'utm_campaign'].map((key) => params.get(key)).filter(Boolean);
+  return [ref ? `ref:${ref}` : '', utm.join(' / ')].filter(Boolean).join(' | ').slice(0, 120);
+}
+
+// External referrers only, without their query strings (which can carry other people's data).
+export function cleanReferrer(referrer = '', hostname = '') {
+  if (!referrer) return '';
+  try {
+    const url = new URL(referrer);
+    if (url.hostname === hostname) return '';
+    return `${url.origin}${url.pathname === '/' ? '' : url.pathname}`.slice(0, 300);
+  } catch {
+    return '';
+  }
+}
+
+export function newVisitorId(random = Math.random) {
+  let id = '';
+  for (let i = 0; i < 4; i += 1) id += Math.floor(random() * 0x10000).toString(16).padStart(4, '0');
+  return id;
+}
+
+function store(kind) {
+  try { return window[kind]; } catch { return null; }
+}
+
+function read(storage, key) {
+  try { return storage ? storage.getItem(key) : null; } catch { return null; }
+}
+
+function write(storage, key, value) {
+  try { if (storage) storage.setItem(key, value); } catch { /* private mode */ }
+}
+
+function remove(storage, key) {
+  try { if (storage) storage.removeItem(key); } catch { /* private mode */ }
+}
+
+export function visitorId() {
+  return read(store('localStorage'), VISITOR_KEY) || '';
+}
+
+function send(endpoint, payload) {
+  const body = JSON.stringify(payload);
+  try {
+    if (navigator.sendBeacon && navigator.sendBeacon(endpoint, body)) return;
+  } catch { /* fall through */ }
+  try {
+    fetch(endpoint, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body });
+  } catch { /* never break the page */ }
+}
+
+export function startTracking({ endpoint, page } = {}) {
+  if (!endpoint || typeof window === 'undefined') return;
+  const local = store('localStorage');
+  const session = store('sessionStorage');
+  const change = optOutChange(location.search);
+  if (change === 'out') write(local, OPT_OUT_KEY, '1');
+  if (change === 'in') remove(local, OPT_OUT_KEY);
+
+  const ua = navigator.userAgent || '';
+  if (!shouldTrack({
+    hostname: location.hostname,
+    ua,
+    webdriver: navigator.webdriver === true,
+    dnt: navigator.doNotTrack || window.doNotTrack || null,
+    gpc: navigator.globalPrivacyControl === true,
+    optedOut: read(local, OPT_OUT_KEY) === '1',
+    debug: read(local, DEBUG_KEY) === '1',
+  })) return;
+
+  let vid = read(local, VISITOR_KEY);
+  if (!vid || !/^[a-z0-9-]{8,40}$/i.test(vid)) {
+    vid = newVisitorId();
+    write(local, VISITOR_KEY, vid);
+  }
+  let visit = Number(read(local, COUNT_KEY)) || 0;
+  if (!read(session, SESSION_KEY)) {
+    visit += 1;
+    write(local, COUNT_KEY, String(visit));
+    write(session, SESSION_KEY, '1');
+  }
+
+  const base = { vid, visit: Math.max(visit, 1), page: page || location.pathname };
+  let tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch { /* old browser */ }
+  send(endpoint, {
+    ...base,
+    type: 'view',
+    referrer: cleanReferrer(document.referrer, location.hostname),
+    source: sourceFrom(location.search),
+    lang: navigator.language || '',
+    tz,
+    device: deviceType(ua, window.innerWidth),
+    screen: `${window.screen?.width || 0}x${window.screen?.height || 0}`,
+    ua: ua.slice(0, 300),
+  });
+
+  // Time on page: counted while the tab is visible, sent once when the visitor first leaves.
+  let visibleSince = document.visibilityState === 'visible' ? Date.now() : null;
+  let visibleMs = 0;
+  let left = false;
+  const leave = () => {
+    if (left) return;
+    if (visibleSince) visibleMs += Date.now() - visibleSince;
+    visibleSince = null;
+    if (visibleMs < 1000) return;
+    left = true;
+    send(endpoint, { ...base, type: 'leave', seconds: Math.round(visibleMs / 1000) });
+  };
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') leave();
+    else if (!left) visibleSince = Date.now();
+  });
+  window.addEventListener('pagehide', leave);
+}
+startTracking({"endpoint":"https://script.google.com/macros/s/AKfycbwVLF30xfJmjPIdNWd3RuCotGSpSNNE-R2bPtOJIRwn-UVnCC7Q-WMGwTWB9BDdbUUC3Q/exec","page":"/resume.html"});</script>
 </body>
 </html>
